@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1,
+    "name": "SomeProduct-1",
+    "categoryId": 1,
+    "price": 4544,
+    "country": "SomeCountry-1",
+    "producer": "SomeProducer-1",
+    "collection": "SomeCollection",
+    "type": "SomeType",
+    "tone": "SomeTone",
+    "room": "SomeRoom",
+    "description": "SomeDescription",
+    "imageUrl": [
+      "public/img/products/01.png",
+      "public/img/products/02.png",
+      "public/img/products/02.png",
+      "public/img/products/01.png",
+      "public/img/products/02.png",
+      "public/img/products/01.png",
+      "public/img/products/02.png"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "SomeProduct-2",
+    "categoryId": 1,
+    "price": 111,
+    "country": "SomeCountry",
+    "producer": "SomeProducer",
+    "collection": "SomeCollection",
+    "type": "SomeType",
+    "tone": "SomeTone",
+    "room": "SomeRoom",
+    "description": "SomeDescription",
+    "imageUrl": [
+      "public/img/products/02.png",
+      "public/img/products/01.png",
+      "public/img/products/02.png",
+      "public/img/products/01.png",
+      "public/img/products/02.png",
+      "public/img/products/01.png",
+      "public/img/products/02.png"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "SomeProduct-3",
+    "categoryId": 1,
+    "price": 777,
+    "country": "SomeCountry-1",
+    "producer": "SomeProducer-1",
+    "collection": "SomeCollection",
+    "type": "SomeType",
+    "tone": "SomeTone",
+    "room": "SomeRoom",
+    "description": "SomeDescription",
+    "imageUrl": [
+      "public/img/products/01.png",
+      "public/img/products/02.png",
+      "public/img/products/02.png",
+      "public/img/products/01.png",
+      "public/img/products/01.png",
+      "public/img/products/02.png"
+    ]
+  }
+]
