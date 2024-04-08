@@ -66,7 +66,7 @@ export const DetailsPage = () => {
         settings: {
           slidesToShow: 3,
           vertical: false,
-          centerPadding: '50px',
+          centerPadding: '0',
         },
       },
     ],
@@ -101,7 +101,7 @@ export const DetailsPage = () => {
             <div className="product-page__media-content">
               <img
                 src={selectService?.img[imgIndex]}
-                alt={`${selectService?.name}-img-${imgIndex + 1}`}
+                alt={selectService?.img[imgIndex]}
                 className="product-page__selected-img"
               />
 
