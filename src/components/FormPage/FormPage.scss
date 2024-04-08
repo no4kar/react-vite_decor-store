@@ -1,0 +1,301 @@
+@import '../../style/utils';
+
+.form {
+  &__wrap {
+    display: flex;
+    justify-content: center;
+
+    &--flex-column {
+      flex-direction: column;
+
+      @include on-desktop {
+        flex-direction: row;
+        gap: 19px;
+        flex: 1 1;
+      }
+    }
+  }
+
+  &__first-part,
+  &__group-inputs,
+  &__second-part,
+  &__group-radio,
+  &__title-wrap {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__first-part {
+    gap: 32px;
+
+    &--consultation {
+      @include on-tablet {
+        flex-direction: row;
+        gap: 40px;
+      }
+
+      @include on-desktop {
+        gap: 130px;
+      }
+    }
+
+    &--sendMessage {
+      flex: 1 1;
+
+      @include on-tablet {
+        flex-direction: row-reverse;
+      }
+
+      @include on-desktop {
+        gap: 130px;
+      }
+    }
+
+    &--order {
+      @include on-tablet {
+        padding: 40px;
+      }
+
+      @include on-desktop {
+        flex: 1;
+        padding: 40px 76px 137px 0;
+      }
+    }
+  }
+
+  &__group-inputs {
+    gap: 24px;
+  }
+
+  &__second-part {
+    gap: 32px;
+
+    @include on-desktop {
+      gap: 64px;
+    }
+
+    &--order {
+      @include on-tablet {
+        padding: 40px;
+      }
+
+      @include on-desktop {
+        padding: 0;
+        flex: 1;
+      }
+    }
+  }
+
+  &__group-radio {
+    gap: 40px;
+  }
+
+  &__title-wrap {
+    flex: 1;
+    gap: 24px;
+    align-items: center;
+    justify-content: center;
+
+    &--no-alight-center {
+      @include on-tablet{
+        align-items: normal;
+      }
+    }
+  }
+
+  &__title {
+    text-align: center;
+    line-height: 38px;
+
+    &--text-left {
+      @include on-tablet {
+        text-align: left;
+      }
+    }
+  }
+
+  &__title-description {
+    text-align: center;
+
+    @extend %body-text;
+
+    color: $main-black;
+    font-size: 15px;
+
+    &--text-left {
+      @include on-tablet {
+        text-align: left;
+      }
+    }
+  }
+
+  &__group-fields {
+    flex: 1;
+  }
+
+  &__select {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__select-label {
+    font-size: 15px;
+    line-height: 22.5px;
+
+    @extend %body-text;
+
+    &::after {
+      content: '*';
+      color: red;
+    }
+
+    &--error {
+      color: red;
+    }
+  }
+
+  &__select-errorMessage {
+    color: red;
+  }
+
+  &__filter-container {
+    height: 45px;
+  }
+
+  &__filter {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    &__label {
+      @extend %body-text;
+
+      font-size: 15px;
+      line-height: 22.5px;
+      color: $main-black;
+
+      &--error {
+        color: red;
+      }
+
+      &::after {
+        content: '*';
+        color: red;
+      }
+    }
+
+    &__control {
+      border: none !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+      outline: none !important;
+      border-bottom: 1px solid black !important;
+
+      &:hover {
+        border-color: inherit;
+      }
+    }
+
+    &__input-container {
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    &__value-container {
+      padding: 0 !important;
+      margin-block: 12px;
+
+      @extend %title;
+
+      color: $main-black;
+    }
+
+    &__menu {
+      max-height: 200px !important;
+      overflow: hidden;
+    }
+
+    &__option {
+      margin: 0;
+      padding: 0;
+      background-color: transparent;
+    }
+
+    &__option--is-focused {
+      background-color: lightblue;
+    }
+
+    &__menu-portal {
+      border: 1px solid darkblue;
+    }
+
+    &__indicator-separator {
+      display: none;
+    }
+
+    &__errorMessage {
+      color: red;
+    }
+  }
+
+  &__checkbox-agreement {
+    margin-block: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    @include on-tablet {
+      margin-block: 64px;
+    }
+
+    @include on-desktop {
+      margin-block: 38px;
+    }
+  }
+
+  &__checkbox-agreement-label,
+  &__checkbox-agreement-button {
+    @extend %body-text;
+
+    font-size: 10px;
+    line-height: 15px;
+    color: $main-black;
+  }
+
+  &__checkbox-agreement-label {
+    margin: auto;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    &::after {
+      content: '*';
+      color: red;
+    }
+  }
+
+  &__checkbox-error-message {
+    text-align: center;
+    color: red;
+  }
+
+  &__checkbox-agreement-button {
+    color: blue;
+  }
+
+  &__checkbox-agreement-input {
+    width: 24px;
+    height: 24px;
+  }
+
+  &__order-group-button {
+    display: flex;
+    flex-direction: column;
+    gap: 23px;
+
+    @include on-desktop {
+      flex-direction: row;
+    }
+  }
+}

@@ -1,0 +1,17 @@
+@import '../../style/utils';
+
+.home-page {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+
+  margin-bottom: 100px;
+
+  @include on-tablet {
+    margin-bottom: 80px;
+  }
+
+  @include on-desktop {
+    margin-bottom: 115px;
+  }
+}

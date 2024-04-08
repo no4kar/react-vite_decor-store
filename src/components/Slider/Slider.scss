@@ -1,0 +1,19 @@
+@import '../../style/main';
+
+.slider {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+
+  @include on-tablet {
+    flex-direction: row;
+    overflow: hidden;
+  }
+
+  &__item {
+    @include on-tablet {
+      flex: 0 0 100%;
+      transition: translate 500ms;
+    }
+  }
+}

@@ -1,0 +1,98 @@
+@import '../../style/utils';
+
+.aboutUsPage {
+  padding-block: 24px 66px;
+
+  @extend %body-text;
+  font-size: 15px;
+  line-height: 23px;
+  color: $main-black;
+
+  @include on-tablet {
+    padding-bottom: 63px;
+  }
+
+  @include on-tablet {
+    padding-block: 93px 43px;
+  }
+
+  &__title {
+    color: $main-black;
+    font-size: 36px;
+    line-height: 40px;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 24px;
+
+    @include on-tablet {
+      gap: 32px;
+      margin-bottom: 56px;
+    }
+
+    @include on-desktop {
+      gap: 51px;
+      margin-bottom: 64px;
+    }
+  }
+
+  &__first-article {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @include on-tablet {
+      margin-left: 122px;
+      gap: 24px;
+    }
+
+    @include on-desktop{
+      margin-left: 219px;
+      max-width: 531px;
+      gap: 32px;
+    }
+  }
+
+  &__second-article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+
+    @include on-tablet {
+      flex-direction: row;
+    }
+
+    @include on-desktop {
+      gap: 130px;
+      margin-right: 110px;
+    }
+  }
+
+  &__nav {
+    margin-bottom: 24px;
+
+    @include on-tablet {
+      margin-bottom: 40px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 64px;
+    }
+  }
+
+  &__img {
+    width: 336px;
+    height: 328px;
+
+    object-fit: contain;
+
+    @include on-desktop {
+      width: 510px;
+      height: 510px;
+    }
+  }
+}

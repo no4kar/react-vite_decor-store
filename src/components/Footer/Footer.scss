@@ -1,0 +1,140 @@
+@import '../../style/utils';
+
+.footer {
+  background-color: $main-black;
+  color: $divider-color;
+
+  @extend %body-text;
+
+  &__content {
+    padding-block: 56px 27px;
+
+    @include on-tablet {
+      padding-bottom: 32px;
+    }
+
+    @include on-desktop {
+      padding-top: 32px;
+    }
+  }
+
+  &__top {
+    display: flex;
+    flex-direction: column;
+    gap: 46px;
+
+    @include on-tablet {
+      flex-direction: row;
+    }
+
+    @include on-desktop {
+      gap: 148px;
+    }
+  }
+
+  &__info {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 56px;
+
+    @include on-tablet {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 181px;
+    }
+
+    @include on-desktop {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+    }
+  }
+
+  &__logo {
+    justify-content: center;
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    @include on-tablet {
+      text-align: left;
+    }
+  }
+
+  &__list {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    @include on-tablet {
+      gap: 16px;
+    }
+
+    @include on-desktop {
+      margin-top: 32px;
+    }
+  }
+
+  &__label {
+    display: block;
+    color: $secondary-color;
+    margin-bottom: 8px;
+  }
+
+  &__link {
+    display: block;
+    cursor: pointer;
+
+  }
+
+  &__link,
+  &__button {
+    @include hover(transform, scale(1.1));
+  }
+
+  &__button {
+    border: none;
+
+    color: inherit;
+    font-family: inherit;
+  }
+
+  &__bottom {
+    border-top: 1px solid $secondary-color;
+    padding: 24px 0 27px;
+    margin-top: 27px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+
+    @include on-tablet {
+      padding: 24px 0 0;
+      margin-top: 38px;
+
+      flex-direction: row-reverse;
+      justify-content: space-between;
+    }
+
+    @include on-desktop {
+      padding-top: 32px;
+      margin-top: 64px;
+    }
+  }
+
+  &__icons-box {
+    display: flex;
+    gap: 24px;
+
+    @include on-tablet {
+      gap: 54px;
+    }
+  }
+
+  &__copyright {
+    color: $white-text-color;
+  }
+}

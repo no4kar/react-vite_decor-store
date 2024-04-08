@@ -1,0 +1,25 @@
+.button {
+  height: 60px;
+  padding: 8px, 32px;
+  background-color: $main-black;
+  color: $white-text-color-button;
+
+  @extend %button;
+
+  &--with-arrow {
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      width: 26px;
+      height: 26px;
+      background-image: url('../../icons/arrow_button.svg');
+      background-repeat: no-repeat;
+      filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(160deg);
+    }
+  }
+}

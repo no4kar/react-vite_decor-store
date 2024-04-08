@@ -1,0 +1,88 @@
+@import '../../style/main';
+
+.slide-first {
+  @include on-tablet {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  @include on-desktop {
+    margin-inline: 105px;
+    gap: 130px;
+  }
+
+  &__img {
+    width: 100%;
+
+    @include on-tablet {
+      width: 50%;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding-block: 25px 45px;
+
+    @include on-tablet {
+      width: 50%;
+
+      align-items: start;
+
+      padding-block: 20px;
+    }
+  }
+
+  &__label {
+    @extend %label;
+  }
+
+  &__control {
+    display: none;
+
+    @include on-tablet {
+      position: absolute;
+      top: 20px;
+      right: 0;
+      display: flex;
+      justify-content: end;
+      gap: 15px;
+    }
+
+    @include on-desktop {
+      top: 24px;
+    }
+  }
+
+
+  &__title {
+    color: $white-text-color;
+
+    font-size: 32px;
+    font-family: $manrope-regular;
+    line-height: 120%;
+    text-align: center;
+
+    padding-block: 24px 28px;
+
+    @include on-tablet {
+      text-align: start;
+    }
+
+    @include on-desktop {
+      font-size: 40px;
+    }
+  }
+
+  &__btn-more {
+    width: 216px;
+    height: 48px;
+    color: azure;
+    font-size: 30px;
+  }
+}

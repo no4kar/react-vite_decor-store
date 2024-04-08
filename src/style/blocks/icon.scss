@@ -1,0 +1,146 @@
+.icon {
+  display: block;
+  width: 25px;
+  height: 25px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  &--relative {
+    position: relative;
+  }
+
+  &--hover {
+    @include hover(transform, (scale(1.1)));
+  }
+
+  &--close-black {
+    background-image: url(../icons/close-black.svg);
+  }
+
+  &--favorite {
+    background-image: url(../icons/favorite.svg);
+  }
+
+
+  &--count {
+    position: absolute;
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+
+    @extend %micro;
+    text-align: center;
+    line-height: 19px;
+    background-color: $accents-color;
+    color: $white-text-color;
+    right: 0;
+  }
+
+  &__cart {
+    background-image: url(../icons/cart.svg);
+  }
+
+  &--basket {
+    background-image: url(../icons/basket_black.svg);
+  }
+
+  &--favorite-icon {
+    background-image: url(../icons/favorite-icon.svg);
+  }
+
+  &--favorite-icon-blue {
+    background-image: url(../icons/favorite-icon-blue.svg);
+  }
+
+  &__arrow-white {
+    background-image: url(../icons/arrow-white.svg);
+
+    width: 12px;
+    height: 12px;
+
+    &--up {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__menu {
+    background-image: url(../icons/menu.svg);
+    height: 12px;
+
+    &--close {
+      background-image: url(../icons/close-menu.svg);
+      height: 18px;
+    }
+  }
+
+  &__arrow-blue {
+    background-image: url(../icons/arrow-blue.svg);
+
+    width: 12px;
+    height: 12px;
+
+    &--up {
+      transform: rotate(180deg);
+    }
+  }
+
+  &--facebook {
+    background-image: url(../icons/facebook.svg);
+  }
+
+  &--tik-tok {
+    background-image: url(../icons/tik_tok.svg);
+  }
+
+  &--instagram {
+    background-image: url(../icons/instagram.svg);
+  }
+
+  &__arrow-navigation {
+    background-image: url(../icons/arrow_navigation.svg);
+
+    width: 38px;
+    height: 40px;
+  }
+
+  &__elipse {
+    background-image: url(../icons/ellipse.svg);
+
+    width: 10px;
+    height: 10px;
+  }
+
+  &__arrow-button {
+    &--white {
+      background-image: url(../icons/arrow-button-white.svg);
+    }
+
+    &--black {
+      background-image: url(../icons/arrow-button-black.svg);
+    }
+
+    width: 35%;
+
+    &--rigth {
+      transform: rotate(180deg);
+    }
+
+    &--down {
+      @include on-tablet {
+        transform: rotate(-90deg);
+      }
+    }
+  }
+
+  &__arrow-small {
+    background-image: url(../icons/arrow-small.svg);
+
+    width: 10px;
+    height: 10px;
+
+    &--down {
+      transform: rotate(180deg);
+    }
+  }
+}

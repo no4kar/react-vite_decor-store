@@ -1,0 +1,20 @@
+@import '../../../../style/main';
+
+.advantages {
+  &__content {
+    @include on-desktop {
+      padding-inline: 290px;
+    }
+  }
+
+  &__title {
+    @extend %h2-style;
+
+    line-height: 120%;
+    color: $main-black;
+
+    text-align: center;
+
+    margin-bottom: 24px;
+  }
+}

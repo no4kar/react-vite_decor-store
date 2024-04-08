@@ -1,0 +1,63 @@
+@import '../../style/utils';
+
+.favorite {
+  padding-block: 24px 47px;
+
+  @include on-tablet {
+    padding-block: 32px 66px;
+  }
+
+  @include on-desktop {
+    padding-block: 93px 101px;
+  }
+
+  &__nav {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+
+    margin-bottom: 40px;
+
+    @include on-desktop {
+      margin-bottom: 60px;
+    }
+  }
+
+  &__icon {
+    cursor: pointer;
+  }
+
+  &__title {
+    font-size: 20px;
+    line-height: 24px;
+    color: $main-black;
+  }
+
+  &__table {
+    display: flex;
+    align-items: center;
+    height: 64px;
+    padding: 10px;
+    background-color: $background-color;
+    margin-bottom: 48px;
+
+    @extend %body-text;
+
+    @include on-desktop {
+      margin-bottom: 48px;
+    }
+  }
+
+  &__products {
+    margin-bottom: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+    justify-items: center;
+    row-gap: 64px;
+    column-gap: 10px;
+
+    @include on-tablet {
+      margin-bottom: 64px;
+    }
+  }
+}

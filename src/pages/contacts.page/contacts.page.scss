@@ -1,0 +1,94 @@
+@import '../../style/utils';
+
+.contactsPage {
+  padding-block: 24px 47px;
+
+  @extend %body-text;
+  font-size: 15px;
+  line-height: 23px;
+  color: $main-black;
+
+  @include on-tablet {
+    padding-bottom: 64px;
+  }
+
+  @include on-tablet {
+    padding-block: 93px 66px;
+  }
+
+  &__nav {
+    margin-bottom: 24px;
+
+    @include on-tablet {
+      margin-bottom: 40px;
+    }
+
+    @include on-desktop{
+      margin-bottom: 64px;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 42px;
+
+    @include on-tablet {
+      flex-direction: row;
+      margin-bottom: 64px;
+    }
+
+    @include on-desktop {
+      gap: 130px;
+    }
+  }
+
+  &__img {
+    width: 336px;
+    height: 328px;
+
+    object-fit: contain;
+
+    @include on-desktop {
+      width: 510px;
+      height: 510px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    @include on-tablet {
+      gap: 40px;
+    }
+
+    @include on-desktop {
+      gap: 64px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+
+    @include on-tablet {
+      gap: 16px;
+      align-items: start;
+    }
+
+    @include on-tablet {
+      gap: 24px;
+    }
+  }
+
+  &__link {
+    @extend %h4-style;
+    color: $main-black;
+  }
+}

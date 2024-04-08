@@ -1,0 +1,26 @@
+@import '../../style/utils';
+
+.radio-group {
+  &__options {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__label {
+    display: flex;
+    gap: 16px;
+
+    @extend %title;
+
+    color: #000;
+    font-size: 16px;
+    line-height: 21px;
+  }
+
+  &__input {
+    width: 24px;
+    height: 24px;
+  }
+}

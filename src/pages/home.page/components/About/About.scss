@@ -1,0 +1,64 @@
+@import '../../../../style/main';
+
+.about {
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include on-tablet {
+      flex-direction: row;
+    }
+  }
+
+  &__img {
+    object-fit: cover;
+    aspect-ratio: 336/282;
+    width: 100%;
+
+    @include on-tablet {
+      aspect-ratio: 1/1;
+
+      width: 50%;
+      max-width: 530px;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-self: center;
+  }
+
+  &__label {
+    @extend %label;
+
+    @include on-tablet {
+      text-align: start;
+    }
+  }
+
+  &__title {
+    @extend %h2-style;
+
+    line-height: 120%;
+    color: $main-black;
+
+    text-align: center;
+
+    @include on-tablet {
+      text-align: start;
+    }
+  }
+
+  &__description {
+    @extend %body-text;
+
+    text-align: center;
+
+    @include on-tablet {
+      text-align: start;
+    }
+  }
+}

@@ -1,0 +1,71 @@
+@import '../../../../../style/main';
+
+.advantage {
+  @include on-tablet {
+    position: relative;
+    display: flex;
+  }
+
+  @include on-desktop {
+    margin-inline: 220px;
+  }
+
+  &__img {
+    width: 100%;
+    aspect-ratio: 1;
+
+    @include on-tablet {
+      width: 50%;
+    }
+  }
+
+  &__info {
+    @include on-tablet {
+      position: absolute;
+      top: 50%;
+      left: 45%;
+      right: 0;
+      transform: translateY(-50%);
+
+      background-color: $white-text-color;
+
+      padding: 24px 44px;
+    }
+  }
+
+  &__title {
+    color: $main-text-color;
+    font-family: $manrope-regular;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 120%;
+
+    margin-block: 24px 10px;
+  }
+
+  &__text {
+    @extend %body-text;
+  }
+
+  &__separator {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      margin-block: 0 15px;
+      border: 1px solid $divider-color;
+    }
+
+    @include on-desktop {
+      margin-block: 30px;
+    }
+  }
+
+  &__control {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+    }
+  }
+}

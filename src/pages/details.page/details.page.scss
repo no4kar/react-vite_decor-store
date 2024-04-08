@@ -1,0 +1,174 @@
+@import '../../style/utils';
+
+.product-page {
+  padding-block: 24px 4px;
+
+  @include on-tablet {
+    padding-bottom: 89px;
+  }
+
+  @include on-desktop {
+    padding-block: 112px 93px;
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include on-tablet {
+      gap: 24px;
+    }
+
+    @include on-desktop {
+      flex-direction: row;
+    }
+  }
+
+  &__nav {
+    margin-bottom: 24px;
+
+    @include on-tablet {
+      margin-bottom: 40px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 64px;
+    }
+  }
+
+  &__media-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+
+    @include on-tablet {
+      gap: 24px;
+      flex-direction: row;
+      height: 445px;
+    }
+  }
+
+  &__selected-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+
+    @include on-tablet {
+      width: auto;
+      height: 100%;
+    }
+  }
+
+  &__carousel {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    width: 100%;
+    gap: 24px;
+
+    @include on-tablet {
+      flex-direction: row;
+      height: 100%;
+    }
+  }
+
+  &__slider {
+    width: 100%;
+
+    @include on-tablet {
+      width: 150px;
+    }
+
+    &-item {
+      object-fit: cover;
+      margin-inline: auto;
+      margin-block: 20px;
+      height: 58px;
+      width: 58px;
+      transition: transform $effect-duration-normal ease;
+
+      @include on-tablet {
+        margin-block: 15px;
+      }
+    }
+
+    .slick-slide.slick-active.slick-center.slick-current &-item {
+      transform: scale($effect-scale-extraLarge);
+    }
+  }
+
+  &__control {
+    margin: 0 auto;
+  }
+
+  &__info {
+    display: flex;
+    gap: 32px;
+    flex-direction: column;
+
+    @extend %body-text;
+
+    @include on-tablet {
+      flex-direction: row;
+      gap: 20px
+    }
+
+    @include on-desktop {
+      flex-direction: column;
+    }
+  }
+
+  &__description,
+  &__value {
+    color: $main-black;
+  }
+
+  &__info-wrap {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__subtitle {
+
+    color: $secondary-color;
+  }
+
+  &__separator {
+    height: 1px;
+    border: 1px solid $main-black;
+    margin-top: 24px;
+
+
+    @include on-tablet {
+      margin-top: 47px;
+    }
+  }
+
+  &__button-wrap {
+    flex: 1;
+    display: flex;
+    gap: 10px;
+
+    @include on-desktop {
+      align-items: flex-end;
+    }
+  }
+
+  &__button {
+    width: 50px;
+    height: 48px;
+    border: 1px solid $main-black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include on-desktop {
+      width: 90px;
+      height: 64px;
+    }
+  }
+}

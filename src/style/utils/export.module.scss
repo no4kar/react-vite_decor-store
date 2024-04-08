@@ -1,0 +1,15 @@
+@import './variables';
+
+:export {
+  tabletMinWidth: $tablet-min-width;
+  desktopMinWidth: $tablet-min-desktop;
+
+  effectDurationNormal: $effect-duration-normal;
+  effectDurationSlow: $effect-duration-slow;
+  effectDurationVerrySlow: $effect-duration-verrySlow;
+  
+  effectScaleSmall: $effect-scale-small;
+  effectScaleMedium: $effect-scale-medium;
+  effectScaleLarge: $effect-scale-large;
+  effectScaleExtraLarge: $effect-scale-extraLarge;
+}

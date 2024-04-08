@@ -1,0 +1,48 @@
+.title {
+  margin: 0;
+
+  &--mobile {
+    color: $white-text-color;
+    text-transform: uppercase;
+  }
+
+  &--h1 {
+    @extend %h1-style;
+  }
+
+  &--h2 {
+    color: $main-black;
+
+    @extend %h2-style;
+
+    @include on-tablet {
+      font-size: 40px;
+    }
+  }
+
+  &--h3 {
+    color: $main-black;
+
+    @extend %h2-style;
+
+    @include on-tablet {
+      font-size: 40px;
+    }
+
+    &-mobile {
+      font-size: 20px;
+      line-height: 24px;
+    }
+  }
+
+  &--h4 {
+    color: $white-text-color;
+    text-transform: uppercase;
+
+    @extend %h4-style;
+
+    @include on-desktop {
+      font-size: 16px;
+    }
+  }
+}
