@@ -5,11 +5,11 @@
     "name": "Artbeton",
     "description": "Імітація бетону, товстошарова штукатурка, що має своєрідну структуру.",
     "img": [
-      "/img/product/01.png",
-      "/img/product/02.png",
-      "/img/product/03.png",
-      "/img/product/04.png",
-      "/img/product/05.png"
+      "/img/product/1.png",
+      "/img/product/2.png",
+      "/img/product/3.png",
+      "/img/product/4.png",
+      "/img/product/5.png"
     ],
     "price": 1000
   },
@@ -19,11 +19,11 @@
     "name": "Marmorino",
     "description": "Натуральне декоративне вапняне покриття, що імітує натуральний мармур.",
     "img": [
-      "/img/product/02.png",
-      "/img/product/01.png",
-      "/img/product/03.png",
-      "/img/product/04.png",
-      "/img/product/05.png"
+      "/img/product/2.png",
+      "/img/product/1.png",
+      "/img/product/3.png",
+      "/img/product/4.png",
+      "/img/product/5.png"
     ],
     "price": 1000
   },
@@ -33,11 +33,11 @@
     "name": "Wet silk",
     "description": "Декоративне покриття з ефектом мерехтіння",
     "img": [
-      "/img/product/03.png",
-      "/img/product/02.png",
-      "/img/product/01.png",
-      "/img/product/04.png",
-      "/img/product/05.png"
+      "/img/product/3.png",
+      "/img/product/2.png",
+      "/img/product/1.png",
+      "/img/product/4.png",
+      "/img/product/5.png"
     ],
     "price": 1000
   },
@@ -47,11 +47,11 @@
     "name": "STUCCO VENEZIANO",
     "description": "Венеціанська штукатурка - ідеальний спосіб облицювання стін під полірований мармур.",
     "img": [
-      "/img/product/04.png",
-      "/img/product/01.png",
-      "/img/product/02.png",
-      "/img/product/03.png",
-      "/img/product/05.png"
+      "/img/product/4.png",
+      "/img/product/1.png",
+      "/img/product/2.png",
+      "/img/product/3.png",
+      "/img/product/5.png"
     ],
     "price": 1000
   },
@@ -61,11 +61,11 @@
     "name": "STUVENEZIANCCO O",
     "description": "Венеціанська штукатурка - ідеальний спосіб облицювання стін під полірований мармур.",
     "img": [
-      "/img/product/05.png",
-      "/img/product/03.png",
-      "/img/product/01.png",
-      "/img/product/02.png",
-      "/img/product/04.png"
+      "/img/product/5.png",
+      "/img/product/3.png",
+      "/img/product/1.png",
+      "/img/product/2.png",
+      "/img/product/4.png"
     ],
     "price": 1000
   },
@@ -75,8 +75,8 @@
     "name": "ФОТОШПАЛЕРИ",
     "description": "вінілові шпалери на флізеліновій основі",
     "img": [
-      "/img/products/01.png",
-      "/img/product/02.png"
+      "/img/product/1.png",
+      "/img/product/2.png"
     ],
     "price": 1000
   },
