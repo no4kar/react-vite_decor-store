@@ -1,8 +1,8 @@
-import { ServiceProducts } from '../ServiceProducts/ServiceProducts';
+import { TyService } from '../Services/Services';
 
 export type ContextType = {
-  productsService: ServiceProducts[];
-  localStore: ServiceProducts[];
-  setLocalStore: (v: ServiceProducts[]) => void;
-  handleChooseCart: (card: ServiceProducts, action: string) => void;
+  productsService: TyService[];
+  localStore: TyService[];
+  setLocalStore: (v: TyService[]) => void;
+  handleChooseCart: (card: TyService, action: string) => void;
 };

@@ -48,7 +48,7 @@ export const AboutUsPage: React.FC = () => {
 
               <article className="aboutUsPage__second-article">
                 <img
-                  src="/img/about-us.png"
+                  src="./img/about-us.png"
                   alt="It is me"
                   className="aboutUsPage__img"
                 />

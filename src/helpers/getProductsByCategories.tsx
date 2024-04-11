@@ -1,15 +1,15 @@
-import { ServiceProducts } from '../types/ServiceProducts/ServiceProducts';
+import { TyService as Product } from '../types/Services/Services';
 
-export const getCartFavorites = (localStore: ServiceProducts[]) => {
+export const getCartFavorites = (localStore: Product[]) => {
   return localStore.filter(el => el.inFavourite);
 };
 
-export const getCartBaskets = (localStore: ServiceProducts[]) => {
+export const getCartBaskets = (localStore: Product[]) => {
   return localStore.filter(el => el.inCart);
 };
 
 export function getServiceDecorative(
-  products: ServiceProducts[],
+  products: Product[],
   category: number,
 ) {
   const visibleProducts = products.filter(el => el.category === category);

@@ -10,14 +10,18 @@ import { PlaceAnOrder } from './pages/place.an.order/place.an.order';
 import { Cooperation } from './pages/cooperation-page';
 import { NotFoundPage } from './pages/not-found-page';
 import { DecorativeService } from './pages/decorative.service.page';
-import { DetailsPage } from './pages/details.page';
+import { ServiceDetailsPage } from './pages/serviceDetails.page';
 import { WallpaperPage } from './pages/wallpaper.page';
 import { HangWallpaper } from './pages/hang.wallpaper.page';
-import { PaintTinting } from './pages/paint.tinting';
+// import { PaintTinting } from './pages/paint.tinting';
 import { PaintPage } from './pages/paint.page';
 
 export const Root = () => (
-  <Router>
+  <Router
+    basename={process.env.NODE_ENV === 'production'
+      ? '/react-vite_decor-store/'
+      : '/'}
+  >
     <GlobalProvider>
       <Routes>
         <Route path="/" element={<App />}>
@@ -27,14 +31,14 @@ export const Root = () => (
           <Route path="about_us" element={<AboutUsPage />} />
           <Route path="service_decorative">
             <Route index element={<DecorativeService />} />
-            <Route path=":id?" element={<DetailsPage />} />
+            <Route path=":id?" element={<ServiceDetailsPage />} />
           </Route>
           <Route path="service_hang_wallpaper">
             <Route index element={<HangWallpaper />} />
-            <Route path=":id?" element={<DetailsPage />} />
+            <Route path=":id?" element={<ServiceDetailsPage />} />
           </Route>
 
-          <Route path="paint_tinting" element={<PaintTinting />} />
+          {/* <Route path="paint_tinting" element={<PaintTinting />} /> */}
           <Route path="wallpaper" element={<WallpaperPage />} />
           <Route path="paint" element={<PaintPage />} />
 

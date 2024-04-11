@@ -23,5 +23,6 @@ export const Introduction = () => {
         </div>
       </div>
     </section>
+    
   );
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ServiceProducts as Product } from '../../../types/ServiceProducts/ServiceProducts';
+import { TyService as Product } from '../../../types/Services/Services';
 import { CustomInputNumber } from '../../../components/CustomInputNumber';
 import './table.products.order.scss';
 

@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import * as serviceApi from '../api/service.api';
-import { ServiceProducts } from '../types/ServiceProducts/ServiceProducts';
+import { TyService } from '../types/Services/Services';
 import { ContextType } from '../types/ContextType/ContextType';
 
 export const GlobalContext = React.createContext<ContextType>({
   productsService: [],
   localStore: [],
-  setLocalStore: () => {},
-  handleChooseCart: () => {},
+  setLocalStore: () => { },
+  handleChooseCart: () => { },
 });
 
 type Props = {
@@ -16,11 +16,11 @@ type Props = {
 };
 
 export const GlobalProvider: React.FC<Props> = ({ children }) => {
-  const [localStore, setLocalStore] = useLocalStorage<ServiceProducts[]>(
+  const [localStore, setLocalStore] = useLocalStorage<TyService[]>(
     'products',
     [],
   );
-  const [productsService, setProductsService] = useState<ServiceProducts[]>([]);
+  const [productsService, setProductsService] = useState<TyService[]>([]);
 
   useEffect(() => {
     const updatedProducts = serviceApi.getServices().map(item => {
@@ -41,10 +41,10 @@ export const GlobalProvider: React.FC<Props> = ({ children }) => {
     setProductsService(updatedProducts);
   }, []);
 
-  const handleChooseCart = (card: ServiceProducts, action: string) => {
+  const handleChooseCart = (card: TyService, action: string) => {
     const currentProducts = [...productsService];
     let currentStore = [...localStore];
-    let updatedCard: ServiceProducts = { ...card };
+    let updatedCard: TyService = { ...card };
 
     if (action === 'addCard') {
       updatedCard = { ...card, inCart: !card.inCart };

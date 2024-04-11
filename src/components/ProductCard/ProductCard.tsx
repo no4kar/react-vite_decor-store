@@ -3,11 +3,11 @@ import { useLocation } from 'react-router-dom';
 import cn from 'classnames';
 import { GlobalContext } from '../../store/GlobalContext';
 import { Button } from '../Button';
-import { ServiceProducts } from '../../types/ServiceProducts/ServiceProducts';
+import { TyService as Product } from '../../types/Services/Services';
 import './ProductCard.scss';
 
 type Props = {
-  product: ServiceProducts;
+  product: Product;
 };
 
 export const ProductCard: React.FC<Props> = memo(({ product }) => {
@@ -19,7 +19,11 @@ export const ProductCard: React.FC<Props> = memo(({ product }) => {
     <div className="card" key={id}>
       <div className="card__img-container">
         <div className="card__products">
-          <img src={img[0]} alt={name} className="card__img" />
+          <img
+            src={img[0]}
+            alt={img[0]}
+            className="card__img"
+          />
         </div>
 
         <button

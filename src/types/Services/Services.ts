@@ -1,4 +1,4 @@
-export type ServiceProducts = {
+export type TyService = {
   id: number;
   category: number;
   name: string;

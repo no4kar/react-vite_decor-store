@@ -11,9 +11,9 @@ import { PageNavigation } from '../../components/PageNavigation';
 import { Loader } from '../../components/Loader';
 import { ControlsButtons } from '../../components/ControlsButtons';
 import { Button } from '../../components/Button';
-import { ServiceProducts } from '../../types/ServiceProducts/ServiceProducts';
+import { TyService } from '../../types/Services/Services';
 import { GlobalContext } from '../../store/GlobalContext';
-import './details.page.scss';
+import './serviceDetails.page.scss';
 
 import varsStyle from '../../helpers/varsFromStyle';
 import { getServiceById } from '../../api/service.api';
@@ -21,11 +21,11 @@ import { getServiceById } from '../../api/service.api';
 /* eslint max-len: "warn" */
 /* eslint no-console: "warn" */
 
-export const DetailsPage = () => {
+export const ServiceDetailsPage = () => {
   const { id } = useParams();
   const serviceId = +(id || 0);
   const { productsService, handleChooseCart } = useContext(GlobalContext);
-  const [selectService, setSelectService] = useState<ServiceProducts | null>(null);
+  const [selectService, setSelectService] = useState<TyService | null>(null);
 
   const generalProduct = serviceId
     ? productsService.find(el => el.id === +serviceId)
@@ -100,19 +100,19 @@ export const DetailsPage = () => {
 
             <div className="product-page__media-content">
               <img
-                src={selectService?.img[imgIndex]}
-                alt={selectService?.img[imgIndex]}
+                src={`.${selectService?.img[imgIndex]}`}
+                alt={`.${selectService?.img[imgIndex]}`}
                 className="product-page__selected-img"
               />
 
               <div className="product-page__carousel">
                 <div className="product-page__slider">
                   <Slider ref={sliderRef} {...settings}>
-                    {selectService?.img.map((imgUrl, i) => (
+                    {selectService?.img.map((imgUrl) => (
                       <div key={imgUrl}>
                         <img
-                          src={imgUrl}
-                          alt={`img-${i}`}
+                          src={`.${imgUrl}`}
+                          alt={`.${imgUrl}`}
                           className="product-page__slider-item"
                         />
                       </div>

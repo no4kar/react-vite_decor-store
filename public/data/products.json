@@ -12,13 +12,13 @@
     "room": "SomeRoom",
     "description": "SomeDescription",
     "imageUrl": [
-      "public/img/products/01.png",
-      "public/img/products/02.png",
-      "public/img/products/02.png",
-      "public/img/products/01.png",
-      "public/img/products/02.png",
-      "public/img/products/01.png",
-      "public/img/products/02.png"
+      "./img/products/1.png",
+      "./img/products/2.png",
+      "./img/products/2.png",
+      "./img/products/1.png",
+      "./img/products/2.png",
+      "./img/products/1.png",
+      "./img/products/2.png"
     ]
   },
   {
@@ -34,13 +34,13 @@
     "room": "SomeRoom",
     "description": "SomeDescription",
     "imageUrl": [
-      "public/img/products/02.png",
-      "public/img/products/01.png",
-      "public/img/products/02.png",
-      "public/img/products/01.png",
-      "public/img/products/02.png",
-      "public/img/products/01.png",
-      "public/img/products/02.png"
+      "./img/products/2.png",
+      "./img/products/1.png",
+      "./img/products/2.png",
+      "./img/products/1.png",
+      "./img/products/2.png",
+      "./img/products/1.png",
+      "./img/products/2.png"
     ]
   },
   {
@@ -56,12 +56,75 @@
     "room": "SomeRoom",
     "description": "SomeDescription",
     "imageUrl": [
-      "public/img/products/01.png",
-      "public/img/products/02.png",
-      "public/img/products/02.png",
-      "public/img/products/01.png",
-      "public/img/products/01.png",
-      "public/img/products/02.png"
+      "./img/products/1.png",
+      "./img/products/2.png",
+      "./img/products/2.png",
+      "./img/products/1.png",
+      "./img/products/1.png",
+      "./img/products/2.png"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "SomeProduct-4",
+    "categoryId": 2,
+    "price": 1100,
+    "country": "Бельгія",
+    "producer": "GRANDECO",
+    "collection": "Villa Danelli",
+    "type": "Вінілові шпалери на флізеліновій основі",
+    "tone": "SomeTone",
+    "room": "SomeRoom",
+    "description": "Lorem ipsum dolor sit amet",
+    "imageUrl": [
+      "./img/products/wallpaper4.png",
+      "./img/products/wallpaper4.png",
+      "./img/products/wallpaper4.png",
+      "./img/products/wallpaper4.png",
+      "./img/products/wallpaper4.png",
+      "./img/products/wallpaper4.png"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "SomeProduct-5",
+    "categoryId": 2,
+    "price": 1300,
+    "country": "Бельгія",
+    "producer": "MARBURG",
+    "collection": "City Glam",
+    "type": "Вінілові шпалери на флізеліновій основі",
+    "tone": "SomeTone",
+    "room": "SomeRoom",
+    "description": "Lorem ipsum dolor sit amet",
+    "imageUrl": [
+      "./img/products/wallpaper5.png",
+      "./img/products/wallpaper5.png",
+      "./img/products/wallpaper5.png",
+      "./img/products/wallpaper5.png",
+      "./img/products/wallpaper5.png",
+      "./img/products/wallpaper5.png"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "SomeProduct-6",
+    "categoryId": 2,
+    "price": 1500,
+    "country": "Бельгія",
+    "producer": "GRANDECO",
+    "collection": "Feeling",
+    "type": "Вінілові шпалери на флізеліновій основі",
+    "tone": "SomeTone",
+    "room": "SomeRoom",
+    "description": "Lorem ipsum dolor sit amet",
+    "imageUrl": [
+      "./img/products/wallpaper6.png",
+      "./img/products/wallpaper6.png",
+      "./img/products/wallpaper6.png",
+      "./img/products/wallpaper6.png",
+      "./img/products/wallpaper6.png",
+      "./img/products/wallpaper6.png"
     ]
   }
 ]

@@ -8,7 +8,11 @@ export const Products = () => {
   return (
     <section className="products">
       <div className="products__content content">
-        <Slider Slide={SlideFirst} slides={products} classParent="advantages" />
+        <Slider
+          Slide={SlideFirst}
+          slides={products}
+          classParent="advantages"
+        />
       </div>
     </section>
   );

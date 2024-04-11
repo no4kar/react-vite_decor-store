@@ -1,4 +1,4 @@
-export type WallpaperProducts = {
+export type TyProduct = {
   id: number;
   name: string;
   categoryId: number;
@@ -13,6 +13,7 @@ export type WallpaperProducts = {
   imageUrl: [];
 };
 
-export type TyProduct = {
-  Wallpaper: WallpaperProducts;
-};
+export enum ProductCategory {
+  Wallpaper = 2,
+  Paint = 3,
+}

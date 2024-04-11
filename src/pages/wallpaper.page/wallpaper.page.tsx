@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { initialDelayLoader } from '../../constants/initialDelayLoader';
 import { Loader } from '../../components/Loader';
-import { getWallpaper } from '../../api/product.api';
-import { WallpaperProducts } from '../../types/Products/WallpaperProducts';
+import { getWallpapers } from '../../api/product.api';
+import { TyProduct } from '../../types/Products/Products';
 import { PageNavigation } from '../../components/PageNavigation';
 import './wallpaper.page.scss';
 
@@ -11,7 +11,7 @@ import './wallpaper.page.scss';
 export const WallpaperPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [hasError, setHasError] = useState('');
-  const [products, setProducts] = useState<WallpaperProducts[]>([]);
+  const [products, setProducts] = useState<TyProduct[]>([]);
   const timerId = useRef(0);
 
   useEffect(() => {
@@ -22,7 +22,7 @@ export const WallpaperPage = () => {
       setHasError('');
 
       try {
-        const loadedProducts = await getWallpaper();
+        const loadedProducts = await getWallpapers();
 
         setProducts(loadedProducts);
       } catch (error) {

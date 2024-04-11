@@ -1,14 +1,14 @@
 import { client } from '../utils/fetchClient';
 import services from '../../public/data/services.json';
-import { ServiceProducts } from '../types/ServiceProducts/ServiceProducts';
+import { TyService } from '../types/Services/Services';
 import { MyForm } from '../types/MyForm';
 
 export function getServices() {
-  return services as ServiceProducts[];
+  return services as TyService[];
 }
 
 export function getServiceById(id: number) {
-  return (services as ServiceProducts[]).find(service => service.id === id);
+  return (services as TyService[]).find(service => service.id === id);
 }
 
 export function getSendForm(forms: MyForm) {
