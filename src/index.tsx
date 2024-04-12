@@ -1,6 +1,7 @@
 import { createRoot } from 'react-dom/client';
 import { Root } from './Root';
 
-const container = document.getElementById('root') as HTMLElement;
+import './index.css';
 
-createRoot(container).render(<Root />);
+createRoot(document.getElementById('root') as HTMLElement)
+  .render(<Root />);

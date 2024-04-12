@@ -44,5 +44,26 @@
     @include on-desktop {
       font-size: 16px;
     }
+
+    &-main {
+      color: $main-black;
+    }
+  }
+
+  &--light {
+    @extend %title;
+  }
+
+  &--body-text {
+    @extend %body-text;
+    color: $main-black;
+  }
+
+  &--micro {
+    @extend %micro;
+  }
+
+  &--secondary-color {
+    color: $secondary-color;
   }
 }
