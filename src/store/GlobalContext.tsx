@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import * as serviceApi from '../api/service.api';
-import { TyService } from '../types/Services/Services';
-import { ContextType } from '../types/ContextType/ContextType';
+import * as productApi from '../api/product.api';
+import { TyService as TySelected } from '../types/Services/Services';
 
-export const GlobalContext = React.createContext<ContextType>({
+export const GlobalContext = React.createContext<{
+  productsService: TySelected[];
+  localStore: TySelected[];
+  setLocalStore: (v: TySelected[]) => void;
+  handleChooseCart: (card: TySelected, action: string) => void;
+}>({
   productsService: [],
   localStore: [],
   setLocalStore: () => { },
@@ -16,35 +21,22 @@ type Props = {
 };
 
 export const GlobalProvider: React.FC<Props> = ({ children }) => {
-  const [localStore, setLocalStore] = useLocalStorage<TyService[]>(
-    'products',
+  const [localSelected, setLocalSelected] = useLocalStorage<TySelected[]>(
+    'selected',
     [],
   );
-  const [productsService, setProductsService] = useState<TyService[]>([]);
 
   useEffect(() => {
-    const updatedProducts = serviceApi.getServices().map(item => {
-      const elem = localStore.find(e => item.id === e.id);
+    const selectedProducts = productApi.getProducts()
+      .filter((product) => localSelected.find(e => product.id === e.id));
 
-      if (elem) {
-        return elem;
-      }
-
-      return {
-        ...item,
-        inFavourite: false,
-        inCart: false,
-        quantity: 1,
-      };
-    });
-
-    setProductsService(updatedProducts);
+    setSelected(selectedProducts);
   }, []);
 
-  const handleChooseCart = (card: TyService, action: string) => {
-    const currentProducts = [...productsService];
-    let currentStore = [...localStore];
-    let updatedCard: TyService = { ...card };
+  const handleChooseCart = <T extends TySelected>(card: T, action: string) => {
+    const currentProducts = [...selected];
+    let currentStore = [...localSelected];
+    let updatedCard: T = { ...card };
 
     if (action === 'addCard') {
       updatedCard = { ...card, inCart: !card.inCart };
@@ -58,11 +50,11 @@ export const GlobalProvider: React.FC<Props> = ({ children }) => {
       updatedCard = { ...card, inCart: false };
     }
 
-    if (action === 'addQuantity' && updatedCard.quantity) {
+    if (action === 'increase' && updatedCard.quantity) {
       updatedCard = { ...card, quantity: updatedCard.quantity + 1 };
     }
 
-    if (action === 'deleteQuantity' && updatedCard.quantity) {
+    if (action === 'decrease' && updatedCard.quantity) {
       updatedCard = { ...card, quantity: updatedCard.quantity - 1 };
     }
 
@@ -84,14 +76,14 @@ export const GlobalProvider: React.FC<Props> = ({ children }) => {
 
     currentProducts.splice(index, 1, updatedCard);
 
-    setProductsService(currentProducts);
-    setLocalStore(currentStore);
+    setSelected(currentProducts);
+    setLocalSelected(currentStore);
   };
 
   const value = {
-    productsService,
-    localStore,
-    setLocalStore,
+    productsService: selected,
+    localStore: localSelected,
+    setLocalStore: setLocalSelected,
     handleChooseCart,
   };
 

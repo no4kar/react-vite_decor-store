@@ -1,24 +1,28 @@
-import { useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import cn from 'classnames';
 
-import { initialDelayLoader } from '../../constants/initialDelayLoader';
 import { Loader } from '../../components/Loader';
 import { getWallpapers } from '../../api/product.api';
 import { TyProduct } from '../../types/Products/Products';
 import { PageNavigation } from '../../components/PageNavigation';
 import { Button } from '../../components/Button';
-import cn from 'classnames';
+import { initialDelayLoader } from '../../constants/initialDelayLoader';
 
 import './wallpaper.page.scss';
+import { Search } from '../../components/Search';
+import { GlobalContext } from '../../store/GlobalContext';
 
 /* eslint no-console: "warn" */
 
 export const WallpaperPage = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const [isAsideOpen, setIsAsideOpen] = useState(false);
   const [hasError, setHasError] = useState('');
   const [products, setProducts] = useState<TyProduct[]>([]);
   const timerId = useRef(0);
   const { pathname } = useLocation();
+  const { handleChooseCart } = useContext(GlobalContext);
 
   useEffect(() => {
     setIsLoading(true);
@@ -43,13 +47,87 @@ export const WallpaperPage = () => {
     fetchData();
   }, []);
 
-  console.log(products);
+  console.log('render');
 
   return (
-    <div className="Wallpaper">
-      <div className="content">
+    <div className="Wallpaper relative">
+      <aside
+        id="sidebar"
+        className={cn(
+          'absolute top-0 left-0 bottom-0 right-0 z-10',
+          'flex flex-row',
+          'w-full',
+          'border border-red-500 border-solid',
+          'pointer-events-none',
+          'transform -translate-x-full',
+          'transition-transform',
+          'duration-1000',
+          {
+            'transform translate-x-0 pointer-events-auto': isAsideOpen,
+          }
+        )}
+      >
+        <div className="h-full w-[320px] bg-white uppercase">
+          <button
+            type="button"
+            aria-label="filter"
+            className="
+          w-[50px] h-[50px]
+          flex justify-center items-center
+          border border-gray-100 border-solid
+          hover:scale-110
+          "
+            onClick={() => setIsAsideOpen(false)}
+          >
+            <i className="icon icon--filter" />
+          </button>
+        </div>
+        <div className="h-full flex-1 bg-gray-800 opacity-50" />
+      </aside>
+
+      <div className={cn('content flex flex-col gap-[40px]', {
+        'pointer-events-none': isAsideOpen,
+      })}>
         <PageNavigation />
         {isLoading && <Loader />}
+
+        <div className="
+        w-full
+        h-[44px]
+        border
+        border-accent
+        border-solid
+        ">
+          <Search placeholder="Введіть назву або код товару" />
+        </div>
+
+        <div className="
+        w-full h-[44px]
+        flex justify-between sm:justify-evenly
+        border border-red-500 border-solid
+        ">
+          <button
+            type="button"
+            aria-label="filter"
+            className="
+          w-[50px] h-full
+          flex justify-center items-center
+          border border-red-500 border-solid
+          hover:scale-110
+          "
+            onClick={() => setIsAsideOpen(true)}
+          >
+            <i className="icon icon--filter" />
+          </button>
+
+          <div className="
+          h-full
+          flex items-center
+          border border-red-500 border-solid
+          ">
+            <p className="text-black uppercase">ціна за зростанням</p>
+          </div>
+        </div>
 
         {hasError && !isLoading && <p>{hasError}</p>}
 
@@ -67,9 +145,7 @@ export const WallpaperPage = () => {
               <div
                 key={product.id}
                 className={cn(
-                  'bg-blue',
-                  'pt-[10px]',
-                  'pb-[14px]',
+                  'pt-[10px] pb-[14px] px-[10px]',
                   'shadow',
                   'rounded',
                 )}
@@ -95,7 +171,7 @@ export const WallpaperPage = () => {
                     aria-label="add to favorite"
                     type="button"
                     className="card__button"
-                  // onClick={() => handleChooseCart(product, 'favourites')}
+                    onClick={() => handleChooseCart(product, 'favourites')}
                   >
                     <div
                       className={cn(
@@ -103,7 +179,7 @@ export const WallpaperPage = () => {
                         'icon--favorite-icon',
                         'icon--hover',
                         'card__icon', {
-                        // 'icon--favorite-icon-blue': inFavourite,
+                        'icon--favorite-icon-blue': inFavourite,
                       })}
                     />
                   </button>
@@ -112,7 +188,7 @@ export const WallpaperPage = () => {
                 <div className="pt-[24px]">
                   <div>
                     <p className="title--micro title--secondary-color text-left">
-                      {product.type}
+                      {product.description}
                     </p>
 
                     <div className="pt-[7px]">
@@ -137,7 +213,7 @@ export const WallpaperPage = () => {
                     </div>
                     <div className="flex">
                       <p>Ціна</p>
-                      <p className="pl-3 pr-1">{product.price}</p>
+                      <p className="pl-3 pr-1 text-accent">{product.price}</p>
                       <p>грн.</p>
                     </div>
                   </div>
@@ -156,6 +232,6 @@ export const WallpaperPage = () => {
           </div >
         )}
       </div>
-    </div>
+    </div >
   );
 };
