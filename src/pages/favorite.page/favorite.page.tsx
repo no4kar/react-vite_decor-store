@@ -1,15 +1,15 @@
-import { useContext, useEffect, useRef, useState } from 'react';
-import { GlobalContext } from '../../store/GlobalContext';
-import { getCartFavorites } from '../../helpers/getProductsByCategories';
+import { useEffect, useRef, useState } from 'react';
 import { Button } from '../../components/Button';
 import { Loader } from '../../components/Loader';
 import { initialDelayLoader } from '../../constants/initialDelayLoader';
 import { ProductCard } from '../../components/ProductCard';
+import { useFavoriteStore } from '../../store/favourite.store';
+
 import './favorite.page.scss';
 
 export const FavoritePage = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const { localStore } = useContext(GlobalContext);
+  const { items: favorites } = useFavoriteStore(state => state);
   const timerId = useRef(0);
 
   useEffect(() => {
@@ -20,8 +20,6 @@ export const FavoritePage = () => {
       setIsLoading(false);
     }, initialDelayLoader);
   }, []);
-
-  const cartFavorites = getCartFavorites(localStore);
 
   return (
     <div className="favorite">
@@ -40,15 +38,15 @@ export const FavoritePage = () => {
 
         {isLoading && <Loader />}
 
-        {!isLoading && !!cartFavorites.length && (
+        {!isLoading && !!favorites.length && (
           <section className="favorite__products">
-            {cartFavorites.map(item => (
+            {favorites.map(item => (
               <ProductCard product={item} key={item.id} />
             ))}
           </section>
         )}
 
-        {!isLoading && !cartFavorites.length && (
+        {!isLoading && !favorites.length && (
           <section>
             <div className="favorite__table">
               <p className="favorite__table-text">

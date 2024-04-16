@@ -1,15 +1,13 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Button } from '../../components/Button';
-import { GlobalContext } from '../../store/GlobalContext';
-import { getCartBaskets } from '../../helpers/getProductsByCategories';
+import { useCartStore } from '../../store/cart.store';
 import { Loader } from '../../components/Loader';
 import { TableProductsBasket } from './table.product.baskets';
 import './basket.page.scss';
 
 export const BasketPage: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const { localStore, handleChooseCart } = useContext(GlobalContext);
-  const cartItemsOrder = getCartBaskets(localStore);
+  const { items: cartItemsOrder } = useCartStore(state => state);
   const timerId = useRef(0);
 
   useEffect(() => {
@@ -35,7 +33,6 @@ export const BasketPage: React.FC = () => {
           <section className="basket__table-products">
             <TableProductsBasket
               cartItemsOrder={cartItemsOrder}
-              handleChooseCart={handleChooseCart}
             />
           </section>
         )}

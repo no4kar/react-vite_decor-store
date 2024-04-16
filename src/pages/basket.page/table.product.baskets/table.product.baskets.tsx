@@ -1,17 +1,16 @@
 import React from 'react';
-import { TyService as Product } from '../../../types/Services/Services';
 import { CustomInputNumber } from '../../../components/CustomInputNumber';
 import './table.product.baskets.scss';
+import { TyInCart, useCartStore } from '../../../store/cart.store';
 
 type Props = {
-  cartItemsOrder: Product[];
-  handleChooseCart: (product: Product, action: string) => void;
+  cartItemsOrder: TyInCart[];
 };
 
 export const TableProductsBasket: React.FC<Props> = ({
   cartItemsOrder,
-  handleChooseCart,
 }) => {
+
   const totalPrice = cartItemsOrder.reduce(
     (acc, el) => acc + el.price * el.quantity,
     0,
@@ -22,7 +21,7 @@ export const TableProductsBasket: React.FC<Props> = ({
       <table className="table-basket">
         <thead className="table-basket__thead">
           <tr className="table-basket__tr">
-            <th> Інформація про товар </th>
+            <th>Інформація про товар</th>
             <th>Ціна</th>
             <th>Кількість</th>
             <th>Сума</th>
@@ -36,7 +35,7 @@ export const TableProductsBasket: React.FC<Props> = ({
               <td className="table-basket__img">
                 <div className="mainInfo">
                   <img
-                    src={product.img[0] || '../../../img/products/01.png'}
+                    src={product.imgUrl[0] || '/img/products/01.png'}
                     alt={product.name}
                     className="mainInfo__img"
                   />
@@ -58,10 +57,7 @@ export const TableProductsBasket: React.FC<Props> = ({
 
               <td aria-label="control items" className="table-basket__control">
                 <CustomInputNumber
-                  changeQuantity={action => {
-                    handleChooseCart(product, action);
-                  }}
-                  quantity={product.quantity}
+                  product={product}
                 />
               </td>
 
@@ -83,7 +79,7 @@ export const TableProductsBasket: React.FC<Props> = ({
                 <button
                   aria-label="delete items from basket"
                   type="button"
-                  onClick={() => handleChooseCart(product, 'delete')}
+                  onClick={() => useCartStore.getState().remove(product)}
                 >
                   <div className="icon icon--close-black" />
                 </button>

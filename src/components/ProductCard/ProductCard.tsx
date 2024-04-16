@@ -1,9 +1,10 @@
-import React, { memo, useContext } from 'react';
+import React, { memo } from 'react';
 import { useLocation } from 'react-router-dom';
 import cn from 'classnames';
-import { GlobalContext } from '../../store/GlobalContext';
 import { Button } from '../Button';
 import { TyService as Product } from '../../types/Services/Services';
+import { useFavoriteStore } from '../../store/favourite.store';
+
 import './ProductCard.scss';
 
 type Props = {
@@ -12,16 +13,16 @@ type Props = {
 
 export const ProductCard: React.FC<Props> = memo(({ product }) => {
   const { pathname } = useLocation();
-  const { id, img, name, inFavourite, description } = product;
-  const { handleChooseCart } = useContext(GlobalContext);
+  const { id, imgUrl, name, description } = product;
+  const { items: favorites } = useFavoriteStore(state => state);
 
   return (
     <div className="card" key={id}>
       <div className="card__img-container">
         <div className="card__products">
           <img
-            src={img[0]}
-            alt={img[0]}
+            src={imgUrl[0]}
+            alt={imgUrl[0]}
             className="card__img"
           />
         </div>
@@ -30,11 +31,12 @@ export const ProductCard: React.FC<Props> = memo(({ product }) => {
           aria-label="add to favorite"
           type="button"
           className="card__button"
-          onClick={() => handleChooseCart(product, 'favourites')}
+          onClick={() => useFavoriteStore.getState().trigger(product)}
         >
           <div
             className={cn('icon icon--favorite-icon icon--hover card__icon', {
-              'icon--favorite-icon-blue': inFavourite,
+              'icon--favorite-icon-blue':
+                favorites.find(f => f.id === id),
             })}
           />
         </button>

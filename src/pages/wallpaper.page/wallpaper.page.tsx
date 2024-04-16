@@ -1,6 +1,8 @@
-import { useContext, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import cn from 'classnames';
+
+import { useFavoriteStore } from '../../store/favourite.store';
 
 import { Loader } from '../../components/Loader';
 import { getWallpapers } from '../../api/product.api';
@@ -8,10 +10,9 @@ import { TyProduct } from '../../types/Products/Products';
 import { PageNavigation } from '../../components/PageNavigation';
 import { Button } from '../../components/Button';
 import { initialDelayLoader } from '../../constants/initialDelayLoader';
+import { Search } from '../../components/Search';
 
 import './wallpaper.page.scss';
-import { Search } from '../../components/Search';
-import { GlobalContext } from '../../store/GlobalContext';
 
 /* eslint no-console: "warn" */
 
@@ -22,7 +23,7 @@ export const WallpaperPage = () => {
   const [products, setProducts] = useState<TyProduct[]>([]);
   const timerId = useRef(0);
   const { pathname } = useLocation();
-  const { handleChooseCart } = useContext(GlobalContext);
+  const { items: favorites } = useFavoriteStore(state => state);
 
   useEffect(() => {
     setIsLoading(true);
@@ -157,8 +158,8 @@ export const WallpaperPage = () => {
                 )}
                 >
                   <img
-                    src={product.imageUrl.at(0)}
-                    alt={product.imageUrl.at(0)}
+                    src={product.imgUrl.at(0)}
+                    alt={product.imgUrl.at(0)}
                     className={cn('absolute',
                       'inset-0',
                       'w-full',
@@ -171,7 +172,7 @@ export const WallpaperPage = () => {
                     aria-label="add to favorite"
                     type="button"
                     className="card__button"
-                    onClick={() => handleChooseCart(product, 'favourites')}
+                    onClick={() => useFavoriteStore.getState().trigger(product)}
                   >
                     <div
                       className={cn(
@@ -179,7 +180,8 @@ export const WallpaperPage = () => {
                         'icon--favorite-icon',
                         'icon--hover',
                         'card__icon', {
-                        'icon--favorite-icon-blue': inFavourite,
+                        'icon--favorite-icon-blue'
+                          : favorites.find(f => f.id === product.id),
                       })}
                     />
                   </button>

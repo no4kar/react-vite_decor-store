@@ -10,7 +10,7 @@ export type TyProduct = {
   tone: string;
   room: string;
   description: string;
-  imageUrl: [];
+  imgUrl: string[];
 };
 
 export enum ProductCategory {

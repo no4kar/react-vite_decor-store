@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import cn from 'classnames';
 import Slider, { Settings as SliderSettings } from 'react-slick';
@@ -12,11 +12,11 @@ import { Loader } from '../../components/Loader';
 import { ControlsButtons } from '../../components/ControlsButtons';
 import { Button } from '../../components/Button';
 import { TyService } from '../../types/Services/Services';
-import { GlobalContext } from '../../store/GlobalContext';
 import './serviceDetails.page.scss';
 
 import varsStyle from '../../helpers/varsFromStyle';
 import { getServiceById } from '../../api/service.api';
+import { useFavoriteStore } from '../../store/favourite.store';
 
 /* eslint max-len: "warn" */
 /* eslint no-console: "warn" */
@@ -24,12 +24,9 @@ import { getServiceById } from '../../api/service.api';
 export const ServiceDetailsPage = () => {
   const { id } = useParams();
   const serviceId = +(id || 0);
-  const { productsService, handleChooseCart } = useContext(GlobalContext);
   const [selectService, setSelectService] = useState<TyService | null>(null);
 
-  const generalProduct = serviceId
-    ? productsService.find(el => el.id === +serviceId)
-    : null;
+  const { items: favorites } = useFavoriteStore(state => state);
   const [isLoading, setIsLoading] = useState(false);
   const [imgIndex, setImgIndex] = useState(0);
   const timerId = useRef(0);
@@ -83,11 +80,15 @@ export const ServiceDetailsPage = () => {
     setSelectService(getServiceById(serviceId) || null); // remove after API;
   }, []);
 
+  if (!selectService) {
+    return null;
+  }
+
   return (
     <div className="product-page">
       <div className="content">
         <div className="product-page__nav">
-          <PageNavigation prodName={selectService?.name} />
+          <PageNavigation prodName={selectService.name} />
         </div>
 
         {isLoading && <Loader />}
@@ -95,20 +96,20 @@ export const ServiceDetailsPage = () => {
         {!isLoading && (
           <section className="product-page__section">
             <h3 className="title--h3 title--h3-mobile">
-              {selectService?.name}
+              {selectService.name}
             </h3>
 
             <div className="product-page__media-content">
               <img
-                src={`.${selectService?.img[imgIndex]}`}
-                alt={`.${selectService?.img[imgIndex]}`}
+                src={`.${selectService.imgUrl[imgIndex]}`}
+                alt={`.${selectService.imgUrl[imgIndex]}`}
                 className="product-page__selected-img"
               />
 
               <div className="product-page__carousel">
                 <div className="product-page__slider">
                   <Slider ref={sliderRef} {...settings}>
-                    {selectService?.img.map((imgUrl) => (
+                    {selectService.imgUrl.map((imgUrl) => (
                       <div key={imgUrl}>
                         <img
                           src={`.${imgUrl}`}
@@ -134,13 +135,13 @@ export const ServiceDetailsPage = () => {
             <div className="product-page__info">
               <div className="product-page__info-wrap">
                 <p className="product-page__description">
-                  {selectService?.description}
+                  {selectService.description}
                 </p>
 
                 <div className="product-page__care">
                   <h4 className="product-page__subtitle">Склад</h4>
                   <p className="product-page__value">
-                    {selectService?.category}
+                    {selectService.categoryId}
                   </p>
                 </div>
 
@@ -148,7 +149,7 @@ export const ServiceDetailsPage = () => {
                   <div className="product-page__size">
                     <h4 className="product-page__subtitle">Витрата</h4>
                     <p className="product-page__value">
-                      {selectService?.price}
+                      {selectService.price}
                     </p>
                   </div>
                 </div>
@@ -166,14 +167,12 @@ export const ServiceDetailsPage = () => {
                   type="button"
                   className="product-page__button"
                   onClick={() => {
-                    if (generalProduct) {
-                      handleChooseCart(generalProduct, 'favourites');
-                    }
+                    useFavoriteStore.getState().trigger(selectService);
                   }}
                 >
                   <div
                     className={cn('icon icon--favorite-icon icon--hover', {
-                      'icon--favorite-icon-blue': generalProduct?.inFavourite,
+                      'icon--favorite-icon-blue': favorites.find(f => f.id === selectService?.id),
                     })}
                   />
                 </button>

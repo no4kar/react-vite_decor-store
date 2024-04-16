@@ -1,16 +1,14 @@
 import React from 'react';
-import { TyService as Product } from '../../../types/Services/Services';
 import { CustomInputNumber } from '../../../components/CustomInputNumber';
 import './table.products.order.scss';
+import { TyInCart } from '../../../store/cart.store';
 
 type Props = {
-  cartItemsOrder: Product[];
-  handleChooseCart: (product: Product, action: string) => void;
+  cartItemsOrder: TyInCart[];
 };
 
 export const TableProductsOrder: React.FC<Props> = ({
   cartItemsOrder,
-  handleChooseCart,
 }) => {
   const totalPrice = cartItemsOrder.reduce(
     (acc, el) => acc + el.price * el.quantity,
@@ -33,7 +31,7 @@ export const TableProductsOrder: React.FC<Props> = ({
               <th aria-label="product img and main info">
                 <div className="mainInfo">
                   <img
-                    src={product.img[0] || '../../../img/products/01.png'}
+                    src={product.imgUrl.at(0) || '/img/products/01.png'}
                     alt={product.name}
                     className="mainInfo__img"
                   />
@@ -51,8 +49,7 @@ export const TableProductsOrder: React.FC<Props> = ({
 
               <th aria-label="you can control quantity">
                 <CustomInputNumber
-                  changeQuantity={action => handleChooseCart(product, action)}
-                  quantity={product.quantity}
+                  product={product}
                 />
               </th>
             </tr>

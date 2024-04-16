@@ -1,11 +1,8 @@
 export type TyService = {
   id: number;
-  category: number;
+  categoryId: number;
   name: string;
   description: string;
   price: number;
-  img: string[];
-  inFavourite: boolean;
-  inCart: boolean;
-  quantity: number;
+  imgUrl: string[];
 };

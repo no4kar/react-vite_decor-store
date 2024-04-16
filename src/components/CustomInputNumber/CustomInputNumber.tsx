@@ -1,30 +1,29 @@
 import React from 'react';
 import './CustomInputNumber.scss';
+import { useCartStore } from '../../store/cart.store';
+import { TyProduct } from '../../types/Products/Products';
 
 type Props = {
-  changeQuantity: (action: string) => void;
-  quantity: number;
+  product: TyProduct;
 };
 
 export const CustomInputNumber: React.FC<Props> = ({
-  changeQuantity,
-  quantity,
+  product
 }) => {
+  const { items: productsInCart } = useCartStore(state => state);
+  const foundProduct = productsInCart.find(p => p.id === product.id);
+
   const handleIncrease = () => {
-    if (quantity && quantity <= 10) {
-      changeQuantity('addQuantity');
-    }
+    useCartStore.getState().increase(product);
   };
 
   const handleDecrease = () => {
-    if (quantity && quantity > 1) {
-      changeQuantity('deleteQuantity');
-    }
+    useCartStore.getState().decrease(product);
   };
 
   return (
     <div className="quantity">
-      <input type="number" step="1" value={quantity} />
+      <input type="number" step="1" value={foundProduct?.quantity} />
       <div className="quantity-nav">
         <button
           className="quantity-button quantity-up"

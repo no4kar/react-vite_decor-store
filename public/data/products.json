@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "SomeProduct-1",
-    "categoryId": 1,
+    "categoryId": 3,
     "price": 4544,
     "country": "SomeCountry-1",
     "producer": "SomeProducer-1",
@@ -11,7 +11,7 @@
     "tone": "SomeTone",
     "room": "SomeRoom",
     "description": "SomeDescription",
-    "imageUrl": [
+    "imgUrl": [
       "./img/products/1.png",
       "./img/products/2.png",
       "./img/products/2.png",
@@ -24,7 +24,7 @@
   {
     "id": 2,
     "name": "SomeProduct-2",
-    "categoryId": 1,
+    "categoryId": 3,
     "price": 111,
     "country": "SomeCountry",
     "producer": "SomeProducer",
@@ -33,7 +33,7 @@
     "tone": "SomeTone",
     "room": "SomeRoom",
     "description": "SomeDescription",
-    "imageUrl": [
+    "imgUrl": [
       "./img/products/2.png",
       "./img/products/1.png",
       "./img/products/2.png",
@@ -46,7 +46,7 @@
   {
     "id": 3,
     "name": "SomeProduct-3",
-    "categoryId": 1,
+    "categoryId": 3,
     "price": 777,
     "country": "SomeCountry-1",
     "producer": "SomeProducer-1",
@@ -55,7 +55,7 @@
     "tone": "SomeTone",
     "room": "SomeRoom",
     "description": "SomeDescription",
-    "imageUrl": [
+    "imgUrl": [
       "./img/products/1.png",
       "./img/products/2.png",
       "./img/products/2.png",
@@ -76,7 +76,7 @@
     "tone": "SomeTone",
     "room": "SomeRoom",
     "description": "Вінілові шпалери на флізеліновій основі",
-    "imageUrl": [
+    "imgUrl": [
       "./img/products/wallpaper4.png",
       "./img/products/wallpaper4.png",
       "./img/products/wallpaper4.png",
@@ -97,7 +97,7 @@
     "tone": "SomeTone",
     "room": "SomeRoom",
     "description": "Вінілові шпалери на флізеліновій основі",
-    "imageUrl": [
+    "imgUrl": [
       "./img/products/wallpaper5.png",
       "./img/products/wallpaper5.png",
       "./img/products/wallpaper5.png",
@@ -118,7 +118,7 @@
     "tone": "SomeTone",
     "room": "SomeRoom",
     "description": "Фотошпалери Lorem ipsum dolor sit amet",
-    "imageUrl": [
+    "imgUrl": [
       "./img/products/wallpaper6.png",
       "./img/products/wallpaper6.png",
       "./img/products/wallpaper6.png",

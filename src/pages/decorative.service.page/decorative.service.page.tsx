@@ -1,14 +1,12 @@
-import { useContext, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { initialDelayLoader } from '../../constants/initialDelayLoader';
 import { PageNavigation } from '../../components/PageNavigation';
 import { Loader } from '../../components/Loader';
-import { GlobalContext } from '../../store/GlobalContext';
 import { ProductCard } from '../../components/ProductCard';
-import { getServiceDecorative } from '../../helpers/getProductsByCategories';
 import './decorative.service.page.scss';
+import { getServices } from '../../api/service.api';
 
 export const DecorativeService = () => {
-  const { productsService } = useContext(GlobalContext);
   const [isLoading, setIsLoading] = useState(false);
   const timerId = useRef(0);
 
@@ -21,7 +19,7 @@ export const DecorativeService = () => {
     }, initialDelayLoader);
   }, []);
 
-  const visibleProducts = getServiceDecorative(productsService, 1);
+  const visibleProducts = getServices();
 
   return (
     <div className="decorativeService">

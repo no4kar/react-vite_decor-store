@@ -1,17 +1,15 @@
-import { useContext, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { FormPage } from '../../components/FormPage';
 import { PageNavigation } from '../../components/PageNavigation';
 import { Loader } from '../../components/Loader';
 import { initialDelayLoader } from '../../constants/initialDelayLoader';
-import { GlobalContext } from '../../store/GlobalContext';
-import { getCartBaskets } from '../../helpers/getProductsByCategories';
 import { TableProductsOrder } from './table.products.order';
 import './place.an.order.scss';
+import { useCartStore } from '../../store/cart.store';
 
 export const PlaceAnOrder = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const { localStore, handleChooseCart } = useContext(GlobalContext);
-  const cartItemsOrder = getCartBaskets(localStore);
+  const { items: cartItemsOrder } = useCartStore(state => state);
   const timerId = useRef(0);
 
   useEffect(() => {
@@ -36,7 +34,6 @@ export const PlaceAnOrder = () => {
           <FormPage formVersion="order">
             <TableProductsOrder
               cartItemsOrder={cartItemsOrder}
-              handleChooseCart={handleChooseCart}
             />
           </FormPage>
         )}

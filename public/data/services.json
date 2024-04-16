@@ -1,10 +1,10 @@
 [
   {
-    "id": 1,
-    "category": 1,
+    "id": 1001,
+    "categoryId": 1,
     "name": "Artbeton",
     "description": "Імітація бетону, товстошарова штукатурка, що має своєрідну структуру.",
-    "img": [
+    "imgUrl": [
       "./img/products/1.png",
       "./img/products/2.png",
       "./img/products/3.png",
@@ -14,11 +14,11 @@
     "price": 1000
   },
   {
-    "id": 2,
-    "category": 1,
+    "id": 1002,
+    "categoryId": 1,
     "name": "Marmorino",
     "description": "Натуральне декоративне вапняне покриття, що імітує натуральний мармур.",
-    "img": [
+    "imgUrl": [
       "./img/products/2.png",
       "./img/products/1.png",
       "./img/products/3.png",
@@ -28,11 +28,11 @@
     "price": 1000
   },
   {
-    "id": 3,
-    "category": 1,
+    "id": 1003,
+    "categoryId": 1,
     "name": "Wet silk",
     "description": "Декоративне покриття з ефектом мерехтіння",
-    "img": [
+    "imgUrl": [
       "./img/products/3.png",
       "./img/products/2.png",
       "./img/products/1.png",
@@ -42,11 +42,11 @@
     "price": 1000
   },
   {
-    "id": 4,
-    "category": 1,
+    "id": 1004,
+    "categoryId": 1,
     "name": "STUCCO VENEZIANO",
     "description": "Венеціанська штукатурка - ідеальний спосіб облицювання стін під полірований мармур.",
-    "img": [
+    "imgUrl": [
       "./img/products/4.png",
       "./img/products/1.png",
       "./img/products/2.png",
@@ -56,11 +56,11 @@
     "price": 1000
   },
   {
-    "id": 5,
-    "category": 1,
+    "id": 1005,
+    "categoryId": 1,
     "name": "STUVENEZIANCCO O",
     "description": "Венеціанська штукатурка - ідеальний спосіб облицювання стін під полірований мармур.",
-    "img": [
+    "imgUrl": [
       "./img/products/5.png",
       "./img/products/3.png",
       "./img/products/1.png",
@@ -70,22 +70,22 @@
     "price": 1000
   },
   {
-    "id": 7,
-    "category": 2,
+    "id": 1007,
+    "categoryId": 2,
     "name": "ФОТОШПАЛЕРИ",
     "description": "вінілові шпалери на флізеліновій основі",
-    "img": [
+    "imgUrl": [
       "./img/products/1.png",
       "./img/products/2.png"
     ],
     "price": 1000
   },
   {
-    "id": 8,
-    "category": 2,
+    "id": 1008,
+    "categoryId": 2,
     "name": "ФОТОШПАЛЕРИ",
     "description": "Наше виробництво надає можливість надрукувати будь-який розмір, який забажає замовник. Кількість листів залежить від розмірів, які ви нам надаєте.При замовлені наших фотошпалер, також можливо замовити послуги з поклейки у м.Київ.",
-    "img": [
+    "imgUrl": [
       "./img/gallery/02.png",
       "./img/gallery/03.png",
       "./img/gallery/01.png"
@@ -93,11 +93,11 @@
     "price": 1000
   },
   {
-    "id": 9,
-    "category": 2,
+    "id": 1009,
+    "categoryId": 2,
     "name": "ФОТОШПАЛЕРИ",
     "description": "При замовлені наших фотошпалер, також можливо замовити послуги з поклейки у м.Київ.",
-    "img": [
+    "imgUrl": [
       "./img/gallery/04.png",
       "./img/gallery/02.png",
       "./img/gallery/03.png",
@@ -107,11 +107,11 @@
     "price": 1000
   },
   {
-    "id": 10,
-    "category": 2,
+    "id": 10010,
+    "categoryId": 2,
     "name": "STUVENEZIANCCO",
     "description": "Наше виробництво надає також можливо замовити послуги з поклейки у м.Київ.",
-    "img": [
+    "imgUrl": [
       "./img/advantages/01.png",
       "./img/advantages/02.png",
       "./img/advantages/03.png"
