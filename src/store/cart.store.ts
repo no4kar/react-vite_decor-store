@@ -70,5 +70,5 @@ export const useCartStore = create<CartState>((set) => ({
 
 }));
 
-// const { items: yourVarName } = useItemsStore((state) => state);
+// const items = useItemsStore((state) => state.items);
 // useItemsStore.getState().storeMethod(item);

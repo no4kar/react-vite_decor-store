@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useSearchParams } from 'react-router-dom';
 import cn from 'classnames';
 
 import { useFavoriteStore } from '../../store/favourite.store';
@@ -12,10 +12,13 @@ import { Search } from '../../components/Search';
 
 import './wallpaper.page.scss';
 import { useProductStore } from '../../store/product.store';
+import { SearchParamsName } from '../../helpers/searchHelper';
 
 /* eslint no-console: "warn" */
 
 export const WallpaperPage = () => {
+  console.log('render');
+
   const {
     products,
     isLoading,
@@ -25,13 +28,20 @@ export const WallpaperPage = () => {
   const [isAsideOpen, setIsAsideOpen] = useState(false);
   const { pathname } = useLocation();
   const { items: favorites } = useFavoriteStore(state => state);
-  const wallpapers = getWallpapers(products);
+  const [searchParams] = useSearchParams();
+
+  const query
+    = (searchParams.get(SearchParamsName.QUERY) || '').toLocaleLowerCase();
+
+  const wallpapers = getWallpapers(products).filter((p) => {
+    return `${p.producer}/${p.collection}/${p.country}`
+      .toLocaleLowerCase().includes(query);
+  });
 
   useEffect(() => {
     fetchData();
   }, []);
 
-  console.log('render');
 
   return (
     <div className="Wallpaper relative">

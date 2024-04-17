@@ -31,5 +31,5 @@ export const useFavoriteStore = create<FavoriteState>((set) => ({
   }),
 }));
 
-// const { items: yourVarName } = useItemsStore((state) => state);
+// const { items: yourVarName } = useItemsStore();
 // useItemsStore.getState().storeMethod(item);
