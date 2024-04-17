@@ -13,8 +13,8 @@ export function getProductById(id: number) {
   );
 }
 
-export function getWallpapers() {
-  return (products as TyProduct[]).filter(
-    product => product.categoryId === ProductCategory.Wallpaper);
+export function getWallpapers(items: TyProduct[]) {
+  return items.filter(
+    item => item.categoryId === ProductCategory.Wallpaper);
   // return client.get<TyProduct['Wallpaper'][]>('/v1/products/all/1');
 }

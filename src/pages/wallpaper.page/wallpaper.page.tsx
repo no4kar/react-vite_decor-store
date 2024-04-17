@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import cn from 'classnames';
 
@@ -6,45 +6,28 @@ import { useFavoriteStore } from '../../store/favourite.store';
 
 import { Loader } from '../../components/Loader';
 import { getWallpapers } from '../../api/product.api';
-import { TyProduct } from '../../types/Products/Products';
 import { PageNavigation } from '../../components/PageNavigation';
 import { Button } from '../../components/Button';
-import { initialDelayLoader } from '../../constants/initialDelayLoader';
 import { Search } from '../../components/Search';
 
 import './wallpaper.page.scss';
+import { useProductStore } from '../../store/product.store';
 
 /* eslint no-console: "warn" */
 
 export const WallpaperPage = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  const {
+    products,
+    isLoading,
+    error: hasError,
+    fetchData,
+  } = useProductStore();
   const [isAsideOpen, setIsAsideOpen] = useState(false);
-  const [hasError, setHasError] = useState('');
-  const [products, setProducts] = useState<TyProduct[]>([]);
-  const timerId = useRef(0);
   const { pathname } = useLocation();
   const { items: favorites } = useFavoriteStore(state => state);
+  const wallpapers = getWallpapers(products);
 
   useEffect(() => {
-    setIsLoading(true);
-    window.clearTimeout(timerId.current);
-
-    const fetchData = async () => {
-      setHasError('');
-
-      try {
-        const loadedProducts = await getWallpapers();
-
-        setProducts(loadedProducts);
-      } catch (error) {
-        setHasError('Something went wrong');
-      }
-    };
-
-    timerId.current = window.setTimeout(() => {
-      setIsLoading(false);
-    }, initialDelayLoader);
-
     fetchData();
   }, []);
 
@@ -142,7 +125,7 @@ export const WallpaperPage = () => {
               'md:grid-cols-4',
             )}
           >
-            {products.map((product) => (
+            {wallpapers.map((product) => (
               <div
                 key={product.id}
                 className={cn(
