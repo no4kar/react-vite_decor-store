@@ -1,121 +1,85 @@
-import { useState } from 'react';
-import classNames from 'classnames';
 import { Link } from 'react-router-dom';
+import Dropdown, { TyDropdownOption } from '../Dropdown/Dropdown';
+
 import './Menu.scss';
 
+const optionsService: TyDropdownOption[] = [
+  <h4 className="title--h4 font-semibold text-black">
+    Послуги
+  </h4 >,
+  <Link to="/service_decorative">
+    <p className="title--body-text">
+      Нанесення декоративного покриття
+    </p>
+  </Link>,
+  <Link to="/service_hang_wallpaper">
+    <p className="title--body-text">
+      Поклейка шпалер
+    </p>
+  </Link>,
+  <Link to="/paint_tinting">
+    <p className="title--body-text">
+      Тонування фарб
+    </p>
+  </Link>,
+].map((item, i) => ({ value: String(i), content: item, }));
+
+const optionsProduct: TyDropdownOption[] = [
+  <h4 className="title--h4 font-semibold text-black">
+    Продукція
+  </h4 >,
+  <Link to="/wallpaper">
+    <p className="title--body-text">Шпалери</p>
+  </Link>,
+  <Link to="/paint">
+    <p className="title--body-text">Фарба</p>
+  </Link>,
+].map((item, i) => ({ value: String(i), content: item, }));
+
+
 export const Menu = () => {
-  const [isOpenServices, setIsOpenServices] = useState(false);
-  const [isOpenProducts, setIsOpenProducts] = useState(false);
-
   return (
-    <aside className="menu">
-      <div className="menu__content">
-        <ul className="menu__categorys">
-          <li className="menu__category-item">
-            <button
-              type="button"
-              className="menu__category-btn"
-              onClick={() => setIsOpenServices(!isOpenServices)}
-            >
-              <div className="menu__category-title">
-                <h4
-                  className={classNames('menu__category-name', {
-                    'menu__category-name--is-active': isOpenServices,
-                  })}
-                >
-                  Послуги
-                </h4>
+    <aside
+      className="
+    absolute top-[76px] left-0 right-0 z-10
+    bg-gray-300
+    sm:hidden"
+    >
+      <ul className="px-[20px] py-[10px]">
+        <li>
+          <Dropdown
+            selectedValue='0'
+            options={optionsService}
+            isThereSelectedInList={false}
+            activeClass='text-accent'
+          />
+        </li>
 
-                <div
-                  className={classNames('icon', 'icon__arrow-blue', {
-                    'icon__arrow-blue--up': isOpenServices,
-                  })}
-                />
-              </div>
-            </button>
+        <li>
+          <Dropdown
+            selectedValue='0'
+            options={optionsProduct}
+            isThereSelectedInList={false}
+            activeClass='text-accent'
+          />
+        </li>
 
-            {isOpenServices && (
-              <ul className="menu__subcategorys">
-                <li className="menu__subcategory-item">
-                  <Link to="/service_decorative">
-                    <p className="menu__subcategory-name">
-                      Нанесення декоративного покриття
-                    </p>
-                  </Link>
-                </li>
+        <li>
+          <div className="p-[10px] flex justify-start">
+            <Link to="/about_us">
+              <h4 className="title--h4 font-semibold text-black">Про нас</h4>
+            </Link>
+          </div>
+        </li>
 
-                <li className="menu__subcategory-item">
-                  <Link to="/service_hang_wallpaper">
-                    <p className="menu__subcategory-name">Поклейка шпалер</p>
-                  </Link>
-                </li>
-
-                <li className="menu__subcategory-item">
-                  <Link to="/paint_tinting">
-                    <p className="menu__subcategory-name">Тонування фарб</p>
-                  </Link>
-                </li>
-              </ul>
-            )}
-          </li>
-
-          <li className="menu__category-item">
-            <button
-              type="button"
-              className="menu__category-btn"
-              onClick={() => setIsOpenProducts(!isOpenProducts)}
-            >
-              <div className="menu__category-title">
-                <h4
-                  className={classNames('menu__category-name', {
-                    'menu__category-name--is-active': isOpenProducts,
-                  })}
-                >
-                  Продукція
-                </h4>
-
-                <div
-                  className={classNames('icon', 'icon__arrow-blue', {
-                    'icon__arrow-blue--up': isOpenProducts,
-                  })}
-                />
-              </div>
-            </button>
-
-            {isOpenProducts && (
-              <ul className="menu__subcategorys">
-                <li className="menu__subcategory-item">
-                  <Link to="/wallpaper">
-                    <p className="menu__subcategory-name">Шпалери</p>
-                  </Link>
-                </li>
-
-                <li className="menu__subcategory-item">
-                  <Link to="/paint">
-                    <p className="menu__subcategory-name">Фарба</p>
-                  </Link>
-                </li>
-              </ul>
-            )}
-          </li>
-
-          <li className="menu__category-item">
-            <div className="menu__category-title">
-              <Link to="/about_us">
-                <h4 className="menu__category-name">Про нас</h4>
-              </Link>
-            </div>
-          </li>
-
-          <li className="menu__category-item">
-            <div className="menu__category-title">
-              <Link to="/contacts">
-                <h4 className="menu__category-name">Контакти</h4>
-              </Link>
-            </div>
-          </li>
-        </ul>
-      </div>
+        <li>
+          <div className="p-[10px] flex justify-start">
+            <Link to="/contacts">
+              <h4 className="title--h4 font-semibold text-black">Контакти</h4>
+            </Link>
+          </div>
+        </li>
+      </ul>
     </aside>
   );
 };

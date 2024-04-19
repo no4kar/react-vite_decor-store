@@ -3,6 +3,13 @@ export default {
   content: ['./src/**/*.{html,js,jsx,ts,tsx}'],
   theme: {
     extend: {
+      fontFamily: {
+        manrope: {
+          regular: ['"Manrope Regular"', 'Helvetica Neue', 'Arial', 'sans-serif'],
+          light: ['"Manrope Light"', 'Helvetica Neue', 'Arial', 'sans-serif'],
+          medium: ['"Manrope Medium"', 'Helvetica Neue', 'Arial', 'sans-serif'],
+        },
+      },
       colors: {
         'black': '#202020',
         'gray': {
