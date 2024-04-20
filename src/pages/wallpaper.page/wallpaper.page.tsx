@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import cn from 'classnames';
 
@@ -9,14 +9,18 @@ import { Search } from '../../components/Search';
 
 import './wallpaper.page.scss';
 import { useProductStore } from '../../store/product.store';
-import { SearchParamsName } from '../../helpers/searchHelper';
+import {
+  SearchParams, SearchParamsName, getSearchWith
+} from '../../helpers/searchHelper';
 import ProductCard2 from '../../components/ProductCard2/ProductCard2';
+import DropdownMultiSelect
+  from '../../components/DropdownMultiSelect/DropdownMultiSelect';
+
 
 /* eslint no-console: "warn" */
 
 export const WallpaperPage = () => {
   console.log('render');
-
   const {
     products,
     isLoading,
@@ -24,29 +28,87 @@ export const WallpaperPage = () => {
     fetchData,
   } = useProductStore();
   const [isAsideOpen, setIsAsideOpen] = useState(false);
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const setSearchWith = useCallback((params: SearchParams) => {
+    setSearchParams(getSearchWith(searchParams, params));
+  }, [setSearchParams, searchParams]);
 
   const query
     = (searchParams.get(SearchParamsName.QUERY) || '').toLocaleLowerCase();
+  const selectedCountries
+    = searchParams.getAll(SearchParamsName.COUNTRY);
+  const selectedCollections
+    = searchParams.getAll(SearchParamsName.COLLECTION);
 
-  const wallpapers = getWallpapers(products).filter((p) => {
-    return `${p.producer}/${p.collection}/${p.country}`
-      .toLocaleLowerCase().includes(query);
-  });
+  const wallpapers = React.useMemo(
+    () => getWallpapers(products),
+    [products],
+  );
+
+  const wallpaperOptions = React.useMemo(
+    () => wallpapers.reduce((a, c) => {
+      a[SearchParamsName.COUNTRY].add(c[SearchParamsName.COUNTRY]);
+      a[SearchParamsName.COLLECTION].add(c[SearchParamsName.COLLECTION]);
+
+      return a;
+    }, {
+      [SearchParamsName.COUNTRY]: new Set<string>(),
+      [SearchParamsName.COLLECTION]: new Set<string>(),
+    }),
+    [wallpapers],
+  );
+
+  const wallpaperCountries = React.useMemo(
+    () => Array.from(wallpaperOptions[SearchParamsName.COUNTRY])
+      .map((item) => ({ value: item, content: item, })),
+    [wallpaperOptions],
+  );
+
+  const wallpaperCollections = React.useMemo(
+    () => Array.from(wallpaperOptions[SearchParamsName.COLLECTION])
+      .map((item) => ({ value: encodeURIComponent(item), content: item, })),
+    [wallpaperOptions],
+  );
+
+  const visibleWallpapers = wallpapers
+    .filter((p) => (
+      (selectedCountries.length
+        ? selectedCountries.includes(p.country)
+        : true)
+      && (selectedCollections.length
+        ? selectedCollections.includes(encodeURIComponent(p.collection))
+        : true)
+    ))
+    .filter((p) => {
+      return `${p.id}/${p.producer}/${p.collection}/${p.country}`
+        .toLocaleLowerCase().includes(query);
+    });
 
   useEffect(() => {
     fetchData();
   }, []);
 
+  const handleCountryChange = (value: string[]): void => {
+    setSearchWith({
+      [SearchParamsName.COUNTRY]: value || null,
+    });
+  };
+
+  const handleCollectionChange = (value: string[]): void => {
+    setSearchWith({
+      [SearchParamsName.COLLECTION]: value || null,
+    });
+  };
 
   return (
-    <div className="Wallpaper relative">
+    <div className="Wallpaper relative min-h-screen">
       <aside
         id="sidebar"
         className={cn(
           'absolute top-0 left-0 bottom-0 right-0 z-10',
-          'flex flex-row',
-          'w-full',
+          'flex flex-col',
+          'h-full w-[320px]',
+          'bg-white',
           'border border-red-500 border-solid',
           'pointer-events-none',
           'transform -translate-x-full',
@@ -57,7 +119,11 @@ export const WallpaperPage = () => {
           }
         )}
       >
-        <div className="h-full w-[320px] bg-white uppercase">
+        <div className="
+        flex justify-end
+        h-fit
+        border border-red-500 border-solid
+        ">
           <button
             type="button"
             aria-label="filter"
@@ -72,7 +138,42 @@ export const WallpaperPage = () => {
             <i className="icon icon--filter" />
           </button>
         </div>
-        {/* <div className="h-full flex-1 bg-gray-800 opacity-50" /> */}
+
+        <ul
+          className="
+          px-[24px] pt-[8px]
+          "
+        >
+          <li>
+            <DropdownMultiSelect
+              placeholder={
+                <div className="flex gap-[8px]">
+                  <img src="./icons/globe-01.svg" alt="globe-01.svg" />
+                  <p>Countries</p>
+                </div>
+              }
+              options={wallpaperCountries}
+              selectedOptions={selectedCountries}
+              onChange={handleCountryChange}
+            />
+          </li>
+
+          <li>
+            <DropdownMultiSelect
+              placeholder={
+                <div className="flex gap-[8px]">
+                  <img src="./icons/grid-01.svg" alt="globe-01.svg" />
+                  <p>Collections</p>
+                </div>
+              }
+              options={wallpaperCollections}
+              selectedOptions={selectedCollections}
+              onChange={handleCollectionChange}
+            />
+          </li>
+        </ul>
+
+
       </aside>
 
       <div className={cn('content flex flex-col gap-[40px]', {
@@ -131,7 +232,7 @@ export const WallpaperPage = () => {
               'md:grid-cols-4',
             )}
           >
-            {wallpapers.map((product) => (
+            {visibleWallpapers.map((product) => (
               <ProductCard2
                 key={product.id}
                 product={product} />

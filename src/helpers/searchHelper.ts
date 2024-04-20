@@ -4,9 +4,16 @@ export type SearchParams = {
 
 export enum SearchParamsName {
   SORT = 'sort',
+  SORT_BY_PRICE = 'sortByPrice',
   ITEM_PER_PAGE = 'itemsPerPage',
   PAGE = 'page',
   QUERY = 'query',
+  TYPE = 'type',
+  COUNTRY = 'country',
+  PRODUCER = 'producer',
+  COLLECTION = 'collection',
+  TONE = 'tone',
+  ROOM = 'room',
 }
 
 /**

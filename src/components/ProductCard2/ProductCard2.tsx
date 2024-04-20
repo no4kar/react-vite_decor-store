@@ -6,12 +6,10 @@ import { TyProduct } from '../../types/Products/Products';
 import { Button } from '../Button';
 import { useFavoriteStore } from '../../store/favourite.store';
 
-type Props = {
-  product: TyProduct;
-};
-
-const ProductCard2: React.FC<Props> = React.memo(({
+const ProductCard2 = ({
   product
+}: {
+  product: TyProduct;
 }) => {
   const { items: favorites } = useFavoriteStore();
   const { pathname } = useLocation();
@@ -104,6 +102,6 @@ const ProductCard2: React.FC<Props> = React.memo(({
       </div>
     </div>
   );
-});
+};
 
-export default ProductCard2;
+export default React.memo(ProductCard2);

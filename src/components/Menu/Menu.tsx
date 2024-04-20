@@ -37,15 +37,23 @@ const optionsProduct: TyDropdownOption[] = [
 ].map((item, i) => ({ value: String(i), content: item, }));
 
 
-export const Menu = () => {
+export const Menu = ({
+  onBlur = () => { },
+}: {
+  onBlur: (event: React.FocusEvent<HTMLUListElement> | null) => void,
+}) => {
+
   return (
     <aside
       className="
     absolute top-[76px] left-0 right-0 z-10
     bg-gray-300
     sm:hidden"
+      onBlur={() => onBlur(null)}
     >
-      <ul className="px-[20px] py-[10px]">
+      <ul
+        className="px-[20px] py-[10px]"
+      >
         <li>
           <Dropdown
             selectedValue='0'
