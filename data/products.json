@@ -64,8 +64,11 @@
       "./img/products/2.png"
     ]
   },
+
+
+
   {
-    "id": 4,
+    "id": 32321,
     "name": "SomeProduct-4",
     "categoryId": 2,
     "price": 1100,
@@ -77,20 +80,20 @@
     "room": "SomeRoom",
     "description": "Вінілові шпалери на флізеліновій основі",
     "imgUrl": [
-      "./img/products/wallpaper4.png",
-      "./img/products/wallpaper4.png",
-      "./img/products/wallpaper4.png",
-      "./img/products/wallpaper4.png",
-      "./img/products/wallpaper4.png",
-      "./img/products/wallpaper4.png"
+      "https://drive.google.com/thumbnail?id=1UhkwAu6_MY0sE_0wxCyi2uYbK3B_inZq&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1UhkwAu6_MY0sE_0wxCyi2uYbK3B_inZq&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1UhkwAu6_MY0sE_0wxCyi2uYbK3B_inZq&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1UhkwAu6_MY0sE_0wxCyi2uYbK3B_inZq&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1UhkwAu6_MY0sE_0wxCyi2uYbK3B_inZq&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1UhkwAu6_MY0sE_0wxCyi2uYbK3B_inZq&sz=w1000"
     ]
   },
   {
-    "id": 5,
+    "id": 32325,
     "name": "SomeProduct-5",
     "categoryId": 2,
     "price": 1300,
-    "country": "Бельгія",
+    "country": "Італія",
     "producer": "MARBURG",
     "collection": "City Glam",
     "type": "Вінілові шпалери на флізеліновій основі",
@@ -98,16 +101,16 @@
     "room": "SomeRoom",
     "description": "Вінілові шпалери на флізеліновій основі",
     "imgUrl": [
-      "./img/products/wallpaper5.png",
-      "./img/products/wallpaper5.png",
-      "./img/products/wallpaper5.png",
-      "./img/products/wallpaper5.png",
-      "./img/products/wallpaper5.png",
-      "./img/products/wallpaper5.png"
+      "https://drive.google.com/thumbnail?id=1cOQYvLaYPT-M6dV8KNGxJ0vFOSn_eScq&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1cOQYvLaYPT-M6dV8KNGxJ0vFOSn_eScq&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1cOQYvLaYPT-M6dV8KNGxJ0vFOSn_eScq&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1cOQYvLaYPT-M6dV8KNGxJ0vFOSn_eScq&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1cOQYvLaYPT-M6dV8KNGxJ0vFOSn_eScq&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1cOQYvLaYPT-M6dV8KNGxJ0vFOSn_eScq&sz=w1000"
     ]
   },
   {
-    "id": 6,
+    "id": 32326,
     "name": "SomeProduct-6",
     "categoryId": 2,
     "price": 1500,
@@ -119,12 +122,54 @@
     "room": "SomeRoom",
     "description": "Фотошпалери Lorem ipsum dolor sit amet",
     "imgUrl": [
-      "./img/products/wallpaper6.png",
-      "./img/products/wallpaper6.png",
-      "./img/products/wallpaper6.png",
-      "./img/products/wallpaper6.png",
-      "./img/products/wallpaper6.png",
-      "./img/products/wallpaper6.png"
+      "https://drive.google.com/thumbnail?id=1DgU3bGwzTVnhM9TbrlB6itiN5xZYw3K1&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1DgU3bGwzTVnhM9TbrlB6itiN5xZYw3K1&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1DgU3bGwzTVnhM9TbrlB6itiN5xZYw3K1&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1DgU3bGwzTVnhM9TbrlB6itiN5xZYw3K1&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1DgU3bGwzTVnhM9TbrlB6itiN5xZYw3K1&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1DgU3bGwzTVnhM9TbrlB6itiN5xZYw3K1&sz=w1000"
+    ]
+  },
+  {
+    "id": 32327,
+    "name": "SomeProduct-6",
+    "categoryId": 2,
+    "price": 1500,
+    "country": "Бельгія",
+    "producer": "GRANDECO",
+    "collection": "Feeling",
+    "type": "Фотошпалери",
+    "tone": "SomeTone",
+    "room": "SomeRoom",
+    "description": "Фотошпалери Lorem ipsum dolor sit amet",
+    "imgUrl": [
+      "https://drive.google.com/thumbnail?id=149l5L0nL8serEVxJX0LB7yx7XDG3NcO9&sz=w1000",
+      "https://drive.google.com/thumbnail?id=149l5L0nL8serEVxJX0LB7yx7XDG3NcO9&sz=w1000",
+      "https://drive.google.com/thumbnail?id=149l5L0nL8serEVxJX0LB7yx7XDG3NcO9&sz=w1000",
+      "https://drive.google.com/thumbnail?id=149l5L0nL8serEVxJX0LB7yx7XDG3NcO9&sz=w1000",
+      "https://drive.google.com/thumbnail?id=149l5L0nL8serEVxJX0LB7yx7XDG3NcO9&sz=w1000",
+      "https://drive.google.com/thumbnail?id=149l5L0nL8serEVxJX0LB7yx7XDG3NcO9&sz=w1000"
+    ]
+  },
+  {
+    "id": 32328,
+    "name": "SomeProduct-6",
+    "categoryId": 2,
+    "price": 1500,
+    "country": "Бельгія",
+    "producer": "GRANDECO",
+    "collection": "Feeling",
+    "type": "Фотошпалери",
+    "tone": "SomeTone",
+    "room": "SomeRoom",
+    "description": "Фотошпалери Lorem ipsum dolor sit amet",
+    "imgUrl": [
+      "https://drive.google.com/thumbnail?id=1x77Cy-qYuCSVPe0tFAeQMC_RHEs4D0FE&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1x77Cy-qYuCSVPe0tFAeQMC_RHEs4D0FE&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1x77Cy-qYuCSVPe0tFAeQMC_RHEs4D0FE&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1x77Cy-qYuCSVPe0tFAeQMC_RHEs4D0FE&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1x77Cy-qYuCSVPe0tFAeQMC_RHEs4D0FE&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1x77Cy-qYuCSVPe0tFAeQMC_RHEs4D0FE&sz=w1000"
     ]
   }
 ]
