@@ -180,7 +180,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
           hover:scale-110
           `,onClick:()=>o(!1),children:u.jsx("i",{className:"icon icon--filter"})})}),u.jsxs("ul",{className:`
           px-[24px] pt-[8px]
-          `,children:[u.jsx("li",{children:u.jsx(rh,{placeholder:u.jsxs("div",{className:"flex gap-[8px]",children:[u.jsx("img",{src:"/icons/globe-01.svg",alt:"globe-01.svg"}),u.jsx("p",{children:"Countries"})]}),options:y,selectedOptions:d,onChange:h})}),u.jsx("li",{children:u.jsx(rh,{placeholder:u.jsxs("div",{className:"flex gap-[8px]",children:[u.jsx("img",{src:"/icons/grid-01.svg",alt:"globe-01.svg"}),u.jsx("p",{children:"Collections"})]}),options:g,selectedOptions:f,onChange:p})})]})]}),u.jsxs("div",{className:ce("content flex flex-col gap-[40px]",{"pointer-events-none":r}),children:[u.jsx(Sn,{}),t&&u.jsx(Bt,{}),u.jsx("div",{className:`
+          `,children:[u.jsx("li",{children:u.jsx(rh,{placeholder:u.jsxs("div",{className:"flex gap-[8px]",children:[u.jsx("img",{src:"./icons/globe-01.svg",alt:"globe-01.svg"}),u.jsx("p",{children:"Countries"})]}),options:y,selectedOptions:d,onChange:h})}),u.jsx("li",{children:u.jsx(rh,{placeholder:u.jsxs("div",{className:"flex gap-[8px]",children:[u.jsx("img",{src:"./icons/grid-01.svg",alt:"globe-01.svg"}),u.jsx("p",{children:"Collections"})]}),options:g,selectedOptions:f,onChange:p})})]})]}),u.jsxs("div",{className:ce("content flex flex-col gap-[40px]",{"pointer-events-none":r}),children:[u.jsx(Sn,{}),t&&u.jsx(Bt,{}),u.jsx("div",{className:`
         w-full
         h-[44px]
         border
