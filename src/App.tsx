@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Header } from './components/Header';
 import { Menu } from './components/Menu';
@@ -8,6 +8,9 @@ import './App.scss';
 
 export const App = () => {
   const [isMenu, setIsMenuActive] = useState(false);
+  const handleMenuBlur = useCallback(() => {
+    setTimeout(() => setIsMenuActive(false), 200);
+  }, []);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -15,10 +18,13 @@ export const App = () => {
 
   return (
     <div className="App">
-      <Header isMenu={isMenu} toggleMenu={setIsMenuActive} />
+      <Header
+        isMenu={isMenu}
+        toggleMenu={setIsMenuActive}
+      />
 
       <ScrollToTop />
-      {isMenu && <Menu />}
+      {isMenu && <Menu onBlur={handleMenuBlur} />}
 
       <Outlet />
 
