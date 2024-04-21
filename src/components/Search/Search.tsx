@@ -31,7 +31,7 @@ export const Search = React.memo(
 
     const applyQuery = useCallback(
       debounce(setSearchWith, 1000),
-      [location.pathname],
+      [location.pathname, searchParams],
     );// bag correction
 
     useEffect(() => { // search when switch on other page
