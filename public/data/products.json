@@ -1,73 +1,5 @@
 [
   {
-    "id": 1,
-    "name": "SomeProduct-1",
-    "categoryId": 3,
-    "price": 4544,
-    "country": "SomeCountry-1",
-    "producer": "SomeProducer-1",
-    "collection": "SomeCollection",
-    "type": "SomeType",
-    "tone": "SomeTone",
-    "room": "SomeRoom",
-    "description": "SomeDescription",
-    "imgUrl": [
-      "./img/products/1.png",
-      "./img/products/2.png",
-      "./img/products/2.png",
-      "./img/products/1.png",
-      "./img/products/2.png",
-      "./img/products/1.png",
-      "./img/products/2.png"
-    ]
-  },
-  {
-    "id": 2,
-    "name": "SomeProduct-2",
-    "categoryId": 3,
-    "price": 111,
-    "country": "SomeCountry",
-    "producer": "SomeProducer",
-    "collection": "SomeCollection",
-    "type": "SomeType",
-    "tone": "SomeTone",
-    "room": "SomeRoom",
-    "description": "SomeDescription",
-    "imgUrl": [
-      "./img/products/2.png",
-      "./img/products/1.png",
-      "./img/products/2.png",
-      "./img/products/1.png",
-      "./img/products/2.png",
-      "./img/products/1.png",
-      "./img/products/2.png"
-    ]
-  },
-  {
-    "id": 3,
-    "name": "SomeProduct-3",
-    "categoryId": 3,
-    "price": 777,
-    "country": "SomeCountry-1",
-    "producer": "SomeProducer-1",
-    "collection": "SomeCollection",
-    "type": "SomeType",
-    "tone": "SomeTone",
-    "room": "SomeRoom",
-    "description": "SomeDescription",
-    "imgUrl": [
-      "./img/products/1.png",
-      "./img/products/2.png",
-      "./img/products/2.png",
-      "./img/products/1.png",
-      "./img/products/1.png",
-      "./img/products/2.png"
-    ]
-  },
-
-
-
-  {
     "id": 32321,
     "name": "SomeProduct-4",
     "categoryId": 2,
@@ -78,7 +10,7 @@
     "type": "Вінілові",
     "tone": "SomeTone",
     "room": "SomeRoom",
-    "description": "Вінілові шпалери на флізеліновій основі",
+    "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis, adipisci.",
     "imgUrl": [
       "https://drive.google.com/thumbnail?id=1UhkwAu6_MY0sE_0wxCyi2uYbK3B_inZq&sz=w1000",
       "https://drive.google.com/thumbnail?id=1UhkwAu6_MY0sE_0wxCyi2uYbK3B_inZq&sz=w1000",
@@ -99,7 +31,7 @@
     "type": "Вінілові шпалери на флізеліновій основі",
     "tone": "SomeTone",
     "room": "SomeRoom",
-    "description": "Вінілові шпалери на флізеліновій основі",
+    "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis, adipisci.",
     "imgUrl": [
       "https://drive.google.com/thumbnail?id=1cOQYvLaYPT-M6dV8KNGxJ0vFOSn_eScq&sz=w1000",
       "https://drive.google.com/thumbnail?id=1cOQYvLaYPT-M6dV8KNGxJ0vFOSn_eScq&sz=w1000",
@@ -120,7 +52,7 @@
     "type": "Фотошпалери",
     "tone": "SomeTone",
     "room": "SomeRoom",
-    "description": "Фотошпалери Lorem ipsum dolor sit amet",
+    "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis, adipisci.",
     "imgUrl": [
       "https://drive.google.com/thumbnail?id=1DgU3bGwzTVnhM9TbrlB6itiN5xZYw3K1&sz=w1000",
       "https://drive.google.com/thumbnail?id=1DgU3bGwzTVnhM9TbrlB6itiN5xZYw3K1&sz=w1000",
@@ -141,7 +73,7 @@
     "type": "Фотошпалери",
     "tone": "SomeTone",
     "room": "SomeRoom",
-    "description": "Фотошпалери Lorem ipsum dolor sit amet",
+    "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis, adipisci.",
     "imgUrl": [
       "https://drive.google.com/thumbnail?id=149l5L0nL8serEVxJX0LB7yx7XDG3NcO9&sz=w1000",
       "https://drive.google.com/thumbnail?id=149l5L0nL8serEVxJX0LB7yx7XDG3NcO9&sz=w1000",
@@ -162,7 +94,7 @@
     "type": "Фотошпалери",
     "tone": "SomeTone",
     "room": "SomeRoom",
-    "description": "Фотошпалери Lorem ipsum dolor sit amet",
+    "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis, adipisci.",
     "imgUrl": [
       "https://drive.google.com/thumbnail?id=1x77Cy-qYuCSVPe0tFAeQMC_RHEs4D0FE&sz=w1000",
       "https://drive.google.com/thumbnail?id=1x77Cy-qYuCSVPe0tFAeQMC_RHEs4D0FE&sz=w1000",
@@ -170,6 +102,72 @@
       "https://drive.google.com/thumbnail?id=1x77Cy-qYuCSVPe0tFAeQMC_RHEs4D0FE&sz=w1000",
       "https://drive.google.com/thumbnail?id=1x77Cy-qYuCSVPe0tFAeQMC_RHEs4D0FE&sz=w1000",
       "https://drive.google.com/thumbnail?id=1x77Cy-qYuCSVPe0tFAeQMC_RHEs4D0FE&sz=w1000"
+    ]
+  },
+
+
+
+  {
+    "id": 565443,
+    "name": "SomeProduct-1",
+    "categoryId": 3,
+    "price": 3984,
+    "country": "Німеччина",
+    "producer": "CAPAROL",
+    "collection": "CapaSilk 7",
+    "type": "Латексна фарба",
+    "tone": "SomeTone",
+    "room": "SomeRoom",
+    "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis, adipisci.",
+    "imgUrl": [
+      "https://drive.google.com/thumbnail?id=1eSmWbK8HFNif3jCsB5Gm1n55jNBU2Ivt&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1eSmWbK8HFNif3jCsB5Gm1n55jNBU2Ivt&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1eSmWbK8HFNif3jCsB5Gm1n55jNBU2Ivt&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1eSmWbK8HFNif3jCsB5Gm1n55jNBU2Ivt&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1eSmWbK8HFNif3jCsB5Gm1n55jNBU2Ivt&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1eSmWbK8HFNif3jCsB5Gm1n55jNBU2Ivt&sz=w1000"
+    ]
+  },
+  {
+    "id": 565444,
+    "name": "SomeProduct-1",
+    "categoryId": 3,
+    "price": 1026,
+    "country": "Німеччина",
+    "producer": "CAPAROL",
+    "collection": "CapaLatex 8",
+    "type": "Латексна фарба",
+    "tone": "SomeTone",
+    "room": "SomeRoom",
+    "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis, adipisci.",
+    "imgUrl": [
+      "https://drive.google.com/thumbnail?id=1eSmWbK8HFNif3jCsB5Gm1n55jNBU2Ivt&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1eSmWbK8HFNif3jCsB5Gm1n55jNBU2Ivt&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1eSmWbK8HFNif3jCsB5Gm1n55jNBU2Ivt&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1eSmWbK8HFNif3jCsB5Gm1n55jNBU2Ivt&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1eSmWbK8HFNif3jCsB5Gm1n55jNBU2Ivt&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1eSmWbK8HFNif3jCsB5Gm1n55jNBU2Ivt&sz=w1000"
+    ]
+  },
+  {
+    "id": 565445,
+    "name": "SomeProduct-1",
+    "categoryId": 3,
+    "price": 1430,
+    "country": "Німеччина",
+    "producer": "CAPAROL",
+    "collection": "Samtex 7",
+    "type": "Латексна фарба",
+    "tone": "SomeTone",
+    "room": "SomeRoom",
+    "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis, adipisci.",
+    "imgUrl": [
+      "https://drive.google.com/thumbnail?id=1eSmWbK8HFNif3jCsB5Gm1n55jNBU2Ivt&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1eSmWbK8HFNif3jCsB5Gm1n55jNBU2Ivt&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1eSmWbK8HFNif3jCsB5Gm1n55jNBU2Ivt&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1eSmWbK8HFNif3jCsB5Gm1n55jNBU2Ivt&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1eSmWbK8HFNif3jCsB5Gm1n55jNBU2Ivt&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1eSmWbK8HFNif3jCsB5Gm1n55jNBU2Ivt&sz=w1000"
     ]
   }
 ]

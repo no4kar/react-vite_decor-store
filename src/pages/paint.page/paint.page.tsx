@@ -1,33 +1,34 @@
-import { useEffect, useRef, useState } from 'react';
-import { initialDelayLoader } from '../../constants/initialDelayLoader';
-import { Loader } from '../../components/Loader';
-import { PageNavigation } from '../../components/PageNavigation';
+import * as R from 'react';
+
+import { useProductStore } from '../../store/product.store';
+import { ProductsPage } from '../products.page';
+import { getPaints } from '../../api/product.api';
+
 import './paint.page.scss';
 
 export const PaintPage = () => {
-  const [isLoading, setIsLoading] = useState(false);
-  const timerId = useRef(0);
+  console.log('render');
+  const {
+    products,
+    isLoading,
+    error: hasError,
+    fetchData,
+  } = useProductStore();
 
-  useEffect(() => {
-    setIsLoading(true);
-    window.clearTimeout(timerId.current);
+  const paints = R.useMemo(
+    () => getPaints(products),
+    [products],
+  );
 
-    timerId.current = window.setTimeout(() => {
-      setIsLoading(false);
-    }, initialDelayLoader);
+  R.useEffect(() => {
+    fetchData();
   }, []);
 
   return (
-    <div className="paint">
-      <div className="content">
-        <div className="paint__nav">
-          <PageNavigation />
-        </div>
-
-        {isLoading && <Loader />}
-
-        {!isLoading && <div>Paint</div>}
-      </div>
-    </div>
+    <ProductsPage
+      products={paints}
+      isLoading={isLoading}
+      hasError={hasError}
+    />
   );
 };

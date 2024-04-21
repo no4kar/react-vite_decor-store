@@ -11,6 +11,8 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: ['react-refresh'],
   rules: {
+    // clean up at the project's end
+    "no-console": "warn",
     'max-len': ['error', {
       ignoreTemplateLiterals: true,
       ignoreComments: true,

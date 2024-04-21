@@ -18,3 +18,8 @@ export function getWallpapers(items: TyProduct[]) {
     item => item.categoryId === ProductCategory.Wallpaper);
   // return client.get<TyProduct['Wallpaper'][]>('/v1/products/all/1');
 }
+
+export function getPaints(items: TyProduct[]) {
+  return items.filter(
+    item => item.categoryId === ProductCategory.Paint);
+}

@@ -62,7 +62,7 @@ const ProductCard2 = ({
       <div className="pt-[24px]">
         <div>
           <p className="title--micro title--secondary-color text-left">
-            {product.description}
+            {product.type}
           </p>
 
           <div className="pt-[7px]">
