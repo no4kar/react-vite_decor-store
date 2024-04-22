@@ -13,6 +13,7 @@ import { ServiceDetailsPage } from './pages/serviceDetails.page';
 import { WallpaperPage } from './pages/wallpaper.page';
 import { HangWallpaper } from './pages/hang.wallpaper.page';
 import { PaintPage } from './pages/paint.page';
+import { ProductDetailsPage } from './pages/productDetails.page';
 
 export const Root = () => (
   <Router
@@ -36,8 +37,14 @@ export const Root = () => (
         </Route>
 
         {/* <Route path="paint_tinting" element={<PaintTinting />} /> */}
-        <Route path="wallpaper" element={<WallpaperPage />} />
-        <Route path="paint" element={<PaintPage />} />
+        <Route path="wallpaper">
+          <Route index element={<WallpaperPage />} />
+          <Route path=":id?" element={<ProductDetailsPage />} />
+        </Route>
+        <Route path="paint">
+          <Route index element={<PaintPage />} />
+          <Route path=":id?" element={<ProductDetailsPage />} />
+        </Route>
 
         <Route path="basket">
           <Route index element={<BasketPage />} />

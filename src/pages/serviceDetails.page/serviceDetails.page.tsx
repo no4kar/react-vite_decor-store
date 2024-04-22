@@ -9,7 +9,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import { initialDelayLoader } from '../../constants/initialDelayLoader';
 import { PageNavigation } from '../../components/PageNavigation';
 import { Loader } from '../../components/Loader';
-import { ControlsButtons } from '../../components/ControlsButtons';
+import { SliderButtons } from '../../components/SliderButtons';
 import { Button } from '../../components/Button';
 import { TyService } from '../../types/Services/Services';
 import './serviceDetails.page.scss';
@@ -85,7 +85,11 @@ export const ServiceDetailsPage = () => {
   }
 
   return (
-    <div className="product-page">
+    <div
+      className="
+      pt-[24px] pb-[24px] sm:pb-[89px] md:pt-[112px] md:pb-[93px]
+      "
+    >
       <div className="content">
         <div className="product-page__nav">
           <PageNavigation prodName={selectService.name} />
@@ -101,8 +105,8 @@ export const ServiceDetailsPage = () => {
 
             <div className="product-page__media-content">
               <img
-                src={`.${selectService.imgUrl[imgIndex]}`}
-                alt={`.${selectService.imgUrl[imgIndex]}`}
+                src={selectService.imgUrl[imgIndex]}
+                alt={selectService.imgUrl[imgIndex]}
                 className="product-page__selected-img"
               />
 
@@ -112,8 +116,8 @@ export const ServiceDetailsPage = () => {
                     {selectService.imgUrl.map((imgUrl) => (
                       <div key={imgUrl}>
                         <img
-                          src={`.${imgUrl}`}
-                          alt={`.${imgUrl}`}
+                          src={imgUrl}
+                          alt={imgUrl}
                           className="product-page__slider-item"
                         />
                       </div>
@@ -121,12 +125,23 @@ export const ServiceDetailsPage = () => {
                   </Slider>
                 </div>
 
-                <div className="product-page__control">
+                {/* <div className="product-page__control">
                   <ControlsButtons
                     $detailPage
                     color="black"
                     handleBtnNext={handleNext}
                     handleBtnPrev={handlePrev}
+                  />
+                </div> */}
+
+                <div
+                  className="
+                  flex justify-center
+                  "
+                >
+                  <SliderButtons
+                    onNext={handleNext}
+                    onPrev={handlePrev}
                   />
                 </div>
               </div>

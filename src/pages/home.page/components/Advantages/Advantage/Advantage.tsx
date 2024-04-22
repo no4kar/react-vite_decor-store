@@ -2,7 +2,7 @@
 import React from 'react';
 import { SlideData } from '../../../../../types/SlideData';
 import './Advantage.scss';
-import { ControlsButtons } from '../../../../../components/ControlsButtons';
+import { SliderButtons } from '../../../../../components/SliderButtons';
 
 type Props = {
   slide: SlideData;
@@ -55,10 +55,9 @@ export const AdvantageItem: React.FC<Props> = ({
                 icon__arrow-button--rigth"
             />
           </button>
-          <ControlsButtons
-            color="black"
-            handleBtnNext={handleBtnNext}
-            handleBtnPrev={handleBtnPrev}
+          <SliderButtons
+            onNext={handleBtnNext}
+            onPrev={handleBtnPrev}
           />
         </div>
       </div>

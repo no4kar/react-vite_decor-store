@@ -1,0 +1,9 @@
+@import '../../style/utils';
+
+.slick-slider__item{
+  transition: transform $effect-duration-normal ease;
+
+  .slick-slide.slick-active.slick-center.slick-current &{
+    transform: scale($effect-scale-extraLarge);
+  }
+}
