@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import cn from 'classnames';
 import Slider, { Settings as SliderSettings } from 'react-slick';
 
 import 'slick-carousel/slick/slick.css';
@@ -10,20 +9,19 @@ import { initialDelayLoader } from '../../constants/initialDelayLoader';
 import { PageNavigation } from '../../components/PageNavigation';
 import { Loader } from '../../components/Loader';
 import { SliderButtons } from '../../components/SliderButtons';
-import { Button } from '../../components/Button';
 import { TyProduct } from '../../types/Products/Products';
 import './productDetails.page.scss';
 
 import varsStyle from '../../helpers/varsFromStyle';
-import { useFavoriteStore } from '../../store/favourite.store';
 import { getProductById } from '../../api/product.api';
+import { ButtonFavorite } from '../../components/ButtonFavorite';
+import { Button2, Option as Button2Option } from '../../components/Button2';
 
 export const ProductDetailsPage = () => {
   const { id } = useParams();
   const productId = +(id || 0);
   const [selectProduct, setSelectProduct] = useState<TyProduct | null>(null);
 
-  const { items: favorites } = useFavoriteStore(state => state);
   const [isLoading, setIsLoading] = useState(false);
   const [imgIndex, setImgIndex] = useState(0);
   const timerId = useRef(0);
@@ -177,30 +175,42 @@ export const ProductDetailsPage = () => {
               >
                 <div
                   className="
-                flex flex-col gap-[24px]"
+                flex-1 flex flex-col gap-[24px]"
                 >
-                  <p
-                    className="
-                  text-black"
-                  >
+                  <p className="text-black">
                     {selectProduct.description}
                   </p>
 
-                  <div>
-                    <h4 className="text-gray-600">Склад</h4>
-                    <p
-                      className="
-                    text-black"
-                    >
-                      {selectProduct.categoryId}
+                  <div className="flex flex-col gap-[8px]">
+                    <h4 className="title--h4 text-gray-600">
+                      Догляд
+                    </h4>
+
+                    <p className="text-black">
+                      Сухе чищення{/* {selectProduct.categoryId} */}
                     </p>
                   </div>
 
-                  <div>
-                    <h4 className="text-gray-600">Витрата</h4>
-                    <p className="text-black">
-                      {selectProduct.price}
-                    </p>
+                  <div className="flex justify-between">
+                    <div className="flex flex-col gap-[8px]">
+                      <h4 className="title--h4 text-gray-600">
+                        Тон
+                      </h4>
+
+                      <p className="text-black">
+                        {selectProduct.tone}
+                      </p>
+                    </div>
+
+                    <div className="flex flex-col gap-[8px]">
+                      <h4 className="title--h4 text-gray-600">
+                        Код товару
+                      </h4>
+
+                      <p className="text-black">
+                        {selectProduct.id}
+                      </p>
+                    </div>
                   </div>
 
                   <hr
@@ -212,34 +222,74 @@ export const ProductDetailsPage = () => {
                   />
                 </div>
 
-                <div
-                  className="
-              flex flex-1 gap-[10px] md:items-end"
-                >
-                  <Button $primary path="/contacts">
-                    Замовити консультацію
-                  </Button>
-
-                  <button
-                    aria-label="add to favorite"
-                    type="button"
+                <div className="flex-1 flex flex-col justify-between">
+                  <div
                     className="
-                  w-[50px] h-[48px]
-                  sm:w-[90px] sm:h-[64px]
-                  flex justify-center items-center
-                  border border-solid border-black
-                  "
-                    onClick={() => {
-                      useFavoriteStore.getState().trigger(selectProduct);
-                    }}
+              h-[48px] flex justify-between
+              md:h-[64px]"
                   >
-                    <div
-                      className={cn('icon icon--favorite-icon icon--hover', {
-                        'icon--favorite-icon-blue':
-                          favorites.find(f => f.id === selectProduct?.id),
-                      })}
-                    />
-                  </button>
+                    <div>counter</div>
+
+                    <div className="flex">
+                      <p>Ціна</p>
+
+                      <p className="pl-3 pr-1 text-accent">
+                        {selectProduct.price}
+                      </p>
+
+                      <p>грн.</p>
+                    </div>
+                  </div>
+
+                  <div
+                    className="
+              h-[48px] flex gap-[10px]
+              md:h-[64px]"
+                  >
+                    <Button2
+                      path="/contacts"
+                      option={Button2Option.SECONDARY}
+                    >
+                      <span
+                        className="
+                      group-hover:-translate-x-[5px] transition duration-300"
+                      >
+                        Замовити консультацію
+                      </span>
+
+                      <span
+                        className="
+                      w-[26px] text-3xl group-hover:-translate-x-[-5px] transition duration-300"
+                      >
+                        &#8594;
+                      </span>
+
+                    </Button2>
+
+                    <ButtonFavorite selectProduct={selectProduct} />
+                  </div>
+
+                  <div
+                    className="h-[48px] md:h-[64px]"
+                  >
+                    <Button2
+                      path="/basket"
+                    >
+                      <span
+                        className="
+                      group-hover:-translate-x-[5px] transition duration-300"
+                      >
+                        Додати в кошик
+                      </span>
+
+                      <span
+                        className="
+                      w-[26px] text-3xl group-hover:-translate-x-[-5px] transition duration-300"
+                      >
+                        &#8594;
+                      </span>
+                    </Button2>
+                  </div>
                 </div>
               </div>
             </div>

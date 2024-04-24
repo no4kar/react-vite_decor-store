@@ -2,17 +2,15 @@
   font-family: $manrope-medium;
   font-weight: 500;
   font-size: 48px;
-  line-height: 52.8px;
+  line-height: 110%;
   color: $main-text-color;
 }
-
-// %h2-style line-height was 48
 
 %h2-style {
   font-family: $manrope-regular;
   font-weight: 500;
-  font-size: 32px;
-  line-height: 38px;
+  font-size: 40px;
+  line-height: 110%;
   color: $main-text-color;
 }
 
@@ -20,15 +18,15 @@
   font-family: $manrope-regular;
   font-weight: 500;
   font-size: 24px;
-  line-height: 28.8px;
+  line-height: 110%;
   color: $main-text-color;
 }
 
 %h4-style {
   font-family: $manrope-regular;
   font-weight: 500;
-  font-size: 13px;
-  line-height: 22.4px;
+  font-size: 16px;
+  line-height: 140%;
   color: $main-text-color;
 }
 
@@ -44,7 +42,7 @@
   font-family: $manrope-light;
   font-weight: 500;
   font-size: 18px;
-  line-height: 23.4px;
+  line-height: 130%;
   color: $main-text-color;
 }
 
@@ -52,7 +50,7 @@
   font-family: $manrope-regular;
   font-weight: 500;
   font-size: 14px;
-  line-height: 21px;
+  line-height: 150%;
   color: $main-text-color;
 }
 
@@ -60,7 +58,7 @@
   font-family: $manrope-regular;
   font-size: 10px;
   font-weight: 500;
-  line-height: 15px;
+  line-height: 150%;
   color: $main-text-color;
 }
 

@@ -13,6 +13,7 @@ export const useProductStore = create<ProductState>((set) => ({
   products: [],
   isLoading: false,
   error: null,
+
   fetchData: async () => {
     try {
       set({ isLoading: true, error: null });

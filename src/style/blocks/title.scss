@@ -36,9 +36,6 @@
   }
 
   &--h4 {
-    color: $white-text-color;
-    text-transform: uppercase;
-
     @extend %h4-style;
 
     @include on-desktop {

@@ -1,0 +1,53 @@
+@import '../../style/utils';
+
+.Button2 {
+  @extend %button;
+
+  &__primary {
+    border: 1px solid $secondary-color;
+    background-color: $main-black;
+    color: $white-text-color-button;
+
+    &:hover {
+      box-shadow: 4px 4px 8px 0 #00000040;
+    }
+
+    &:active {
+      background-color: $white-text-color-button;
+      color: $main-black;
+      border: 1px solid $main-black;
+    }
+
+    &--disabled {
+      pointer-events: none;
+      background-color: $secondary-color;
+      color: $white-text-color-button;
+      border: none;
+    }
+  }
+
+  &__secondary {
+    color: $main-black;
+    background-color: $white-text-color-button;
+    border: 1px solid $main-black;
+
+    &:hover {
+      color: $white-text-color;
+      background-color: $main-black;
+      border: none;
+      box-shadow: #00000040;
+    }
+
+    &:active {
+      background-color: $white-text-color-button;
+      color: $main-black;
+      border: 1px solid $secondary-color;
+    }
+
+    &--disabled {
+      pointer-events: none;
+      color: $secondary-color;
+      border: 1px solid $secondary-color;
+    }
+  }
+}
