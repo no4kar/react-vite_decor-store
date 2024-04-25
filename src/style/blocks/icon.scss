@@ -6,14 +6,6 @@
   background-repeat: no-repeat;
   background-position: center;
 
-  &--relative {
-    position: relative;
-  }
-
-  &--hover {
-    @include hover(transform, (scale(1.1)));
-  }
-
   &--close-black {
     background-image: url(/public/icons/close-black.svg);
   }
@@ -21,7 +13,6 @@
   &--favorite {
     background-image: url(/public/icons/favorite.svg);
   }
-
 
   &--count {
     position: absolute;
@@ -37,7 +28,7 @@
     right: 0;
   }
 
-  &__cart {
+  &--cart {
     background-image: url(/public/icons/cart.svg);
   }
 
@@ -53,40 +44,30 @@
     background-image: url(/public/icons/favorite-icon-blue.svg);
   }
 
-  &__arrow-white {
-    background-image: url(/public/icons/arrow-white.svg);
+  &--arrow {
+    &-white {
+      background-image: url(/public/icons/arrow-white.svg);
+    }
 
-    width: 12px;
-    height: 12px;
+    &-black {
+      background-image: url(/public/icons/arrow-black.svg);
+    }
 
-    &--up {
-      transform: rotate(180deg);
+    &-navigation {
+      background-image: url(/public/icons/arrow-navigation.svg);
     }
   }
 
-  &__menu {
+  &--menu {
     background-image: url(/public/icons/menu.svg);
-    height: 12px;
 
-    &--close {
+    &-close {
       background-image: url(/public/icons/close-menu.svg);
-      height: 18px;
     }
   }
 
   &--close {
     background-image: url(/public/icons/close-black.svg);
-  }
-
-  &__arrow-blue {
-    background-image: url(/public/icons/arrow-blue.svg);
-
-    width: 12px;
-    height: 12px;
-
-    &--up {
-      transform: rotate(180deg);
-    }
   }
 
   &--facebook {
@@ -101,21 +82,11 @@
     background-image: url(/public/icons/instagram.svg);
   }
 
-  &__arrow-navigation {
-    background-image: url(/public/icons/arrow_navigation.svg);
-
-    width: 38px;
-    height: 40px;
-  }
-
-  &__elipse {
+  &--elipse {
     background-image: url(/public/icons/ellipse.svg);
-
-    width: 10px;
-    height: 10px;
   }
 
-  &__arrow-button {
+  &--arrow-button {
     &--white {
       background-image: url(/public/icons/arrow-button-white.svg);
     }
@@ -123,36 +94,33 @@
     &--black {
       background-image: url(/public/icons/arrow-button-black.svg);
     }
-
-    width: 35%;
-
-    &--rigth {
-      transform: rotate(180deg);
-    }
-
-    &--down {
-      @include on-tablet {
-        transform: rotate(-90deg);
-      }
-    }
   }
 
-  &__arrow-small {
+  &--arrow-small {
     background-image: url(/public/icons/arrow-small.svg);
-
-    width: 10px;
-    height: 10px;
-
-    &--down {
-      transform: rotate(180deg);
-    }
   }
 
-  &--search{
+  &--search {
     background-image: url(/public/icons/lens.svg);
   }
 
-  &--filter{
+  &--filter {
     background-image: url(/public/icons/filter-lines.svg);
+  }
+
+  &--vector {
+    background-image: url(/public/icons/vector.svg);
+
+    &2 {
+      background-image: url(/public/icons/vector2.svg);
+
+      &-white {
+        background-image: url(/public/icons/vector2-white.svg);
+      }
+
+      &-blue {
+        background-image: url(/public/icons/vector2-blue.svg);
+      }
+    }
   }
 }

@@ -1,11 +1,12 @@
 import cn from 'classnames';
 import { TyProduct } from '../../types/Products/Products';
 import { useFavoriteStore } from '../../store/favourite.store';
+import { TyService } from '../../types/Services/Services';
 
 export const ButtonFavorite = ({
   selectProduct,
 }: {
-  selectProduct: TyProduct;
+  selectProduct: TyProduct | TyService;
 }) => {
   const { items: favorites } = useFavoriteStore(state => state);
 

@@ -47,19 +47,19 @@
     @extend %body-text;
   }
 
-  &__separator {
-    display: none;
+  // &__separator {
+  //   display: none;
 
-    @include on-tablet {
-      display: block;
-      margin-block: 0 15px;
-      border: 1px solid $divider-color;
-    }
+  //   @include on-tablet {
+  //     display: block;
+  //     margin-block: 0 15px;
+  //     border: 1px solid $divider-color;
+  //   }
 
-    @include on-desktop {
-      margin-block: 30px;
-    }
-  }
+  //   @include on-desktop {
+  //     margin-block: 30px;
+  //   }
+  // }
 
   &__control {
     display: none;

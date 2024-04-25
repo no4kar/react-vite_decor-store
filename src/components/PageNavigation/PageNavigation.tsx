@@ -14,20 +14,20 @@ export const PageNavigation: React.FC<Props> = ({ prodName }) => {
   return (
     <div className="page-navigation">
       <Link to="/" className="page-navigation__link ">
-        <div className="icon icon__arrow-navigation" />
+        <div className="icon icon--arrow-navigation" />
         Головна
       </Link>
 
       {data.slice(0, -1).map(el => (
         <React.Fragment key={el}>
-          <div className="icon icon__elipse" />
+          <div className="icon icon--elipse w-[10px] h-[10px]" />
           <Link to=".." className="page-navigation__link">
             {pageLink[el]}
           </Link>
         </React.Fragment>
       ))}
 
-      <div className="icon icon__elipse" />
+      <div className="icon icon--elipse w-[10px] h-[10px]" />
       <p className="page-navigation__text">
         {!prodName
           ? pageLink[data[data.length - 1]] || data[data.length - 1]

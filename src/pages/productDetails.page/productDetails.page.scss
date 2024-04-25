@@ -4,6 +4,6 @@
   transition: transform $effect-duration-normal ease;
 
   .slick-slide.slick-active.slick-center.slick-current &{
-    transform: scale($effect-scale-extraLarge);
+    transform: scale($effect-scale-large);
   }
 }

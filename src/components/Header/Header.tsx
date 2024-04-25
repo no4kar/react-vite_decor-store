@@ -47,8 +47,8 @@ export const Header: React.FC<Props> = ({ isMenu, toggleMenu }) => {
 
                   <div className="header__icon-arrow">
                     <div
-                      className={cn('icon', 'icon__arrow-white', {
-                        'icon__arrow-white--up': isOpenServices,
+                      className={cn('icon icon--vector2-white w-[10px] h-[10px]', {
+                        'scale-y-[-1]': isOpenServices,
                       })}
                     />
                   </div>
@@ -94,8 +94,8 @@ export const Header: React.FC<Props> = ({ isMenu, toggleMenu }) => {
 
                   <div className="header__icon-arrow">
                     <div
-                      className={cn('icon', 'icon__arrow-white', {
-                        'icon__arrow-white--up': isOpenProducts,
+                      className={cn('icon icon--vector2-white w-[10px] h-[10px]', {
+                        'scale-y-[-1]': isOpenProducts,
                       })}
                     />
                   </div>
@@ -125,8 +125,7 @@ export const Header: React.FC<Props> = ({ isMenu, toggleMenu }) => {
                   <h4
                     className="
                       header__category-name
-                      header__category-name--color-black
-                    "
+                      header__category-name--color-black"
                   >
                     Про нас
                   </h4>
@@ -140,8 +139,7 @@ export const Header: React.FC<Props> = ({ isMenu, toggleMenu }) => {
                   <h4
                     className="
                       header__category-name
-                      header__category-name--color-black
-                    "
+                      header__category-name--color-black"
                   >
                     Контакти
                   </h4>
@@ -154,8 +152,8 @@ export const Header: React.FC<Props> = ({ isMenu, toggleMenu }) => {
             <li className="header__main-nav-item">
               <Link to="/favorite">
                 <div
-                  className={cn('icon icon--favorite icon--hover', {
-                    'icon--relative': cartFavorits.length,
+                  className={cn('icon icon--favorite hover:scale-105', {
+                    'relative': cartFavorits.length,
                   })}
                 >
                   {!!cartFavorits.length && (
@@ -168,8 +166,8 @@ export const Header: React.FC<Props> = ({ isMenu, toggleMenu }) => {
             <li className="header__main-nav-item">
               <Link to="/basket">
                 <div
-                  className={cn('icon icon__cart icon--hover', {
-                    'icon--relative': cartBaskets.length,
+                  className={cn('icon icon--cart hover:scale-105', {
+                    'relative': cartBaskets.length,
                   })}
                 >
                   {!!cartBaskets.length && (
@@ -186,8 +184,8 @@ export const Header: React.FC<Props> = ({ isMenu, toggleMenu }) => {
                 onClick={() => toggleMenu(!isMenu)}
               >
                 <div
-                  className={cn('icon', 'icon--hover', 'icon__menu', {
-                    'icon__menu--close': isMenu,
+                  className={cn('icon icon--menu hover:scale-105', {
+                    'icon--menu-close': isMenu,
                   })}
                 />
               </button>

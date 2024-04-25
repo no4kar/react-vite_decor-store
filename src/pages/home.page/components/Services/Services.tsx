@@ -8,7 +8,11 @@ export const Services = () => {
   return (
     <section className="services">
       <div className="services__content content">
-        <Slider Slide={SlideFirst} slides={services} classParent="advantages" />
+        <Slider
+          Slide={SlideFirst}
+          slides={services}
+          classParent="advantages"
+        />
       </div>
     </section>
   );

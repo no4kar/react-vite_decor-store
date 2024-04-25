@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import cn from 'classnames';
 import Slider, { Settings as SliderSettings } from 'react-slick';
 
 import 'slick-carousel/slick/slick.css';
@@ -10,23 +9,18 @@ import { initialDelayLoader } from '../../constants/initialDelayLoader';
 import { PageNavigation } from '../../components/PageNavigation';
 import { Loader } from '../../components/Loader';
 import { SliderButtons } from '../../components/SliderButtons';
-import { Button } from '../../components/Button';
+import { Button2, Option as Button2Option } from '../../components/Button2';
 import { TyService } from '../../types/Services/Services';
 import './serviceDetails.page.scss';
 
 import varsStyle from '../../helpers/varsFromStyle';
 import { getServiceById } from '../../api/service.api';
-import { useFavoriteStore } from '../../store/favourite.store';
-
-/* eslint max-len: "warn" */
-/* eslint no-console: "warn" */
+import { ButtonFavorite } from '../../components/ButtonFavorite';
 
 export const ServiceDetailsPage = () => {
   const { id } = useParams();
   const serviceId = +(id || 0);
   const [selectService, setSelectService] = useState<TyService | null>(null);
-
-  const { items: favorites } = useFavoriteStore(state => state);
   const [isLoading, setIsLoading] = useState(false);
   const [imgIndex, setImgIndex] = useState(0);
   const timerId = useRef(0);
@@ -87,8 +81,9 @@ export const ServiceDetailsPage = () => {
   return (
     <div
       className="
-      pt-[24px] pb-[24px] sm:pb-[89px] md:pt-[112px] md:pb-[93px]
-      "
+      pt-[24px] pb-[24px]
+      sm:pb-[89px]
+      md:pt-[112px] md:pb-[93px]"
     >
       <div className="content">
         <div className="product-page__nav">
@@ -125,19 +120,9 @@ export const ServiceDetailsPage = () => {
                   </Slider>
                 </div>
 
-                {/* <div className="product-page__control">
-                  <ControlsButtons
-                    $detailPage
-                    color="black"
-                    handleBtnNext={handleNext}
-                    handleBtnPrev={handlePrev}
-                  />
-                </div> */}
-
                 <div
                   className="
-                  flex justify-center
-                  "
+                  flex justify-center"
                 >
                   <SliderButtons
                     onNext={handleNext}
@@ -169,28 +154,40 @@ export const ServiceDetailsPage = () => {
                   </div>
                 </div>
 
-                <div className="product-page__separator" />
+                <hr
+                  className="
+                mt-[24px]
+                sm:mt-[47px]
+                border-b border-solid border-gray-400"
+                />
               </div>
 
-              <div className="product-page__button-wrap">
-                <Button $primary path="/contacts">
-                  Замовити консультацію
-                </Button>
-
-                <button
-                  aria-label="add to favorite"
-                  type="button"
-                  className="product-page__button"
-                  onClick={() => {
-                    useFavoriteStore.getState().trigger(selectService);
-                  }}
+              <div
+                className="
+                  h-[48px]
+                  flex gap-[10px]
+                  md:h-[64px]"
+              >
+                <Button2
+                  path="/contacts"
                 >
-                  <div
-                    className={cn('icon icon--favorite-icon icon--hover', {
-                      'icon--favorite-icon-blue': favorites.find(f => f.id === selectService?.id),
-                    })}
-                  />
-                </button>
+                  <span
+                    className="
+                      group-hover:-translate-x-[5px] transition duration-300"
+                  >
+                    Замовити консультацію
+                  </span>
+
+                  <span
+                    className="
+                      w-[26px] text-3xl
+                      group-hover:-translate-x-[-5px] transition duration-300"
+                  >
+                    &#8594;
+                  </span>
+                </Button2>
+
+                <ButtonFavorite selectProduct={selectService} />
               </div>
             </div>
           </section>

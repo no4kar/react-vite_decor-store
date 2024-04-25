@@ -61,7 +61,7 @@ function Dropdown({
             'transform scale-y-[-1]': isOpen,
           })}
         >
-          <i className="icon icon__arrow-blue" />
+          <i className="icon icon--vector2-blue w-[10px] h-[10px]" />
         </div>
       </button >
 

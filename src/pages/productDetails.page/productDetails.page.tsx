@@ -16,14 +16,15 @@ import varsStyle from '../../helpers/varsFromStyle';
 import { getProductById } from '../../api/product.api';
 import { ButtonFavorite } from '../../components/ButtonFavorite';
 import { Button2, Option as Button2Option } from '../../components/Button2';
+import { Counter } from '../../components/Counter';
 
 export const ProductDetailsPage = () => {
   const { id } = useParams();
   const productId = +(id || 0);
   const [selectProduct, setSelectProduct] = useState<TyProduct | null>(null);
-
   const [isLoading, setIsLoading] = useState(false);
   const [imgIndex, setImgIndex] = useState(0);
+  const [quantity, setQuantity] = useState(0);
   const timerId = useRef(0);
   const sliderRef = useRef<Slider>(null);
 
@@ -112,16 +113,17 @@ export const ProductDetailsPage = () => {
               <div // Screen + Slider + SliderButtons
                 className="
               flex flex-col gap-[20px]
-              sm:flex-row sm:justify-center
-              md:min-w-fit"
+              sm:flex-row sm:justify-center sm:h-[625px]
+              md:min-w-fit
+              "
               >
                 <img // Screen
                   src={selectProduct.imgUrl[imgIndex]}
                   alt={selectProduct.imgUrl[imgIndex]}
                   className="
                 w-full
-                aspect-square
-                sm:w-auto sm:h-full"
+                object-cover aspect-square
+                sm:h-full sm:aspect-auto sm:flex-1"
                 />
 
                 <div // Slider + SliderButtons
@@ -129,8 +131,7 @@ export const ProductDetailsPage = () => {
                 w-full
               flex flex-col gap-[24px]
               overflow-hidden
-              sm:w-fit
-              sm:flex-row"
+              sm:w-fit sm:flex-row sm:gap-[5px]"
                 >
                   <div // Slider
                     className="
@@ -144,9 +145,9 @@ export const ProductDetailsPage = () => {
                             src={imgUrl}
                             alt={imgUrl}
                             className="
-                          w-[58px] h-[58px]
+                          w-[70px] h-[70px]
                           mx-auto my-[20px]
-                          sm:my-[15px]
+
                           object-cover
                           slick-slider__item"
                           />
@@ -215,20 +216,28 @@ export const ProductDetailsPage = () => {
 
                   <hr
                     className="
-                h-[1px]
                 mt-[24px]
                 sm:mt-[47px]
-                border border-solid border-black"
+                border-b border-solid border-gray-400"
                   />
                 </div>
 
-                <div className="flex-1 flex flex-col justify-between">
+                <div className="flex-1">
                   <div
                     className="
-              h-[48px] flex justify-between
-              md:h-[64px]"
+                  h-[48px]
+                  flex justify-between
+                  md:h-[64px]"
                   >
-                    <div>counter</div>
+                    <Counter
+                      quantity={quantity}
+                      onIncrease={() => setQuantity(prev => prev + 1)}
+                      onDecrease={() => setQuantity(prev => prev - 1)}
+                      classContainer="
+                      w-[96px] h-full
+                      flex
+                      border border-solid border-gray-400"
+                    />
 
                     <div className="flex">
                       <p>Ціна</p>
@@ -243,8 +252,9 @@ export const ProductDetailsPage = () => {
 
                   <div
                     className="
-              h-[48px] flex gap-[10px]
-              md:h-[64px]"
+                  h-[48px] mt-[44px]
+                  flex gap-[10px]
+                  md:h-[64px]"
                   >
                     <Button2
                       path="/contacts"
@@ -259,18 +269,18 @@ export const ProductDetailsPage = () => {
 
                       <span
                         className="
-                      w-[26px] text-3xl group-hover:-translate-x-[-5px] transition duration-300"
+                      w-[26px] text-3xl
+                      group-hover:-translate-x-[-5px] transition duration-300"
                       >
                         &#8594;
                       </span>
-
                     </Button2>
 
                     <ButtonFavorite selectProduct={selectProduct} />
                   </div>
 
                   <div
-                    className="h-[48px] md:h-[64px]"
+                    className="h-[48px] mt-[24px] md:h-[64px]"
                   >
                     <Button2
                       path="/basket"
@@ -284,7 +294,8 @@ export const ProductDetailsPage = () => {
 
                       <span
                         className="
-                      w-[26px] text-3xl group-hover:-translate-x-[-5px] transition duration-300"
+                      w-[26px] text-3xl
+                      group-hover:-translate-x-[-5px] transition duration-300"
                       >
                         &#8594;
                       </span>
