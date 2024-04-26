@@ -9,13 +9,13 @@ import { initialDelayLoader } from '../../constants/initialDelayLoader';
 import { PageNavigation } from '../../components/PageNavigation';
 import { Loader } from '../../components/Loader';
 import { SliderButtons } from '../../components/SliderButtons';
-import { Button2, Option as Button2Option } from '../../components/Button2';
 import { TyService } from '../../types/Services/Services';
 import './serviceDetails.page.scss';
 
 import varsStyle from '../../helpers/varsFromStyle';
 import { getServiceById } from '../../api/service.api';
 import { ButtonFavorite } from '../../components/ButtonFavorite';
+import { Button2 } from '../../components/Button2';
 
 export const ServiceDetailsPage = () => {
   const { id } = useParams();

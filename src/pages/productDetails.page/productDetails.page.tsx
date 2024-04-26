@@ -90,6 +90,7 @@ export const ProductDetailsPage = () => {
       <div className="content">
         <div
           className="
+          border border-solid border-red-400
         pb-[24px]
         sm:pb-[40px]
         md:pb-[64px]"
@@ -102,6 +103,7 @@ export const ProductDetailsPage = () => {
         {!isLoading && (
           <section
             className="
+            border border-solid border-red-400
             flex flex-col gap-[20px]
             sm:gap-[24px]"
           >
@@ -112,6 +114,7 @@ export const ProductDetailsPage = () => {
             <div className="flex flex-col gap-[20px] md:flex-row">
               <div // Screen + Slider + SliderButtons
                 className="
+                border border-solid border-red-400
               flex flex-col gap-[20px]
               sm:flex-row sm:justify-center sm:h-[625px]
               md:min-w-fit
@@ -121,6 +124,7 @@ export const ProductDetailsPage = () => {
                   src={selectProduct.imgUrl[imgIndex]}
                   alt={selectProduct.imgUrl[imgIndex]}
                   className="
+                  border border-solid border-red-400
                 w-full
                 object-cover aspect-square
                 sm:h-full sm:aspect-auto sm:flex-1"
@@ -135,8 +139,9 @@ export const ProductDetailsPage = () => {
                 >
                   <div // Slider
                     className="
-                w-full
-                sm:w-[100px] sm:my-auto"
+                  border border-solid border-red-400
+                  w-full
+                  sm:w-[100px] sm:my-auto"
                   >
                     <Slider ref={sliderRef} {...settings}>
                       {selectProduct.imgUrl.map((imgUrl) => (
@@ -147,7 +152,6 @@ export const ProductDetailsPage = () => {
                             className="
                           w-[70px] h-[70px]
                           mx-auto my-[20px]
-
                           object-cover
                           slick-slider__item"
                           />
@@ -170,12 +174,14 @@ export const ProductDetailsPage = () => {
 
               <div
                 className="
+                border border-solid border-red-400
               flex flex-col gap-[32px]
-              md:flex-col md:grow
-              sm:flex-row sm:gap-[20px]"
+              sm:flex-row sm:gap-[20px]
+              md:flex-col md:grow"
               >
                 <div
                   className="
+                  border border-solid border-red-400
                 flex-1 flex flex-col gap-[24px]"
                 >
                   <p className="text-black">
@@ -222,7 +228,11 @@ export const ProductDetailsPage = () => {
                   />
                 </div>
 
-                <div className="flex-1">
+                <div
+                className="
+                border border-solid border-red-400
+                flex-1"
+                >
                   <div
                     className="
                   h-[48px]
