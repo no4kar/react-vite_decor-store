@@ -11,7 +11,7 @@ export enum Option {
 
 export const Button2 = ({
   children,
-  type,
+  type = 'button',
   path,
   onClick = () => { },
   option = Option.PRIMARY,

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Slider, { Settings as SliderSettings } from 'react-slick';
 
@@ -9,7 +9,8 @@ import { initialDelayLoader } from '../../constants/initialDelayLoader';
 import { PageNavigation } from '../../components/PageNavigation';
 import { Loader } from '../../components/Loader';
 import { SliderButtons } from '../../components/SliderButtons';
-import { TyProduct } from '../../types/Products/Products';
+import { useCartStore } from '../../store/cart.store';
+
 import './productDetails.page.scss';
 
 import varsStyle from '../../helpers/varsFromStyle';
@@ -21,12 +22,16 @@ import { Counter } from '../../components/Counter';
 export const ProductDetailsPage = () => {
   const { id } = useParams();
   const productId = +(id || 0);
-  const [selectProduct, setSelectProduct] = useState<TyProduct | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [imgIndex, setImgIndex] = useState(0);
   const [quantity, setQuantity] = useState(0);
   const timerId = useRef(0);
   const sliderRef = useRef<Slider>(null);
+  const selectProduct = useMemo(
+    () => getProductById(productId) || null,
+    [productId],
+  );
+  const { add: inCartAdd } = useCartStore();
 
   const handleNext = () => {
     if (sliderRef.current) {
@@ -73,7 +78,6 @@ export const ProductDetailsPage = () => {
       setIsLoading(false);
     }, initialDelayLoader);
 
-    setSelectProduct(getProductById(productId) || null); // remove after API;
   }, []);
 
   if (!selectProduct) {
@@ -300,6 +304,7 @@ export const ProductDetailsPage = () => {
                   >
                     <Button2
                       path="/basket"
+                      onClick={() => inCartAdd(selectProduct, quantity)}
                     >
                       <span
                         className="

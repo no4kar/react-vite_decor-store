@@ -1,3 +1,5 @@
+const PREFIX = 'DECOR_STORE_';
+
 const client = {
   read: <T>(key: string): T | null => {
     const data = window.localStorage.getItem(key);
@@ -18,7 +20,9 @@ const client = {
   },
 };
 
-export function getClient(key: string) {
+export function getClient(postfix: string) {
+  const key = PREFIX.concat(postfix);
+
   return {
     read: <T>(): T | null => client.read(key),
     write: <T>(data: T): void => client.write(key, data),

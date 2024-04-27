@@ -10,6 +10,7 @@ type CartState = {
   items: TyInCart[];
   increase: (item: TyProduct) => void;
   decrease: (item: TyProduct) => void;
+  add: (item: TyProduct, quantity?: TyInCart['quantity']) => void;
   remove: (item: TyProduct) => void;
 };
 
@@ -17,21 +18,22 @@ export const useCartStore = create<CartState>((set) => ({
   items: localClient.init([] as TyInCart[]),
 
   increase: (item) => set((state) => {
-    const foundItem = state.items.find(inCartItem => inCartItem.id === item.id);
-    let newItems: TyInCart[];
+    const foundItemIndex = state.items
+      .findIndex(inCartItem => inCartItem.id === item.id);
+    const newItems = [...state.items];
 
-    if (foundItem) {
-      newItems = [
-        ...state.items, {
-          ...foundItem,
-          quantity: foundItem.quantity + 1,
-        }];
+    if (foundItemIndex !== -1) {
+      const foundItem = state.items[foundItemIndex];
+
+      newItems.splice(foundItemIndex, 1, {
+        ...foundItem,
+        quantity: foundItem.quantity + 1,
+      });
     } else {
-      newItems = [
-        ...state.items, {
-          ...item,
-          quantity: 1,
-        }];
+      newItems.push({
+        ...item,
+        quantity: 1,
+      });
     }
 
     localClient.write(newItems);
@@ -40,21 +42,23 @@ export const useCartStore = create<CartState>((set) => ({
   }),
 
   decrease: (item) => set((state) => {
-    const foundItem = state.items.find(inCartItem => inCartItem.id === item.id);
-    let newItems: TyInCart[];
+    const foundItemIndex = state.items
+      .findIndex(inCartItem => inCartItem.id === item.id);
 
-    if (!foundItem) {
-      return { items: state.items };
+    if (foundItemIndex === -1) {
+      return {};
     }
 
+    const newItems = [...state.items];
+    const foundItem = state.items[foundItemIndex];
+
     if (foundItem.quantity > 1) {
-      newItems = [
-        ...state.items, {
-          ...foundItem,
-          quantity: foundItem.quantity - 1,
-        }];
+      newItems.splice(foundItemIndex, 1, {
+        ...foundItem,
+        quantity: foundItem.quantity - 1,
+      });
     } else {
-      newItems = state.items.filter(inCartItem => inCartItem.id !== item.id);
+      newItems.splice(foundItemIndex, 1);
     }
 
     localClient.write(newItems);
@@ -62,9 +66,24 @@ export const useCartStore = create<CartState>((set) => ({
     return { items: newItems };
   }),
 
-  remove: (item) => set((state) => {
+  add: (item, quantity = 1) => set((state) => {
+    const newItems = [...state.items, { ...item, quantity }];
+
+    localClient.write(newItems);
+
     return {
-      items: state.items.filter(inCartItem => inCartItem.id !== item.id),
+      items: newItems,
+    };
+  }),
+
+  remove: (item) => set((state) => {
+    const newItems = state.items
+      .filter(inCartItem => inCartItem.id !== item.id);
+
+    localClient.write(newItems);
+
+    return {
+      items: newItems,
     };
   }),
 

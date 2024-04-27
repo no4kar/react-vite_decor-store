@@ -55,7 +55,12 @@ export const TableProductsBasket: React.FC<Props> = ({
                 <span>{product.price} грн.</span>
               </td>
 
-              <td aria-label="control items" className="table-basket__control">
+              <td
+                aria-label="control items"
+                className="table-basket__control
+                border border-solid border-red-400
+                "
+              >
                 <CustomInputNumber
                   product={product}
                 />
