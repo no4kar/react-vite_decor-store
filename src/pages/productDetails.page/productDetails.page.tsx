@@ -90,7 +90,7 @@ export const ProductDetailsPage = () => {
       <div className="content">
         <div
           className="
-          border border-solid border-red-400
+          border border-solid border-blue-400
         pb-[24px]
         sm:pb-[40px]
         md:pb-[64px]"
@@ -103,7 +103,7 @@ export const ProductDetailsPage = () => {
         {!isLoading && (
           <section
             className="
-            border border-solid border-red-400
+            border border-solid border-blue-400
             flex flex-col gap-[20px]
             sm:gap-[24px]"
           >
@@ -116,30 +116,33 @@ export const ProductDetailsPage = () => {
                 className="
                 border border-solid border-red-400
               flex flex-col gap-[20px]
-              sm:flex-row sm:justify-center sm:h-[625px]
-              md:min-w-fit
+              sm:flex-row
+              sm:h-[625px]
+              md:flex-1
               "
               >
-                <img // Screen
-                  src={selectProduct.imgUrl[imgIndex]}
-                  alt={selectProduct.imgUrl[imgIndex]}
+                <div // Screen
+                  style={{
+                    backgroundImage: `url(${selectProduct.imgUrl[imgIndex]})`
+                  }}
                   className="
                   border border-solid border-red-400
-                w-full
-                object-cover aspect-square
-                sm:h-full sm:aspect-auto sm:flex-1"
+                  h-full aspect-square bg-center bg-cover
+                  sm:aspect-auto sm:flex-1
+                  "
                 />
 
                 <div // Slider + SliderButtons
                   className="
+                  border border-solid border-blue-400
                 w-full
-              flex flex-col gap-[24px]
-              overflow-hidden
-              sm:w-fit sm:flex-row sm:gap-[5px]"
+                flex flex-col gap-[24px]
+                sm:w-fit sm:flex-row sm:gap-[5px]"
                 >
                   <div // Slider
                     className="
-                  border border-solid border-red-400
+                    border border-solid border-blue-400
+                  overflow-hidden
                   w-full
                   sm:w-[100px] sm:my-auto"
                   >
@@ -174,14 +177,17 @@ export const ProductDetailsPage = () => {
 
               <div
                 className="
-                border border-solid border-red-400
+                border border-solid border-blue-400
               flex flex-col gap-[32px]
               sm:flex-row sm:gap-[20px]
-              md:flex-col md:grow"
+              md:flex-col
+              // md:w-2/5
+              "
+              // md:flex-1
               >
                 <div
                   className="
-                  border border-solid border-red-400
+                  border border-solid border-blue-400
                 flex-1 flex flex-col gap-[24px]"
                 >
                   <p className="text-black">
@@ -229,8 +235,8 @@ export const ProductDetailsPage = () => {
                 </div>
 
                 <div
-                className="
-                border border-solid border-red-400
+                  className="
+                border border-solid border-blue-400
                 flex-1"
                 >
                   <div
