@@ -1,38 +1,52 @@
-import { useEffect, useRef, useState } from 'react';
-import { initialDelayLoader } from '../../constants/initialDelayLoader';
+import { useEffect } from 'react';
 import { PageNavigation } from '../../components/PageNavigation';
 import { Loader } from '../../components/Loader';
 import { ProductCard } from '../../components/ProductCard';
-import './decorative.service.page.scss';
-import { getServices } from '../../api/service.api';
+import { getServiceByCategory } from '../../api/service.api';
+import { useServiceStore } from '../../store/service.store';
+import { ServiceCategory } from '../../types/Services/Services';
 
 export const DecorativeService = () => {
-  const [isLoading, setIsLoading] = useState(false);
-  const timerId = useRef(0);
+  console.log('render');
+  const {
+    services,
+    isLoading,
+    // error: hasError,
+    fetchData,
+  } = useServiceStore();
 
   useEffect(() => {
-    setIsLoading(true);
-    window.clearTimeout(timerId.current);
-
-    timerId.current = window.setTimeout(() => {
-      setIsLoading(false);
-    }, initialDelayLoader);
+    fetchData();
   }, []);
 
-  const visibleProducts = getServices();
+  const visibleServices
+    = getServiceByCategory(services, ServiceCategory.Decorative);
 
   return (
-    <div className="decorativeService">
+    <div className="
+    pt-[24px] pb-[4px]
+    sm:pb-[62px]
+    md:pt-[92px] md:pb-[84px]"
+    >
       <div className="content">
-        <div className="decorativeService__nav">
+        <div className="
+          mb-[24px]
+          sm:mb-[40px]
+          md:mb-[4px]"
+        >
           <PageNavigation />
         </div>
 
         {isLoading && <Loader />}
 
         {!isLoading && (
-          <section className="decorativeService__products">
-            {visibleProducts.map(item => (
+          <section className="
+          grid
+          grid-cols-[repeat(auto-fill,minmax(310px,1fr))]
+          justify-items-center
+          gap-y-[64px] gap-x-[10px]
+          ">
+            {visibleServices.map(item => (
               <ProductCard product={item} key={item.id} />
             ))}
           </section>

@@ -166,6 +166,36 @@ export const ProductDetailsFilters = R.memo(
             />
           </li>
         </ul>
+
+        <div
+          className="
+          mt-[64px]
+          h-fit
+        flex justify-end
+        border border-red-300 border-solid
+        ">
+          <button
+            type="button"
+            aria-label="filter"
+            className="
+          w-full h-[50px]
+          py-[6px]
+          flex justify-center items-center
+          border border-red-300 border-solid
+          transform transition duration-300 hover:scale-105 active:scale-100
+          "
+            onClick={() => {
+              setSearchWith({
+                [SearchParamsName.COUNTRY]: null,
+                [SearchParamsName.COLLECTION]: null,
+                [SearchParamsName.PRODUCER]: null,
+              });
+            }}
+          >
+            Сlean the filters
+            {/* <i className="icon icon--filter" /> */}
+          </button>
+        </div>
       </div>
     );
   }

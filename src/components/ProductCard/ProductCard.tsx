@@ -1,9 +1,9 @@
 import React, { memo } from 'react';
 import { useLocation } from 'react-router-dom';
 import cn from 'classnames';
-import { Button } from '../Button';
 import { TyService as Product } from '../../types/Services/Services';
 import { useFavoriteStore } from '../../store/favourite.store';
+import { Button2 } from '../Button2';
 
 import './ProductCard.scss';
 
@@ -49,9 +49,28 @@ export const ProductCard: React.FC<Props> = memo(({ product }) => {
       </div>
 
       {pathname !== '/favorite' && (
-        <Button $primary path={`${pathname}/${id}`}>
-          Детальніше
-        </Button>
+        <div
+          className="h-[48px] mt-[24px]"
+        >
+          <Button2
+            path={`${pathname}/${id}`}
+          >
+            <span
+              className="
+          group-hover:-translate-x-[5px] transition duration-300"
+            >
+              Детальніше
+            </span>
+
+            <span
+              className="
+          w-[26px] text-3xl
+          group-hover:-translate-x-[-5px] transition duration-300"
+            >
+              &#8594;
+            </span>
+          </Button2>
+        </div>
       )}
     </div>
   );

@@ -88,25 +88,28 @@ export const ProductsPage = ({
       </aside>
 
       <div className={cn('content flex flex-col gap-[40px]',
+        'pt-[24px] pb-[4px] sm:pb-[62px] md:pt-[92px] md:pb-[84px]',
         'border border-red-300 border-solid',
         {
           'pointer-events-none': isAsideOpen,
         })}>
-        <PageNavigation />
-        {isLoading && <Loader />}
+        <div className="
+          mb-[24px]
+          sm:mb-[40px]
+          md:mb-[4px]"
+        >
+          <PageNavigation />
+        </div>
 
         <div className="
         flex flex-col gap-[40px]
         md:flex-row md:gap-[130px]"
         >
           <div className="
-        w-full
-        h-[44px]
-        border
-        border-accent
-        border-solid
-        md:flex-1
-        ">
+          w-full h-[44px]
+          border border-accent border-solid
+          md:flex-1
+          ">
             <Search placeholder="Введіть назву або код товару" />
           </div>
 
@@ -151,17 +154,17 @@ export const ProductsPage = ({
           </div>
         </div>
 
+        {isLoading && <Loader />}
 
         {!isLoading && hasError && <p>{hasError}</p>}
 
-        <div className='flex'>
+        <div className="flex gap-[24px]">
           <aside
             id="sidebar"
-            className={cn(
-              'hidden',
-              'border border-red-300 border-solid',
-              'md:block',
-            )}
+            className="
+            hidden
+            border border-red-300 border-solid
+            md:block"
           >
             <ProductDetailsFilters
               products={products}
@@ -172,9 +175,8 @@ export const ProductsPage = ({
             <div
               className="
               flex-1
-              grid grid-cols-1 gap-[24px]
-              sm:grid-cols-2
-              md:grid-cols-3"
+              grid grid-cols-[repeat(auto-fill,minmax(290px,1fr))] gap-[24px]
+              justify-items-center"
             >
               {visibleProducts.map((product) => (
                 <ProductCard2

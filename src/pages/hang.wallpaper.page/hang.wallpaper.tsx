@@ -1,43 +1,51 @@
-import { useEffect, useRef, useState } from 'react';
-import './hang.wallpaper.scss';
-import { initialDelayLoader } from '../../constants/initialDelayLoader';
+import { useEffect } from 'react';
 import { Loader } from '../../components/Loader';
 import { PageNavigation } from '../../components/PageNavigation';
 import { ProductCard } from '../../components/ProductCard';
-import { ProductCategory } from '../../types/Products/Products';
-import { getProducts } from '../../api/product.api';
+import { useServiceStore } from '../../store/service.store';
+import { getServiceByCategory } from '../../api/service.api';
+import { ServiceCategory } from '../../types/Services/Services';
 
 export const HangWallpaper = () => {
-  const products = getProducts();
-  const [isLoading, setIsLoading] = useState(false);
-  const timerId = useRef(0);
+  console.log('render');
+  const {
+    services,
+    isLoading,
+    fetchData,
+  } = useServiceStore();
 
   useEffect(() => {
-    setIsLoading(true);
-    window.clearTimeout(timerId.current);
-
-    timerId.current = window.setTimeout(() => {
-      setIsLoading(false);
-    }, initialDelayLoader);
+    fetchData();
   }, []);
 
-  const visibleProducts = products.filter(
-    p => p.categoryId === ProductCategory.Wallpaper
-  );
+  const visibleServices
+    = getServiceByCategory(services, ServiceCategory.HangWallpaper);
 
   return (
-    <div className="hangWallpaper">
+    <div className="
+    pt-[24px] pb-[4px]
+    sm:pb-[62px]
+    md:pt-[92px] md:pb-[84px]"
+    >
       <div className="content">
-        <div className="hangWallpaper__nav">
+        <div className="
+        mb-[24px]
+        sm:mb-[40px]
+        md:mb-[4px]">
           <PageNavigation />
         </div>
 
         {isLoading && <Loader />}
 
         {!isLoading && (
-          <section className="hangWallpaper__products">
-            {visibleProducts.map(item => (
-              <ProductCard product={item} key={item.id} />
+          <section className="
+          grid
+          grid-cols-[repeat(auto-fill,minmax(310px,1fr))]
+          justify-items-center
+          gap-y-[64px] gap-x-[10px]"
+          >
+            {visibleServices.map(item => (
+              <ProductCard key={item.id} product={item} />
             ))}
           </section>
         )}

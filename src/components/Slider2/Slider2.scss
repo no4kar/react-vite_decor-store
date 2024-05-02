@@ -1,0 +1,26 @@
+@import '../../style/utils';
+
+.Slider2 {
+  width: 100%;
+
+  @include on-tablet {
+    width: 150px;
+  }
+
+  &__item {
+    object-fit: cover;
+    margin-inline: auto;
+    margin-block: 20px;
+    height: 58px;
+    width: 58px;
+    transition: transform $effect-duration-normal ease;
+
+    .slick-slide.slick-active.slick-center.slick-current &{
+      transform: scale($effect-scale-large);
+    }
+
+    @include on-tablet {
+      margin-block: 15px;
+    }
+  }
+}

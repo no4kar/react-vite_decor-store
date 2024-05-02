@@ -18,9 +18,7 @@ export const useProductStore = create<ProductState>((set) => ({
     try {
       set({ isLoading: true, error: null });
 
-      const products = await new Promise<TyProduct[]>((resolve) => {
-        setTimeout(() => resolve(getProducts()), 1000);
-      });
+      const products = await getProducts();
 
       set({ products });
 

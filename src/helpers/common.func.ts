@@ -7,3 +7,7 @@ export function pullNumFormStr(str: string) {
 
   return res[0];
 }
+
+export function wait<T>(delay: number, cb: () => T) {
+  return new Promise<T>(resolve => setTimeout(() => resolve(cb()), delay));
+}

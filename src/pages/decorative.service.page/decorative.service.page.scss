@@ -1,32 +1,32 @@
-@import '../../style/utils';
+// @import '../../style/utils';
 
 .decorativeService {
-  padding-block: 24px 4px;
+  // padding-block: 24px 4px;
 
-  @include on-tablet {
-    padding-block: 24px 62px;
-  }
+  // @include on-tablet {
+  //   padding-block: 24px 62px;
+  // }
 
-  @include on-desktop {
-    padding-block: 92px 83px;
-  }
+  // @include on-desktop {
+  //   padding-block: 92px 83px;
+  // }
 
-  &__products {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
-    justify-items: center;
-    row-gap: 64px;
-    column-gap: 10px;
-  }
+  // &__products {
+  //   display: grid;
+  //   grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  //   justify-items: center;
+  //   row-gap: 64px;
+  //   column-gap: 10px;
+  // }
 
-  &__nav {
-    margin-bottom: 24px;
+  // &__nav {
+  //   margin-bottom: 24px;
 
-    @include on-tablet {
-      margin-bottom: 40px;
-    }
-    @include on-desktop {
-      margin-bottom: 4px;
-    }
-  }
+  //   @include on-tablet {
+  //     margin-bottom: 40px;
+  //   }
+  //   @include on-desktop {
+  //     margin-bottom: 4px;
+  //   }
+  // }
 }

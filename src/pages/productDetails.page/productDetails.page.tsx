@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import Slider, { Settings as SliderSettings } from 'react-slick';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -8,67 +7,29 @@ import 'slick-carousel/slick/slick-theme.css';
 import { initialDelayLoader } from '../../constants/initialDelayLoader';
 import { PageNavigation } from '../../components/PageNavigation';
 import { Loader } from '../../components/Loader';
-import { SliderButtons } from '../../components/SliderButtons';
 import { useCartStore } from '../../store/cart.store';
 
 import './productDetails.page.scss';
 
-import varsStyle from '../../helpers/varsFromStyle';
 import { getProductById } from '../../api/product.api';
 import { ButtonFavorite } from '../../components/ButtonFavorite';
 import { Button2, Option as Button2Option } from '../../components/Button2';
 import { Counter } from '../../components/Counter';
+import { useProductStore } from '../../store/product.store';
+import { Slider2 } from '../../components/Slider2';
 
 export const ProductDetailsPage = () => {
   const { id } = useParams();
   const productId = +(id || 0);
   const [isLoading, setIsLoading] = useState(false);
-  const [imgIndex, setImgIndex] = useState(0);
   const [quantity, setQuantity] = useState(0);
   const timerId = useRef(0);
-  const sliderRef = useRef<Slider>(null);
+  const { products } = useProductStore();
   const selectProduct = useMemo(
-    () => getProductById(productId) || null,
+    () => getProductById(products, productId) || null,
     [productId],
   );
   const { add: inCartAdd } = useCartStore();
-
-  const handleNext = () => {
-    if (sliderRef.current) {
-      sliderRef.current.slickNext();
-    }
-  };
-
-  const handlePrev = () => {
-    if (sliderRef.current) {
-      sliderRef.current.slickPrev();
-    }
-  };
-
-  const settings: SliderSettings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 5,
-    slidesToScroll: 1,
-    centerMode: true,
-    vertical: true,
-    arrows: false,
-    afterChange: (currentSlide: number) => {
-      setImgIndex(currentSlide);
-    },
-    centerPadding: '100px',
-    responsive: [
-      {
-        breakpoint: Number(varsStyle.tabletMinWidth),
-        settings: {
-          slidesToShow: 3,
-          vertical: false,
-          centerPadding: '0',
-        },
-      },
-    ],
-  };
 
   useEffect(() => {
     setIsLoading(true);
@@ -116,68 +77,7 @@ export const ProductDetailsPage = () => {
             </h3>
 
             <div className="flex flex-col gap-[20px] md:flex-row">
-              <div // Screen + Slider + SliderButtons
-                className="
-                border border-solid border-red-400
-              flex flex-col gap-[20px]
-              sm:flex-row
-              sm:h-[625px]
-              md:flex-1
-              "
-              >
-                <div // Screen
-                  style={{
-                    backgroundImage: `url(${selectProduct.imgUrl[imgIndex]})`
-                  }}
-                  className="
-                  border border-solid border-red-400
-                  h-full aspect-square bg-center bg-cover
-                  sm:aspect-auto sm:flex-1
-                  "
-                />
-
-                <div // Slider + SliderButtons
-                  className="
-                  border border-solid border-blue-400
-                w-full
-                flex flex-col gap-[24px]
-                sm:w-fit sm:flex-row sm:gap-[5px]"
-                >
-                  <div // Slider
-                    className="
-                    border border-solid border-blue-400
-                  overflow-hidden
-                  w-full
-                  sm:w-[100px] sm:my-auto"
-                  >
-                    <Slider ref={sliderRef} {...settings}>
-                      {selectProduct.imgUrl.map((imgUrl) => (
-                        <div key={imgUrl}>
-                          <img
-                            src={imgUrl}
-                            alt={imgUrl}
-                            className="
-                          w-[70px] h-[70px]
-                          mx-auto my-[20px]
-                          object-cover
-                          slick-slider__item"
-                          />
-                        </div>
-                      ))}
-                    </Slider>
-                  </div>
-
-                  <div // SliderButtons
-                    className="
-                  flex justify-center"
-                  >
-                    <SliderButtons
-                      onNext={handleNext}
-                      onPrev={handlePrev}
-                    />
-                  </div>
-                </div>
-              </div>
+              <Slider2 selectItem={selectProduct}/>
 
               <div
                 className="
@@ -185,11 +85,9 @@ export const ProductDetailsPage = () => {
               flex flex-col gap-[32px]
               sm:flex-row sm:gap-[20px]
               md:flex-col
-              // md:w-2/5
-              "
-              // md:flex-1
+              md:w-2/5"
               >
-                <div
+                <div // Info
                   className="
                   border border-solid border-blue-400
                 flex-1 flex flex-col gap-[24px]"
@@ -238,12 +136,12 @@ export const ProductDetailsPage = () => {
                   />
                 </div>
 
-                <div
+                <div // Interact
                   className="
                 border border-solid border-blue-400
                 flex-1"
                 >
-                  <div
+                  <div // Counter
                     className="
                   h-[48px]
                   flex justify-between
@@ -270,7 +168,7 @@ export const ProductDetailsPage = () => {
                     </div>
                   </div>
 
-                  <div
+                  <div // Consault + Favorite buttons
                     className="
                   h-[48px] mt-[44px]
                   flex gap-[10px]
@@ -299,7 +197,7 @@ export const ProductDetailsPage = () => {
                     <ButtonFavorite selectProduct={selectProduct} />
                   </div>
 
-                  <div
+                  <div // InCart button
                     className="h-[48px] mt-[24px] md:h-[64px]"
                   >
                     <Button2

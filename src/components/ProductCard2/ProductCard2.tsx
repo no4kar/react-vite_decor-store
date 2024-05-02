@@ -18,6 +18,7 @@ const ProductCard2 = ({
     <div
       className={cn(
         'pt-[10px] pb-[14px] px-[10px]',
+        'w-full',
         'shadow',
         'rounded',
       )}

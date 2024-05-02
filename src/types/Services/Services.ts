@@ -6,3 +6,10 @@ export type TyService = {
   price: number;
   imgUrl: string[];
 };
+
+/* categoryId === typeId */
+
+export enum ServiceCategory {
+  Decorative = 1,
+  HangWallpaper = 2,
+}
