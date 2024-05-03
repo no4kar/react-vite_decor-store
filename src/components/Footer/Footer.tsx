@@ -21,7 +21,7 @@ export const Footer = () => {
 
           <div className="footer__info">
             <section className="footer__section">
-              <h4 className="title title--h4"> Полсуги </h4>
+              <h4 className="title title--h4 uppercase text-gray-200"> Полсуги </h4>
 
               <ul className="footer__list">
                 <li className="footer__item">
@@ -43,7 +43,7 @@ export const Footer = () => {
             </section>
 
             <section className="footer__section">
-              <h4 className="title title--h4"> Продукція </h4>
+              <h4 className="title title--h4 uppercase text-gray-200"> Продукція </h4>
 
               <ul className="footer__list">
                 <li className="footer__item">
@@ -60,7 +60,7 @@ export const Footer = () => {
             </section>
 
             <section className="footer__section">
-              <h4 className="title title--h4"> Інформація </h4>
+              <h4 className="title title--h4 uppercase text-gray-200"> Інформація </h4>
 
               <ul className="footer__list">
                 {footerData.map(el => (
@@ -87,7 +87,7 @@ export const Footer = () => {
             </section>
 
             <section className="footer__section">
-              <h4 className="title title--h4"> Контакти </h4>
+              <h4 className="title title--h4 uppercase text-gray-200"> Контакти </h4>
 
               <ul className="footer__list ">
                 <li className="footer__item">

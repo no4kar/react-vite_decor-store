@@ -73,11 +73,11 @@ export const Header: React.FC<Props> = ({ isMenu, toggleMenu }) => {
                     </Link>
                   </li>
 
-                  <li className="header__subcategory-item">
+                  {/* <li className="header__subcategory-item">
                     <Link to="/paint_tinting">
                       <p className="header__subcategory-name">Тонування фарб</p>
                     </Link>
-                  </li>
+                  </li> */}
                 </ul>
               )}
             </li>

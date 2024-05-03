@@ -74,8 +74,7 @@ export const Search = React.memo(
             flex justify-center items-center
             transform -translate-x-1/2 -translate-y-1/2
             border-none bg-transparent
-            cursor-pointer
-            "
+            cursor-pointer"
             onClick={handleQueryClear}
           >
             <i className="icon icon--close" />
@@ -87,8 +86,8 @@ export const Search = React.memo(
             flex justify-center items-center
             transform -translate-x-1/2 -translate-y-1/2
             border-none bg-transparent
-            cursor-pointer
-          ">
+            cursor-pointer"
+          >
             <i className="icon icon--search" />
           </span>
         )}

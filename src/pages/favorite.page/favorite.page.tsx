@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Button } from '../../components/Button';
 import { Loader } from '../../components/Loader';
 import { initialDelayLoader } from '../../constants/initialDelayLoader';
-import { ProductCard } from '../../components/ProductCard';
+import { ServiceCard } from '../../components/ServiceCard';
 import { useFavoriteStore } from '../../store/favourite.store';
 
 import './favorite.page.scss';
@@ -41,7 +41,10 @@ export const FavoritePage = () => {
         {!isLoading && !!favorites.length && (
           <section className="favorite__products">
             {favorites.map(item => (
-              <ProductCard product={item} key={item.id} />
+              <ServiceCard
+                key={item.id}
+                item={item}
+              />
             ))}
           </section>
         )}

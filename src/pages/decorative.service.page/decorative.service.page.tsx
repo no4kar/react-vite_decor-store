@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { PageNavigation } from '../../components/PageNavigation';
 import { Loader } from '../../components/Loader';
-import { ProductCard } from '../../components/ProductCard';
+import { ServiceCard } from '../../components/ServiceCard';
 import { getServiceByCategory } from '../../api/service.api';
 import { useServiceStore } from '../../store/service.store';
 import { ServiceCategory } from '../../types/Services/Services';
@@ -47,7 +47,10 @@ export const DecorativeService = () => {
           gap-y-[64px] gap-x-[10px]
           ">
             {visibleServices.map(item => (
-              <ProductCard product={item} key={item.id} />
+              <ServiceCard
+                key={item.id}
+                item={item}
+              />
             ))}
           </section>
         )}

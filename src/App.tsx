@@ -4,6 +4,7 @@ import { Header } from './components/Header';
 import { Menu } from './components/Menu';
 import { Footer } from './components/Footer';
 import { ScrollToTop } from './components/ScrollToTop';
+
 import './App.scss';
 
 export const App = () => {
@@ -17,16 +18,20 @@ export const App = () => {
   }, []);
 
   return (
-    <div className="App">
+    <div className="
+     flex flex-col min-h-full"
+    >
       <Header
         isMenu={isMenu}
         toggleMenu={setIsMenuActive}
       />
 
-      <ScrollToTop />
-      {isMenu && <Menu onBlur={handleMenuBlur} />}
+      <main>
+        <ScrollToTop />
+        {isMenu && <Menu onBlur={handleMenuBlur} />}
 
-      <Outlet />
+        <Outlet />
+      </main>
 
       <Footer />
     </div>

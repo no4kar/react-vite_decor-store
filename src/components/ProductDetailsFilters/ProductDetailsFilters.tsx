@@ -84,16 +84,17 @@ export const ProductDetailsFilters = R.memo(
         className="
       h-full w-[320px]
       flex flex-col
-      bg-white border border-red-300 border-solid
-      "
+      shadow rounded bg-white"
+      // border border-red-300 border-solid
       >
         {onClose && (
           <div
             className="
         flex justify-end
-        h-fit
-        border border-red-300 border-solid
-        ">
+        shadow rounded
+        h-fit"
+          // border border-red-300 border-solid
+          >
             <button
               type="button"
               aria-label="filter"
@@ -101,8 +102,7 @@ export const ProductDetailsFilters = R.memo(
           w-[50px] h-[50px]
           flex justify-center items-center
           border border-gray-100 border-solid
-          transform transition duration-300 hover:scale-105 active:scale-100
-          "
+          transform transition duration-300 hover:scale-105 active:scale-100"
               onClick={onClose}
             >
               <i className="icon icon--filter" />
@@ -112,8 +112,7 @@ export const ProductDetailsFilters = R.memo(
 
         <ul
           className="
-          px-[24px] pt-[8px]
-          "
+          px-[24px] pt-[8px]"
         >
           <li>
             <DropdownMultiSelect
@@ -171,9 +170,9 @@ export const ProductDetailsFilters = R.memo(
           className="
           mt-[64px]
           h-fit
-        flex justify-end
-        border border-red-300 border-solid
-        ">
+        flex justify-end"
+        // border border-red-300 border-solid
+        >
           <button
             type="button"
             aria-label="filter"
@@ -181,9 +180,9 @@ export const ProductDetailsFilters = R.memo(
           w-full h-[50px]
           py-[6px]
           flex justify-center items-center
-          border border-red-300 border-solid
-          transform transition duration-300 hover:scale-105 active:scale-100
-          "
+          shadow rounded
+          transform transition duration-300 hover:scale-105 active:scale-100"
+            // border border-red-300 border-solid
             onClick={() => {
               setSearchWith({
                 [SearchParamsName.COUNTRY]: null,
@@ -193,7 +192,6 @@ export const ProductDetailsFilters = R.memo(
             }}
           >
             Сlean the filters
-            {/* <i className="icon icon--filter" /> */}
           </button>
         </div>
       </div>

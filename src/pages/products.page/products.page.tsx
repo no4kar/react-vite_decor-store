@@ -9,7 +9,7 @@ import { Search } from '../../components/Search';
 import {
   SearchParamsName
 } from '../../helpers/searchHelper';
-import ProductCard2 from '../../components/ProductCard2/ProductCard2';
+import ProductCard from '../../components/ProductCard/ProductCard';
 import { TyProduct } from '../../types/Products/Products';
 
 import './products.page.scss';
@@ -70,7 +70,7 @@ export const ProductsPage = ({
         id="sidebar"
         className={cn(
           'absolute top-0 left-0 bottom-0 right-0 z-10',
-          'border border-red-300 border-solid',
+          // 'border border-red-300 border-solid',
           'pointer-events-none',
           'transform -translate-x-full',
           'transition-transform',
@@ -89,7 +89,7 @@ export const ProductsPage = ({
 
       <div className={cn('content flex flex-col gap-[40px]',
         'pt-[24px] pb-[4px] sm:pb-[62px] md:pt-[92px] md:pb-[84px]',
-        'border border-red-300 border-solid',
+        // 'border border-red-300 border-solid',
         {
           'pointer-events-none': isAsideOpen,
         })}>
@@ -107,9 +107,10 @@ export const ProductsPage = ({
         >
           <div className="
           w-full h-[44px]
-          border border-accent border-solid
-          md:flex-1
-          ">
+          shadow rounded
+          md:flex-1"
+          // border border-accent border-solid
+          >
             <Search placeholder="Введіть назву або код товару" />
           </div>
 
@@ -117,19 +118,20 @@ export const ProductsPage = ({
         w-full h-[44px]
         flex gap-[20px]
         sm:justify-evenly
-        border border-red-300 border-solid
-        md:w-[310px]
-        ">
+        shadow rounded
+        md:w-[310px]"
+          // border border-red-300 border-solid
+          >
             <button
               type="button"
               aria-label="filter"
               className="
           w-[50px] h-full
           flex justify-center items-center
-          border border-red-300 border-solid
           transform transition duration-300 hover:scale-105 active:scale-100
-          md:hidden
-          "
+          shadow rounded
+          md:hidden"
+              // border border-red-300 border-solid
               onClick={() => setIsAsideOpen(true)}
             >
               <i className="icon icon--filter" />
@@ -141,11 +143,11 @@ export const ProductsPage = ({
               className="
           h-full px-[17px]
           flex-1 flex justify-between items-center
-          border border-red-300 border-solid
           transform transition duration-300 hover:scale-105 active:scale-100
           sm:flex-none sm:gap-[10px]
-          md:w-full
-          "
+          shadow rounded
+          md:w-full"
+              // border border-red-300 border-solid
               onClick={() => setSortByPriceInc(prev => !prev)}
             >
               <i className="icon icon--filter" />
@@ -154,22 +156,22 @@ export const ProductsPage = ({
           </div>
         </div>
 
-        {isLoading && <Loader />}
-
-        {!isLoading && hasError && <p>{hasError}</p>}
-
         <div className="flex gap-[24px]">
           <aside
             id="sidebar"
             className="
             hidden
-            border border-red-300 border-solid
+            shadow rounded
             md:block"
           >
             <ProductDetailsFilters
               products={products}
             />
           </aside>
+
+          {isLoading && <Loader />}
+
+          {!isLoading && hasError && <p>{hasError}</p>}
 
           {!isLoading && !hasError && (
             <div
@@ -179,7 +181,7 @@ export const ProductsPage = ({
               justify-items-center"
             >
               {visibleProducts.map((product) => (
-                <ProductCard2
+                <ProductCard
                   key={product.id}
                   product={product} />
               ))}

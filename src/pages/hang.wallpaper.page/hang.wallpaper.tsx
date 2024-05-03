@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Loader } from '../../components/Loader';
 import { PageNavigation } from '../../components/PageNavigation';
-import { ProductCard } from '../../components/ProductCard';
+import { ServiceCard } from '../../components/ServiceCard';
 import { useServiceStore } from '../../store/service.store';
 import { getServiceByCategory } from '../../api/service.api';
 import { ServiceCategory } from '../../types/Services/Services';
@@ -45,7 +45,7 @@ export const HangWallpaper = () => {
           gap-y-[64px] gap-x-[10px]"
           >
             {visibleServices.map(item => (
-              <ProductCard key={item.id} product={item} />
+              <ServiceCard key={item.id} item={item} />
             ))}
           </section>
         )}

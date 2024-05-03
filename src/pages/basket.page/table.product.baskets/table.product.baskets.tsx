@@ -57,9 +57,7 @@ export const TableProductsBasket: React.FC<Props> = ({
 
               <td
                 aria-label="control items"
-                className="table-basket__control
-                border border-solid border-red-400
-                "
+                className="table-basket__control"
               >
                 <CustomInputNumber
                   product={product}

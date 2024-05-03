@@ -17,11 +17,11 @@ const optionsService: TyDropdownOption[] = [
       Поклейка шпалер
     </p>
   </Link>,
-  <Link to="/paint_tinting">
-    <p className="title--body-text">
-      Тонування фарб
-    </p>
-  </Link>,
+  // <Link to="/paint_tinting">
+  //   <p className="title--body-text">
+  //     Тонування фарб
+  //   </p>
+  // </Link>,
 ].map((item, i) => ({ value: String(i), content: item, }));
 
 const optionsProduct: TyDropdownOption[] = [

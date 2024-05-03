@@ -62,36 +62,35 @@ export const Slider2 = ({
   return (
     <div // Screen + Slider + SliderButtons
       className="
-                border border-solid border-red-400
-              flex flex-col gap-[20px]
-              sm:flex-row
-              sm:h-[625px]
-              md:flex-1"
+      flex flex-col gap-[20px]
+      sm:flex-row
+      sm:h-[625px]
+      md:flex-1"
     >
       <div // Screen
         style={{
           backgroundImage: `url(${selectItem.imgUrl[imgIndex]})`
         }}
         className="
-                  border border-solid border-red-400
-                  h-full aspect-square bg-center bg-cover
-                  sm:aspect-auto sm:flex-1
-                  "
+        w-full
+        flex-1
+        aspect-square bg-center bg-cover
+        shadow rounded
+        sm:aspect-auto sm:flex-1"
+      // border border-solid border-red-400
       />
 
       <div // Slider + SliderButtons
         className="
-                  border border-solid border-blue-400
-                w-full
-                flex flex-col gap-[24px]
-                sm:w-fit sm:flex-row sm:gap-[5px]"
+        w-full
+        flex flex-col gap-[24px]
+        sm:w-fit sm:flex-row sm:gap-[5px]"
       >
         <div // Slider
           className="
-                    border border-solid border-blue-400
-                  overflow-hidden
-                  w-full
-                  sm:w-[100px] sm:my-auto"
+          overflow-hidden
+          w-full
+          sm:w-[100px] sm:my-auto"
         >
           <Slider ref={sliderRef} {...settings}>
             {selectItem.imgUrl.map((imgUrl) => (

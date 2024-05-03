@@ -76,22 +76,6 @@ export const ServiceDetailsPage = () => {
                     {selectService.description}
                   </p>
 
-                  {/* <div className="product-page__care">
-                    <h4 className="product-page__subtitle">Склад</h4>
-                    <p className="product-page__value">
-                      {selectService.categoryId}
-                    </p>
-                  </div>
-
-                  <div className="product-page__size-and-code">
-                    <div className="product-page__size">
-                      <h4 className="product-page__subtitle">Витрата</h4>
-                      <p className="product-page__value">
-                        {selectService.price}
-                      </p>
-                    </div>
-                  </div> */}
-
                   <hr
                     className="
                 mt-[24px]

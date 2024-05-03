@@ -55,10 +55,10 @@ export const ProductDetailsPage = () => {
       <div className="content">
         <div
           className="
-          border border-solid border-blue-400
-        pb-[24px]
-        sm:pb-[40px]
-        md:pb-[64px]"
+          pb-[24px]
+          sm:pb-[40px]
+          md:pb-[64px]"
+          // border border-solid border-blue-400
         >
           <PageNavigation prodName={selectProduct.name} />
         </div>
@@ -68,9 +68,9 @@ export const ProductDetailsPage = () => {
         {!isLoading && (
           <section
             className="
-            border border-solid border-blue-400
             flex flex-col gap-[20px]
             sm:gap-[24px]"
+            // border border-solid border-blue-400
           >
             <h3 className="title--h3 title--h3-mobile">
               {selectProduct.name}
@@ -81,16 +81,17 @@ export const ProductDetailsPage = () => {
 
               <div
                 className="
-                border border-solid border-blue-400
-              flex flex-col gap-[32px]
-              sm:flex-row sm:gap-[20px]
-              md:flex-col
-              md:w-2/5"
+                flex flex-col gap-[32px]
+                sm:flex-row sm:gap-[20px]
+                md:flex-col
+                md:w-2/5"
+                // shadow rounded
+                // border border-solid border-blue-400
               >
                 <div // Info
                   className="
-                  border border-solid border-blue-400
-                flex-1 flex flex-col gap-[24px]"
+                  flex-1 flex flex-col gap-[24px]"
+                  // border border-solid border-blue-400
                 >
                   <p className="text-black">
                     {selectProduct.description}
@@ -138,8 +139,8 @@ export const ProductDetailsPage = () => {
 
                 <div // Interact
                   className="
-                border border-solid border-blue-400
-                flex-1"
+                  flex-1"
+                  // border border-solid border-blue-400
                 >
                   <div // Counter
                     className="
