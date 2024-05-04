@@ -57,7 +57,7 @@ export const ProductDetailsFilters = R.memo(
 
     const productTypes = R.useMemo(
       () => Array.from(productOptions[SearchParamsName.TYPE])
-        .map((item) => ({ value: item, content: item, })),
+        .map((item) => ({ value: encodeURIComponent(item), content: item, })),
       [productOptions],
     );
 

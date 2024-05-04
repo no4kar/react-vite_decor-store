@@ -29,7 +29,6 @@ export const ProductsPage = ({
   console.log('render');
   const [isAsideOpen, setIsAsideOpen] = R.useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
-  // const [sortByPriceInc, setSortByPriceInc] = R.useState<boolean>(true);
 
   const setSearchWith = R.useCallback((params: SearchParams) => {
     setSearchParams(getSearchWith(searchParams, params));
@@ -60,26 +59,34 @@ export const ProductsPage = ({
   };
 
   const visibleProducts = products
-    .filter((p) => (
-      (selectedCountries.length
-        ? selectedCountries.includes(p.country)
-        : true)
-      && (selectedCollections.length
-        ? selectedCollections.includes(encodeURIComponent(p.collection))
-        : true)
-      && (selectedProducers.length
-        ? selectedProducers.includes(encodeURIComponent(p.producer))
-        : true)
-      && (selectedTypes.length
-        ? selectedTypes.includes(encodeURIComponent(p.type))
-        : true)
-      && (selectedTones.length
-        ? selectedTones.includes(encodeURIComponent(p.tone))
-        : true)
-      && (selectedRooms.length
-        ? selectedRooms.includes(encodeURIComponent(p.room))
-        : true)
-    ))
+    .filter((p) => {
+      // console.info((selectedTypes.length
+      //   ? selectedTypes.includes(encodeURIComponent(p.type))
+      //   : true));
+      // console.info(encodeURIComponent(p.type));
+      // console.info(p.type);
+
+      return (
+        (selectedCountries.length
+          ? selectedCountries.includes(p.country)
+          : true)
+        && (selectedCollections.length
+          ? selectedCollections.includes(encodeURIComponent(p.collection))
+          : true)
+        && (selectedProducers.length
+          ? selectedProducers.includes(encodeURIComponent(p.producer))
+          : true)
+        && (selectedTypes.length
+          ? selectedTypes.includes(encodeURIComponent(p.type))
+          : true)
+        && (selectedTones.length
+          ? selectedTones.includes(encodeURIComponent(p.tone))
+          : true)
+        && (selectedRooms.length
+          ? selectedRooms.includes(encodeURIComponent(p.room))
+          : true)
+      );
+    })
     .filter((p) => {
       return `${p.id}/${p.producer}/${p.collection}/${p.country}`
         .toLocaleLowerCase().includes(query);
