@@ -5,7 +5,10 @@ import cn from 'classnames';
 
 import { FormFields } from '../FormFields/FormFields';
 import { MyForm } from '../../types/MyForm';
-import { Button } from '../Button';
+
+// import { Button } from '../Button';
+import { Button2, Option as Button2Option } from '../Button2';
+
 import { getSendForm } from '../../api/service.api';
 import { validation } from '../../constants/formValidation';
 import { Modal } from '../Modal';
@@ -13,6 +16,7 @@ import { delivery, payOption } from '../../constants/radioOptions';
 import { RadioButtonGroup } from '../RadioButtonGroup/RadioButtonGroup';
 import { formVersionData } from '../../constants/formVersionData';
 import './FormPage.scss';
+import { Notification } from '../Notification/Notification';
 
 /* eslint no-console: "warn" */
 
@@ -26,6 +30,17 @@ interface CitiesOptions {
   value: string;
 }
 
+enum Status {
+  NONE,
+  SUCCESS,
+  ERROR,
+}
+
+type OutcomeReport = {
+  status: Status;
+  description: string;
+};
+
 const cityOptions: CitiesOptions[] = [
   { label: 'Київ', value: 'Київ' },
   { label: 'Дніпро', value: 'Дніпро' },
@@ -36,10 +51,14 @@ const cityOptions: CitiesOptions[] = [
 export const FormPage: React.FC<FormProps> = ({ formVersion, children }) => {
   const [selectedCity, setSelectedCity] = useState<CitiesOptions | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [msg, setMsg]
+    = useState<OutcomeReport>({ status: Status.NONE, description: '', });
   const [description, setDescription] = useState({
     title: '',
     description: '',
   });
+
+
 
   const handleCityChange = (selectedOption: CitiesOptions | null) => {
     setSelectedCity(selectedOption);
@@ -61,7 +80,20 @@ export const FormPage: React.FC<FormProps> = ({ formVersion, children }) => {
   const onSubmit: SubmitHandler<MyForm> = data => {
     console.log(data);
 
-    getSendForm(data);
+    getSendForm(data)
+      .then(() => {
+        setMsg({
+          status: Status.SUCCESS,
+          description: 'Дякуємо, наші консультанти звяжуться з Вами',
+        });
+      })
+      .catch(() => {
+        setMsg({
+          status: Status.ERROR,
+          description: 'Може спробуєте ще раз',
+        });
+      });
+
     reset();
     setSelectedCity(null);
   };
@@ -270,12 +302,38 @@ export const FormPage: React.FC<FormProps> = ({ formVersion, children }) => {
             </div>
 
             {formVersion !== 'order' && (
-              <Button type="submit" $primary isValid={isValid}>
-                {formVersion === 'consultation'
-                  ? 'Передзвоніть мені'
-                  : 'Надіслати'}
-              </Button>
+              <div className="h-[48px]">
+                <Button2
+                  type='submit'
+                  option={Button2Option.PRIMARY}
+                  isDisable={!isValid}
+                >
+                  {formVersion === 'consultation'
+                    ? 'Передзвоніть мені'
+                    : 'Надіслати'}
+                </Button2>
+              </div>
+              // <Button type="submit" $primary isValid={isValid}>
+              //   {formVersion === 'consultation'
+              //     ? 'Передзвоніть мені'
+              //     : 'Надіслати'}
+              // </Button>
             )}
+
+            <div className="relative w-0 h-0">
+              {msg.description && (
+                <div className="absolute top-1">
+                  <Notification
+                    msg={msg.description}
+                    classContainer={cn('w-[250px] h-fit p-[10px]', {
+                      'bg-green-300': msg.status === Status.SUCCESS,
+                      'bg-red-300': msg.status === Status.ERROR,
+                    })}
+                    onDelay={() => setMsg({ status: Status.NONE, description: '', })}
+                  />
+                </div>
+              )}
+            </div>
           </div>
         </div>
 
@@ -311,12 +369,31 @@ export const FormPage: React.FC<FormProps> = ({ formVersion, children }) => {
 
           {formVersion === 'order' && (
             <div className="form__order-group-button">
-              <Button $secondary path="/">
+              <div className="h-[48px]">
+                <Button2
+                  path='/'
+                  option={Button2Option.SECONDARY}
+                >
+                  Продовжити покупки
+                </Button2>
+              </div>
+
+              <div className="h-[48px]">
+                <Button2
+                  type='submit'
+                  option={Button2Option.PRIMARY}
+                  isDisable={!isValid}
+                >
+                  Підтвердити замовлення
+                </Button2>
+              </div>
+
+              {/* <Button $secondary path="/">
                 Продовжити покупки
               </Button>
               <Button type="submit" $primary isValid={isValid}>
                 Підтвердити замовлення
-              </Button>
+              </Button> */}
             </div>
           )}
         </div>

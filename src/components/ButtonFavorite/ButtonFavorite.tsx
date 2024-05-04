@@ -23,7 +23,7 @@ export const ButtonFavorite = ({
         useFavoriteStore.getState().trigger(selectProduct);
       }}
     >
-      <div
+      <i
         className={cn('icon icon--favorite-icon icon--hover', {
           'icon--favorite-icon-blue':
             favorites.find(f => f.id === selectProduct?.id),
