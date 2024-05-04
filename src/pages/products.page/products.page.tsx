@@ -7,7 +7,9 @@ import { PageNavigation } from '../../components/PageNavigation';
 import { Search } from '../../components/Search';
 
 import {
-  SearchParamsName
+  SearchParams,
+  SearchParamsName,
+  getSearchWith
 } from '../../helpers/searchHelper';
 import ProductCard from '../../components/ProductCard/ProductCard';
 import { TyProduct } from '../../types/Products/Products';
@@ -26,17 +28,36 @@ export const ProductsPage = ({
 }) => {
   console.log('render');
   const [isAsideOpen, setIsAsideOpen] = R.useState(false);
-  const [searchParams] = useSearchParams();
-  const [sortByPriceInc, setSortByPriceInc] = R.useState<boolean>(true);
+  const [searchParams, setSearchParams] = useSearchParams();
+  // const [sortByPriceInc, setSortByPriceInc] = R.useState<boolean>(true);
+
+  const setSearchWith = R.useCallback((params: SearchParams) => {
+    setSearchParams(getSearchWith(searchParams, params));
+  }, [setSearchParams, searchParams]);
 
   const query
     = (searchParams.get(SearchParamsName.QUERY) || '').toLocaleLowerCase();
+  const selectedTypes
+    = searchParams.getAll(SearchParamsName.TYPE);
   const selectedCountries
     = searchParams.getAll(SearchParamsName.COUNTRY);
-  const selectedCollections
-    = searchParams.getAll(SearchParamsName.COLLECTION);
   const selectedProducers
     = searchParams.getAll(SearchParamsName.PRODUCER);
+  const selectedCollections
+    = searchParams.getAll(SearchParamsName.COLLECTION);
+  const selectedTones
+    = searchParams.getAll(SearchParamsName.TONE);
+  const selectedRooms
+    = searchParams.getAll(SearchParamsName.ROOM);
+  const sortByPrice
+    = searchParams.get(SearchParamsName.SORT_BY_PRICE);
+
+
+  const handleSortByPriceChange = (value: 'inc' | 'dec'): void => {
+    setSearchWith({
+      [SearchParamsName.SORT_BY_PRICE]: value || null,
+    });
+  };
 
   const visibleProducts = products
     .filter((p) => (
@@ -49,13 +70,22 @@ export const ProductsPage = ({
       && (selectedProducers.length
         ? selectedProducers.includes(encodeURIComponent(p.producer))
         : true)
+      && (selectedTypes.length
+        ? selectedTypes.includes(encodeURIComponent(p.type))
+        : true)
+      && (selectedTones.length
+        ? selectedTones.includes(encodeURIComponent(p.tone))
+        : true)
+      && (selectedRooms.length
+        ? selectedRooms.includes(encodeURIComponent(p.room))
+        : true)
     ))
     .filter((p) => {
       return `${p.id}/${p.producer}/${p.collection}/${p.country}`
         .toLocaleLowerCase().includes(query);
     })
     .sort((a, b) => {
-      return (a.price - b.price) * (sortByPriceInc ? 1 : -1);
+      return (a.price - b.price) * (sortByPrice?.includes('inc') ? 1 : -1);
     });
 
   console.info(visibleProducts.length);
@@ -148,10 +178,19 @@ export const ProductsPage = ({
           shadow rounded
           md:w-full"
               // border border-red-300 border-solid
-              onClick={() => setSortByPriceInc(prev => !prev)}
+              onClick={() => handleSortByPriceChange(
+                sortByPrice?.includes('inc')
+                  ? 'dec'
+                  : 'inc'
+              )}
             >
-              <i className="icon icon--filter" />
-              <p className="text-black uppercase">ціна за зростанням</p>
+              <i className="icon icon--vector-switch" />
+              <p className="text-black uppercase">
+                {cn('ціна за ', {
+                  'зростанням': sortByPrice?.includes('inc'),
+                  'спаданням': sortByPrice?.includes('dec'),
+                })}
+              </p>
             </button>
           </div>
         </div>

@@ -21,37 +21,49 @@ export const ProductDetailsFilters = R.memo(
       setSearchParams(getSearchWith(searchParams, params));
     }, [setSearchParams, searchParams]);
 
+    const selectedTypes
+      = searchParams.getAll(SearchParamsName.TYPE);
     const selectedCountries
       = searchParams.getAll(SearchParamsName.COUNTRY);
-    const selectedCollections
-      = searchParams.getAll(SearchParamsName.COLLECTION);
     const selectedProducers
       = searchParams.getAll(SearchParamsName.PRODUCER);
+    const selectedCollections
+      = searchParams.getAll(SearchParamsName.COLLECTION);
+    const selectedTones
+      = searchParams.getAll(SearchParamsName.TONE);
+    const selectedRooms
+      = searchParams.getAll(SearchParamsName.ROOM);
 
     const productOptions = R.useMemo(
       () => products.reduce((a, c) => {
+        a[SearchParamsName.TYPE].add(c[SearchParamsName.TYPE]);
         a[SearchParamsName.COUNTRY].add(c[SearchParamsName.COUNTRY]);
-        a[SearchParamsName.COLLECTION].add(c[SearchParamsName.COLLECTION]);
         a[SearchParamsName.PRODUCER].add(c[SearchParamsName.PRODUCER]);
+        a[SearchParamsName.COLLECTION].add(c[SearchParamsName.COLLECTION]);
+        a[SearchParamsName.TONE].add(c[SearchParamsName.TONE]);
+        a[SearchParamsName.ROOM].add(c[SearchParamsName.ROOM]);
 
         return a;
       }, {
+        [SearchParamsName.TYPE]: new Set<string>(),
         [SearchParamsName.COUNTRY]: new Set<string>(),
-        [SearchParamsName.COLLECTION]: new Set<string>(),
         [SearchParamsName.PRODUCER]: new Set<string>(),
+        [SearchParamsName.COLLECTION]: new Set<string>(),
+        [SearchParamsName.TONE]: new Set<string>(),
+        [SearchParamsName.ROOM]: new Set<string>(),
       }),
       [products],
+    );
+
+    const productTypes = R.useMemo(
+      () => Array.from(productOptions[SearchParamsName.TYPE])
+        .map((item) => ({ value: item, content: item, })),
+      [productOptions],
     );
 
     const productCountries = R.useMemo(
       () => Array.from(productOptions[SearchParamsName.COUNTRY])
         .map((item) => ({ value: item, content: item, })),
-      [productOptions],
-    );
-
-    const productCollections = R.useMemo(
-      () => Array.from(productOptions[SearchParamsName.COLLECTION])
-        .map((item) => ({ value: encodeURIComponent(item), content: item, })),
       [productOptions],
     );
 
@@ -61,9 +73,39 @@ export const ProductDetailsFilters = R.memo(
       [productOptions],
     );
 
+    const productCollections = R.useMemo(
+      () => Array.from(productOptions[SearchParamsName.COLLECTION])
+        .map((item) => ({ value: encodeURIComponent(item), content: item, })),
+      [productOptions],
+    );
+
+    const productTones = R.useMemo(
+      () => Array.from(productOptions[SearchParamsName.TONE])
+        .map((item) => ({ value: encodeURIComponent(item), content: item, })),
+      [productOptions],
+    );
+
+    const productRooms = R.useMemo(
+      () => Array.from(productOptions[SearchParamsName.ROOM])
+        .map((item) => ({ value: encodeURIComponent(item), content: item, })),
+      [productOptions],
+    );
+
+    const handleTypeChange = (value: string[]): void => {
+      setSearchWith({
+        [SearchParamsName.TYPE]: value || null,
+      });
+    };
+
     const handleCountryChange = (value: string[]): void => {
       setSearchWith({
         [SearchParamsName.COUNTRY]: value || null,
+      });
+    };
+
+    const handleProducerChange = (value: string[]): void => {
+      setSearchWith({
+        [SearchParamsName.PRODUCER]: value || null,
       });
     };
 
@@ -73,9 +115,15 @@ export const ProductDetailsFilters = R.memo(
       });
     };
 
-    const handleProducerChange = (value: string[]): void => {
+    const handleToneChange = (value: string[]): void => {
       setSearchWith({
-        [SearchParamsName.PRODUCER]: value || null,
+        [SearchParamsName.TONE]: value || null,
+      });
+    };
+
+    const handleRoomChange = (value: string[]): void => {
+      setSearchWith({
+        [SearchParamsName.ROOM]: value || null,
       });
     };
 
@@ -119,10 +167,27 @@ export const ProductDetailsFilters = R.memo(
               placeholder={
                 <div className="flex gap-[8px]">
                   <img
+                    src="./icons/intersect-square.svg"
+                    alt="intersect-square.svg"
+                  />
+                  <p>ТИП</p>
+                </div>
+              }
+              options={productTypes}
+              selectedOptions={selectedTypes}
+              onChange={handleTypeChange}
+            />
+          </li>
+
+          <li>
+            <DropdownMultiSelect
+              placeholder={
+                <div className="flex gap-[8px]">
+                  <img
                     src="./icons/globe-01.svg"
                     alt="globe-01.svg"
                   />
-                  <p>Countries</p>
+                  <p>КРАЇНА</p>
                 </div>
               }
               options={productCountries}
@@ -136,10 +201,27 @@ export const ProductDetailsFilters = R.memo(
               placeholder={
                 <div className="flex gap-[8px]">
                   <img
+                    src="./icons/factory-building.svg"
+                    alt="factory-building.svg"
+                  />
+                  <p>ВИРОБНИК</p>
+                </div>
+              }
+              options={productProducers}
+              selectedOptions={selectedProducers}
+              onChange={handleProducerChange}
+            />
+          </li>
+
+          <li>
+            <DropdownMultiSelect
+              placeholder={
+                <div className="flex gap-[8px]">
+                  <img
                     src="./icons/grid-01.svg"
                     alt="grid-01.svg"
                   />
-                  <p>Collections</p>
+                  <p>КОЛЕКЦІЯ</p>
                 </div>
               }
               options={productCollections}
@@ -153,15 +235,32 @@ export const ProductDetailsFilters = R.memo(
               placeholder={
                 <div className="flex gap-[8px]">
                   <img
-                    src="./icons/factory-building.svg"
-                    alt="factory-building.svg"
+                    src="./icons/colors.svg"
+                    alt="colors.svg"
                   />
-                  <p>Producers</p>
+                  <p>ТОН</p>
                 </div>
               }
-              options={productProducers}
-              selectedOptions={selectedProducers}
-              onChange={handleProducerChange}
+              options={productTones}
+              selectedOptions={selectedTones}
+              onChange={handleToneChange}
+            />
+          </li>
+
+          <li>
+            <DropdownMultiSelect
+              placeholder={
+                <div className="flex gap-[8px]">
+                  <img
+                    src="./icons/home-01.svg"
+                    alt="home-01.svg"
+                  />
+                  <p>ПРИМІЩЕННЯ</p>
+                </div>
+              }
+              options={productRooms}
+              selectedOptions={selectedRooms}
+              onChange={handleRoomChange}
             />
           </li>
         </ul>
@@ -185,13 +284,17 @@ export const ProductDetailsFilters = R.memo(
             // border border-red-300 border-solid
             onClick={() => {
               setSearchWith({
+                [SearchParamsName.TYPE]: null,
                 [SearchParamsName.COUNTRY]: null,
-                [SearchParamsName.COLLECTION]: null,
                 [SearchParamsName.PRODUCER]: null,
+                [SearchParamsName.COLLECTION]: null,
+                [SearchParamsName.TONE]: null,
+                [SearchParamsName.ROOM]: null,
+                [SearchParamsName.SORT_BY_PRICE]: null,
               });
             }}
           >
-            Сlean the filters
+            Очистити фільтри
           </button>
         </div>
       </div>
