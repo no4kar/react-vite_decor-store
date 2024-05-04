@@ -90,7 +90,7 @@ export const FormPage: React.FC<FormProps> = ({ formVersion, children }) => {
       .catch(() => {
         setMsg({
           status: Status.ERROR,
-          description: 'Може спробуєте ще раз',
+          description: 'Може спробуєте трохи пізніше',
         });
       });
 
@@ -325,7 +325,8 @@ export const FormPage: React.FC<FormProps> = ({ formVersion, children }) => {
                 <div className="absolute top-1">
                   <Notification
                     msg={msg.description}
-                    classContainer={cn('w-[250px] h-fit p-[10px]', {
+                    // msg={"asdasd asdasdas asd"}
+                    classContainer={cn('w-[250px] h-fit p-[10px] pr-[30px]', {
                       'bg-green-300': msg.status === Status.SUCCESS,
                       'bg-red-300': msg.status === Status.ERROR,
                     })}

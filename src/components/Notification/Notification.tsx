@@ -42,7 +42,7 @@ export const Notification = R.memo(
         <button
           data-cy="HideErrorButton"
           type="button"
-          className="absolute top-[10px] right-[10px] p-1 shadow rounded-full"
+          className="absolute top-[5px] right-[5px] p-1 shadow rounded-full"
           aria-label="HideErrorButton"
           onClick={handleDelay}
         >

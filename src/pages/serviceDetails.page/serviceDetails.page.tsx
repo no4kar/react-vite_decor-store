@@ -38,10 +38,10 @@ export const ServiceDetailsPage = () => {
     >
       <div className="content">
         <div className="
-        border border-solid border-blue-400
         pb-[24px]
         sm:pb-[40px]
         md:pb-[64px]"
+        // border border-solid border-blue-400
         >
           <PageNavigation prodName={selectService.name} />
         </div>
@@ -51,9 +51,9 @@ export const ServiceDetailsPage = () => {
         {!isLoading && (
           <section
             className="
-            border border-solid border-blue-400
             flex flex-col gap-[20px]
             sm:gap-[24px]"
+            // border border-solid border-blue-400
           >
             <h3 className="title--h3 title--h3-mobile">
               {selectService.name}
@@ -63,16 +63,20 @@ export const ServiceDetailsPage = () => {
               <Slider2 selectItem={selectService} />
 
               <div className="
-              border border-solid border-blue-400
               flex flex-col gap-[32px]
               sm:flex-row sm:gap-[20px]
               md:flex-col
-              md:w-2/5">
+              md:w-2/5"
+              // border border-solid border-blue-400
+              // shadow rounded
+              >
                 <div className="
-                border border-solid border-blue-400
-                flex-1 flex flex-col gap-[24px]">
+                flex-1 flex flex-col gap-[24px]"
+                // border border-solid border-blue-400
+                >
                   <p className="product-page__description
-                  text-black">
+                  text-black"
+                  >
                     {selectService.description}
                   </p>
 
