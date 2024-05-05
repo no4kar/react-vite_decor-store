@@ -1,11 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
-import { Button } from '../../components/Button';
 import { Loader } from '../../components/Loader';
 import { initialDelayLoader } from '../../constants/initialDelayLoader';
 import { ServiceCard } from '../../components/ServiceCard';
 import { useFavoriteStore } from '../../store/favourite.store';
 
 import './favorite.page.scss';
+import { Button2, Option as Button2Option } from '../../components/Button2';
+import ProductCard from '../../components/ProductCard/ProductCard';
+import { TyProduct } from '../../types/Products/Products';
 
 export const FavoritePage = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -40,12 +42,23 @@ export const FavoritePage = () => {
 
         {!isLoading && !!favorites.length && (
           <section className="favorite__products">
-            {favorites.map(item => (
-              <ServiceCard
-                key={item.id}
-                item={item}
-              />
-            ))}
+            {favorites.map(item => {
+              console.info(item);
+
+              return ('price' in item)
+                ? (
+                  <ProductCard
+                    key={item.id}
+                    product={item as TyProduct}
+                  />
+                )
+                : (
+                  <ServiceCard
+                    key={item.id}
+                    item={item}
+                  />
+                );
+            })}
           </section>
         )}
 
@@ -59,10 +72,28 @@ export const FavoritePage = () => {
           </section>
         )}
 
-        <div className="favorite__button">
-          <Button $secondary path="..">
-            Продовжити покупки
-          </Button>
+        <div
+          className="h-[60px]"
+        >
+          <Button2
+            path='..'
+            option={Button2Option.SECONDARY}
+          >
+            <span
+              className="
+          group-hover:-translate-x-[5px] transition duration-300"
+            >
+              Продовжити покупки
+            </span>
+
+            <span
+              className="
+          w-[26px] text-3xl
+          group-hover:-translate-x-[-5px] transition duration-300"
+            >
+              &#8594;
+            </span>
+          </Button2>
         </div>
       </div>
     </div>

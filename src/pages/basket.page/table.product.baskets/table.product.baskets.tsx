@@ -60,7 +60,7 @@ export const TableProductsBasket: React.FC<Props> = ({
                 className="table-basket__control"
               >
                 <CustomInputNumber
-                  product={product}
+                  item={product}
                 />
               </td>
 

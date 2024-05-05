@@ -203,7 +203,7 @@ export const ProductDetailsPage = () => {
                   >
                     <Button2
                       path="/basket"
-                      onClick={() => inCartAdd(selectProduct, quantity)}
+                      onClick={() => inCartAdd(selectProduct, quantity || 1)}
                     >
                       <span
                         className="

@@ -1,17 +1,22 @@
 import create from 'zustand';
 import { getClient } from '../utils/localClient';
-import { TyProduct } from '../types/Products/Products';
+import { TyService } from '../types/Services/Services';
 
-export type TyInCart = TyProduct & { quantity: number };
+export type TyCartItem
+  = TyService & {
+    price: number;
+    [key: string]: number | number[] | string | string[];
+  };
+export type TyInCart = TyCartItem & { quantity: number; };
 
 const localClient = getClient('cartStorage');
 
 type CartState = {
   items: TyInCart[];
-  increase: (item: TyProduct) => void;
-  decrease: (item: TyProduct) => void;
-  add: (item: TyProduct, quantity?: TyInCart['quantity']) => void;
-  remove: (item: TyProduct) => void;
+  increase: (item: TyCartItem) => void;
+  decrease: (item: TyCartItem) => void;
+  add: (item: TyCartItem, quantity?: TyInCart['quantity']) => void;
+  remove: (item: TyCartItem) => void;
 };
 
 export const useCartStore = create<CartState>((set) => ({

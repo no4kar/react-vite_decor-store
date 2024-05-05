@@ -14,7 +14,7 @@ export const Counter = R.memo(
     onDecrease?: () => void;
     classContainer?: string;
   }) => {
-    const isFirst = quantity <= 0;
+    const isFirst = quantity <= 1;
 
     return (
       <div className={classContainer}>
@@ -66,25 +66,6 @@ export const Counter = R.memo(
           </button>
         </div>
       </div>
-      // <button
-      //   aria-label="add to favorite"
-      //   type="button"
-      //   className="
-      //               w-[50px] h-full
-      //               sm:w-[90px]
-      //               flex justify-center items-center
-      //               border border-solid border-black"
-      //   onClick={() => {
-      //     useFavoriteStore.getState().trigger(selectProduct);
-      //   }}
-      // >
-      //   <div
-      //     className={cn('icon icon--favorite-icon icon--hover', {
-      //       'icon--favorite-icon-blue':
-      //         favorites.find(f => f.id === selectProduct?.id),
-      //     })}
-      //   />
-      // </button>
     );
   },
   (prevProps, nextProps) => prevProps.quantity === nextProps.quantity

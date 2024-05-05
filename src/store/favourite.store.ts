@@ -1,25 +1,19 @@
 import create from 'zustand';
 import { getClient } from '../utils/localClient';
+import { TyService } from '../types/Services/Services';
 
-export type TyFavorite = {
-  id: number;
-  categoryId: number;
-  name: string;
-  description: string;
-  price: number;
-  imgUrl: string[];
-  [key: string]: number | string | string[];
-};
+export type TyFavoriteItem
+  = TyService & { [key: string]: number | number[] | string | string[]; };
 
 const localClient = getClient('favoritesStorage');
 
 type FavoriteState = {
-  items: TyFavorite[];
-  trigger: (item: TyFavorite) => void;
+  items: TyFavoriteItem[];
+  trigger: (item: TyFavoriteItem) => void;
 };
 
 export const useFavoriteStore = create<FavoriteState>((set) => ({
-  items: localClient.init([] as TyFavorite[]),
+  items: localClient.init([] as TyFavoriteItem[]),
   trigger: (item) => set((state) => {
     const newItems = state.items.find(f => f.id === item.id)
       ? state.items.filter(f => f.id !== item.id)

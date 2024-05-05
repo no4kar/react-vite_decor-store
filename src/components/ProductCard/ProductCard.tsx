@@ -3,8 +3,8 @@ import { useLocation } from 'react-router-dom';
 import cn from 'classnames';
 
 import { TyProduct } from '../../types/Products/Products';
-import { Button } from '../Button';
 import { useFavoriteStore } from '../../store/favourite.store';
+import { Button2 } from '../Button2';
 
 const ProductCard = ({
   product
@@ -83,11 +83,26 @@ const ProductCard = ({
       </div>
 
       <div
-        className="pt-[40px]"
+        className="h-[48px] mt-[40px]"
       >
-        <Button $primary path={`${pathname}/${product.id}`}>
-          Детальніше
-        </Button>
+        <Button2
+          path={`${pathname}/${product.id}`}
+        >
+          <span
+            className="
+          group-hover:-translate-x-[5px] transition duration-300"
+          >
+            Детальніше
+          </span>
+
+          <span
+            className="
+          w-[26px] text-3xl
+          group-hover:-translate-x-[-5px] transition duration-300"
+          >
+            &#8594;
+          </span>
+        </Button2>
       </div>
     </div>
   );

@@ -3,7 +3,7 @@ export type TyService = {
   categoryId: number;
   name: string;
   description: string;
-  price: number;
+  // price: number;
   imgUrl: string[];
 };
 

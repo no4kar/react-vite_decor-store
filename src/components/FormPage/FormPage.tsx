@@ -6,7 +6,6 @@ import cn from 'classnames';
 import { FormFields } from '../FormFields/FormFields';
 import { MyForm } from '../../types/MyForm';
 
-// import { Button } from '../Button';
 import { Button2, Option as Button2Option } from '../Button2';
 
 import { getSendForm } from '../../api/service.api';
@@ -216,11 +215,14 @@ export const FormPage: React.FC<FormProps> = ({ formVersion, children }) => {
                         >
                           Місто
                         </span>
+
                         <Select
                           placeholder=""
                           options={cityOptions}
                           value={selectedCity}
                           onChange={val => {
+                            // console.info(val);
+
                             handleCityChange(val);
                             onChange(val?.value);
                           }}
@@ -313,11 +315,6 @@ export const FormPage: React.FC<FormProps> = ({ formVersion, children }) => {
                     : 'Надіслати'}
                 </Button2>
               </div>
-              // <Button type="submit" $primary isValid={isValid}>
-              //   {formVersion === 'consultation'
-              //     ? 'Передзвоніть мені'
-              //     : 'Надіслати'}
-              // </Button>
             )}
 
             <div className="relative w-0 h-0">
@@ -330,7 +327,10 @@ export const FormPage: React.FC<FormProps> = ({ formVersion, children }) => {
                       'bg-green-300': msg.status === Status.SUCCESS,
                       'bg-red-300': msg.status === Status.ERROR,
                     })}
-                    onDelay={() => setMsg({ status: Status.NONE, description: '', })}
+                    onDelay={() => setMsg({
+                      status: Status.NONE,
+                      description: '',
+                    })}
                   />
                 </div>
               )}

@@ -1,7 +1,8 @@
 import * as R from 'react';
-import { useLocation } from 'react-router-dom';
+// import { useLocation } from 'react-router-dom';
 import cn from 'classnames';
-import { TyService } from '../../types/Services/Services';
+
+import { ServiceCategory, TyService } from '../../types/Services/Services';
 import { useFavoriteStore } from '../../store/favourite.store';
 import { Button2 } from '../Button2';
 
@@ -11,16 +12,24 @@ export const ServiceCard = R.memo(
   }: {
     item: TyService,
   }) => {
-    const { pathname } = useLocation();
+    // const { pathname } = useLocation();
     const { id, imgUrl, name, description } = item;
     const { items: favorites } = useFavoriteStore(state => state);
+
+    const pathname = cn({
+      'service_decorative':
+        item.categoryId === ServiceCategory.Decorative,
+      'service_hang_wallpaper':
+        item.categoryId === ServiceCategory.HangWallpaper,
+    });
 
     return (
       <div
         key={id}
         className="
       w-[310px] h-[520px] p-[10px]
-      flex flex-col justify-between"
+      flex flex-col justify-between
+      shadow rounded"
       >
         <div className="
         relative"
@@ -67,31 +76,28 @@ export const ServiceCard = R.memo(
           </div>
         </div>
 
-
-        {pathname !== '/favorite' && (
-          <div
-            className="h-[48px]"
+        <div
+          className="h-[48px] md:h-[64px]"
+        >
+          <Button2
+            path={`/${pathname}/${id}`}
           >
-            <Button2
-              path={`${pathname}/${id}`}
-            >
-              <span
-                className="
+            <span
+              className="
           group-hover:-translate-x-[5px] transition duration-300"
-              >
-                Детальніше
-              </span>
+            >
+              Детальніше
+            </span>
 
-              <span
-                className="
+            <span
+              className="
           w-[26px] text-3xl
           group-hover:-translate-x-[-5px] transition duration-300"
-              >
-                &#8594;
-              </span>
-            </Button2>
-          </div>
-        )}
+            >
+              &#8594;
+            </span>
+          </Button2>
+        </div>
       </div>
     );
   });

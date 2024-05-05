@@ -49,7 +49,7 @@ export const TableProductsOrder: React.FC<Props> = ({
 
               <th aria-label="you can control quantity">
                 <CustomInputNumber
-                  product={product}
+                  item={product}
                 />
               </th>
             </tr>
