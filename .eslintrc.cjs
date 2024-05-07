@@ -13,10 +13,11 @@ module.exports = {
   rules: {
     // clean up at the project's end
     "no-console": "warn",
-    'max-len': ['error', {
-      ignoreTemplateLiterals: true,
-      ignoreComments: true,
-    }],
+    "max-len": "warn",
+    // 'max-len': ['warn', {
+    //   ignoreTemplateLiterals: true,
+    //   ignoreComments: true,
+    // }],
     'jsx-a11y/label-has-associated-control': ["error", {
       assert: "either",
     }],

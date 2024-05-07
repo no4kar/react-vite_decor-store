@@ -43,7 +43,7 @@ export const FavoritePage = () => {
         {!isLoading && !!favorites.length && (
           <section className="favorite__products">
             {favorites.map(item => {
-              console.info(item);
+              // console.info(item);
 
               return ('price' in item)
                 ? (

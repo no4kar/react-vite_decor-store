@@ -1,10 +1,10 @@
-import { TyInCart, useCartStore } from '../../store/cart.store';
+import { TyInCartItem, useCartStore } from '../../store/cart.store';
 import { Counter } from '../Counter';
 
 export const CustomInputNumber = ({
   item
 }: {
-  item: TyInCart;
+  item: TyInCartItem;
 }) => {
   const { increase, decrease } = useCartStore.getState();
 

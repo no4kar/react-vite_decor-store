@@ -1,3 +1,5 @@
+// import 'dotenv/config';
+
 import { createRoot } from 'react-dom/client';
 import { Root } from './Root';
 

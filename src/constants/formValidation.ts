@@ -34,7 +34,7 @@ export const validation: Record<string, FormValidation> = {
     required: 'Будь ласка, введіть вашу пошту!',
     pattern: {
       value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-      message: `Будь ласка, введіть коректний формат вашої електронної пошти! (yura@gmail.com)`,
+      message: `Будь ласка, введіть коректний формат вашої електронної пошти! (name@email.com)`,
     },
   },
   middleName: {
@@ -55,7 +55,7 @@ export const validation: Record<string, FormValidation> = {
     },
   },
   city: {
-    required: 'Виберіть будь-ласка місто!',
+    required: 'Виберіть або введіть будь-ласка поштовий індекс та місто!',
   },
   delivery: {
     required: 'Виберіть будь-ласка спосіб доставки!',

@@ -1,6 +1,6 @@
 import * as R from 'react';
 import cn from 'classnames';
-import { TyInCart } from '../../store/cart.store';
+import { TyInCartItem } from '../../store/cart.store';
 
 export const Counter = R.memo(
   ({
@@ -9,7 +9,7 @@ export const Counter = R.memo(
     onDecrease,
     classContainer = "w-[96px] h-[48px] flex border border-solid border-gray-400",
   }: {
-    quantity: TyInCart['quantity'],
+    quantity: TyInCartItem['quantity'],
     onIncrease?: () => void;
     onDecrease?: () => void;
     classContainer?: string;

@@ -1,14 +1,11 @@
-import React from 'react';
 import { CustomInputNumber } from '../../../components/CustomInputNumber';
 import './table.product.baskets.scss';
-import { TyInCart, useCartStore } from '../../../store/cart.store';
+import { TyInCartItem, useCartStore } from '../../../store/cart.store';
 
-type Props = {
-  cartItemsOrder: TyInCart[];
-};
-
-export const TableProductsBasket: React.FC<Props> = ({
+export const TableProductsBasket = ({
   cartItemsOrder,
+}:{
+  cartItemsOrder: TyInCartItem[];
 }) => {
 
   const totalPrice = cartItemsOrder.reduce(
@@ -35,7 +32,7 @@ export const TableProductsBasket: React.FC<Props> = ({
               <td className="table-basket__img">
                 <div className="mainInfo">
                   <img
-                    src={product.imgUrl[0] || '/img/products/01.png'}
+                    src={product.imageUrl[0] || '/img/products/01.png'}
                     alt={product.name}
                     className="mainInfo__img"
                   />

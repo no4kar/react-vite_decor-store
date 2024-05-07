@@ -3,27 +3,27 @@ import cn from 'classnames';
 import { MyForm } from '../../types/MyForm';
 import './FormFields.scss';
 
-export interface InputFieldProps {
-  className?: string;
-  type?: string;
-  textLabel?: string;
-  name: keyof MyForm;
-  register: UseFormRegister<MyForm>;
-  errors: FieldErrors<MyForm>;
-  validation?: RegisterOptions;
-  placeholderName?: string;
-  defaultChecked?: boolean;
-}
-
-export const FormFields: React.FC<InputFieldProps> = ({
+export const FormFields = ({
   className,
   type = 'text',
   textLabel,
   name,
   register,
   errors,
+  required,
   validation,
   placeholderName = '',
+}: {
+  className?: string;
+  type?: string;
+  textLabel?: string;
+  name: keyof MyForm;
+  register: UseFormRegister<MyForm>;
+  errors: FieldErrors<MyForm>;
+  required?: boolean;
+  validation?: RegisterOptions;
+  placeholderName?: string;
+  defaultChecked?: boolean;
 }) => {
   const hasError = errors[name];
 
@@ -32,7 +32,7 @@ export const FormFields: React.FC<InputFieldProps> = ({
       <label
         className={cn('formField__label', {
           'formField__label--error': hasError,
-          'formField__label--star-after': name !== 'middleName',
+          'formField__label--star-after': required,
         })}
         htmlFor={name}
       >

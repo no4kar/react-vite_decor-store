@@ -1,6 +1,7 @@
 import { useForm, SubmitHandler, Controller } from 'react-hook-form';
 import { useState } from 'react';
-import Select from 'react-select';
+// import Select from 'react-select';
+import Creatable from 'react-select/creatable';
 import cn from 'classnames';
 
 import { FormFields } from '../FormFields/FormFields';
@@ -148,6 +149,7 @@ export const FormPage: React.FC<FormProps> = ({ formVersion, children }) => {
                 validation={validation.firstName}
                 errors={errors}
                 placeholderName="Ім'я"
+                required
               />
 
               {formVersion === 'consultation' && (
@@ -158,6 +160,7 @@ export const FormPage: React.FC<FormProps> = ({ formVersion, children }) => {
                   register={register}
                   validation={validation.phoneNumber}
                   errors={errors}
+                  required
                 />
               )}
 
@@ -169,15 +172,18 @@ export const FormPage: React.FC<FormProps> = ({ formVersion, children }) => {
                     name="email"
                     register={register}
                     errors={errors}
+                    required
                     validation={validation.email}
                     placeholderName="Email"
                   />
+
                   <FormFields
                     type="textarea"
                     textLabel="Повідомлення"
                     name="message"
                     register={register}
                     errors={errors}
+                    required
                     validation={validation.message}
                   />
                 </>
@@ -189,8 +195,9 @@ export const FormPage: React.FC<FormProps> = ({ formVersion, children }) => {
                     textLabel="Ваше Прізвище"
                     name="lastName"
                     register={register}
-                    validation={validation.lastName}
                     errors={errors}
+                    required
+                    validation={validation.lastName}
                     placeholderName="Прізвище"
                   />
 
@@ -207,33 +214,31 @@ export const FormPage: React.FC<FormProps> = ({ formVersion, children }) => {
                     control={control}
                     rules={validation.city}
                     render={({ field: { onChange, onBlur }, fieldState }) => (
-                      <div className="form__select">
+                      <div className="flex flex-col gap-[8px]">
                         <span
-                          className={cn('form__select-label', {
-                            'form__select-label--error': fieldState.error,
+                          className={cn('form__select-label title--body-text', {
+                            'text-red-500': fieldState.error,
                           })}
                         >
                           Місто
                         </span>
 
-                        <Select
-                          placeholder=""
+                        <Creatable
+                          placeholder="Поштовий індекс, місто"
                           options={cityOptions}
                           value={selectedCity}
                           onChange={val => {
-                            // console.info(val);
-
                             handleCityChange(val);
                             onChange(val?.value);
                           }}
                           className={cn('form__filter-container', {
-                            'filter-container--error': fieldState.error,
+                            'text-red-500': fieldState.error,
                           })}
                           classNamePrefix="form__filter"
                           onBlur={onBlur}
                         />
                         {fieldState.error && (
-                          <span className="form__select-errorMessage">
+                          <span className="text-red-500">
                             {fieldState.error.message}
                           </span>
                         )}
@@ -246,8 +251,9 @@ export const FormPage: React.FC<FormProps> = ({ formVersion, children }) => {
                     type="tel"
                     name="phoneNumber"
                     register={register}
-                    validation={validation.phoneNumber}
                     errors={errors}
+                    required
+                    validation={validation.phoneNumber}
                   />
 
                   <FormFields
@@ -256,6 +262,7 @@ export const FormPage: React.FC<FormProps> = ({ formVersion, children }) => {
                     name="email"
                     register={register}
                     errors={errors}
+                    required
                     validation={validation.email}
                     placeholderName="Email"
                   />
@@ -266,7 +273,6 @@ export const FormPage: React.FC<FormProps> = ({ formVersion, children }) => {
                     name="message"
                     register={register}
                     errors={errors}
-                    validation={validation.message}
                   />
                 </>
               )}
@@ -314,27 +320,26 @@ export const FormPage: React.FC<FormProps> = ({ formVersion, children }) => {
                     ? 'Передзвоніть мені'
                     : 'Надіслати'}
                 </Button2>
+
+                {msg.description && (
+                  <div className="relative w-0 h-0">
+                    <div className="absolute top-1">
+                      <Notification
+                        msg={msg.description}
+                        classContainer={cn('w-[250px] h-fit p-[10px] pr-[30px]', {
+                          'bg-green-300': msg.status === Status.SUCCESS,
+                          'bg-red-300': msg.status === Status.ERROR,
+                        })}
+                        onDelay={() => setMsg({
+                          status: Status.NONE,
+                          description: '',
+                        })}
+                      />
+                    </div>
+                  </div>
+                )}
               </div>
             )}
-
-            <div className="relative w-0 h-0">
-              {msg.description && (
-                <div className="absolute top-1">
-                  <Notification
-                    msg={msg.description}
-                    // msg={"asdasd asdasdas asd"}
-                    classContainer={cn('w-[250px] h-fit p-[10px] pr-[30px]', {
-                      'bg-green-300': msg.status === Status.SUCCESS,
-                      'bg-red-300': msg.status === Status.ERROR,
-                    })}
-                    onDelay={() => setMsg({
-                      status: Status.NONE,
-                      description: '',
-                    })}
-                  />
-                </div>
-              )}
-            </div>
           </div>
         </div>
 
@@ -387,14 +392,25 @@ export const FormPage: React.FC<FormProps> = ({ formVersion, children }) => {
                 >
                   Підтвердити замовлення
                 </Button2>
-              </div>
 
-              {/* <Button $secondary path="/">
-                Продовжити покупки
-              </Button>
-              <Button type="submit" $primary isValid={isValid}>
-                Підтвердити замовлення
-              </Button> */}
+                {msg.description && (
+                  <div className="relative w-0 h-0">
+                    <div className="absolute top-1">
+                      <Notification
+                        msg={msg.description}
+                        classContainer={cn('w-[250px] h-fit p-[10px] pr-[30px]', {
+                          'bg-green-300': msg.status === Status.SUCCESS,
+                          'bg-red-300': msg.status === Status.ERROR,
+                        })}
+                        onDelay={() => setMsg({
+                          status: Status.NONE,
+                          description: '',
+                        })}
+                      />
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
           )}
         </div>

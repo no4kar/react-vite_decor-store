@@ -3,8 +3,7 @@ export type TyService = {
   categoryId: number;
   name: string;
   description: string;
-  // price: number;
-  imgUrl: string[];
+  imageUrl: string[];
 };
 
 /* categoryId === typeId */

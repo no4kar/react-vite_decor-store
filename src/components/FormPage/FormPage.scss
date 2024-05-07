@@ -140,17 +140,9 @@
   }
 
   &__select-label {
-    font-size: 15px;
-    line-height: 22.5px;
-
-    @extend %body-text;
 
     &::after {
       content: '*';
-      color: red;
-    }
-
-    &--error {
       color: red;
     }
   }

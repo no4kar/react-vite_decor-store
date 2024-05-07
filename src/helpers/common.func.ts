@@ -11,3 +11,9 @@ export function pullNumFormStr(str: string) {
 export function wait<T>(delay: number, cb: () => T) {
   return new Promise<T>(resolve => setTimeout(() => resolve(cb()), delay));
 }
+
+export function compareObjectProperties(baseObj: any, targetObj: any): boolean {
+  return Object.keys(baseObj).every(key => (
+    key in targetObj && typeof targetObj[key] === typeof baseObj[key]
+  ));
+}

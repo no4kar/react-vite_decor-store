@@ -10,10 +10,10 @@ export type TyProduct = {
   tone: string;
   room: string;
   description: string;
-  imgUrl: string[];
+  imageUrl: string[];
 };
 
 export enum ProductCategory {
+  Paint = 1,
   Wallpaper = 2,
-  Paint = 3,
 }

@@ -1,26 +1,41 @@
 import create from 'zustand';
-import { getClient } from '../utils/localClient';
+import { getClient } from '../utils/local.client';
 import { TyService } from '../types/Services/Services';
+import { compareObjectProperties } from '../helpers/common.func';
 
 export type TyCartItem
   = TyService & {
     price: number;
     [key: string]: number | number[] | string | string[];
   };
-export type TyInCart = TyCartItem & { quantity: number; };
+export type TyInCartItem = TyCartItem & { quantity: number; };
+
+function isInCartItem(item: any) {
+  const obj: TyInCartItem = {
+    id: 0,
+    categoryId: 0,
+    name: '',
+    description: '',
+    imageUrl: [''],
+    price: 0,
+    quantity: 0,
+  };
+
+  return compareObjectProperties(obj, item);
+}
 
 const localClient = getClient('cartStorage');
 
 type CartState = {
-  items: TyInCart[];
+  items: TyInCartItem[];
   increase: (item: TyCartItem) => void;
   decrease: (item: TyCartItem) => void;
-  add: (item: TyCartItem, quantity?: TyInCart['quantity']) => void;
+  add: (item: TyCartItem, quantity?: TyInCartItem['quantity']) => void;
   remove: (item: TyCartItem) => void;
 };
 
 export const useCartStore = create<CartState>((set) => ({
-  items: localClient.init([] as TyInCart[]),
+  items: localClient.init([] as TyInCartItem[], isInCartItem),
 
   increase: (item) => set((state) => {
     const foundItemIndex = state.items

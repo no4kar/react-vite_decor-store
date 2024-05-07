@@ -100,8 +100,8 @@ export const ProductsPage = ({
   return (
     <div className="Wallpaper
     relative min-h-screen
-    border border-blue-300 border-solid
     "
+    // border border-blue-300 border-solid
     >
       <aside
         id="sidebar"

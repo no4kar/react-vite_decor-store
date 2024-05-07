@@ -9,7 +9,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import './Slider2.scss';
 
 type TyItem = {
-  imgUrl: string[];
+  imageUrl: string[];
   [key: string]: number | string | string[];
 };
 
@@ -69,7 +69,7 @@ export const Slider2 = ({
     >
       <div // Screen
         style={{
-          backgroundImage: `url(${selectItem.imgUrl[imgIndex]})`
+          backgroundImage: `url(${selectItem.imageUrl[imgIndex]})`
         }}
         className="
         w-full
@@ -93,11 +93,11 @@ export const Slider2 = ({
           sm:w-[100px] sm:my-auto"
         >
           <Slider ref={sliderRef} {...settings}>
-            {selectItem.imgUrl.map((imgUrl) => (
-              <div key={imgUrl}>
+            {selectItem.imageUrl.map((imageUrl) => (
+              <div key={imageUrl}>
                 <img
-                  src={imgUrl}
-                  alt={imgUrl}
+                  src={imageUrl}
+                  alt={imageUrl}
                   className="
                           w-[70px] h-[70px]
                           mx-auto my-[20px]

@@ -50,6 +50,7 @@ export const Root = () => (
           <Route index element={<BasketPage />} />
           <Route path="place_an_order" element={<PlaceAnOrder />} />
         </Route>
+
         <Route path="favorite" element={<FavoritePage />} />
 
         <Route path="*" element={<NotFoundPage />} />

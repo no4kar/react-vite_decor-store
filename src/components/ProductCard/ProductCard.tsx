@@ -1,8 +1,7 @@
-import React from 'react';
-import { useLocation } from 'react-router-dom';
+import * as R from 'react';
 import cn from 'classnames';
 
-import { TyProduct } from '../../types/Products/Products';
+import { ProductCategory, TyProduct } from '../../types/Products/Products';
 import { useFavoriteStore } from '../../store/favourite.store';
 import { Button2 } from '../Button2';
 
@@ -12,7 +11,13 @@ const ProductCard = ({
   product: TyProduct;
 }) => {
   const { items: favorites } = useFavoriteStore();
-  const { pathname } = useLocation();
+
+  const pathname = cn({
+    'paint':
+      product.categoryId === ProductCategory.Paint,
+    'wallpaper':
+      product.categoryId === ProductCategory.Wallpaper,
+  });
 
   return (
     <div
@@ -25,8 +30,8 @@ const ProductCard = ({
         className="relative w-full aspect-square"
       >
         <img
-          src={product.imgUrl.at(0)}
-          alt={product.imgUrl.at(0)}
+          src={product.imageUrl.at(0)}
+          alt={product.imageUrl.at(0)}
           className='absolute inset-0 w-full h-full object-cover'
         />
 
@@ -39,11 +44,11 @@ const ProductCard = ({
           onClick={() => useFavoriteStore.getState().trigger(product)}
         >
           <i
-            className={cn(
-              'icon icon--favorite-icon icon--hover m-auto', {
-              'icon--favorite-icon-blue'
-                : favorites.find(f => f.id === product.id),
-            })}
+            className={cn('icon icon--favorite-icon icon--hover m-auto',
+              {
+                'icon--favorite-icon-blue':
+                  favorites.find(f => f.id === product.id),
+              })}
           />
         </button>
       </div>
@@ -86,7 +91,7 @@ const ProductCard = ({
         className="h-[48px] mt-[40px]"
       >
         <Button2
-          path={`${pathname}/${product.id}`}
+          path={`/${pathname}/${product.id}`}
         >
           <span
             className="
@@ -108,4 +113,4 @@ const ProductCard = ({
   );
 };
 
-export default React.memo(ProductCard);
+export default R.memo(ProductCard);
