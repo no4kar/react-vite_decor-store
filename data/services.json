@@ -4,7 +4,7 @@
     "categoryId": 1,
     "name": "Artbeton",
     "description": "Імітація бетону, товстошарова штукатурка, що має своєрідну структуру. Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere soluta aliquam sapiente ratione sit impedit repudiandae ipsa nulla harum, excepturi eaque ab voluptatem quisquam quam repellendus similique ut molestiae ex laboriosam doloremque provident. Consequuntur repellendus itaque tenetur illo! Itaque, error deserunt. Soluta incidunt repellat hic similique fugiat temporibus? Eum, quis minima atque molestias corporis harum perferendis impedit maiores sit voluptatibus eligendi iure necessitatibus, sequi eaque ullam tempore ut! Veritatis, illo qui. Nisi culpa facere nostrum voluptatum, corrupti vero autem assumenda dolorem incidunt minus perferendis commodi odio molestiae minima accusantium veniam tenetur delectus deleniti unde repellendus repellat magni saepe. Quos corporis ea, impedit nisi nostrum quam sequi totam, consequuntur veritatis numquam nulla corrupti maiores unde facere. Quis voluptas illo sapiente ratione earum animi odit, laudantium tenetur eos minima reprehenderit tempora pariatur impedit velit id laboriosam eveniet voluptatem? Quasi sed quas illum fuga eveniet eius, praesentium dolorum ad vero error eum iure.",
-    "imgUrl": [
+    "imageUrl": [
       "https://drive.google.com/thumbnail?id=1J0IT6oWOQjK-DNAfpOfuWyTMdJ3W73BN&sz=w1000",
       "https://drive.google.com/thumbnail?id=1GO09SoROx0WmuogpoFIQ9YDU2vxTotkj&sz=w1000",
       "https://drive.google.com/thumbnail?id=1e96Rd6IKaY6sAEupPHF29XeA9bV5s2Io&sz=w1000",
@@ -22,7 +22,7 @@
     "categoryId": 1,
     "name": "Marmorino",
     "description": "Натуральне декоративне вапняне покриття, що імітує натуральний мармур. Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere soluta aliquam sapiente ratione sit impedit repudiandae ipsa nulla harum, excepturi eaque ab voluptatem quisquam quam repellendus similique ut molestiae ex laboriosam doloremque provident. Consequuntur repellendus itaque tenetur illo! Itaque, error deserunt. Soluta incidunt repellat hic similique fugiat temporibus? Eum, quis minima atque molestias corporis harum perferendis impedit maiores sit voluptatibus eligendi iure necessitatibus, sequi eaque ullam tempore ut! Veritatis, illo qui. Nisi culpa facere nostrum voluptatum, corrupti vero autem assumenda dolorem incidunt minus perferendis commodi odio molestiae minima accusantium veniam tenetur delectus deleniti unde repellendus repellat magni saepe. Quos corporis ea, impedit nisi nostrum quam sequi totam, consequuntur veritatis numquam nulla corrupti maiores unde facere. Quis voluptas illo sapiente ratione earum animi odit, laudantium tenetur eos minima reprehenderit tempora pariatur impedit velit id laboriosam eveniet voluptatem? Quasi sed quas illum fuga eveniet eius, praesentium dolorum ad vero error eum iure.",
-    "imgUrl": [
+    "imageUrl": [
       "https://drive.google.com/thumbnail?id=18ECT3K1ahpsdNo2dz9UHYNfzgryf_SZz&sz=w1000",
       "https://drive.google.com/thumbnail?id=18ECT3K1ahpsdNo2dz9UHYNfzgryf_SZz&sz=w1000",
       "https://drive.google.com/thumbnail?id=18ECT3K1ahpsdNo2dz9UHYNfzgryf_SZz&sz=w1000",
@@ -37,7 +37,7 @@
     "categoryId": 1,
     "name": "Wet silk",
     "description": "Декоративне покриття з ефектом мерехтіння. Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere soluta aliquam sapiente ratione sit impedit repudiandae ipsa nulla harum, excepturi eaque ab voluptatem quisquam quam repellendus similique ut molestiae ex laboriosam doloremque provident. Consequuntur repellendus itaque tenetur illo! Itaque, error deserunt. Soluta incidunt repellat hic similique fugiat temporibus? Eum, quis minima atque molestias corporis harum perferendis impedit maiores sit voluptatibus eligendi iure necessitatibus, sequi eaque ullam tempore ut! Veritatis, illo qui. Nisi culpa facere nostrum voluptatum, corrupti vero autem assumenda dolorem incidunt minus perferendis commodi odio molestiae minima accusantium veniam tenetur delectus deleniti unde repellendus repellat magni saepe. Quos corporis ea, impedit nisi nostrum quam sequi totam, consequuntur veritatis numquam nulla corrupti maiores unde facere. Quis voluptas illo sapiente ratione earum animi odit, laudantium tenetur eos minima reprehenderit tempora pariatur impedit velit id laboriosam eveniet voluptatem? Quasi sed quas illum fuga eveniet eius, praesentium dolorum ad vero error eum iure.",
-    "imgUrl": [
+    "imageUrl": [
       "https://drive.google.com/thumbnail?id=1EF5s0F2ukgHNevZjCvq4NkjiUU6ybc8M&sz=w1000",
       "https://drive.google.com/thumbnail?id=1EF5s0F2ukgHNevZjCvq4NkjiUU6ybc8M&sz=w1000",
       "https://drive.google.com/thumbnail?id=1EF5s0F2ukgHNevZjCvq4NkjiUU6ybc8M&sz=w1000",
@@ -52,7 +52,7 @@
     "categoryId": 1,
     "name": "STUCCO VENEZIANO",
     "description": "Венеціанська штукатурка - ідеальний спосіб облицювання стін під полірований мармур. Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere soluta aliquam sapiente ratione sit impedit repudiandae ipsa nulla harum, excepturi eaque ab voluptatem quisquam quam repellendus similique ut molestiae ex laboriosam doloremque provident. Consequuntur repellendus itaque tenetur illo! Itaque, error deserunt. Soluta incidunt repellat hic similique fugiat temporibus? Eum, quis minima atque molestias corporis harum perferendis impedit maiores sit voluptatibus eligendi iure necessitatibus, sequi eaque ullam tempore ut! Veritatis, illo qui. Nisi culpa facere nostrum voluptatum, corrupti vero autem assumenda dolorem incidunt minus perferendis commodi odio molestiae minima accusantium veniam tenetur delectus deleniti unde repellendus repellat magni saepe. Quos corporis ea, impedit nisi nostrum quam sequi totam, consequuntur veritatis numquam nulla corrupti maiores unde facere. Quis voluptas illo sapiente ratione earum animi odit, laudantium tenetur eos minima reprehenderit tempora pariatur impedit velit id laboriosam eveniet voluptatem? Quasi sed quas illum fuga eveniet eius, praesentium dolorum ad vero error eum iure.",
-    "imgUrl": [
+    "imageUrl": [
       "https://drive.google.com/thumbnail?id=1J_Ke4j49sKM4K7v8dK8LWw1BSXkct9zR&sz=w1000",
       "https://drive.google.com/thumbnail?id=1J_Ke4j49sKM4K7v8dK8LWw1BSXkct9zR&sz=w1000",
       "https://drive.google.com/thumbnail?id=1J_Ke4j49sKM4K7v8dK8LWw1BSXkct9zR&sz=w1000",
@@ -67,7 +67,7 @@
     "categoryId": 1,
     "name": "TRAVERTINO",
     "description": "Декоративне покриття, що створює різноманітні фактури каменю “травертин”. Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere soluta aliquam sapiente ratione sit impedit repudiandae ipsa nulla harum, excepturi eaque ab voluptatem quisquam quam repellendus similique ut molestiae ex laboriosam doloremque provident. Consequuntur repellendus itaque tenetur illo! Itaque, error deserunt. Soluta incidunt repellat hic similique fugiat temporibus? Eum, quis minima atque molestias corporis harum perferendis impedit maiores sit voluptatibus eligendi iure necessitatibus, sequi eaque ullam tempore ut! Veritatis, illo qui. Nisi culpa facere nostrum voluptatum, corrupti vero autem assumenda dolorem incidunt minus perferendis commodi odio molestiae minima accusantium veniam tenetur delectus deleniti unde repellendus repellat magni saepe. Quos corporis ea, impedit nisi nostrum quam sequi totam, consequuntur veritatis numquam nulla corrupti maiores unde facere. Quis voluptas illo sapiente ratione earum animi odit, laudantium tenetur eos minima reprehenderit tempora pariatur impedit velit id laboriosam eveniet voluptatem? Quasi sed quas illum fuga eveniet eius, praesentium dolorum ad vero error eum iure.",
-    "imgUrl": [
+    "imageUrl": [
       "https://drive.google.com/thumbnail?id=1bud8BTi9ZcgkucY2xKG4oFNEHwtEB9cl&sz=w1000",
       "https://drive.google.com/thumbnail?id=1bud8BTi9ZcgkucY2xKG4oFNEHwtEB9cl&sz=w1000",
       "https://drive.google.com/thumbnail?id=1bud8BTi9ZcgkucY2xKG4oFNEHwtEB9cl&sz=w1000",
@@ -82,7 +82,7 @@
     "categoryId": 1,
     "name": "Rock",
     "description": "Декоративна рельєфна штукатурка, що імітує скелясту поверхню. Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere soluta aliquam sapiente ratione sit impedit repudiandae ipsa nulla harum, excepturi eaque ab voluptatem quisquam quam repellendus similique ut molestiae ex laboriosam doloremque provident. Consequuntur repellendus itaque tenetur illo! Itaque, error deserunt. Soluta incidunt repellat hic similique fugiat temporibus? Eum, quis minima atque molestias corporis harum perferendis impedit maiores sit voluptatibus eligendi iure necessitatibus, sequi eaque ullam tempore ut! Veritatis, illo qui. Nisi culpa facere nostrum voluptatum, corrupti vero autem assumenda dolorem incidunt minus perferendis commodi odio molestiae minima accusantium veniam tenetur delectus deleniti unde repellendus repellat magni saepe. Quos corporis ea, impedit nisi nostrum quam sequi totam, consequuntur veritatis numquam nulla corrupti maiores unde facere. Quis voluptas illo sapiente ratione earum animi odit, laudantium tenetur eos minima reprehenderit tempora pariatur impedit velit id laboriosam eveniet voluptatem? Quasi sed quas illum fuga eveniet eius, praesentium dolorum ad vero error eum iure.",
-    "imgUrl": [
+    "imageUrl": [
       "https://drive.google.com/thumbnail?id=1If7KlfHHHWFZ8MeqP9C0ofiLc1LYKqOK&sz=w1000",
       "https://drive.google.com/thumbnail?id=1If7KlfHHHWFZ8MeqP9C0ofiLc1LYKqOK&sz=w1000",
       "https://drive.google.com/thumbnail?id=1If7KlfHHHWFZ8MeqP9C0ofiLc1LYKqOK&sz=w1000",
@@ -97,7 +97,7 @@
     "categoryId": 1,
     "name": "OTTOCENTO",
     "description": "Декоративне покриття з ефектом оксамиту. Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere soluta aliquam sapiente ratione sit impedit repudiandae ipsa nulla harum, excepturi eaque ab voluptatem quisquam quam repellendus similique ut molestiae ex laboriosam doloremque provident. Consequuntur repellendus itaque tenetur illo! Itaque, error deserunt. Soluta incidunt repellat hic similique fugiat temporibus? Eum, quis minima atque molestias corporis harum perferendis impedit maiores sit voluptatibus eligendi iure necessitatibus, sequi eaque ullam tempore ut! Veritatis, illo qui. Nisi culpa facere nostrum voluptatum, corrupti vero autem assumenda dolorem incidunt minus perferendis commodi odio molestiae minima accusantium veniam tenetur delectus deleniti unde repellendus repellat magni saepe. Quos corporis ea, impedit nisi nostrum quam sequi totam, consequuntur veritatis numquam nulla corrupti maiores unde facere. Quis voluptas illo sapiente ratione earum animi odit, laudantium tenetur eos minima reprehenderit tempora pariatur impedit velit id laboriosam eveniet voluptatem? Quasi sed quas illum fuga eveniet eius, praesentium dolorum ad vero error eum iure.",
-    "imgUrl": [
+    "imageUrl": [
       "https://drive.google.com/thumbnail?id=1gEkukaq-f6ANc41J344Gbuzyu4VO9pGd&sz=w1000",
       "https://drive.google.com/thumbnail?id=1gEkukaq-f6ANc41J344Gbuzyu4VO9pGd&sz=w1000",
       "https://drive.google.com/thumbnail?id=1gEkukaq-f6ANc41J344Gbuzyu4VO9pGd&sz=w1000",
@@ -112,7 +112,7 @@
     "categoryId": 1,
     "name": "Microcement",
     "description": "Мікроцемент - сучасний декоративний матеріал на основі цементу, мінерального наповнювача та функціональних добавок.",
-    "imgUrl": [
+    "imageUrl": [
       "https://drive.google.com/thumbnail?id=1_-D4mqQia5B-MtW4fjxd3UL5sXd0z_le&sz=w1000",
       "https://drive.google.com/thumbnail?id=1_-D4mqQia5B-MtW4fjxd3UL5sXd0z_le&sz=w1000",
       "https://drive.google.com/thumbnail?id=1_-D4mqQia5B-MtW4fjxd3UL5sXd0z_le&sz=w1000",
@@ -127,7 +127,7 @@
     "categoryId": 2,
     "name": "вінілові шпалери на флізеліновій основі",
     "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere soluta aliquam sapiente ratione sit impedit repudiandae ipsa nulla harum, excepturi eaque ab voluptatem quisquam quam repellendus similique ut molestiae ex laboriosam doloremque provident. Consequuntur repellendus itaque tenetur illo! Itaque, error deserunt. Soluta incidunt repellat hic similique fugiat temporibus? Eum, quis minima atque molestias corporis harum perferendis impedit maiores sit voluptatibus eligendi iure necessitatibus, sequi eaque ullam tempore ut! Veritatis, illo qui. Nisi culpa facere nostrum voluptatum, corrupti vero autem assumenda dolorem incidunt minus perferendis commodi odio molestiae minima accusantium veniam tenetur delectus deleniti unde repellendus repellat magni saepe. Quos corporis ea, impedit nisi nostrum quam sequi totam, consequuntur veritatis numquam nulla corrupti maiores unde facere. Quis voluptas illo sapiente ratione earum animi odit, laudantium tenetur eos minima reprehenderit tempora pariatur impedit velit id laboriosam eveniet voluptatem? Quasi sed quas illum fuga eveniet eius, praesentium dolorum ad vero error eum iure.",
-    "imgUrl": [
+    "imageUrl": [
       "https://drive.google.com/thumbnail?id=1alIFi9xpv584MNctBFFPvbTIUf8kseKs&sz=w1000",
       "https://drive.google.com/thumbnail?id=1Sg7WhtRteAzRtBdhAr67WohCsT1HGZv6&sz=w1000",
       "https://drive.google.com/thumbnail?id=1vTFdAehi0NSrvuTNzxbMgBa2RCUltmzR&sz=w1000",
@@ -142,7 +142,7 @@
     "categoryId": 2,
     "name": "фотошпалери",
     "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere soluta aliquam sapiente ratione sit impedit repudiandae ipsa nulla harum, excepturi eaque ab voluptatem quisquam quam repellendus similique ut molestiae ex laboriosam doloremque provident. Consequuntur repellendus itaque tenetur illo! Itaque, error deserunt. Soluta incidunt repellat hic similique fugiat temporibus? Eum, quis minima atque molestias corporis harum perferendis impedit maiores sit voluptatibus eligendi iure necessitatibus, sequi eaque ullam tempore ut! Veritatis, illo qui. Nisi culpa facere nostrum voluptatum, corrupti vero autem assumenda dolorem incidunt minus perferendis commodi odio molestiae minima accusantium veniam tenetur delectus deleniti unde repellendus repellat magni saepe. Quos corporis ea, impedit nisi nostrum quam sequi totam, consequuntur veritatis numquam nulla corrupti maiores unde facere. Quis voluptas illo sapiente ratione earum animi odit, laudantium tenetur eos minima reprehenderit tempora pariatur impedit velit id laboriosam eveniet voluptatem? Quasi sed quas illum fuga eveniet eius, praesentium dolorum ad vero error eum iure.",
-    "imgUrl": [
+    "imageUrl": [
       "https://drive.google.com/thumbnail?id=1kEmIgnihsC46PvHMHSV44ZdXeuy42qPu&sz=w1000",
       "https://drive.google.com/thumbnail?id=19MmEw9XPmrJsjVRObR6m7csWkN-jPgPq&sz=w1000",
       "https://drive.google.com/thumbnail?id=1nmsAUST5C_7dA6aJP6nL5BJkE1Q5Mneo&sz=w1000",
