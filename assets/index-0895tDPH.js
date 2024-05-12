@@ -157,7 +157,9 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         pt-[10px] pb-[14px] px-[10px]
         w-full min-h-[520px]
       flex flex-col
-      shadow rounded`,children:[u.jsxs("div",{className:"relative w-full aspect-square",children:[u.jsx("img",{className:`
+      shadow rounded
+      hover:scale-[1.03]
+      transition-transform duration-300 ease-in-out`,children:[u.jsxs("div",{className:"relative w-full aspect-square",children:[u.jsx("img",{className:`
             absolute inset-0 w-full h-full object-cover`,src:n[0],alt:n[0]}),u.jsx("button",{"aria-label":"add to favorite",type:"button",className:`
           w-[40px] h-[40px]
           absolute top-[20px] right-[10px]
@@ -169,7 +171,9 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
           group-hover:-translate-x-[-5px] transition duration-300`,children:"→"})]})})]},t)});var wo=(e=>(e[e.Paint=1]="Paint",e[e.Wallpaper=2]="Wallpaper",e))(wo||{});const MN=({product:e})=>{const{items:t}=Gn(),n=se({paint:e.categoryId===wo.Paint,wallpaper:e.categoryId===wo.Wallpaper});return u.jsxs("div",{className:`
       pt-[10px] pb-[14px] px-[10px]
       w-full h-min
-      shadow rounded`,children:[u.jsxs("div",{className:"relative w-full aspect-square",children:[u.jsx("img",{src:e.imageUrl.at(0),alt:e.imageUrl.at(0),className:"absolute inset-0 w-full h-full object-cover"}),u.jsx("button",{"aria-label":"add to favorite",type:"button",className:`w-[40px] h-[40px]
+      shadow rounded
+      hover:scale-[1.03]
+      transition-transform duration-300 ease-in-out`,children:[u.jsxs("div",{className:"relative w-full aspect-square",children:[u.jsx("img",{src:e.imageUrl.at(0),alt:e.imageUrl.at(0),className:"absolute inset-0 w-full h-full object-cover"}),u.jsx("button",{"aria-label":"add to favorite",type:"button",className:`w-[40px] h-[40px]
           absolute top-[20px] right-[10px]
           bg-white rounded-full shadow`,onClick:()=>Gn.getState().trigger(e),children:u.jsx("i",{className:se("icon icon--favorite-icon icon--hover m-auto",{"icon--favorite-icon-blue":t.find(i=>i.id===e.id)})})})]}),u.jsxs("div",{className:"pt-[24px]",children:[u.jsxs("div",{children:[u.jsx("p",{className:"title--micro title--secondary-color text-left",children:e.type}),u.jsxs("div",{className:"pt-[7px]",children:[u.jsx("span",{className:"title--h4-main",children:e.producer}),u.jsx("span",{children:"/"}),u.jsx("span",{className:"title--body-text",children:e.collection}),u.jsx("span",{children:"/"}),u.jsx("span",{className:"title--body-text title--secondary-color",children:e.country})]})]}),u.jsxs("div",{className:"pt-[20px] flex justify-between",children:[u.jsxs("div",{className:"flex gap-[9px]",children:[u.jsx("p",{children:"Код товару"}),u.jsx("p",{children:e.id})]}),u.jsxs("div",{className:"flex",children:[u.jsx("p",{children:"Ціна"}),u.jsx("p",{className:"pl-3 pr-1 text-accent",children:e.price}),u.jsx("p",{children:"грн."})]})]})]}),u.jsx("div",{className:"h-[48px] mt-[40px]",children:u.jsxs(an,{path:`/${n}/${e.id}`,children:[u.jsx("span",{className:`
           group-hover:-translate-x-[5px] transition duration-300`,children:"Детальніше"}),u.jsx("span",{className:`
