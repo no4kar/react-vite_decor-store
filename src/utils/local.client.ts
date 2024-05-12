@@ -17,6 +17,10 @@ const client = {
     window.localStorage.setItem(key, JSON.stringify(data));
   },
 
+  remove: (key: string,): void => {
+    window.localStorage.removeItem(key);
+  },
+
   init: <T>(
     key: string,
     initialData: T,
@@ -44,6 +48,7 @@ export function getClient(postfix: string) {
   return {
     read: <T>(): T | null => client.read(key),
     write: <T>(data: T): void => client.write(key, data),
+    remove: (): void => client.remove(key),
     init: <T>(
       initialData: T,
       isValid: (item: any) => boolean,

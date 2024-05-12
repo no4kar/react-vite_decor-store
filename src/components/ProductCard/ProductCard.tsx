@@ -23,7 +23,7 @@ const ProductCard = ({
     <div
       className="
       pt-[10px] pb-[14px] px-[10px]
-      w-full
+      w-full h-min
       shadow rounded"
     >
       <div

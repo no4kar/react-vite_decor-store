@@ -38,8 +38,10 @@ export const useCartStore = create<CartState>((set) => ({
   items: localClient.init([] as TyInCartItem[], isInCartItem),
 
   increase: (item) => set((state) => {
+
     const foundItemIndex = state.items
       .findIndex(inCartItem => inCartItem.id === item.id);
+      
     const newItems = [...state.items];
 
     if (foundItemIndex !== -1) {

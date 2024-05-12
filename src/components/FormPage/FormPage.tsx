@@ -9,7 +9,7 @@ import { MyForm } from '../../types/MyForm';
 
 import { Button2, Option as Button2Option } from '../Button2';
 
-import { getSendForm } from '../../api/service.api';
+import { serviceApi } from '../../api/service.api';
 import { validation } from '../../constants/formValidation';
 import { Modal } from '../Modal';
 import { delivery, payOption } from '../../constants/radioOptions';
@@ -80,7 +80,7 @@ export const FormPage: React.FC<FormProps> = ({ formVersion, children }) => {
   const onSubmit: SubmitHandler<MyForm> = data => {
     console.log(data);
 
-    getSendForm(data)
+    serviceApi.sendForm(data)
       .then(() => {
         setMsg({
           status: Status.SUCCESS,
@@ -148,7 +148,7 @@ export const FormPage: React.FC<FormProps> = ({ formVersion, children }) => {
                 register={register}
                 validation={validation.firstName}
                 errors={errors}
-                placeholderName="Ім'я"
+                placeholder="Ім'я"
                 required
               />
 
@@ -174,7 +174,7 @@ export const FormPage: React.FC<FormProps> = ({ formVersion, children }) => {
                     errors={errors}
                     required
                     validation={validation.email}
-                    placeholderName="Email"
+                    placeholder="Email"
                   />
 
                   <FormFields
@@ -198,7 +198,7 @@ export const FormPage: React.FC<FormProps> = ({ formVersion, children }) => {
                     errors={errors}
                     required
                     validation={validation.lastName}
-                    placeholderName="Прізвище"
+                    placeholder="Прізвище"
                   />
 
                   <FormFields
@@ -206,7 +206,7 @@ export const FormPage: React.FC<FormProps> = ({ formVersion, children }) => {
                     name="middleName"
                     register={register}
                     errors={errors}
-                    placeholderName="По батькові"
+                    placeholder="По батькові"
                   />
 
                   <Controller
@@ -264,7 +264,7 @@ export const FormPage: React.FC<FormProps> = ({ formVersion, children }) => {
                     errors={errors}
                     required
                     validation={validation.email}
-                    placeholderName="Email"
+                    placeholder="Email"
                   />
 
                   <FormFields
@@ -325,16 +325,17 @@ export const FormPage: React.FC<FormProps> = ({ formVersion, children }) => {
                   <div className="relative w-0 h-0">
                     <div className="absolute top-1">
                       <Notification
-                        msg={msg.description}
                         classContainer={cn('w-[250px] h-fit p-[10px] pr-[30px]', {
-                          'bg-green-300': msg.status === Status.SUCCESS,
-                          'bg-red-300': msg.status === Status.ERROR,
+                          'bg-system-success': msg.status === Status.SUCCESS,
+                          'bg-red-500': msg.status === Status.ERROR,
                         })}
                         onDelay={() => setMsg({
                           status: Status.NONE,
                           description: '',
                         })}
-                      />
+                      >
+                        <p>{msg.description}</p>
+                      </Notification>
                     </div>
                   </div>
                 )}
@@ -397,16 +398,17 @@ export const FormPage: React.FC<FormProps> = ({ formVersion, children }) => {
                   <div className="relative w-0 h-0">
                     <div className="absolute top-1">
                       <Notification
-                        msg={msg.description}
                         classContainer={cn('w-[250px] h-fit p-[10px] pr-[30px]', {
-                          'bg-green-300': msg.status === Status.SUCCESS,
-                          'bg-red-300': msg.status === Status.ERROR,
+                          'bg-system-success': msg.status === Status.SUCCESS,
+                          'bg-red-500': msg.status === Status.ERROR,
                         })}
                         onDelay={() => setMsg({
                           status: Status.NONE,
                           description: '',
                         })}
-                      />
+                      >
+                        <p>{msg.description}</p>
+                      </Notification>
                     </div>
                   </div>
                 )}

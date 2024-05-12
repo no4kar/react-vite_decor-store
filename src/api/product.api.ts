@@ -6,22 +6,28 @@ import { TyProduct, ProductCategory }
   from '../types/Products/Products';
 import env from '../helpers/varsFromEnv';
 
-const client = env.API_URL
-  ? getClient(env.API_URL)
-  : null;
+const client = getClient({
+  baseURL: env.API_URL.concat('/v1/products'),
+});
 
-export function getProducts() {
-  return client
-    ? client.get<TyProduct[]>('/v1/products?page=0&size=100')
-      .then(res => res.data)
-    : wait<TyProduct[]>(initialDelayLoader, () => products);
+function getProducts({
+  page = 0,
+  size = 100,
+}: {
+  page?: number,
+  size?: number,
+} = {}) {
+  return wait<TyProduct[]>(initialDelayLoader, () => products);
+
+  return client.get<TyProduct[]>(`?page=${page}&size=${size}`)
+    .then(res => res.data);
 }
 
-export function getProductById(items: TyProduct[], id: number) {
+function getProductById(items: TyProduct[], id: number) {
   return items.find(item => item.id === id);
 }
 
-export function getProductByCategory(
+function getProductByCategory(
   items: TyProduct[],
   categoryId: ProductCategory,
 ) {
@@ -29,11 +35,19 @@ export function getProductByCategory(
     .filter(item => item.categoryId === categoryId);
 }
 
-export function getWallpapers(items: TyProduct[]) {
+function getWallpapers(items: TyProduct[]) {
   return getProductByCategory(items, ProductCategory.Wallpaper);
   // return client.get<TyProduct['Wallpaper'][]>('/v1/products/all/1');
 }
 
-export function getPaints(items: TyProduct[]) {
+function getPaints(items: TyProduct[]) {
   return getProductByCategory(items, ProductCategory.Paint);
 }
+
+export const productApi = {
+  getProducts,
+  getProductById,
+  getProductByCategory,
+  getWallpapers,
+  getPaints,
+};

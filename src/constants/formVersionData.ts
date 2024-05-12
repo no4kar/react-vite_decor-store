@@ -13,4 +13,8 @@ export const formVersionData: FormVersion = {
     title: 'Або напишіть нам',
     titleDescription: '',
   },
+  login: {
+    title: 'LOGIN AS ADMIN',
+    titleDescription: 'FILL FIELDS',
+  },
 };

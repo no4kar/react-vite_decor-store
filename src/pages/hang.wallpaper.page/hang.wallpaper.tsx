@@ -3,7 +3,7 @@ import { Loader } from '../../components/Loader';
 import { PageNavigation } from '../../components/PageNavigation';
 import { ServiceCard } from '../../components/ServiceCard';
 import { useServiceStore } from '../../store/service.store';
-import { getServiceByCategory } from '../../api/service.api';
+import { serviceApi } from '../../api/service.api';
 import { ServiceCategory } from '../../types/Services/Services';
 
 export const HangWallpaper = () => {
@@ -19,7 +19,7 @@ export const HangWallpaper = () => {
   }, []);
 
   const visibleServices
-    = getServiceByCategory(services, ServiceCategory.HangWallpaper);
+    = serviceApi.getServiceByCategory(services, ServiceCategory.HangWallpaper);
 
   return (
     <div className="

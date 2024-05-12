@@ -2,7 +2,7 @@ import * as R from 'react';
 
 import { useProductStore } from '../../store/product.store';
 import { ProductsPage } from '../products.page';
-import { getPaints } from '../../api/product.api';
+import { productApi } from '../../api/product.api';
 
 import './paint.page.scss';
 
@@ -16,7 +16,7 @@ export const PaintPage = () => {
   } = useProductStore();
 
   const paints = R.useMemo(
-    () => getPaints(products),
+    () => productApi.getPaints(products),
     [products],
   );
 

@@ -1,6 +1,6 @@
 import create from 'zustand';
 import { TyProduct } from '../types/Products/Products';
-import { getProducts } from '../api/product.api';
+import { productApi } from '../api/product.api';
 
 type ProductState = {
   products: TyProduct[];
@@ -16,20 +16,35 @@ export const useProductStore = create<ProductState>((set) => ({
 
   fetchData: async () => {
     try {
-      set({ isLoading: true, error: null });
+      set(state => ({
+        ...state,
+        isLoading: true,
+        error: null,
+      }));
 
-      const products = await getProducts();
+      const products = await productApi.getProducts();
 
-      set({ products });
+      set(state => ({
+        ...state,
+        products
+      }));
 
       return products;
 
     } catch (error) {
-      set({ error: 'Something went wrong' });
-      throw error;
+      set(state => ({
+        ...state,
+        products: [],
+        error: 'Something went wrong',
+      }));
+
+      return [] as TyProduct[];
 
     } finally {
-      set({ isLoading: false });
+      set(state => ({
+        ...state,
+        isLoading: false,
+      }));
     }
   },
 }));

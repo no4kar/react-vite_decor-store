@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { PageNavigation } from '../../components/PageNavigation';
 import { Loader } from '../../components/Loader';
 import { TyService } from '../../types/Services/Services';
-import { getServiceById } from '../../api/service.api';
+import { serviceApi } from '../../api/service.api';
 import { ButtonFavorite } from '../../components/ButtonFavorite';
 import { Button2 } from '../../components/Button2';
 import { useServiceStore } from '../../store/service.store';
@@ -22,7 +22,7 @@ export const ServiceDetailsPage = () => {
   const { services, isLoading } = useServiceStore();
 
   useEffect(() => {
-    setSelectService(getServiceById(services, serviceId) || null);
+    setSelectService(serviceApi.getServiceById(services, serviceId) || null);
   }, []);
 
   if (!selectService) {

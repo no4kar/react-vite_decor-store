@@ -1,5 +1,5 @@
 import * as R from 'react';
-import { getWallpapers } from '../../api/product.api';
+import { productApi } from '../../api/product.api';
 
 import './wallpaper.page.scss';
 import { useProductStore } from '../../store/product.store';
@@ -15,7 +15,7 @@ export const WallpaperPage = () => {
   } = useProductStore();
 
   const wallpapers = R.useMemo(
-    () => getWallpapers(products),
+    () => productApi.getWallpapers(products),
     [products],
   );
 

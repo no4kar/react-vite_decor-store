@@ -21,7 +21,7 @@ export const Footer = () => {
 
           <div className="footer__info">
             <section className="footer__section">
-              <h4 className="title title--h4 uppercase text-gray-200"> Полсуги </h4>
+              <h4 className="title title--h4 uppercase text-gray-200"> Послуги </h4>
 
               <ul className="footer__list">
                 <li className="footer__item">

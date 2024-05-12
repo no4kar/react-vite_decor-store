@@ -12,6 +12,7 @@ export interface MyForm {
   firstName: string;
   phoneNumber: string;
   email: string;
+  password: string;
   message: string;
   lastName: string;
   middleName?: string;

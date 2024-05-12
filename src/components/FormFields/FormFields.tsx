@@ -4,33 +4,33 @@ import { MyForm } from '../../types/MyForm';
 import './FormFields.scss';
 
 export const FormFields = ({
-  className,
   type = 'text',
-  textLabel,
   name,
+  textLabel,
+  placeholder = '',
   register,
   errors,
   required,
   validation,
-  placeholderName = '',
+  classContainer = '',
 }: {
-  className?: string;
   type?: string;
-  textLabel?: string;
   name: keyof MyForm;
+  textLabel?: string;
   register: UseFormRegister<MyForm>;
   errors: FieldErrors<MyForm>;
   required?: boolean;
   validation?: RegisterOptions;
-  placeholderName?: string;
+  placeholder?: string;
   defaultChecked?: boolean;
+  classContainer?: string;
 }) => {
   const hasError = errors[name];
 
   return (
-    <div className={`formField ${className}`}>
+    <div className={cn('formField', `${classContainer}`)}>
       <label
-        className={cn('formField__label', {
+        className={cn('title title--body-text', {
           'formField__label--error': hasError,
           'formField__label--star-after': required,
         })}
@@ -41,23 +41,24 @@ export const FormFields = ({
 
       {type === 'textarea' ? (
         <textarea
-          id={name}
           className="formField__textarea"
           {...register(name, { ...validation })}
         />
       ) : (
         <input
-          className={cn('formField__input', {
-            'formField__input--error': hasError,
-          })}
-          id={name}
+          className={cn('h-45 py-[12px]',
+            'border-b border-black',
+            'outline-none text-black',
+            {
+              'text-system-error': hasError,
+            })}
           type={type}
-          placeholder={placeholderName}
-          defaultValue={name === 'phoneNumber' ? '+380' : ''}
+          placeholder={placeholder}
           {...register(name, { ...validation })}
         />
       )}
-      {errors[name] && (
+
+      {hasError && (
         <div className="formField__error">
           {errors[name]?.message || 'Error!'}
         </div>

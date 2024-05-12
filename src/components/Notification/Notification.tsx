@@ -3,12 +3,12 @@ import cn from 'classnames';
 
 export const Notification = R.memo(
   ({
-    msg,
+    children,
     delay = 5000,
     onDelay = () => { },
     classContainer = "w-[250px] h-fit p-[10px]",
   }: {
-    msg: string;
+    children: R.ReactNode;
     delay?: number;
     onDelay?: () => void;
     classContainer?: string;
@@ -32,12 +32,13 @@ export const Notification = R.memo(
       <div
         data-cy="ErrorNotification"
         className={cn(classContainer,
-          'relative shadow rounded', {
-          'hidden': !isVisible,
-          'pointer-events-none': !isVisible,
-        })}
+          'relative shadow rounded',
+          {
+            'hidden': !isVisible,
+            'pointer-events-none': !isVisible,
+          })}
       >
-        <p>{msg}</p>
+        {children}
 
         <button
           data-cy="HideErrorButton"

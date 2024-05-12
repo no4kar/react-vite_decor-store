@@ -11,7 +11,7 @@ import { useCartStore } from '../../store/cart.store';
 
 import './productDetails.page.scss';
 
-import { getProductById } from '../../api/product.api';
+import { productApi } from '../../api/product.api';
 import { ButtonFavorite } from '../../components/ButtonFavorite';
 import { Button2, Option as Button2Option } from '../../components/Button2';
 import { Counter } from '../../components/Counter';
@@ -26,7 +26,7 @@ export const ProductDetailsPage = () => {
   const timerId = useRef(0);
   const { products } = useProductStore();
   const selectProduct = useMemo(
-    () => getProductById(products, productId) || null,
+    () => productApi.getProductById(products, productId) || null,
     [productId],
   );
   const { add: inCartAdd } = useCartStore();

@@ -37,6 +37,13 @@ export const validation: Record<string, FormValidation> = {
       message: `Будь ласка, введіть коректний формат вашої електронної пошти! (name@email.com)`,
     },
   },
+  password: {
+    required: 'Будь ласка, введіть пароль!',
+    pattern: {
+      value: /^\w+$/,
+      message: `Будь ласка, введіть коректний формат!`,
+    },
+  },
   middleName: {
     required: 'Email Address is required',
     maxLength: {

@@ -1,5 +1,5 @@
 import create from 'zustand';
-import { getServices } from '../api/service.api';
+import { serviceApi } from '../api/service.api';
 import { TyService } from '../types/Services/Services';
 
 type ServiceState = {
@@ -16,20 +16,35 @@ export const useServiceStore = create<ServiceState>((set) => ({
 
   fetchData: async () => {
     try {
-      set({ isLoading: true, error: null });
+      set((state) => ({
+        ...state,
+        isLoading: true,
+        error: null,
+      }));
 
-      const services = await getServices();
+      const services = await serviceApi.getServices();
 
-      set({ services });
+      set((state) => ({
+        ...state,
+        services,
+      }));
 
       return services;
 
     } catch (error) {
-      set({ error: 'Something went wrong' });
+      
+      set((state) => ({
+        ...state,
+        error: 'Something went wrong',
+      }));
       throw error;
 
     } finally {
-      set({ isLoading: false });
+
+      set((state) => ({
+        ...state,
+        isLoading: false,
+      }));
     }
   },
 }));

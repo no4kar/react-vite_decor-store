@@ -11,4 +11,8 @@ export interface FormVersion {
     title: string;
     titleDescription?: string;
   };
+  login: {
+    title: string;
+    titleDescription?: string;
+  };
 }

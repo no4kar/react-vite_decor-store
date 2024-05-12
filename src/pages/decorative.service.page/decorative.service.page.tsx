@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { PageNavigation } from '../../components/PageNavigation';
 import { Loader } from '../../components/Loader';
 import { ServiceCard } from '../../components/ServiceCard';
-import { getServiceByCategory } from '../../api/service.api';
+import { serviceApi } from '../../api/service.api';
 import { useServiceStore } from '../../store/service.store';
 import { ServiceCategory } from '../../types/Services/Services';
 
@@ -20,7 +20,7 @@ export const DecorativeService = () => {
   }, []);
 
   const visibleServices
-    = getServiceByCategory(services, ServiceCategory.Decorative);
+    = serviceApi.getServiceByCategory(services, ServiceCategory.Decorative);
 
   return (
     <div className="

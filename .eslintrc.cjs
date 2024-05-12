@@ -14,6 +14,7 @@ module.exports = {
     // clean up at the project's end
     "no-console": "warn",
     "max-len": "warn",
+    "no-param-reassign": "warn",
     // 'max-len': ['warn', {
     //   ignoreTemplateLiterals: true,
     //   ignoreComments: true,

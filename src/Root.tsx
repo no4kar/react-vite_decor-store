@@ -14,6 +14,8 @@ import { WallpaperPage } from './pages/wallpaper.page';
 import { HangWallpaper } from './pages/hang.wallpaper.page';
 import { PaintPage } from './pages/paint.page';
 import { ProductDetailsPage } from './pages/productDetails.page';
+import { LoginPage } from './pages/login.page/login.page';
+import { RequireAuth } from './components/RequireAuth/RequireAuth';
 
 export const Root = () => (
   <Router
@@ -52,6 +54,12 @@ export const Root = () => (
         </Route>
 
         <Route path="favorite" element={<FavoritePage />} />
+
+        <Route path="login" element={<LoginPage />} />
+
+        <Route path="/" element={<RequireAuth />}>
+          <Route path="admin" element={<h1>Admin Page</h1>} />
+        </Route>
 
         <Route path="*" element={<NotFoundPage />} />
       </Route>
