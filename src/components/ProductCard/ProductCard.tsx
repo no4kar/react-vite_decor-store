@@ -24,7 +24,9 @@ const ProductCard = ({
       className="
       pt-[10px] pb-[14px] px-[10px]
       w-full h-min
-      shadow rounded"
+      shadow rounded
+      hover:scale-[1.03]
+      transition-transform duration-300 ease-in-out"
     >
       <div
         className="relative w-full aspect-square"

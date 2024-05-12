@@ -9,7 +9,7 @@ import { MyForm } from '../../types/MyForm';
 
 import { Button2, Option as Button2Option } from '../Button2';
 
-import { serviceApi } from '../../api/service.api';
+import { formApi } from '../../api/form.api';
 import { validation } from '../../constants/formValidation';
 import { Modal } from '../Modal';
 import { delivery, payOption } from '../../constants/radioOptions';
@@ -58,8 +58,6 @@ export const FormPage: React.FC<FormProps> = ({ formVersion, children }) => {
     description: '',
   });
 
-
-
   const handleCityChange = (selectedOption: CitiesOptions | null) => {
     setSelectedCity(selectedOption);
   };
@@ -80,7 +78,7 @@ export const FormPage: React.FC<FormProps> = ({ formVersion, children }) => {
   const onSubmit: SubmitHandler<MyForm> = data => {
     console.log(data);
 
-    serviceApi.sendForm(data)
+    formApi.sendForm(data)
       .then(() => {
         setMsg({
           status: Status.SUCCESS,

@@ -19,9 +19,10 @@ import { RequireAuth } from './components/RequireAuth/RequireAuth';
 
 export const Root = () => (
   <Router
-    basename={process.env.NODE_ENV === 'production'
-      ? '/react-vite_decor-store/'
-      : '/'}
+    // basename={process.env.NODE_ENV === 'production'
+    //   ? '/react-vite_decor-store/'
+    //   : '/'}
+    basename="/react-vite_decor-store/"
   >
     <Routes>
       <Route path="/" element={<App />}>
