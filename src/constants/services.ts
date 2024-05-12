@@ -13,10 +13,10 @@ export const services: SlideData[] = [
     title: 'Поклейка шпалер',
     label: 'Послуги',
   },
-  {
-    id: 2,
-    img: './img/services/03.png',
-    title: 'Тонування фарб',
-    label: 'Послуги',
-  },
+  // {
+  //   id: 2,
+  //   img: './img/services/03.png',
+  //   title: 'Тонування фарб',
+  //   label: 'Послуги',
+  // },
 ];

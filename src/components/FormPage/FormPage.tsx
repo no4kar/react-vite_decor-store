@@ -17,6 +17,7 @@ import { RadioButtonGroup } from '../RadioButtonGroup/RadioButtonGroup';
 import { formVersionData } from '../../constants/formVersionData';
 import './FormPage.scss';
 import { Notification } from '../Notification/Notification';
+import { useCartStore } from '../../store/cart.store';
 
 /* eslint no-console: "warn" */
 
@@ -34,6 +35,12 @@ enum Status {
   NONE,
   SUCCESS,
   ERROR,
+}
+
+enum FormVersion {
+  CONSULTATION = 'consultation',
+  SEND_MESSAGE = 'sendMessage',
+  ORDER = 'order',
 }
 
 type OutcomeReport = {
@@ -57,6 +64,11 @@ export const FormPage: React.FC<FormProps> = ({ formVersion, children }) => {
     title: '',
     description: '',
   });
+  const { items: inCartItems } = useCartStore();
+
+  const isOrderVersion = formVersion === FormVersion.ORDER;
+  const isSendMassageVersion = formVersion === FormVersion.SEND_MESSAGE;
+  const isConsultationVersion = formVersion === FormVersion.CONSULTATION;
 
   const handleCityChange = (selectedOption: CitiesOptions | null) => {
     setSelectedCity(selectedOption);
@@ -78,19 +90,95 @@ export const FormPage: React.FC<FormProps> = ({ formVersion, children }) => {
   const onSubmit: SubmitHandler<MyForm> = data => {
     console.log(data);
 
-    formApi.sendForm(data)
-      .then(() => {
-        setMsg({
-          status: Status.SUCCESS,
-          description: 'Дякуємо, наші консультанти звяжуться з Вами',
-        });
-      })
-      .catch(() => {
+    switch (formVersion) {
+
+      case FormVersion.CONSULTATION:
+      case FormVersion.SEND_MESSAGE: {
+        formApi.sendFeedback({
+          name: data.firstName,
+          email: data.email,
+          comment: data.message,
+        })
+          .then(() => {
+            setMsg({
+              status: Status.SUCCESS,
+              // description: 'Дякуємо, наші консультанти звяжуться з Вами',
+              description: 'Дякуємо, ми цінуємо думку кожного',
+            });
+          })
+          .catch((error) => {
+            if (error.message) {
+              setMsg({
+                status: Status.ERROR,
+                description: error.message,
+              });
+
+              return;
+            }
+
+            setMsg({
+              status: Status.ERROR,
+              description: 'Може спробуєте трохи пізніше',
+            });
+          });
+
+        break;
+      }
+
+      case FormVersion.ORDER: {
+
+        formApi.createOrder({
+          orderItems:
+            inCartItems.map(({ id, quantity }) => ({ productId: id, quantity })),
+          firstName: data.firstName,
+          lastName: data.lastName,
+          patronymic: data.middleName || '',
+          shippingAddress: data.city,
+          email: data.email,
+          phoneNumber: data.phoneNumber,
+          comment: data.message || '',
+        })
+          .then((response) => {
+            console.info(response);
+
+            setMsg({
+              status: Status.SUCCESS,
+              description:
+              `
+              Дякуємо.
+              Замовлення оброблється.
+              Відповідть відправлення до ${response.data?.email}
+              `,
+            });
+          })
+          .catch((error) => {
+            if (error.message) {
+              setMsg({
+                status: Status.ERROR,
+                description: error.message,
+              });
+
+              return;
+            }
+
+            setMsg({
+              status: Status.ERROR,
+              description: 'Може спробуєте трохи пізніше',
+            });
+          });
+
+        break;
+      }
+
+      default: {
         setMsg({
           status: Status.ERROR,
-          description: 'Може спробуєте трохи пізніше',
+          description: 'Something went wrong',
         });
-      });
+
+        break;
+      }
+    }
 
     reset();
     setSelectedCity(null);
@@ -107,31 +195,31 @@ export const FormPage: React.FC<FormProps> = ({ formVersion, children }) => {
     >
       <div
         className={cn('form__wrap', {
-          'form__wrap--flex-column': formVersion === 'order',
+          'form__wrap--flex-column': isOrderVersion,
         })}
       >
         <div
           className={cn('form__first-part', {
-            'form__first-part--consultation': formVersion === 'consultation',
-            'form__first-part--order': formVersion === 'order',
-            'form__first-part--sendMessage': formVersion === 'sendMessage',
+            'form__first-part--consultation': isConsultationVersion,
+            'form__first-part--order': isOrderVersion,
+            'form__first-part--sendMessage': isSendMassageVersion,
           })}
         >
           <div
             className={cn('form__title-wrap', {
-              'form__title-wrap--no-alight-center': formVersion !== 'order',
+              'form__title-wrap--no-alight-center': !isOrderVersion,
             })}
           >
             <h2
               className={cn('title title--h2 form__title', {
-                'form__title--text-left': formVersion !== 'order',
+                'form__title--text-left': !isOrderVersion,
               })}
             >
               {title}
             </h2>
             <p
               className={cn('form__title-description', {
-                'form__title-description--text-left': formVersion !== 'order',
+                'form__title-description--text-left': !isOrderVersion,
               })}
             >
               {titleDescription}
@@ -150,7 +238,7 @@ export const FormPage: React.FC<FormProps> = ({ formVersion, children }) => {
                 required
               />
 
-              {formVersion === 'consultation' && (
+              {isConsultationVersion && (
                 <FormFields
                   textLabel="Номер телефону"
                   type="tel"
@@ -162,7 +250,7 @@ export const FormPage: React.FC<FormProps> = ({ formVersion, children }) => {
                 />
               )}
 
-              {formVersion === 'sendMessage' && (
+              {isSendMassageVersion && (
                 <>
                   <FormFields
                     type="mail"
@@ -187,7 +275,7 @@ export const FormPage: React.FC<FormProps> = ({ formVersion, children }) => {
                 </>
               )}
 
-              {formVersion === 'order' && (
+              {isOrderVersion && (
                 <>
                   <FormFields
                     textLabel="Ваше Прізвище"
@@ -307,14 +395,14 @@ export const FormPage: React.FC<FormProps> = ({ formVersion, children }) => {
               )}
             </div>
 
-            {formVersion !== 'order' && (
+            {!isOrderVersion && (
               <div className="h-[48px]">
                 <Button2
                   type='submit'
                   option={Button2Option.PRIMARY}
                   isDisable={!isValid}
                 >
-                  {formVersion === 'consultation'
+                  {isConsultationVersion
                     ? 'Передзвоніть мені'
                     : 'Надіслати'}
                 </Button2>
@@ -344,15 +432,15 @@ export const FormPage: React.FC<FormProps> = ({ formVersion, children }) => {
 
         <div
           className={cn('form__second-part', {
-            'form__second-part--order': formVersion === 'order',
+            'form__second-part--order': isOrderVersion,
           })}
         >
-          {formVersion === 'order' && ( // When the cads be ready we can add rules about length
+          {isOrderVersion && ( // When the cads be ready we can add rules about length
             <div>{children}</div>
           )}
 
           <div className="form__group-radio">
-            {formVersion === 'order' && (
+            {isOrderVersion && (
               <>
                 <RadioButtonGroup
                   title="Доставка"
@@ -372,7 +460,7 @@ export const FormPage: React.FC<FormProps> = ({ formVersion, children }) => {
             )}
           </div>
 
-          {formVersion === 'order' && (
+          {isOrderVersion && (
             <div className="form__order-group-button">
               <div className="h-[48px]">
                 <Button2

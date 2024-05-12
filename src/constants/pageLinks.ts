@@ -11,6 +11,6 @@ export const pageLink: PageLink = {
   service_decorative: 'Нанесення декоративного покриття',
   wallpaper: 'Шпалери',
   service_hang_wallpaper: 'Поклейка шпалер',
-  paint_tinting: 'Тонування фарб',
+  // paint_tinting: 'Тонування фарб',
   paint: 'Фарба',
 };

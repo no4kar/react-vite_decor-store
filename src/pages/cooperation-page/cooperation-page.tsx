@@ -59,7 +59,7 @@ export const Cooperation: React.FC = () => {
               </div>
 
               <img
-                src="/img/cooperation.png"
+                src="./img/cooperation.png"
                 alt="our work"
                 className="cooperation__img"
               />

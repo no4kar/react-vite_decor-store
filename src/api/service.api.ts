@@ -21,7 +21,7 @@ function getServices({
 } = {}): Promise<TyService[]> {
   return wait<TyService[]>(initialDelayLoader, () => services);
 
-  return client.get(`?page=${page}&size=${size}`)
+  return client.get('', { params: { page: String(page), size: String(size) } })
     .then<TyService[]>(res => res.data.map(normalize));
 }
 

@@ -1,6 +1,5 @@
 import { getClient } from '../utils/axios.client';
 import env from '../helpers/varsFromEnv';
-import { MyForm } from '../types/MyForm';
 
 const client = getClient({
   baseURL: env.API_URL,
@@ -20,6 +19,12 @@ type TyOrder = {
   comment: string;
 };
 
+type TyFeedback = {
+  name: string;
+  email: string;
+  comment: string;
+};
+
 export const formApi = {
   createOrder: (
     newOrder: TyOrder,
@@ -27,10 +32,9 @@ export const formApi = {
     return client.post('/v1/orders', newOrder);
   },
 
-  sendForm: (
-    forms: MyForm,
+  sendFeedback: (feedback: TyFeedback,
   ) => {
-    return client.post<Comment>('/posts', forms);
+    return client.post('/v1/feedback', feedback,);
   },
 
 };

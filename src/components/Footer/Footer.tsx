@@ -29,16 +29,18 @@ export const Footer = () => {
                     Нанесення декоративного покриття{' '}
                   </Link>
                 </li>
+
                 <li className="footer__item">
                   <Link to="/service_hang_wallpaper" className="footer__link">
                     Поклейка шпалер{' '}
                   </Link>
                 </li>
-                <li className="footer__item">
+                
+                {/* <li className="footer__item">
                   <Link to="#" className="footer__link">
                     Тонування фарб{' '}
                   </Link>
-                </li>
+                </li> */}
               </ul>
             </section>
 

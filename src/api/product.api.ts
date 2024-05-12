@@ -19,7 +19,7 @@ function getProducts({
 } = {}) {
   return wait<TyProduct[]>(initialDelayLoader, () => products);
 
-  return client.get<TyProduct[]>(`?page=${page}&size=${size}`)
+  return client.get<TyProduct[]>('', { params: { page: String(page), size: String(size) } })
     .then(res => res.data);
 }
 
