@@ -1,6 +1,18 @@
-import { FormValidation } from '../types/FormValidation';
+import { RegisterOptions } from "react-hook-form";
 
-export const validation: Record<string, FormValidation> = {
+export const validation: {
+  firstName: RegisterOptions;
+  lastName: RegisterOptions;
+  middleName: RegisterOptions;
+  phoneNumber: RegisterOptions;
+  email: RegisterOptions;
+  password: RegisterOptions;
+  agreement: RegisterOptions;
+  message: RegisterOptions;
+  city: RegisterOptions;
+  delivery: RegisterOptions;
+  payOption: RegisterOptions;
+} = {
   firstName: {
     required: 'Будь ласка, введіть своє ім’я!',
     pattern: {
@@ -23,6 +35,13 @@ export const validation: Record<string, FormValidation> = {
       message: 'LastName is too long!',
     },
   },
+  middleName: {
+    required: 'Email Address is required',
+    maxLength: {
+      value: 20,
+      message: 'MiddleName is too long!',
+    },
+  },
   phoneNumber: {
     required: 'Будь ласка, введіть ваш номер телефону!',
     pattern: {
@@ -42,13 +61,6 @@ export const validation: Record<string, FormValidation> = {
     pattern: {
       value: /^\w+$/,
       message: `Будь ласка, введіть коректний формат!`,
-    },
-  },
-  middleName: {
-    required: 'Email Address is required',
-    maxLength: {
-      value: 20,
-      message: 'MiddleName is too long!',
     },
   },
   agreement: {

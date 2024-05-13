@@ -21,4 +21,9 @@ export interface MyForm {
   city: string;
   delivery: DeliveryOption[];
   payOption: PayOption[];
+
+  adminAction: string;
+  name: string;
+  categoryId: string;
+  price: string;
 }

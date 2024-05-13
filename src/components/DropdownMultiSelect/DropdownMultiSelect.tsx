@@ -3,13 +3,7 @@ import cn from 'classnames';
 import {
   TyChangeEvtInputElmt, TyMouseEvtButtonElmt
 } from '../../types/General';
-
-export type TyDropdownMultiSelectOption = {
-  value: string,
-  content: string | JSX.Element,
-};
-
-/* eslint no-console: "warn" */
+import { TySelectOption } from '../../types/SelectOption';
 
 function DropdownMultiSelect({
   options,
@@ -18,7 +12,7 @@ function DropdownMultiSelect({
   activeClass = 'text-accent',
   placeholder = '',
 }: {
-  options: TyDropdownMultiSelectOption[],
+  options: TySelectOption[],
   selectedOptions?: string[],
   onChange?: (value: string[]) => void;
   activeClass?: string,
@@ -59,7 +53,7 @@ function DropdownMultiSelect({
         onClick={handleExpandChange}
       >
         <div
-          className={cn('title--body-text uppercase',{
+          className={cn('title--body-text uppercase', {
             [activeClass]: isOpen,
           })}
         >
@@ -100,7 +94,7 @@ function DropdownMultiSelect({
                   className="w-[24px] h-[24px] cursor-pointer checked:bg-white"
                   onChange={handleChange}
                 />
-                <span className="title--body-text">{option.content}</span>
+                <span className="title--body-text">{option.label}</span>
               </label>
             </li>
           ))}

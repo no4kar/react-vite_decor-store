@@ -1,4 +1,4 @@
-export interface FooterInfo {
+export interface TyInfo {
   title: string;
   description: string;
 }

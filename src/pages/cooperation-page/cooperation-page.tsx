@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { FormPage } from '../../components/FormPage';
+import { FormComponent } from '../../components/FormComponent';
 import { PageNavigation } from '../../components/PageNavigation';
 import { initialDelayLoader } from '../../constants/initialDelayLoader';
 import { Loader } from '../../components/Loader';
@@ -50,8 +50,7 @@ export const Cooperation: React.FC = () => {
                 <div
                   className="
               cooperation__second-section-contacts
-              cooperation__text-center
-            "
+              cooperation__text-center"
                 >
                   <p> Телефон </p>
                   <p> +38(050)542-81-93 </p>
@@ -66,7 +65,7 @@ export const Cooperation: React.FC = () => {
             </section>
 
             <div className="cooperation__form">
-              <FormPage formVersion="sendMessage" />
+              <FormComponent formVersion="sendMessage" />
             </div>
           </>
         )}

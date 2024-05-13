@@ -6,6 +6,7 @@ import DropdownMultiSelect from '../DropdownMultiSelect/DropdownMultiSelect';
 import {
   SearchParams, SearchParamsName, getSearchWith,
 } from '../../helpers/searchHelper';
+import { TySelectOption } from '../../types/SelectOption';
 
 export const ProductDetailsFilters = R.memo(
   ({
@@ -55,39 +56,39 @@ export const ProductDetailsFilters = R.memo(
       [products],
     );
 
-    const productTypes = R.useMemo(
+    const productTypes: TySelectOption[] = R.useMemo(
       () => Array.from(productOptions[SearchParamsName.TYPE])
-        .map((item) => ({ value: encodeURIComponent(item), content: item, })),
+        .map((item) => ({ value: encodeURIComponent(item), label: item, })),
       [productOptions],
     );
 
-    const productCountries = R.useMemo(
+    const productCountries: TySelectOption[] = R.useMemo(
       () => Array.from(productOptions[SearchParamsName.COUNTRY])
-        .map((item) => ({ value: item, content: item, })),
+        .map((item) => ({ value: item, label: item, })),
       [productOptions],
     );
 
-    const productProducers = R.useMemo(
+    const productProducers: TySelectOption[] = R.useMemo(
       () => Array.from(productOptions[SearchParamsName.PRODUCER])
-        .map((item) => ({ value: encodeURIComponent(item), content: item, })),
+        .map((item) => ({ value: encodeURIComponent(item), label: item, })),
       [productOptions],
     );
 
-    const productCollections = R.useMemo(
+    const productCollections: TySelectOption[] = R.useMemo(
       () => Array.from(productOptions[SearchParamsName.COLLECTION])
-        .map((item) => ({ value: encodeURIComponent(item), content: item, })),
+        .map((item) => ({ value: encodeURIComponent(item), label: item, })),
       [productOptions],
     );
 
-    const productTones = R.useMemo(
+    const productTones: TySelectOption[] = R.useMemo(
       () => Array.from(productOptions[SearchParamsName.TONE])
-        .map((item) => ({ value: encodeURIComponent(item), content: item, })),
+        .map((item) => ({ value: encodeURIComponent(item), label: item, })),
       [productOptions],
     );
 
-    const productRooms = R.useMemo(
+    const productRooms: TySelectOption[] = R.useMemo(
       () => Array.from(productOptions[SearchParamsName.ROOM])
-        .map((item) => ({ value: encodeURIComponent(item), content: item, })),
+        .map((item) => ({ value: encodeURIComponent(item), label: item, })),
       [productOptions],
     );
 

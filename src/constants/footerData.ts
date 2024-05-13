@@ -1,6 +1,6 @@
-import { FooterInfo } from '../types/FooterInfoModal';
+import { TyInfo } from '../types/Info';
 
-export const footerData: FooterInfo[] = [
+export const footerData: TyInfo[] = [
   {
     title: 'Оплата та доставка',
     description: `- Безготівкова оплата на рахунок компанії.

@@ -1,10 +1,11 @@
+import * as R from 'react';
 import { UseFormRegister, FieldErrors, RegisterOptions } from 'react-hook-form';
 import cn from 'classnames';
 import { MyForm } from '../../types/MyForm';
 import './FormFields.scss';
 
 export const FormFields = ({
-  type = 'text',
+  type,
   name,
   textLabel,
   placeholder = '',
@@ -14,7 +15,7 @@ export const FormFields = ({
   validation,
   classContainer = '',
 }: {
-  type?: string;
+  type: R.HTMLInputTypeAttribute;
   name: keyof MyForm;
   textLabel?: string;
   register: UseFormRegister<MyForm>;
@@ -50,7 +51,7 @@ export const FormFields = ({
             'border-b border-black',
             'outline-none text-black',
             {
-              'text-system-error': hasError,
+              'text-red-500': hasError,
             })}
           type={type}
           placeholder={placeholder}

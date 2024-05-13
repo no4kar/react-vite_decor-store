@@ -16,12 +16,10 @@ import { PaintPage } from './pages/paint.page';
 import { ProductDetailsPage } from './pages/productDetails.page';
 import { LoginPage } from './pages/login.page/login.page';
 import { RequireAuth } from './components/RequireAuth/RequireAuth';
+import { AdminPage } from './pages/admin.page/admin.page';
 
 export const Root = () => (
   <Router
-    // basename={process.env.NODE_ENV === 'production'
-    //   ? '/react-vite_decor-store/'
-    //   : '/'}
     basename="/react-vite_decor-store/"
   >
     <Routes>
@@ -39,7 +37,6 @@ export const Root = () => (
           <Route path=":id?" element={<ServiceDetailsPage />} />
         </Route>
 
-        {/* <Route path="paint_tinting" element={<PaintTinting />} /> */}
         <Route path="wallpaper">
           <Route index element={<WallpaperPage />} />
           <Route path=":id?" element={<ProductDetailsPage />} />
@@ -59,7 +56,7 @@ export const Root = () => (
         <Route path="login" element={<LoginPage />} />
 
         <Route path="/" element={<RequireAuth />}>
-          <Route path="admin" element={<h1>Admin Page</h1>} />
+          <Route path="admin" element={<AdminPage />} />
         </Route>
 
         <Route path="*" element={<NotFoundPage />} />

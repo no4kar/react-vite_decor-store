@@ -7,7 +7,6 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 // import cn from 'classnames';
 import { validation } from '../../constants/formValidation';
 import { Button2, Option as Button2Option } from '../../components/Button2';
-import { formVersionData } from '../../constants/formVersionData';
 import { MyForm } from '../../types/MyForm';
 import { FormFields } from '../../components/FormFields';
 import { useAdminStore } from '../../store/admin.store';
@@ -27,8 +26,6 @@ export const LoginPage = () => {
     },
     mode: 'onBlur',
   });
-
-  const { title, titleDescription } = formVersionData.login;
 
   if (isChecked) {
     return <Navigate to={location.state?.from?.pathname || '/'} />;
@@ -50,75 +47,71 @@ export const LoginPage = () => {
   return (
     <form
       className="
+      content
       pt-[24px] pb-[4px]
+      flex flex-col gap-5
       sm:pb-[62px]
       md:pt-[92px] md:pb-[84px]"
       onSubmit={handleSubmit(onSubmit)}
     >
-      <div className="content">
-        <div
-          className="
-        flex flex-col"
-        >
-          <div
-            className="
+      <div
+        className="
           flex flex-col gap-[24px] items-center justify-center"
-          >
-            <h2
-              className="
+      >
+        <h2
+          className="
             title title--h2"
-            >
-              {title}
-            </h2>
+        >
+          LOGIN AS ADMIN
+        </h2>
 
-            <p
-              className="title title--body-text"
-            >
-              {titleDescription}
-            </p>
+        <p
+          className="title title--body-text"
+        >
+          fill all fields
+        </p>
+      </div>
+
+      {isLoading
+        ? <Loader />
+        : (
+          <div className="flex-1">
+            <div className="flex flex-col gap-[8px]">
+              <FormFields
+                type="email"
+                textLabel="E-mail"
+                name="email"
+                register={register}
+                errors={errors}
+                required
+                validation={validation.email}
+                placeholder="Email"
+              />
+
+              <FormFields
+                type="password"
+                textLabel="Password"
+                name="password"
+                register={register}
+                errors={errors}
+                required
+                validation={validation.password}
+                placeholder="Email"
+              />
+            </div>
           </div>
+        )}
 
-          {isLoading
-            ? <Loader />
-            : (
-              <div className="flex-1">
-                <div className="flex flex-col gap-[8px]">
-                  <FormFields
-                    type="email"
-                    textLabel="E-mail"
-                    name="email"
-                    register={register}
-                    errors={errors}
-                    required
-                    validation={validation.email}
-                    placeholder="Email"
-                  />
+      <div className="h-[48px]">
+        <Button2
+          type='submit'
+          option={Button2Option.PRIMARY}
+          isDisable={!isValid}
+        >
+          {isSubmitting ? 'Logging in...' : 'Log in'}
+        </Button2>
 
-                  <FormFields
-                    type="password"
-                    textLabel="Password"
-                    name="password"
-                    register={register}
-                    errors={errors}
-                    required
-                    validation={validation.password}
-                    placeholder="Email"
-                  />
-                </div>
-              </div>
-            )}
-        </div>
-
-        <div className="h-[48px]">
-          <Button2
-            type='submit'
-            option={Button2Option.PRIMARY}
-            isDisable={!isValid}
-          >
-            {isSubmitting ? 'Logging in...' : 'Log in'}
-          </Button2>
-
-          {/* {msg.description && (
+        {/* {msg.description && (
             <div className="relative w-0 h-0">
               <div className="absolute top-1">
                 <Notification
@@ -135,7 +128,6 @@ export const LoginPage = () => {
               </div>
             </div>
           )} */}
-        </div>
       </div>
       {/* <div className="mb-4">
           <button

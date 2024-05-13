@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { PageNavigation } from '../../components/PageNavigation';
-import { FormPage } from '../../components/FormPage';
+import { FormComponent } from '../../components/FormComponent';
 import { initialDelayLoader } from '../../constants/initialDelayLoader';
 import './about.us.page.scss';
 import { Loader } from '../../components/Loader';
@@ -66,7 +66,7 @@ export const AboutUsPage: React.FC = () => {
               </article>
             </section>
 
-            <FormPage formVersion="consultation" />
+            <FormComponent formVersion="consultation" />
           </>
         )}
       </div>

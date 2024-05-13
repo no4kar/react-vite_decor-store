@@ -1,20 +1,20 @@
-import { FormVersion } from '../types/FormVeriosn';
+import { TyInfo } from '../types/Info';
 
-export const formVersionData: FormVersion = {
+export const formVersionData: {
+  order: TyInfo;
+  consultation: TyInfo;
+  sendMessage: TyInfo;
+} = {
   order: {
     title: 'Оформлення замовлення',
-    titleDescription: 'Заповніть ваші контактні дані',
+    description: 'Заповніть ваші контактні дані',
   },
   consultation: {
     title: 'Замовити консультацію',
-    titleDescription: 'Заповніть форму і ми зв’яжемося з вами найближчим часом',
+    description: 'Заповніть форму і ми зв’яжемося з вами найближчим часом',
   },
   sendMessage: {
     title: 'Або напишіть нам',
-    titleDescription: '',
-  },
-  login: {
-    title: 'LOGIN AS ADMIN',
-    titleDescription: 'FILL FIELDS',
+    description: '',
   },
 };

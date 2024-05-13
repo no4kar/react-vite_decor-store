@@ -1,5 +1,5 @@
+import * as R from 'react';
 import { useForm, SubmitHandler, Controller } from 'react-hook-form';
-import { useState } from 'react';
 // import Select from 'react-select';
 import Creatable from 'react-select/creatable';
 import cn from 'classnames';
@@ -15,21 +15,11 @@ import { Modal } from '../Modal';
 import { delivery, payOption } from '../../constants/radioOptions';
 import { RadioButtonGroup } from '../RadioButtonGroup/RadioButtonGroup';
 import { formVersionData } from '../../constants/formVersionData';
-import './FormPage.scss';
 import { Notification } from '../Notification/Notification';
 import { useCartStore } from '../../store/cart.store';
+import { TySelectOption } from '../../types/SelectOption';
 
-/* eslint no-console: "warn" */
-
-type FormProps = {
-  formVersion: keyof typeof formVersionData;
-  children?: React.ReactNode;
-};
-
-interface CitiesOptions {
-  label: string;
-  value: string;
-}
+import './FormComponent.scss';
 
 enum Status {
   NONE,
@@ -48,19 +38,25 @@ type OutcomeReport = {
   description: string;
 };
 
-const cityOptions: CitiesOptions[] = [
+const cityOptions: TySelectOption[] = [
   { label: 'Київ', value: 'Київ' },
   { label: 'Дніпро', value: 'Дніпро' },
   { label: 'Харків', value: 'Харків' },
   { label: 'Рівне', value: 'Рівне' },
 ];
 
-export const FormPage: React.FC<FormProps> = ({ formVersion, children }) => {
-  const [selectedCity, setSelectedCity] = useState<CitiesOptions | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+export const FormComponent = ({
+  formVersion,
+  children,
+}: {
+  formVersion: keyof typeof formVersionData;
+  children?: R.ReactNode;
+}) => {
+  const [selectedCity, setSelectedCity] = R.useState<TySelectOption | null>(null);
+  const [isModalOpen, setIsModalOpen] = R.useState(false);
   const [msg, setMsg]
-    = useState<OutcomeReport>({ status: Status.NONE, description: '', });
-  const [description, setDescription] = useState({
+    = R.useState<OutcomeReport>({ status: Status.NONE, description: '', });
+  const [description, setDescription] = R.useState({
     title: '',
     description: '',
   });
@@ -70,7 +66,7 @@ export const FormPage: React.FC<FormProps> = ({ formVersion, children }) => {
   const isSendMassageVersion = formVersion === FormVersion.SEND_MESSAGE;
   const isConsultationVersion = formVersion === FormVersion.CONSULTATION;
 
-  const handleCityChange = (selectedOption: CitiesOptions | null) => {
+  const handleCityChange = (selectedOption: TySelectOption | null) => {
     setSelectedCity(selectedOption);
   };
 
@@ -126,7 +122,6 @@ export const FormPage: React.FC<FormProps> = ({ formVersion, children }) => {
       }
 
       case FormVersion.ORDER: {
-
         formApi.createOrder({
           orderItems:
             inCartItems.map(({ id, quantity }) => ({ productId: id, quantity })),
@@ -136,7 +131,8 @@ export const FormPage: React.FC<FormProps> = ({ formVersion, children }) => {
           shippingAddress: data.city,
           email: data.email,
           phoneNumber: data.phoneNumber,
-          comment: data.message || '',
+          comment:
+            `${data.payOption}\n${data.delivery}\n\n${data.message}`,
         })
           .then((response) => {
             console.info(response);
@@ -144,7 +140,7 @@ export const FormPage: React.FC<FormProps> = ({ formVersion, children }) => {
             setMsg({
               status: Status.SUCCESS,
               description:
-              `
+                `
               Дякуємо.
               Замовлення оброблється.
               Відповідть відправлення до ${response.data?.email}
@@ -184,8 +180,6 @@ export const FormPage: React.FC<FormProps> = ({ formVersion, children }) => {
     setSelectedCity(null);
   };
 
-  const { title, titleDescription } = formVersionData[formVersion];
-
   return (
     <form
       noValidate
@@ -215,20 +209,21 @@ export const FormPage: React.FC<FormProps> = ({ formVersion, children }) => {
                 'form__title--text-left': !isOrderVersion,
               })}
             >
-              {title}
+              {formVersionData[formVersion].title}
             </h2>
             <p
               className={cn('form__title-description', {
                 'form__title-description--text-left': !isOrderVersion,
               })}
             >
-              {titleDescription}
+              {formVersionData[formVersion].description}
             </p>
           </div>
 
           <div className="form__group-fields">
             <div className="form__group-inputs">
               <FormFields
+                type="text"
                 textLabel="Ваше Ім'я"
                 name="firstName"
                 register={register}
@@ -278,6 +273,7 @@ export const FormPage: React.FC<FormProps> = ({ formVersion, children }) => {
               {isOrderVersion && (
                 <>
                   <FormFields
+                    type="text"
                     textLabel="Ваше Прізвище"
                     name="lastName"
                     register={register}
@@ -288,6 +284,7 @@ export const FormPage: React.FC<FormProps> = ({ formVersion, children }) => {
                   />
 
                   <FormFields
+                    type="text"
                     textLabel="По батькові"
                     name="middleName"
                     register={register}
@@ -323,6 +320,7 @@ export const FormPage: React.FC<FormProps> = ({ formVersion, children }) => {
                           classNamePrefix="form__filter"
                           onBlur={onBlur}
                         />
+
                         {fieldState.error && (
                           <span className="text-red-500">
                             {fieldState.error.message}
@@ -449,6 +447,7 @@ export const FormPage: React.FC<FormProps> = ({ formVersion, children }) => {
                   register={register}
                   validation={validation.delivery}
                 />
+
                 <RadioButtonGroup
                   title="Оплата"
                   options={payOption}

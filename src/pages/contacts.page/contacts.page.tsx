@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { PageNavigation } from '../../components/PageNavigation';
-import { FormPage } from '../../components/FormPage';
+import { FormComponent } from '../../components/FormComponent';
 import { initialDelayLoader } from '../../constants/initialDelayLoader';
 import { Loader } from '../../components/Loader';
 import './contacts.page.scss';
@@ -70,7 +70,7 @@ export const Contacts: React.FC = () => {
               </ul>
             </section>
 
-            <FormPage formVersion="consultation" />
+            <FormComponent formVersion="consultation" />
           </>
         )}
       </div>

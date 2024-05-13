@@ -1,13 +1,7 @@
 import { useState } from 'react';
 import cn from 'classnames';
 import { TyMouseEvtButtonElmt } from '../../types/General';
-
-export type TyDropdownOption = {
-  value: string,
-  content: string | JSX.Element,
-};
-
-/* eslint no-console: "warn" */
+import { TySelectOption } from '../../types/SelectOption';
 
 function Dropdown({
   selectedValue,
@@ -19,14 +13,13 @@ function Dropdown({
   listItemClass = 'px-[24px] py-[6px]',
 }: {
   selectedValue: string,
-  options: TyDropdownOption[],
+  options: TySelectOption[],
   onChange?: (value: string) => void;
   isThereSelectedInList?: boolean,
   activeClass?: string,
   selectedClass?: string,
   listItemClass?: string,
 }) {
-  console.info('render');
 
   const [isOpen, setIsOpen] = useState(false);
   const selectedOption = options.find(o => o.value === selectedValue);
@@ -53,7 +46,7 @@ function Dropdown({
             [activeClass]: isOpen,
           })}
         >
-          {selectedOption?.content}
+          {selectedOption?.label}
         </div>
 
         <div
@@ -77,7 +70,7 @@ function Dropdown({
                 setIsOpen(false);
               }}
             >
-              {option.content}
+              {option.label}
             </button>
           ))}
         </ul>

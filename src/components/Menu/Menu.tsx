@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
-import Dropdown, { TyDropdownOption } from '../Dropdown/Dropdown';
+import { TySelectOption } from '../../types/SelectOption';
 
 import './Menu.scss';
+import Dropdown from '../Dropdown/Dropdown';
 
-const optionsService: TyDropdownOption[] = [
+const optionsService: TySelectOption[] = [
   <h4 className="title--h4 font-semibold text-black">
     Послуги
   </h4 >,
@@ -22,9 +23,9 @@ const optionsService: TyDropdownOption[] = [
   //     Тонування фарб
   //   </p>
   // </Link>,
-].map((item, i) => ({ value: String(i), content: item, }));
+].map((item, i) => ({ value: String(i), label: item, }));
 
-const optionsProduct: TyDropdownOption[] = [
+const optionsProduct: TySelectOption[] = [
   <h4 className="title--h4 font-semibold text-black">
     Продукція
   </h4 >,
@@ -34,7 +35,7 @@ const optionsProduct: TyDropdownOption[] = [
   <Link to="/paint">
     <p className="title--body-text">Фарба</p>
   </Link>,
-].map((item, i) => ({ value: String(i), content: item, }));
+].map((item, i) => ({ value: String(i), label: item, }));
 
 
 export const Menu = ({

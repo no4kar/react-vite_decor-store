@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { FormPage } from '../../components/FormPage';
+import { FormComponent } from '../../components/FormComponent';
 import { PageNavigation } from '../../components/PageNavigation';
 import { Loader } from '../../components/Loader';
 import { initialDelayLoader } from '../../constants/initialDelayLoader';
@@ -35,11 +35,11 @@ export const PlaceAnOrder = () => {
         {isLoading && <Loader />}
 
         {!isLoading && (
-          <FormPage formVersion="order">
+          <FormComponent formVersion="order">
             <TableProductsOrder
               cartItemsOrder={cartItemsOrder}
             />
-          </FormPage>
+          </FormComponent>
         )}
       </div>
     </div>
