@@ -117,10 +117,10 @@ export const Footer = () => {
                 <li className="footer__item">
                   <span className="footer__label">E-mail</span>
                   <Link
-                    to="mailto:email@gmail.com"
+                    to="mailto:decorativka@dekorativka.ua"
                     className="footer__link footer__link--contacts"
                   >
-                    email@gmail.com{' '}
+                    decorativka@dekorativka.ua{' '}
                   </Link>
                 </li>
               </ul>

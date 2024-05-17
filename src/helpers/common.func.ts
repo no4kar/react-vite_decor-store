@@ -17,3 +17,11 @@ export function compareObjectProperties(baseObj: any, targetObj: any): boolean {
     key in targetObj && typeof targetObj[key] === typeof baseObj[key]
   ));
 }
+
+export function filterParams(
+  params: { [key: string]: string },
+): string {
+  return Object.entries(params)
+    .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
+    .join('&');
+}

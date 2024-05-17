@@ -56,77 +56,67 @@ export const ProductDetailsFilters = R.memo(
       [products],
     );
 
+    const handleCommonChange = (searchName: SearchParamsName) => (
+      (value: string[]): void => {
+        setSearchWith({
+          [searchName]: value || null,
+          [SearchParamsName.PAGE]: null,
+        });
+      }
+    );
+
+    const productCommonOption = (searchName: keyof (typeof productOptions)) => (
+      () => Array.from(productOptions[searchName])
+        .map((item) => ({ value: encodeURIComponent(item), label: item, }))
+    );
+
     const productTypes: TySelectOption[] = R.useMemo(
-      () => Array.from(productOptions[SearchParamsName.TYPE])
-        .map((item) => ({ value: encodeURIComponent(item), label: item, })),
+      productCommonOption(SearchParamsName.TYPE),
       [productOptions],
     );
 
     const productCountries: TySelectOption[] = R.useMemo(
-      () => Array.from(productOptions[SearchParamsName.COUNTRY])
-        .map((item) => ({ value: item, label: item, })),
+      productCommonOption(SearchParamsName.COUNTRY),
       [productOptions],
     );
 
     const productProducers: TySelectOption[] = R.useMemo(
-      () => Array.from(productOptions[SearchParamsName.PRODUCER])
-        .map((item) => ({ value: encodeURIComponent(item), label: item, })),
+      productCommonOption(SearchParamsName.PRODUCER),
       [productOptions],
     );
 
     const productCollections: TySelectOption[] = R.useMemo(
-      () => Array.from(productOptions[SearchParamsName.COLLECTION])
-        .map((item) => ({ value: encodeURIComponent(item), label: item, })),
+      productCommonOption(SearchParamsName.COLLECTION),
       [productOptions],
     );
 
     const productTones: TySelectOption[] = R.useMemo(
-      () => Array.from(productOptions[SearchParamsName.TONE])
-        .map((item) => ({ value: encodeURIComponent(item), label: item, })),
+      productCommonOption(SearchParamsName.TONE),
       [productOptions],
     );
 
     const productRooms: TySelectOption[] = R.useMemo(
-      () => Array.from(productOptions[SearchParamsName.ROOM])
-        .map((item) => ({ value: encodeURIComponent(item), label: item, })),
+      productCommonOption(SearchParamsName.ROOM),
       [productOptions],
     );
 
-    const handleTypeChange = (value: string[]): void => {
-      setSearchWith({
-        [SearchParamsName.TYPE]: value || null,
-      });
-    };
+    const handleTypeChange
+      = handleCommonChange(SearchParamsName.TYPE);
 
-    const handleCountryChange = (value: string[]): void => {
-      setSearchWith({
-        [SearchParamsName.COUNTRY]: value || null,
-      });
-    };
+    const handleCountryChange
+      = handleCommonChange(SearchParamsName.COUNTRY);
 
-    const handleProducerChange = (value: string[]): void => {
-      setSearchWith({
-        [SearchParamsName.PRODUCER]: value || null,
-      });
-    };
+    const handleProducerChange
+      = handleCommonChange(SearchParamsName.PRODUCER);
 
-    const handleCollectionChange = (value: string[]): void => {
-      setSearchWith({
-        [SearchParamsName.COLLECTION]: value || null,
-      });
-    };
+    const handleCollectionChange
+      = handleCommonChange(SearchParamsName.COLLECTION);
 
-    const handleToneChange = (value: string[]): void => {
-      setSearchWith({
-        [SearchParamsName.TONE]: value || null,
-      });
-    };
+    const handleToneChange
+      = handleCommonChange(SearchParamsName.TONE);
 
-    const handleRoomChange = (value: string[]): void => {
-      setSearchWith({
-        [SearchParamsName.ROOM]: value || null,
-      });
-    };
+    const handleRoomChange
+      = handleCommonChange(SearchParamsName.ROOM);
 
     return (
       <div

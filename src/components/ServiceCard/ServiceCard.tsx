@@ -25,8 +25,8 @@ export const ServiceCard = R.memo(
       <div
         key={id}
         className="
-        pt-[10px] pb-[14px] px-[10px]
-        w-full min-h-[520px]
+        p-[10px]
+        w-full h-[540px]
       flex flex-col
       shadow rounded
       hover:scale-[1.03]
@@ -61,7 +61,7 @@ export const ServiceCard = R.memo(
         </div>
 
         <div className="description
-        mt-[24px]"
+        mt-[14px]"
         >
           <h4 className="title--h4
           uppercase"

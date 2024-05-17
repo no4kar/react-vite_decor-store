@@ -35,7 +35,9 @@ export const Search = React.memo(
     );// bag correction
 
     useEffect(() => { // search when switch on other page
-      setSearchWith({ [SearchParamsName.QUERY]: query.trim() || null });
+      setSearchWith({
+        [SearchParamsName.QUERY]: query.trim() || null,
+      });
     }, [location.pathname]);
 
     const handleQueryChange = (event: TyChangeEvtInputElmt) => {
@@ -43,6 +45,7 @@ export const Search = React.memo(
       applyQuery({
         [SearchParamsName.QUERY]:
           event.target.value.trim() || null,
+        [SearchParamsName.PAGE]: null,
       });
     };
 

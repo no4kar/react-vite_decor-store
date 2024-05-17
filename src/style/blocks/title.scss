@@ -38,10 +38,6 @@
   &--h4 {
     @extend %h4-style;
 
-    @include on-desktop {
-      font-size: 16px;
-    }
-
     &-main {
       color: $main-black;
     }

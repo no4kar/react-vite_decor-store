@@ -2,10 +2,6 @@ import * as R from 'react';
 import { useSearchParams } from 'react-router-dom';
 import cn from 'classnames';
 
-import { Loader } from '../../components/Loader';
-import { PageNavigation } from '../../components/PageNavigation';
-import { Search } from '../../components/Search';
-
 import {
   SearchParams,
   SearchParamsName,
@@ -13,9 +9,15 @@ import {
 } from '../../helpers/searchHelper';
 import ProductCard from '../../components/ProductCard/ProductCard';
 import { TyProduct } from '../../types/Products/Products';
+import { Loader } from '../../components/Loader';
+import { PageNavigation } from '../../components/PageNavigation';
+import { Search } from '../../components/Search';
+import { ProductDetailsFilters } from '../../components/ProductDetailsFilters';
+import PaginatedComponent from '../../components/PaginatedComponent/PaginatedComponent';
 
 import './products.page.scss';
-import { ProductDetailsFilters } from '../../components/ProductDetailsFilters';
+
+const perPage = 9;
 
 export const ProductsPage = ({
   products,
@@ -50,12 +52,22 @@ export const ProductsPage = ({
     = searchParams.getAll(SearchParamsName.ROOM);
   const sortByPrice
     = searchParams.get(SearchParamsName.SORT_BY_PRICE);
+  const currentPage
+    = searchParams.get(SearchParamsName.PAGE);
+  const currentPageNorm = currentPage ? Math.floor(+currentPage) : 1;
 
 
   const handleSortByPriceChange = (value: 'inc' | 'dec'): void => {
     setSearchWith({
       [SearchParamsName.SORT_BY_PRICE]: value || null,
     });
+  };
+
+  const handlePageChange = (pageNumber: number) => {
+    setSearchWith({
+      [SearchParamsName.PAGE]: String(Math.floor(pageNumber)) || null,
+    });
+    window.scrollTo(0, 0);
   };
 
   const visibleProducts = products
@@ -68,7 +80,7 @@ export const ProductsPage = ({
 
       return (
         (selectedCountries.length
-          ? selectedCountries.includes(p.country)
+          ? selectedCountries.includes(encodeURIComponent(p.country))
           : true)
         && (selectedCollections.length
           ? selectedCollections.includes(encodeURIComponent(p.collection))
@@ -88,12 +100,19 @@ export const ProductsPage = ({
       );
     })
     .filter((p) => {
-      return `${p.id}/${p.producer}/${p.collection}/${p.country}`
+      return `${p.code}/${p.producer}/${p.collection}/${p.country}`
         .toLocaleLowerCase().includes(query);
     })
     .sort((a, b) => {
       return (a.price - b.price) * (sortByPrice?.includes('inc') ? 1 : -1);
     });
+
+  const itemNumberStart = perPage * (currentPageNorm - 1);
+  const itemNumberEnd = Math.min(
+    (perPage * currentPageNorm) - 1,
+    visibleProducts.length,
+  );
+  const totalPages = Math.ceil(visibleProducts.length / perPage);
 
   console.info(visibleProducts.length);
 
@@ -202,7 +221,10 @@ export const ProductsPage = ({
           </div>
         </div>
 
-        <div className="flex gap-[24px]">
+        <div className="
+        flex gap-[24px]"
+        // border border-solid border-red-300
+        >
           <aside
             id="sidebar"
             className="
@@ -220,18 +242,31 @@ export const ProductsPage = ({
           {!isLoading && hasError && <p>{hasError}</p>}
 
           {!isLoading && !hasError && (
-            <div
-              className="
+            <div className="flex-1 flex flex-col gap-2">
+              <div
+                className="
               flex-1
               grid grid-cols-[repeat(auto-fill,minmax(290px,1fr))] gap-[24px]
               justify-items-center"
-            >
-              {visibleProducts.map((product) => (
-                <ProductCard
-                  key={product.id}
-                  product={product} />
-              ))}
-            </div >
+              // border border-solid border-red-300
+              >
+                {visibleProducts
+                  .slice(itemNumberStart, itemNumberEnd + 1)
+                  .map((product) => (
+                    <ProductCard
+                      key={product.code}
+                      product={product} />
+                  ))}
+              </div>
+
+              <div className='self-center'>
+                <PaginatedComponent
+                  currentPage={currentPageNorm}
+                  totalPages={totalPages}
+                  onPageChange={handlePageChange}
+                />
+              </div>
+            </div>
           )}
         </div>
       </div>

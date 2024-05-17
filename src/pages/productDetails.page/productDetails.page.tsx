@@ -124,7 +124,7 @@ export const ProductDetailsPage = () => {
                       </h4>
 
                       <p className="text-black">
-                        {selectProduct.id}
+                        {selectProduct.code}
                       </p>
                     </div>
                   </div>

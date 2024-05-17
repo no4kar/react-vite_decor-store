@@ -20,6 +20,7 @@ import { useCartStore } from '../../store/cart.store';
 import { TySelectOption } from '../../types/SelectOption';
 
 import './FormComponent.scss';
+import { article } from '../../constants/footerData';
 
 enum Status {
   NONE,
@@ -98,7 +99,6 @@ export const FormComponent = ({
           .then(() => {
             setMsg({
               status: Status.SUCCESS,
-              // description: 'Дякуємо, наші консультанти звяжуться з Вами',
               description: 'Дякуємо, ми цінуємо думку кожного',
             });
           })
@@ -378,8 +378,8 @@ export const FormComponent = ({
                   onClick={() => {
                     setIsModalOpen(true);
                     setDescription({
-                      title: 'Згідно закону України ..',
-                      description: '',
+                      title: article.personalDataProcessing.title,
+                      description: article.personalDataProcessing.description,
                     });
                   }}
                 >
@@ -405,7 +405,7 @@ export const FormComponent = ({
                     : 'Надіслати'}
                 </Button2>
 
-                {msg.description && (
+                {msg.status !== Status.NONE && (
                   <div className="relative w-0 h-0">
                     <div className="absolute top-1">
                       <Notification
@@ -479,7 +479,7 @@ export const FormComponent = ({
                   Підтвердити замовлення
                 </Button2>
 
-                {msg.description && (
+                {msg.status !== Status.NONE && (
                   <div className="relative w-0 h-0">
                     <div className="absolute top-1">
                       <Notification

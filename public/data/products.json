@@ -1,6 +1,7 @@
 [
   {
-    "id": 32321,
+    "id": 0,
+    "code": "32321",
     "name": "SomeProduct-4",
     "categoryId": 2,
     "price": 1100,
@@ -22,7 +23,8 @@
     ]
   },
   {
-    "id": 32325,
+    "id": 0,
+    "code": "32325",
     "name": "SomeProduct-5",
     "categoryId": 2,
     "price": 1300,
@@ -44,7 +46,8 @@
     ]
   },
   {
-    "id": 32326,
+    "id": 0,
+    "code": "32326",
     "name": "SomeProduct-6",
     "categoryId": 2,
     "price": 1500,
@@ -66,7 +69,8 @@
     ]
   },
   {
-    "id": 32327,
+    "id": 0,
+    "code": "32327",
     "name": "SomeProduct-7",
     "categoryId": 2,
     "price": 1500,
@@ -88,7 +92,169 @@
     ]
   },
   {
-    "id": 32328,
+    "id": 0,
+    "code": "32328",
+    "name": "SomeProduct-8",
+    "categoryId": 2,
+    "price": 1500,
+    "country": "Бельгія",
+    "producer": "GRANDECO",
+    "collection": "Feeling",
+    "type": "Фотошпалери",
+    "tone": "SomeTone",
+    "room": "SomeRoom",
+    "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis, adipisci.",
+    "imageUrl": [
+      "https://drive.google.com/thumbnail?id=1x77Cy-qYuCSVPe0tFAeQMC_RHEs4D0FE&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1x77Cy-qYuCSVPe0tFAeQMC_RHEs4D0FE&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1x77Cy-qYuCSVPe0tFAeQMC_RHEs4D0FE&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1x77Cy-qYuCSVPe0tFAeQMC_RHEs4D0FE&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1x77Cy-qYuCSVPe0tFAeQMC_RHEs4D0FE&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1x77Cy-qYuCSVPe0tFAeQMC_RHEs4D0FE&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1x77Cy-qYuCSVPe0tFAeQMC_RHEs4D0FE&sz=w1000"
+    ]
+  },
+  {
+    "id": 0,
+    "name": "Laura Ashley Josette Duck Egg Wallpaper",
+    "categoryId": 2,
+    "price": 29.99,
+    "country": "United Kingdom",
+    "producer": "Laura Ashley",
+    "collection": "Josette",
+    "type": "Wallpaper",
+    "code": "32329",
+    "tone": "Duck Egg",
+    "room": "Nursery",
+    "description": "Elegant duck egg wallpaper with a delicate floral pattern, perfect for a calming nursery environment.",
+    "imageUrl": [
+      "https://images.prom.ua/2796539230_w600_h600_2796539230.jpg",
+      "https://images.prom.ua/2796539230_w600_h600_2796539230.jpg",
+      "https://images.prom.ua/2796539230_w600_h600_2796539230.jpg",
+      "https://images.prom.ua/2796539230_w600_h600_2796539230.jpg",
+      "https://images.prom.ua/2796539230_w600_h600_2796539230.jpg",
+      "https://images.prom.ua/2796539230_w600_h600_2796539230.jpg",
+      "https://images.prom.ua/2796539230_w600_h600_2796539230.jpg"
+    ]
+  },
+  {
+    "id": 0,
+    "name": "Graham & Brown Superfresco Easy Wallpaper",
+    "categoryId": 2,
+    "price": 19.99,
+    "country": "United Kingdom",
+    "producer": "Graham & Brown",
+    "collection": "Superfresco Easy",
+    "type": "Wallpaper",
+    "code": "ABC12345",
+    "tone": "Grey",
+    "room": "Dining Room",
+    "description": "Easy-to-hang wallpaper with a textured finish, ideal for adding depth to any room.",
+    "imageUrl": [
+      "https://s.decorshop.ua/img/cat/3d-plitka-napolnaya-mi.jpg",
+      "https://s.decorshop.ua/img/cat/3d-plitka-napolnaya-mi.jpg",
+      "https://s.decorshop.ua/img/cat/3d-plitka-napolnaya-mi.jpg",
+      "https://s.decorshop.ua/img/cat/3d-plitka-napolnaya-mi.jpg",
+      "https://s.decorshop.ua/img/cat/3d-plitka-napolnaya-mi.jpg",
+      "https://s.decorshop.ua/img/cat/3d-plitka-napolnaya-mi.jpg",
+      "https://s.decorshop.ua/img/cat/3d-plitka-napolnaya-mi.jpg"
+    ]
+  },
+  {
+    "id": 0,
+    "name": "Laura Ashley Josette Duck Egg Wallpaper",
+    "categoryId": 2,
+    "price": 29.99,
+    "country": "United Kingdom",
+    "producer": "Laura Ashley",
+    "collection": "Josette",
+    "type": "Wallpaper",
+    "code": "ABC12",
+    "tone": "Duck Egg",
+    "room": "Nursery",
+    "description": "Elegant duck egg wallpaper with a delicate floral pattern, perfect for a calming nursery environment.",
+    "imageUrl": [
+      "https://images.prom.ua/2796539230_w600_h600_2796539230.jpg",
+      "https://images.prom.ua/2796539230_w600_h600_2796539230.jpg",
+      "https://images.prom.ua/2796539230_w600_h600_2796539230.jpg",
+      "https://images.prom.ua/2796539230_w600_h600_2796539230.jpg",
+      "https://images.prom.ua/2796539230_w600_h600_2796539230.jpg",
+      "https://images.prom.ua/2796539230_w600_h600_2796539230.jpg",
+      "https://images.prom.ua/2796539230_w600_h600_2796539230.jpg"
+    ]
+  },
+  {
+    "id": 0,
+    "code": "32332",
+    "name": "SomeProduct-8",
+    "categoryId": 2,
+    "price": 1500,
+    "country": "Бельгія",
+    "producer": "GRANDECO",
+    "collection": "Feeling",
+    "type": "Фотошпалери",
+    "tone": "SomeTone",
+    "room": "SomeRoom",
+    "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis, adipisci.",
+    "imageUrl": [
+      "https://drive.google.com/thumbnail?id=1x77Cy-qYuCSVPe0tFAeQMC_RHEs4D0FE&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1x77Cy-qYuCSVPe0tFAeQMC_RHEs4D0FE&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1x77Cy-qYuCSVPe0tFAeQMC_RHEs4D0FE&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1x77Cy-qYuCSVPe0tFAeQMC_RHEs4D0FE&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1x77Cy-qYuCSVPe0tFAeQMC_RHEs4D0FE&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1x77Cy-qYuCSVPe0tFAeQMC_RHEs4D0FE&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1x77Cy-qYuCSVPe0tFAeQMC_RHEs4D0FE&sz=w1000"
+    ]
+  },
+  {
+    "id": 0,
+    "code": "32333",
+    "name": "SomeProduct-8",
+    "categoryId": 2,
+    "price": 1500,
+    "country": "Бельгія",
+    "producer": "GRANDECO",
+    "collection": "Feeling",
+    "type": "Фотошпалери",
+    "tone": "SomeTone",
+    "room": "SomeRoom",
+    "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis, adipisci.",
+    "imageUrl": [
+      "https://drive.google.com/thumbnail?id=1x77Cy-qYuCSVPe0tFAeQMC_RHEs4D0FE&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1x77Cy-qYuCSVPe0tFAeQMC_RHEs4D0FE&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1x77Cy-qYuCSVPe0tFAeQMC_RHEs4D0FE&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1x77Cy-qYuCSVPe0tFAeQMC_RHEs4D0FE&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1x77Cy-qYuCSVPe0tFAeQMC_RHEs4D0FE&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1x77Cy-qYuCSVPe0tFAeQMC_RHEs4D0FE&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1x77Cy-qYuCSVPe0tFAeQMC_RHEs4D0FE&sz=w1000"
+    ]
+  },
+  {
+    "id": 0,
+    "code": "32334",
+    "name": "SomeProduct-8",
+    "categoryId": 2,
+    "price": 1500,
+    "country": "Бельгія",
+    "producer": "GRANDECO",
+    "collection": "Feeling",
+    "type": "Фотошпалери",
+    "tone": "SomeTone",
+    "room": "SomeRoom",
+    "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis, adipisci.",
+    "imageUrl": [
+      "https://drive.google.com/thumbnail?id=1x77Cy-qYuCSVPe0tFAeQMC_RHEs4D0FE&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1x77Cy-qYuCSVPe0tFAeQMC_RHEs4D0FE&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1x77Cy-qYuCSVPe0tFAeQMC_RHEs4D0FE&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1x77Cy-qYuCSVPe0tFAeQMC_RHEs4D0FE&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1x77Cy-qYuCSVPe0tFAeQMC_RHEs4D0FE&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1x77Cy-qYuCSVPe0tFAeQMC_RHEs4D0FE&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1x77Cy-qYuCSVPe0tFAeQMC_RHEs4D0FE&sz=w1000"
+    ]
+  },
+  {
+    "id": 0,
+    "code": "32335",
     "name": "SomeProduct-8",
     "categoryId": 2,
     "price": 1500,
@@ -113,7 +279,51 @@
 
 
   {
-    "id": 565443,
+    "id": 7,
+    "name": "Фарба для стін \"Ceresit CT 17\"",
+    "categoryId": 1,
+    "price": 149.99,
+    "country": "Німеччина",
+    "producer": "Ceresit",
+    "collection": "CT 17",
+    "type": "Фарба",
+    "code": "Anog",
+    "tone": "Сірий",
+    "room": "Кухня",
+    "description": "Універсальна фарба для стін, що має водовідштовхувальні властивості та легко наноситься на будь-яку поверхню.",
+    "imageUrl": [
+      "https://cdn.27.ua/799/0b/86/6294406_2.jpeg",
+      "https://cdn.27.ua/799/0b/86/6294406_2.jpeg",
+      "https://cdn.27.ua/799/0b/86/6294406_2.jpeg",
+      "https://cdn.27.ua/799/0b/86/6294406_2.jpeg",
+      "https://cdn.27.ua/799/0b/86/6294406_2.jpeg",
+      "https://cdn.27.ua/799/0b/86/6294406_2.jpeg"
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Фарба для стін \"Dulux Барвиста\"",
+    "categoryId": 1,
+    "price": 299.99,
+    "country": "Нідерланди",
+    "producer": "Dulux",
+    "collection": "Барвиста",
+    "type": "Фарба",
+    "code": "Cd",
+    "tone": "Синій",
+    "room": "Спальня",
+    "description": "Водорозчинна фарба для стін, стійка до витирання, легко наноситься.",
+    "imageUrl": [
+      "https://aura.if.ua/image/cache/catalog/rephoto/antikvax/aurama%CC%88stare5l-800x800.jpg",
+      "https://aura.if.ua/image/cache/catalog/rephoto/antikvax/aurama%CC%88stare5l-800x800.jpg",
+      "https://aura.if.ua/image/cache/catalog/rephoto/antikvax/aurama%CC%88stare5l-800x800.jpg",
+      "https://aura.if.ua/image/cache/catalog/rephoto/antikvax/aurama%CC%88stare5l-800x800.jpg",
+      "https://aura.if.ua/image/cache/catalog/rephoto/antikvax/aurama%CC%88stare5l-800x800.jpg",
+      "https://aura.if.ua/image/cache/catalog/rephoto/antikvax/aurama%CC%88stare5l-800x800.jpg"
+    ]
+  },
+  {
+    "id": 0,
     "name": "SomeProduct-1",
     "categoryId": 1,
     "price": 3984,
@@ -121,6 +331,7 @@
     "producer": "CAPAROL",
     "collection": "CapaSilk 7",
     "type": "Латексна фарба",
+    "code": "565443",
     "tone": "SomeTone",
     "room": "SomeRoom",
     "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis, adipisci.",
@@ -135,7 +346,8 @@
     ]
   },
   {
-    "id": 565444,
+    "id": 0,
+    "code": "565444",
     "name": "SomeProduct-1",
     "categoryId": 1,
     "price": 1026,
@@ -157,7 +369,8 @@
     ]
   },
   {
-    "id": 565445,
+    "id": 0,
+    "code": "565445",
     "name": "SomeProduct-1",
     "categoryId": 1,
     "price": 1430,

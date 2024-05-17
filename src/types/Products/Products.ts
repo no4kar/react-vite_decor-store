@@ -7,6 +7,7 @@ export type TyProduct = {
   producer: string;
   collection: string;
   type: string;
+  code: string,
   tone: string;
   room: string;
   description: string;

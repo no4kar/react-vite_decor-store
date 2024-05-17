@@ -22,8 +22,9 @@ const ProductCard = ({
   return (
     <div
       className="
-      pt-[10px] pb-[14px] px-[10px]
-      w-full h-min
+      p-[10px]
+      w-full h-[540px]
+      flex flex-col
       shadow rounded
       hover:scale-[1.03]
       transition-transform duration-300 ease-in-out"
@@ -49,13 +50,13 @@ const ProductCard = ({
             className={cn('icon icon--favorite-icon icon--hover m-auto',
               {
                 'icon--favorite-icon-blue':
-                  favorites.find(f => f.id === product.id),
+                  favorites.find(f => f.name === product.name),
               })}
           />
         </button>
       </div>
 
-      <div className="pt-[24px]">
+      <div className="pt-[14px]">
         <div>
           <p className="title--micro title--secondary-color text-left">
             {product.type}
@@ -76,11 +77,12 @@ const ProductCard = ({
           </div>
         </div>
 
-        <div className="pt-[20px] flex justify-between">
-          <div className="flex gap-[9px]">
-            <p>Код товару</p>
-            <p>{product.id}</p>
+        <div className="pt-[10px] flex justify-between">
+          <div className="flex flex-col gap-[5px]">
+            <p>Код товару:</p>
+            <p>{product.code}</p>
           </div>
+
           <div className="flex">
             <p>Ціна</p>
             <p className="pl-3 pr-1 text-accent">{product.price}</p>
@@ -90,10 +92,10 @@ const ProductCard = ({
       </div>
 
       <div
-        className="h-[48px] mt-[40px]"
+        className="h-[48px] mt-auto"
       >
         <Button2
-          path={`/${pathname}/${product.id}`}
+          path={`/${pathname}/${product.code}`}
         >
           <span
             className="

@@ -26,7 +26,7 @@ export const ButtonFavorite = ({
       <i
         className={cn('icon icon--favorite-icon icon--hover', {
           'icon--favorite-icon-blue':
-            favorites.find(f => f.id === selectProduct?.id),
+            favorites.find(f => f.name === selectProduct?.name),
         })}
       />
     </button>

@@ -7,7 +7,7 @@ export const Counter = R.memo(
     quantity,
     onIncrease,
     onDecrease,
-    classContainer = "w-[96px] h-[48px] flex border border-solid border-gray-400",
+    classContainer,
   }: {
     quantity: TyInCartItem['quantity'],
     onIncrease?: () => void;
@@ -17,7 +17,7 @@ export const Counter = R.memo(
     const isFirst = quantity <= 1;
 
     return (
-      <div className={classContainer}>
+      <div className={`w-[96px] h-[48px] flex border border-solid border-gray-400 ${classContainer}`}>
         <div className="
         h-full
         flex-1
