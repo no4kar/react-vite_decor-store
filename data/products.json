@@ -13,17 +13,11 @@
     "room": "SomeRoom",
     "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis, adipisci.",
     "imageUrl": [
-      "https://drive.google.com/thumbnail?id=1UhkwAu6_MY0sE_0wxCyi2uYbK3B_inZq&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1UhkwAu6_MY0sE_0wxCyi2uYbK3B_inZq&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1UhkwAu6_MY0sE_0wxCyi2uYbK3B_inZq&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1UhkwAu6_MY0sE_0wxCyi2uYbK3B_inZq&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1UhkwAu6_MY0sE_0wxCyi2uYbK3B_inZq&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1UhkwAu6_MY0sE_0wxCyi2uYbK3B_inZq&sz=w1000",
       "https://drive.google.com/thumbnail?id=1UhkwAu6_MY0sE_0wxCyi2uYbK3B_inZq&sz=w1000"
     ]
   },
   {
-    "id": 0,
+    "id": 1,
     "code": "32325",
     "name": "SomeProduct-5",
     "categoryId": 2,
@@ -46,7 +40,7 @@
     ]
   },
   {
-    "id": 0,
+    "id": 2,
     "code": "32326",
     "name": "SomeProduct-6",
     "categoryId": 2,
@@ -69,7 +63,7 @@
     ]
   },
   {
-    "id": 0,
+    "id": 3,
     "code": "32327",
     "name": "SomeProduct-7",
     "categoryId": 2,
@@ -92,7 +86,7 @@
     ]
   },
   {
-    "id": 0,
+    "id": 4,
     "code": "32328",
     "name": "SomeProduct-8",
     "categoryId": 2,
@@ -115,7 +109,7 @@
     ]
   },
   {
-    "id": 0,
+    "id": 5,
     "name": "Laura Ashley Josette Duck Egg Wallpaper",
     "categoryId": 2,
     "price": 29.99,
@@ -138,7 +132,7 @@
     ]
   },
   {
-    "id": 0,
+    "id": 6,
     "name": "Graham & Brown Superfresco Easy Wallpaper",
     "categoryId": 2,
     "price": 19.99,
@@ -161,7 +155,7 @@
     ]
   },
   {
-    "id": 0,
+    "id": 7,
     "name": "Laura Ashley Josette Duck Egg Wallpaper",
     "categoryId": 2,
     "price": 29.99,
@@ -184,7 +178,7 @@
     ]
   },
   {
-    "id": 0,
+    "id": 8,
     "code": "32332",
     "name": "SomeProduct-8",
     "categoryId": 2,
@@ -207,7 +201,7 @@
     ]
   },
   {
-    "id": 0,
+    "id": 9,
     "code": "32333",
     "name": "SomeProduct-8",
     "categoryId": 2,
@@ -230,7 +224,7 @@
     ]
   },
   {
-    "id": 0,
+    "id": 10,
     "code": "32334",
     "name": "SomeProduct-8",
     "categoryId": 2,
@@ -253,7 +247,7 @@
     ]
   },
   {
-    "id": 0,
+    "id": 11,
     "code": "32335",
     "name": "SomeProduct-8",
     "categoryId": 2,
@@ -279,7 +273,7 @@
 
 
   {
-    "id": 7,
+    "id": 12,
     "name": "Фарба для стін \"Ceresit CT 17\"",
     "categoryId": 1,
     "price": 149.99,
@@ -301,7 +295,7 @@
     ]
   },
   {
-    "id": 8,
+    "id": 13,
     "name": "Фарба для стін \"Dulux Барвиста\"",
     "categoryId": 1,
     "price": 299.99,
@@ -323,7 +317,7 @@
     ]
   },
   {
-    "id": 0,
+    "id": 14,
     "name": "SomeProduct-1",
     "categoryId": 1,
     "price": 3984,
@@ -346,7 +340,7 @@
     ]
   },
   {
-    "id": 0,
+    "id": 15,
     "code": "565444",
     "name": "SomeProduct-1",
     "categoryId": 1,
@@ -369,7 +363,7 @@
     ]
   },
   {
-    "id": 0,
+    "id": 16,
     "code": "565445",
     "name": "SomeProduct-1",
     "categoryId": 1,
