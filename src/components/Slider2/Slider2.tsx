@@ -20,6 +20,7 @@ export const Slider2 = ({
 }) => {
   const [imgIndex, setImgIndex] = R.useState(0);
   const sliderRef = R.useRef<Slider>(null);
+  const imageUrlLength = selectItem.imageUrl.length;
 
   const handleNext = () => {
     if (sliderRef.current) {
@@ -37,7 +38,7 @@ export const Slider2 = ({
     dots: false,
     infinite: true,
     speed: Number(varsStyle.effectDurationNormal) * 1000,
-    slidesToShow: 5,
+    slidesToShow: imageUrlLength > 5 ? 5 : imageUrlLength,
     slidesToScroll: 1,
     centerMode: true,
     vertical: true,
@@ -51,7 +52,8 @@ export const Slider2 = ({
       {
         breakpoint: Number(varsStyle.tabletMinWidth),
         settings: {
-          slidesToShow: 3,
+          slidesToShow: imageUrlLength > 5 ? 3 : imageUrlLength,
+          // slidesToShow: 1,
           vertical: false,
           centerPadding: '0',
         },

@@ -95,7 +95,7 @@ const ProductCard = ({
         className="h-[48px] mt-auto"
       >
         <Button2
-          path={`/${pathname}/${product.code}`}
+          path={`/${pathname}/${product.id}`}
         >
           <span
             className="

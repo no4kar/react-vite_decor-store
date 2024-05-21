@@ -1,11 +1,16 @@
 import { getClient } from '../utils/axios.client';
-import products from '../../public/data/products.json';
 import { initialDelayLoader } from '../constants/initialDelayLoader';
 import { wait } from '../helpers/common.func';
+import { TyServerResponse } from '../types/Server';
 import { TyProduct, ProductCategory }
   from '../types/Products/Products';
 import env from '../helpers/varsFromEnv';
-import { TyServerResponse } from '../types/Server';
+import products from '../../public/data/products.json';
+
+type TyProductParams = {
+  page: string;
+  size?: string
+};
 
 const client = getClient({
   baseURL: env.API_URL.concat('/v1/products'),
@@ -19,11 +24,28 @@ function getProducts({
   size?: number,
 } = {},
 ): Promise<TyProduct[]> {
+
   if (env.API_URL) {
-    return client
-      .get('', { params: { page: String(page), size: String(size) } })
+    const params: TyProductParams = {
+      page: String(page),
+    };
+
+    if (size && size > 0) {
+      params.size = String(size);
+    }
+
+    return client.get('', { params })
       .then<TyServerResponse<TyProduct[]>>(res => res.data)
-      .then<TyProduct[]>(data => data.content);
+      .then<TyProduct[]>((data) => {
+        console.info(data);
+
+        return data.content;
+      })
+      .catch<TyProduct[]>((error) => {
+        console.error(error);
+
+        return products;
+      });
   }
 
   return wait<TyProduct[]>(initialDelayLoader, () => products);

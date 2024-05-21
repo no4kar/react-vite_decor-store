@@ -131,13 +131,13 @@ export const Footer = () => {
         <div className="footer__bottom">
           <div className="footer__icons-box">
             <Link
-              to="https://www.tiktok.com/ru-RU/"
+              to="https://www.tiktok.com/@decorativka_ukr"
               target="_blank"
               className="icon icon--tik-tok icon--hover"
             />
 
             <Link
-              to="https://www.instagram.com/"
+              to="https://www.instagram.com/decorativka_team"
               target="_blank"
               className="icon icon--instagram icon--hover"
             />
