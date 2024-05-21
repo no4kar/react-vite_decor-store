@@ -14,6 +14,10 @@ export type TyProduct = {
   imageUrl: string[];
 };
 
+export type TyProductParams = {
+
+};
+
 export enum ProductCategory {
   Paint = 1,
   Wallpaper = 2,

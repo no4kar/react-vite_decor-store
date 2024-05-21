@@ -1,6 +1,12 @@
 import { useNavigate } from 'react-router-dom';
 
-export const NotFoundPage = () => {
+import { Loader } from "../../components/Loader";
+
+export const NotFoundPage = ({
+  title = 'Page not found',
+}: {
+  title?: string;
+}) => {
   const navigate = useNavigate();
 
   setTimeout(() => {
@@ -8,8 +14,14 @@ export const NotFoundPage = () => {
   }, 2000);
 
   return (
-    <div className="not-found-page">
-      <strong>Page not found</strong>
+    <div
+      className="
+    content
+    min-h-96
+    flex flex-col gap-16 items-center justify-center"
+    >
+      <h1 className="title--h1">{title}</h1>
+      <Loader />
     </div>
   );
 };

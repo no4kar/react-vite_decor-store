@@ -20,7 +20,7 @@ import { AdminPage } from './pages/admin.page/admin.page';
 
 export const Root = () => (
   <Router
-    basename="/react-vite_decor-store/"
+    basename="/react-vite_decor-store"
   >
     <Routes>
       <Route path="/" element={<App />}>

@@ -22,7 +22,7 @@ export const useProductStore = create<ProductState>((set) => ({
         error: null,
       }));
 
-      const products = await productApi.getProducts();
+      const products = await productApi.getAll();
 
       set(state => ({
         ...state,

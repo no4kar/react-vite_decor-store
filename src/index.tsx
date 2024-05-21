@@ -1,9 +1,9 @@
 // import 'dotenv/config';
 
-import { createRoot } from 'react-dom/client';
-import { Root } from './Root';
+import * as ReactDOM from 'react-dom/client';
+import { Root } from './Root.v6';
 
 import './index.css';
 
-createRoot(document.getElementById('root') as HTMLElement)
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
   .render(<Root />);
