@@ -17,6 +17,13 @@ const client = getClient({
   baseURL: env.CORS_PROXY_URL.concat(env.API_URL).concat('/v1/products'),
 });
 
+client.interceptors.request.use(request => {
+  // request.headers['Content-Security-Policy'] = 'upgrade-insecure-requests';
+  // request.headers['Access-Control-Allow-Origin'] = 'http://localhost:5173';
+
+  return request;
+});
+
 function getAll({
   page = 0,
   size,
@@ -44,13 +51,7 @@ function getAll({
 }
 
 function getById(items: TyProduct[], id: number) {
-  const res = items.find(item => item.id === id);
-
-  console.info(items);
-  console.info(id);
-  console.info(res);
-
-  return res;
+  return items.find(item => item.id === id);
 }
 
 function getFromServerByParams(params: AxiosRequestConfig['params'])
@@ -69,7 +70,6 @@ function getByCategory(
 
 function getWallpapers(items: TyProduct[]) {
   return getByCategory(items, ProductCategory.Wallpaper);
-  // return client.get<TyProduct['Wallpaper'][]>('/v1/products/all/1');
 }
 
 function getPaints(items: TyProduct[]) {
