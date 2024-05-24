@@ -15,11 +15,15 @@ export const NotFoundPage = ({
   const navigate = useNavigate();
 
   R.useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      navigate(navigateTo);
-    }, 2000);
+    if (navigateTo) {
+      const timeoutId = setTimeout(() => {
+        navigate(navigateTo);
+      }, 2000);
 
-    return () => window.clearTimeout(timeoutId);
+      return () => window.clearTimeout(timeoutId);
+    }
+
+    return () => { };
   }, []);
 
 
@@ -28,7 +32,10 @@ export const NotFoundPage = ({
       className={`flex flex-col gap-16 items-center justify-center ${classContainer}`}
     >
       <h1 className="title--h1">{title}</h1>
-      <Loader />
+
+      {navigateTo && (
+        <Loader />
+      )}
     </div>
   );
 };

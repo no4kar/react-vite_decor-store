@@ -20,7 +20,7 @@ export const DecorativeService = () => {
   }, []);
 
   const visibleServices
-    = serviceApi.getServiceByCategory(services, ServiceCategory.Decorative);
+    = serviceApi.getByCategory(services, ServiceCategory.Decorative);
 
   return (
     <div className="

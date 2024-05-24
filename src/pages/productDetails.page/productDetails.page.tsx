@@ -21,7 +21,6 @@ import { TyProduct } from '../../types/Products/Products';
 
 export const ProductDetailsPage = () => {
   const { id } = useParams();
-  const productId = +(id || 0);
   const [isLoading, setIsLoading] = R.useState(true);
   const [quantity, setQuantity] = R.useState(1);
   const [selectProduct, setSelectProduct] = R.useState<TyProduct | null>(null);
@@ -44,8 +43,7 @@ export const ProductDetailsPage = () => {
 
   console.info(selectProduct);
   console.info(`
-  id ${id}
-  productId ${productId}
+  productId ${id}
   `);
 
   return (
@@ -57,7 +55,6 @@ export const ProductDetailsPage = () => {
     >
       <div className="content">
         {isLoading && <Loader />}
-
 
         {!isLoading && !selectProduct
           && <NotFoundPage title='Not found product' />}

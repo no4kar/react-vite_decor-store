@@ -66,6 +66,9 @@ function getByCategory(
   items: TyService[],
   categoryId: ServiceCategory,
 ) {
+
+  console.info(items.filter(item => item.categoryId === categoryId));
+
   return items
     .filter(item => item.categoryId === categoryId);
 }

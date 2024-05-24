@@ -19,7 +19,7 @@ export const HangWallpaper = () => {
   }, []);
 
   const visibleServices
-    = serviceApi.getServiceByCategory(services, ServiceCategory.HangWallpaper);
+    = serviceApi.getByCategory(services, ServiceCategory.HangWallpaper);
 
   return (
     <div className="

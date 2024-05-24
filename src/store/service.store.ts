@@ -22,7 +22,7 @@ export const useServiceStore = create<ServiceState>((set) => ({
         error: null,
       }));
 
-      const services = await serviceApi.getServices();
+      const services = await serviceApi.getAll();
 
       set((state) => ({
         ...state,
@@ -32,7 +32,7 @@ export const useServiceStore = create<ServiceState>((set) => ({
       return services;
 
     } catch (error) {
-      
+
       set((state) => ({
         ...state,
         error: 'Something went wrong',

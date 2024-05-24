@@ -16,6 +16,7 @@ import { ProductDetailsFilters } from '../../components/ProductDetailsFilters';
 import PaginatedComponent from '../../components/PaginatedComponent/PaginatedComponent';
 
 import './products.page.scss';
+import { NotFoundPage } from '../not-found-page';
 
 const perPage = 9;
 
@@ -117,9 +118,8 @@ export const ProductsPage = ({
   console.info(visibleProducts.length);
 
   return (
-    <div className="Wallpaper
-    relative min-h-screen
-    "
+    <div className="
+    relative"
     // border border-blue-300 border-solid
     >
       <aside
@@ -239,7 +239,13 @@ export const ProductsPage = ({
 
           {isLoading && <Loader />}
 
-          {!isLoading && hasError && <p>{hasError}</p>}
+          {!isLoading && hasError && (
+            <NotFoundPage
+              title={hasError}
+              navigateTo=''
+              classContainer='w-full min-h-48'
+            />
+          )}
 
           {!isLoading && !hasError && (
             <div className="flex-1 flex flex-col gap-2">
