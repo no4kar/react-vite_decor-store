@@ -40,7 +40,6 @@ export const Contacts: React.FC = () => {
               <ul className="contactsPage__list ">
                 <li className="contactsPage__item">
                   <span className="contactsPage__label">Адреса</span>
-                  {/* eslint-disable max-len */}
                   <Link
                     to="https://www.google.com/maps?sca_esv=85af15397c77c0f6&output=search&q=%D0%9A%D0%B8%D1%97%D0%B2,+%D0%B2%D1%83%D0%BB.+%D0%90%D0%BB%D0%BC%D0%B0%D1%82%D0%B8%D0%BD%D1%81%D1%8C%D0%BA%D0%B0,+8&source=lnms&entry=mc"
                     className="contactsPage__link contactsPage__link--contacts"
@@ -61,10 +60,10 @@ export const Contacts: React.FC = () => {
                 <li className="contactsPage__item">
                   <span className="contactsPage__label">E-mail</span>
                   <Link
-                    to="mailto:email@gmail.com"
+                    to="mailto:decorativka@dekorativka.ua"
                     className="fcontactsPage__link contactsPage__link--contacts"
                   >
-                    email@gmail.com
+                    decorativka@dekorativka.ua
                   </Link>
                 </li>
               </ul>

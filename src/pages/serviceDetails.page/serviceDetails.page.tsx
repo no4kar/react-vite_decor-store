@@ -1,5 +1,5 @@
 import * as R from 'react';
-import { useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 
 import { PageNavigation } from '../../components/PageNavigation';
 import { Loader } from '../../components/Loader';
@@ -16,12 +16,12 @@ import { NotFoundPage } from '../not-found-page';
 
 export const ServiceDetailsPage = () => {
   const { id } = useParams();
-  // const serviceId = +(id || 0);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   /* it will be need if server will ofeer service-info and service-detailed-info */
   const [isLoading, setIsLoading] = R.useState(true);
   const [selectService, setSelectService] = R.useState<TyService | null>(null);
-  // const { services, isLoading } = useServiceStore();
 
   R.useEffect(() => {
     serviceApi.getFromServerByParams({ id })
@@ -35,13 +35,6 @@ export const ServiceDetailsPage = () => {
       .catch(() => setSelectService(null))
       .finally(() => setIsLoading(false));
   }, []);
-
-  //   setSelectService(serviceApi.getById(services, serviceId) || null);
-  // }, []);
-
-  // if (!selectService) {
-  //   return null;
-  // }
 
   return (
     <div
@@ -113,7 +106,10 @@ export const ServiceDetailsPage = () => {
                   md:h-[64px]"
                   >
                     <Button2
-                      path="/contacts"
+                      onClick={() => navigate(
+                        '/contacts',
+                        { state: { from: location.pathname } },
+                      )}
                     >
                       <span
                         className="

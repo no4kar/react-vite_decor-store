@@ -120,7 +120,7 @@ export const Footer = () => {
                     to="mailto:decorativka@dekorativka.ua"
                     className="footer__link footer__link--contacts"
                   >
-                    decorativka@dekorativka.ua{' '}
+                    decorativka@dekorativka.ua
                   </Link>
                 </li>
               </ul>

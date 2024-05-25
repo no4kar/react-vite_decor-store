@@ -1,4 +1,5 @@
 import * as R from 'react';
+import { useLocation } from 'react-router-dom';
 import { useForm, SubmitHandler, Controller } from 'react-hook-form';
 // import Select from 'react-select';
 import Creatable from 'react-select/creatable';
@@ -61,6 +62,7 @@ export const FormComponent = ({
     title: '',
     description: '',
   });
+  const location = useLocation();
   const { items: inCartItems } = useCartStore();
 
   const isOrderVersion = formVersion === FormVersion.ORDER;
@@ -89,12 +91,46 @@ export const FormComponent = ({
 
     switch (formVersion) {
 
-      case FormVersion.CONSULTATION:
+      case FormVersion.CONSULTATION: {
+        formApi.sendFeedback({
+          name: data.firstName,
+          email: '',
+          comment: `
+          ${data.phoneNumber}
+          ${location.state?.from || ''}`,
+        })
+          .then(() => {
+            setMsg({
+              status: Status.SUCCESS,
+              description: 'Дякуємо, ми зв\'яжемося з вами якомога швидше',
+            });
+          })
+          .catch((error) => {
+            if (error.message) {
+              setMsg({
+                status: Status.ERROR,
+                description: error.message,
+              });
+
+              return;
+            }
+
+            setMsg({
+              status: Status.ERROR,
+              description: 'Може спробуєте трохи пізніше',
+            });
+          });
+
+        break;
+      }
+
       case FormVersion.SEND_MESSAGE: {
         formApi.sendFeedback({
           name: data.firstName,
           email: data.email,
-          comment: data.message,
+          comment:
+            `${location.state?.from}
+          ${data.message}`,
         })
           .then(() => {
             setMsg({
