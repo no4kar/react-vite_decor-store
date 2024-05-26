@@ -13,17 +13,12 @@ export const PaintPage = R.memo(
       products,
       isLoading,
       error: hasError,
-      fetchData,
     } = useProductStore();
 
     const paints = R.useMemo(
       () => productApi.getPaints(products),
       [products],
     );
-
-    R.useEffect(() => {
-      fetchData();
-    }, []);
 
     return (
       <ProductsPage

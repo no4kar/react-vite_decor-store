@@ -22,6 +22,7 @@ type TyOrder = {
 type TyFeedback = {
   name: string;
   email: string;
+  phoneNumber: string;
   comment: string;
 };
 
@@ -34,7 +35,7 @@ export const formApi = {
 
   sendFeedback: (feedback: TyFeedback,
   ) => {
-    return client.post('/v1/feedback', feedback,);
+    return client.post('/v1/feedback', feedback);
   },
 
 };

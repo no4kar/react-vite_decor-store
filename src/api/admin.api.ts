@@ -22,7 +22,7 @@ client.interceptors.request.use((req) => {
 
 
 export const adminApi = {
-  login: ({
+  login: async ({
     email,
     password,
   }: {
@@ -46,7 +46,19 @@ export const adminApi = {
   createProduct: (
     newProduct: Omit<TyProduct, 'id'>
   ) => {
-    return client.post('/admin/product/new', newProduct);
+    return client.post('/admin/products/new', newProduct);
+  },
+
+  removeProduct: (
+    id: TyProduct['id']
+  ) => {
+    return client.delete(`/admin/products/delete/${id}`);
+  },
+
+  removeService: (
+    id: TyProduct['id']
+  ) => {
+    return client.delete(`/admin/products/delete/${id}`);
   },
 
   getOrders: ({

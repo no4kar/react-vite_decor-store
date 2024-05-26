@@ -23,7 +23,7 @@ export const useServiceStore = create<ServiceState>((set) => ({
       }));
 
       const services = await serviceApi.getAll();
-
+      
       set((state) => ({
         ...state,
         services,

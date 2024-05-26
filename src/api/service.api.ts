@@ -2,8 +2,6 @@ import { AxiosError, AxiosRequestConfig } from 'axios';
 import { getClient } from '../utils/axios.client';
 import services from '../../public/data/services.json';
 import { ServiceCategory, TyService } from '../types/Services/Services';
-// import { wait } from '../helpers/common.func';
-// import { initialDelayLoader } from '../constants/initialDelayLoader';
 import env from '../helpers/varsFromEnv';
 import { TyServerResponse } from '../types/Server';
 
@@ -16,12 +14,9 @@ const client = getClient({
   baseURL: env.API_URL.concat('/v1/offers'),
 });
 
-// const normalize = ({ typeId, ...rest }: { typeId: number, rest: any[] }) =>
-//   ({ ...rest, categoryId: typeId, });
-
 function getAll({
   page = 0,
-  size = 100,
+  size,
 }: {
   page?: number,
   size?: number,
