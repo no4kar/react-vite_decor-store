@@ -28,7 +28,7 @@ export const LoginPage = () => {
   });
 
   if (isChecked) {
-    return <Navigate to={location.state?.from?.pathname || '/'} />;
+    return <Navigate to={location.state?.from?.pathname || '/'} replace/>;
   }
 
   const onSubmit: SubmitHandler<MyForm> = async (data) => {

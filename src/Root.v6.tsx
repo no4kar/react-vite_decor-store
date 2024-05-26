@@ -68,7 +68,13 @@ const router = createBrowserRouter([
         path: '/',
         element: <RequireAuth />,
         children: [
-          { path: 'admin', element: <AdminPage /> },
+          {
+            path: 'admin',
+            children: [
+              { index: true, element: <AdminPage /> },
+              { path: ':option', element: <AdminPage /> },
+            ]
+          },
         ],
       },
       { path: '*', element: <NotFoundPage /> },

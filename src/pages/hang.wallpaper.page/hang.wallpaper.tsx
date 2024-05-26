@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { Loader } from '../../components/Loader';
 import { PageNavigation } from '../../components/PageNavigation';
 import { ServiceCard } from '../../components/ServiceCard';
@@ -11,12 +10,7 @@ export const HangWallpaper = () => {
   const {
     services,
     isLoading,
-    fetchData,
   } = useServiceStore();
-
-  useEffect(() => {
-    fetchData();
-  }, []);
 
   const visibleServices
     = serviceApi.getByCategory(services, ServiceCategory.HangWallpaper);

@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 import { PageNavigation } from '../../components/PageNavigation';
 import { Loader } from '../../components/Loader';
 import { ServiceCard } from '../../components/ServiceCard';
@@ -11,13 +11,7 @@ export const DecorativeService = () => {
   const {
     services,
     isLoading,
-    // error: hasError,
-    fetchData,
   } = useServiceStore();
-
-  useEffect(() => {
-    fetchData();
-  }, []);
 
   const visibleServices
     = serviceApi.getByCategory(services, ServiceCategory.Decorative);

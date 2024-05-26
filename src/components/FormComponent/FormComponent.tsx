@@ -90,13 +90,12 @@ export const FormComponent = ({
     console.log(data);
 
     switch (formVersion) {
-
       case FormVersion.CONSULTATION: {
         formApi.sendFeedback({
           name: data.firstName,
-          email: '',
+          email: data.email,
+          phoneNumber: data.phoneNumber,
           comment: `
-          ${data.phoneNumber}
           ${location.state?.from || ''}`,
         })
           .then(() => {
@@ -128,6 +127,7 @@ export const FormComponent = ({
         formApi.sendFeedback({
           name: data.firstName,
           email: data.email,
+          phoneNumber: data.phoneNumber,
           comment:
             `${location.state?.from}
           ${data.message}`,
@@ -270,38 +270,51 @@ export const FormComponent = ({
               />
 
               {isConsultationVersion && (
-                <FormFields
-                  textLabel="Номер телефону"
-                  type="tel"
-                  name="phoneNumber"
-                  register={register}
-                  validation={validation.phoneNumber}
-                  errors={errors}
-                  required
-                />
+                <>
+                  <FormFields
+                    type="tel"
+                    name="phoneNumber"
+                    textLabel="Номер телефону"
+                    register={register}
+                    validation={validation.phoneNumber}
+                    errors={errors}
+                    required
+                  />
+
+                  <FormFields
+                    type="mail"
+                    name="email"
+                    textLabel="E-mail"
+                    register={register}
+                    validation={validation.email}
+                    errors={errors}
+                    placeholder="some@email.com"
+                    required
+                  />
+                </>
               )}
 
               {isSendMassageVersion && (
                 <>
                   <FormFields
                     type="mail"
-                    textLabel="E-mail"
                     name="email"
+                    textLabel="E-mail"
                     register={register}
-                    errors={errors}
-                    required
                     validation={validation.email}
-                    placeholder="Email"
+                    errors={errors}
+                    placeholder="some@email.com"
+                    required
                   />
 
                   <FormFields
                     type="textarea"
-                    textLabel="Повідомлення"
                     name="message"
+                    textLabel="Повідомлення"
                     register={register}
+                    validation={validation.message}
                     errors={errors}
                     required
-                    validation={validation.message}
                   />
                 </>
               )}
@@ -367,30 +380,30 @@ export const FormComponent = ({
                   />
 
                   <FormFields
-                    textLabel="Номер телефону"
                     type="tel"
                     name="phoneNumber"
+                    textLabel="Номер телефону"
                     register={register}
+                    validation={validation.phoneNumber}
                     errors={errors}
                     required
-                    validation={validation.phoneNumber}
                   />
 
                   <FormFields
                     type="mail"
-                    textLabel="E-mail"
                     name="email"
+                    textLabel="E-mail"
                     register={register}
-                    errors={errors}
-                    required
                     validation={validation.email}
-                    placeholder="Email"
+                    errors={errors}
+                    placeholder="some@email.com"
+                    required
                   />
 
                   <FormFields
                     type="textarea"
-                    textLabel="Коментар"
                     name="message"
+                    textLabel="Коментар"
                     register={register}
                     errors={errors}
                   />

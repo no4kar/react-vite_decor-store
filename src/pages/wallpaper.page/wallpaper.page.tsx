@@ -12,17 +12,12 @@ export const WallpaperPage = R.memo(
       products,
       isLoading,
       error: hasError,
-      fetchData,
     } = useProductStore();
 
     const wallpapers = R.useMemo(
       () => productApi.getWallpapers(products),
       [products],
     );
-
-    R.useEffect(() => {
-      fetchData();
-    }, []);
 
     return (
       <ProductsPage
