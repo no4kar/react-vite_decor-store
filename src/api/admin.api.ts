@@ -2,6 +2,7 @@ import { getClient } from '../utils/axios.client';
 import env from '../helpers/varsFromEnv';
 import { TyProduct } from '../types/Products/Products';
 import { accessTokenApi } from './accessToken.api';
+import { TyService } from '../types/Services/Services';
 
 const client = getClient({
   baseURL: env.API_URL,
@@ -49,6 +50,14 @@ export const adminApi = {
     return client.post('/admin/products/new', newProduct);
   },
 
+  editProduct: ({
+    id,
+    ...restProductProps
+  }: TyProduct
+  ) => {
+    return client.post(`/admin/products/update/${id}`, restProductProps);
+  },
+
   removeProduct: (
     id: TyProduct['id']
   ) => {
@@ -56,9 +65,9 @@ export const adminApi = {
   },
 
   removeService: (
-    id: TyProduct['id']
+    id: TyService['id']
   ) => {
-    return client.delete(`/admin/products/delete/${id}`);
+    return client.delete(`/admin/offers/delete/${id}`);
   },
 
   getOrders: ({

@@ -5,11 +5,13 @@ import { ProductCategory, TyProduct } from '../../types/Products/Products';
 import { useFavoriteStore } from '../../store/favourite.store';
 import { Button2 } from '../Button2';
 
-const ProductCard = ({
+export const ProductCard = R.memo(Component);
+
+function Component({
   product
 }: {
   product: TyProduct;
-}) => {
+}) {
   const { items: favorites } = useFavoriteStore();
 
   const pathname = cn({
@@ -115,6 +117,4 @@ const ProductCard = ({
       </div>
     </div>
   );
-};
-
-export default R.memo(ProductCard);
+}

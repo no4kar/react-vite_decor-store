@@ -17,6 +17,9 @@ import { ProductDetailsPage } from './pages/productDetails.page';
 import { LoginPage } from './pages/login.page/login.page';
 import { RequireAuth } from './components/RequireAuth/RequireAuth';
 import { AdminPage } from './pages/admin.page/admin.page';
+import { ProductsTable } from './components/ProductsTable';
+import { ServicesTable } from './components/ServicesTable';
+import { ProductForm } from './components/ProductForm';
 
 const router = createBrowserRouter([
   {
@@ -70,9 +73,17 @@ const router = createBrowserRouter([
         children: [
           {
             path: 'admin',
+            element: <AdminPage />,
             children: [
-              { index: true, element: <AdminPage /> },
-              { path: ':option', element: <AdminPage /> },
+              {
+                path: 'products',
+                children: [
+                  { index: true, element: <ProductsTable /> },
+                  { path: ':id', element: <ProductForm /> },
+                ],
+
+              },
+              { path: 'services', element: <ServicesTable /> },
             ]
           },
         ],

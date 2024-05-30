@@ -7,13 +7,13 @@ import {
   SearchParamsName,
   getSearchWith
 } from '../../helpers/searchHelper';
-import ProductCard from '../../components/ProductCard/ProductCard';
+import { ProductCard } from '../../components/ProductCard';
 import { TyProduct } from '../../types/Products/Products';
 import { Loader } from '../../components/Loader';
 import { PageNavigation } from '../../components/PageNavigation';
 import { Search } from '../../components/Search';
 import { ProductDetailsFilters } from '../../components/ProductDetailsFilters';
-import PaginatedComponent from '../../components/PaginatedComponent/PaginatedComponent';
+import { PaginatedComponent } from '../../components/PaginatedComponent';
 
 import './products.page.scss';
 import { NotFoundPage } from '../not-found-page';

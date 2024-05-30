@@ -6,7 +6,7 @@ import { useFavoriteStore } from '../../store/favourite.store';
 
 import './favorite.page.scss';
 import { Button2, Option as Button2Option } from '../../components/Button2';
-import ProductCard from '../../components/ProductCard/ProductCard';
+import { ProductCard } from '../../components/ProductCard';
 import { TyProduct } from '../../types/Products/Products';
 
 export const FavoritePage = () => {

@@ -16,29 +16,19 @@ import { Modal } from '../Modal';
 import { delivery, payOption } from '../../constants/radioOptions';
 import { RadioButtonGroup } from '../RadioButtonGroup/RadioButtonGroup';
 import { formVersionData } from '../../constants/formVersionData';
-import { Notification } from '../Notification/Notification';
+import { Notification } from '../Notification';
 import { useCartStore } from '../../store/cart.store';
 import { TySelectOption } from '../../types/SelectOption';
-
-import './FormComponent.scss';
+import { OutcomeReport, Status } from '../../types/Info';
 import { article } from '../../constants/footerData';
 
-enum Status {
-  NONE,
-  SUCCESS,
-  ERROR,
-}
+import './FormComponent.scss';
 
 enum FormVersion {
   CONSULTATION = 'consultation',
   SEND_MESSAGE = 'sendMessage',
   ORDER = 'order',
 }
-
-type OutcomeReport = {
-  status: Status;
-  description: string;
-};
 
 const cityOptions: TySelectOption[] = [
   { label: 'Київ', value: 'Київ' },

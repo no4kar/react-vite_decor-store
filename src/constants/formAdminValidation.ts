@@ -1,7 +1,17 @@
-import { RegisterOptions } from "react-hook-form";
+import { RegisterOptions, ValidationRule } from "react-hook-form";
+
+const patterns: {
+  [key: string]: ValidationRule<RegExp>;
+} = {
+  trimAndOneSpaceBetween: {
+    value: /^(?!\s)(?!.*\s\s).*(?<!\s)$/gu,
+    message: 'Without space at the start and end, one space between',
+  },
+};
 
 export const validation: {
-  adminAction?: RegisterOptions;
+  // adminAction?: RegisterOptions;
+  id?: RegisterOptions;
   name?: RegisterOptions;
   categoryId?: RegisterOptions;
   price?: RegisterOptions;
@@ -9,33 +19,39 @@ export const validation: {
   producer?: RegisterOptions;
   collection?: RegisterOptions;
   type?: RegisterOptions;
+  code?: RegisterOptions;
   tone?: RegisterOptions;
   room?: RegisterOptions;
   description?: RegisterOptions;
   imageUrl?: RegisterOptions;
 } = {
-  adminAction: {
-    required: 'select the action'
-  },
+  // adminAction: {
+  //   required: 'select the action'
+  // },
 
-  name: {
-    pattern: {
-      value: /^\S?[\p{L}'\s]+\S?$/u,
-      message: `Write correct (^\S?[\p{L}'\s]+\S?$)`,
-    },
+  id: {
+    // pattern: {
+    //   value: /^\d+$/u,
+    //   message: `Write correct (^\d+$)`,
+    // },
+    valueAsNumber: true,
     maxLength: {
       value: 20,
       message: 'It is too long!',
     },
   },
 
+  name: {
+    pattern: patterns.trimAndOneSpaceBetween,
+  },
+
   categoryId: {
     required: 'required',
-    pattern: {
-      value: /^\S?[\d]+\S?$/,
-      message: `Write correct (^\S?[\d]+\S?$)`,
-    },
-    // valueAsNumber: true,
+    // pattern: {
+    //   value: /^\S?[\d]+\S?$/,
+    //   message: `Write correct (^\S?[\d]+\S?$)`,
+    // },
+    valueAsNumber: true,
     maxLength: {
       value: 2,
       message: 'It is too long!',
@@ -45,8 +61,8 @@ export const validation: {
   price: {
     required: 'required',
     pattern: {
-      value: /^\S?[\d]+\S?$/,
-      message: `Write correct (^\S?[\d]+\S?$)`,
+      value: /^\d+$/g,
+      message: `Write correct (^\d+$/g)`,
     },
     // valueAsNumber: true,
     maxLength: {
@@ -54,4 +70,21 @@ export const validation: {
       message: 'It is too long!',
     },
   },
+
+  country: {
+    pattern: patterns.trimAndOneSpaceBetween,
+  },
+
+  producer: {
+    pattern: patterns.trimAndOneSpaceBetween,
+  },
+
+  collection: {
+    pattern: patterns.trimAndOneSpaceBetween,
+  },
+
+  type: {
+    pattern: patterns.trimAndOneSpaceBetween,
+  },
+
 };
