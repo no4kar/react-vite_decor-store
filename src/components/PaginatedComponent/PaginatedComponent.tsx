@@ -1,7 +1,9 @@
 import * as R from 'react';
 import cn from 'classnames';
 
-const PaginatedComponent = ({
+export const PaginatedComponent = R.memo(Component);
+
+function Component({
   currentPage,
   totalPages,
   onPageChange = () => { },
@@ -9,7 +11,7 @@ const PaginatedComponent = ({
   currentPage: number;
   totalPages: number;
   onPageChange?: (pageNumber: number) => void;
-}) => {
+}) {
   const isFirst = currentPage <= 1;
   const isLast = currentPage >= totalPages;
   const handlePageChange = (pageNumber: number) => {
@@ -102,4 +104,3 @@ const PaginatedComponent = ({
   );
 };
 
-export default R.memo(PaginatedComponent);

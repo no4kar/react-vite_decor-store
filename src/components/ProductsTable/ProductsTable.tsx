@@ -3,6 +3,7 @@ import * as R from 'react';
 import { useProductStore } from '../../store/product.store';
 import { adminApi } from '../../api/admin.api';
 import { Loader } from '../Loader';
+import { Link } from 'react-router-dom';
 
 export const ProductsTable = R.memo(
   () => {
@@ -40,7 +41,9 @@ export const ProductsTable = R.memo(
               <td className="border px-4 py-2">{product.price}</td>
               <td
                 className="
-              border px-4 py-2 group/action invisible
+              border px-4 py-2 group/action
+              flex
+              invisible
               hover:bg-slate-200 group-hover/row:visible"
               >
                 <button
@@ -54,12 +57,15 @@ export const ProductsTable = R.memo(
                   Delete
                 </button>
 
-                <button
-                  className="border px-4 py-2 hover:bg-gray-400 active:bg-gray-500"
-                  type="button"
+                <Link
+                  className="
+                  w-fit border px-4 py-2
+                  hover:bg-gray-400 active:bg-gray-500"
+                  to={`/admin/products/${product.id}`}
+                  state={{ product }}
                 >
-                  Edite
-                </button>
+                  Edit
+                </Link>
               </td>
             </tr>
           ))}
