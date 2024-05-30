@@ -109,8 +109,6 @@ function Component() {
       }
     }
 
-    // console.info(productFromServer);
-
     if (productFromServer) {
       reset(productFromServer);
     } else {
