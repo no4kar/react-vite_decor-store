@@ -4,7 +4,6 @@ import env from '../helpers/varsFromEnv';
 import { TyProduct } from '../types/Products/Products';
 import { accessTokenApi } from './accessToken.api';
 import { TyService } from '../types/Services/Services';
-import { TyServerResponse } from '../types/Server';
 
 const client = getClient({
   baseURL: env.API_URL,
@@ -45,7 +44,7 @@ export const adminApi = {
       });
   },
 
-  createProduct: <T extends TyServerResponse<TyProduct>>(
+  createProduct: <T>(
     newProduct: Omit<TyProduct, 'id'>
   ): Promise<AxiosResponse<T>> => {
     return client.post('/admin/products/new', newProduct);

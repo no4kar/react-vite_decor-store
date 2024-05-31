@@ -14,6 +14,10 @@ export type TyProduct = {
   imageUrl: string[];
 };
 
+export type TyProductForForm = Omit<TyProduct, 'imageUrl'> & {
+  imageUrls: string;
+};
+
 export type TyProductParams = {
 
 };

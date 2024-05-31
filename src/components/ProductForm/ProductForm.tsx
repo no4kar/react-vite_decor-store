@@ -1,16 +1,14 @@
 import * as R from 'react';
-import * as RRD from 'react-router-dom';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 import cn from 'classnames';
 import { FormFields2 } from '../FormFields/FormFields2';
 import { adminApi } from '../../api/admin.api';
-import { TyProduct } from '../../types/Products/Products';
+import { TyProduct, TyProductForForm } from '../../types/Products/Products';
 import { OutcomeReport, Status } from '../../types/Info';
 import { Notification } from '../Notification';
 import { Button2, Option as Button2Option } from '../Button2';
 import { validation } from '../../constants/formAdminValidation';
-// import { Loader } from '../Loader';
 
 enum FormVersion {
   EDIT = 'edit',
@@ -19,13 +17,14 @@ enum FormVersion {
 
 export const ProductForm = R.memo(Component);
 
-function Component() {
-  const { id } = RRD.useParams();
+function Component({
+  product,
+}: {
+  product: TyProduct | null
+}) {
   const [msg, setMsg]
     = R.useState<OutcomeReport>({ status: Status.NONE, description: '', });
-  const formVersion = id ? FormVersion.EDIT : FormVersion.CREATE;
-  const { state: { product } }
-    = RRD.useLocation() as { state: { product: TyProduct } };
+  const formVersion = product ? FormVersion.EDIT : FormVersion.CREATE;
 
   const {
     register,
@@ -34,40 +33,47 @@ function Component() {
     handleSubmit,
     // getValues,
     reset,
-  } = useForm<TyProduct>(// if is :id need defult values
+  } = useForm<TyProductForForm>(// if is :id need defult values
     {
       defaultValues: {
-        id: product?.id,
-        name: product?.name,
-        categoryId: product?.categoryId,
-        price: product?.price,
-        country: product?.country,
-        producer: product?.producer,
-        collection: product?.collection,
-        type: product?.type,
-        code: product?.code,
-        tone: product?.tone,
-        room: product?.room,
-        description: product?.description,
-        imageUrl: product?.imageUrl || [],
+        id: product?.id || 0,
+        name: product?.name || 'product?.name',
+        categoryId: product?.categoryId || 1,
+        price: product?.price || 9999,
+        country: product?.country || 'product?.country',
+        producer: product?.producer || 'product?.producer',
+        collection: product?.collection || 'product?.collection',
+        type: product?.type || 'product?.type',
+        code: product?.code || 'product?.code',
+        tone: product?.tone || 'product?.tone',
+        room: product?.room || 'product?.room',
+        description: product?.description || 'product?.description',
+        imageUrls: product?.imageUrl.join('\n') || '',
       },
       mode: 'all',
     }
   );
 
-  const onSubmit: SubmitHandler<TyProduct> = async (data) => {
-    data.imageUrl.forEach((item, i, arr) => {
-      arr[i] = item.trim();
-    });
-
+  const onSubmit: SubmitHandler<TyProductForForm> = async (data) => {
     // console.log(data);
+
+    // normalize
+    const productForServer: TyProduct = {
+      ...data,
+      imageUrl: data.imageUrls
+        .split(/\s+/g)
+        .map(item => item.trim()),
+    };
+
+    // console.log(productForServer);
     let productFromServer: TyProduct | null = null;
+
     // return;
 
     switch (formVersion) {
       case FormVersion.EDIT: {
         productFromServer = await adminApi
-          .editProduct<TyProduct>(data)
+          .editProduct<TyProduct>(productForServer)
           .then(res => {
             setMsg({
               status: Status.SUCCESS,
@@ -98,7 +104,39 @@ function Component() {
       }
 
       case FormVersion.CREATE: {
+        const { id, ...newProduct } = productForServer;
 
+        console.info(newProduct);
+
+        productFromServer = await adminApi
+          .createProduct<TyProduct>(newProduct)
+          .then(res => {
+            setMsg({
+              status: Status.SUCCESS,
+              description: 'Changes have been committed',
+            });
+
+            console.info(res.data);
+
+            return res.data || null;
+          })
+          .catch((error) => {
+            if (error.message) {
+              setMsg({
+                status: Status.ERROR,
+                description: error.message,
+              });
+
+              return null;
+            }
+
+            setMsg({
+              status: Status.ERROR,
+              description: 'Unknown error',
+            });
+
+            return null;
+          });
         break;
       }
 
@@ -110,35 +148,14 @@ function Component() {
     }
 
     if (productFromServer) {
-      reset(productFromServer);
+      reset({
+        ...productFromServer,
+        imageUrls: productFromServer?.imageUrl.join('\n'),
+      });
     } else {
       reset();
     }
   };
-
-  // R.useEffect(() => {
-  //   productApi.getFromServerByParams({ id })
-  //     .then((data) => {
-  //       console.log(data.at(0));
-  //       setProduct(data.at(0) || null);
-  //     })
-  //     .catch((error) => {
-  //       if (error.message) {
-  //         setMsg({
-  //           status: Status.ERROR,
-  //           description: error.message,
-  //         });
-
-  //         return;
-  //       }
-
-  //       setMsg({
-  //         status: Status.ERROR,
-  //         description: 'Unknown error',
-  //       });
-  //     });
-
-  // }, []);
 
   return (
     <form
@@ -147,23 +164,24 @@ function Component() {
     >
       <div
         className="
-    w-full h-full
-    p-3
+    w-full h-full p-3
     flex flex-col gap-3"
       >
-        <h1 className="title--h1">{id}</h1>
+        <h1 className="title--h1">{product ? `Edit ID=${product.id}` : 'New'}</h1>
 
-        <FormFields2<TyProduct>
-          type="number"
-          textLabel="ID"
-          name='id'
-          register={register}
-          errors={errors}
-          required
-          validation={validation.id}
-        />
+        {product !== null && (
+          <FormFields2<TyProductForForm>
+            type="number"
+            textLabel="ID"
+            name='id'
+            register={register}
+            errors={errors}
+            required
+            validation={validation.id}
+          />
+        )}
 
-        <FormFields2<TyProduct>
+        <FormFields2<TyProductForForm>
           type="text"
           textLabel="Name"
           name="name"
@@ -173,7 +191,7 @@ function Component() {
           validation={validation.name}
         />
 
-        <FormFields2<TyProduct>
+        <FormFields2<TyProductForForm>
           type="number"
           textLabel="CategoryId"
           name="categoryId"
@@ -183,7 +201,7 @@ function Component() {
           validation={validation.categoryId}
         />
 
-        <FormFields2<TyProduct>
+        <FormFields2<TyProductForForm>
           type="text"
           textLabel="Price"
           name="price"
@@ -193,7 +211,7 @@ function Component() {
           validation={validation.price}
         />
 
-        <FormFields2<TyProduct>
+        <FormFields2<TyProductForForm>
           type="text"
           textLabel="Country"
           name="country"
@@ -203,7 +221,7 @@ function Component() {
           validation={validation.country}
         />
 
-        <FormFields2<TyProduct>
+        <FormFields2<TyProductForForm>
           type="text"
           textLabel="Producer"
           name="producer"
@@ -213,7 +231,7 @@ function Component() {
           validation={validation.producer}
         />
 
-        <FormFields2<TyProduct>
+        <FormFields2<TyProductForForm>
           type="text"
           textLabel="Collection"
           name="collection"
@@ -223,7 +241,7 @@ function Component() {
           validation={validation.collection}
         />
 
-        <FormFields2<TyProduct>
+        <FormFields2<TyProductForForm>
           type="text"
           textLabel="Type"
           name="type"
@@ -233,7 +251,7 @@ function Component() {
           validation={validation.type}
         />
 
-        <FormFields2<TyProduct>
+        <FormFields2<TyProductForForm>
           type="text"
           textLabel="Code"
           name="code"
@@ -243,7 +261,7 @@ function Component() {
         // validation={validation.code}
         />
 
-        <FormFields2<TyProduct>
+        <FormFields2<TyProductForForm>
           type="text"
           textLabel="Tone"
           name="tone"
@@ -253,7 +271,7 @@ function Component() {
         // validation={validation.tone}
         />
 
-        <FormFields2<TyProduct>
+        <FormFields2<TyProductForForm>
           type="text"
           textLabel="Room"
           name="room"
@@ -273,9 +291,9 @@ function Component() {
 
         <FormFields2
           type="textarea"
-          name='imageUrl'
+          name="imageUrls"
           // value={getValues('imageUrl').join('\n')}
-          textLabel="Images links"
+          textLabel="Images links(commas must separate images links)"
           register={register}
           errors={errors}
         />

@@ -4,6 +4,7 @@ import {
   useLocation,
 } from 'react-router-dom';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { AxiosError } from 'axios';
 // import cn from 'classnames';
 import { validation } from '../../constants/formValidation';
 import { Button2, Option as Button2Option } from '../../components/Button2';
@@ -28,19 +29,17 @@ export const LoginPage = () => {
   });
 
   if (isChecked) {
-    return <Navigate to={location.state?.from?.pathname || '/'} replace/>;
+    return <Navigate to={location.state?.from?.pathname || '/'} replace />;
   }
 
   const onSubmit: SubmitHandler<MyForm> = async (data) => {
-    console.log(data);
-    // alert(JSON.stringify(data));
 
     try {
       await login(data);
       // navigate(location.state?.from?.pathname || '/');
     } catch (error) {
       console.error(error);
-      // setError(error.response?.data?.message);
+      alert((error as AxiosError).message);
     }
   };
 

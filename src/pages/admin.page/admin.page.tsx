@@ -1,29 +1,14 @@
 // import * as R from 'react';
-import { Link, Outlet, useParams } from 'react-router-dom';
+import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 
 import cn from 'classnames';
 
 export const AdminPage = () => {
-  // const [selectedAction, setSelectedAction]
-  //   = R.useState<TySelectOption | null>(null);
   const params = useParams();
-
-  // const {
-  //   register,
-  //   formState: { errors, isValid, isSubmitting },
-  //   control,
-  //   handleSubmit,
-  // } = useForm<MyForm>({
-  //   defaultValues: {
-  //     adminAction: AdminAction.PRODUCT_CREATE,
-  //   },
-  //   mode: 'onBlur',
-  // });
-
-  // const onSubmit: SubmitHandler<MyForm> = async (data) => {
-  //   console.log(data);
-
-  // };
+  const location = useLocation();
+  const isTable
+    = location.pathname.endsWith('/admin/products')
+    || location.pathname.endsWith('/admin/services');
 
   return (
     <div className="flex min-h-screen">
@@ -62,25 +47,41 @@ export const AdminPage = () => {
         </div> */}
 
         <div className="mt-6 bg-white shadow-md rounded-lg">
-          <Outlet />
+          {isTable && (
+            <div className="p-4 flex justify-between items-center">
+              <Link
+                className="
+                  w-fit border px-4 py-2
+                  hover:bg-gray-400 active:bg-gray-500"
+                to={location.pathname.concat('/new')}
+              >
+                Create
+              </Link>
 
-          <div className="p-4 flex justify-between items-center">
-            <div className="text-sm text-gray-700">Showing 1 to 10 of 50 entries</div>
-            <div>
-              {[1, 2, 3, 4, 5].map(item => (
-                <button
-                  key={item}
-                  type="button"
-                  className={cn('px-4 py-2 border rounded', {
-                    'hover:bg-blue-300': item !== 2,
-                    'bg-blue-500 text-white': item === 2,
-                  })}
-                >
-                  {item}
-                </button>
-              ))}
+              <div
+                className="text-sm text-gray-700"
+              >
+                Showing 1 to 10 of 50 entries
+              </div>
+
+              <div>
+                {[1, 2, 3, 4, 5].map(item => (
+                  <button
+                    key={item}
+                    type="button"
+                    className={cn('px-4 py-2 border rounded', {
+                      'hover:bg-blue-300': item !== 2,
+                      'bg-blue-500 text-white': item === 2,
+                    })}
+                  >
+                    {item}
+                  </button>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
+
+          <Outlet />
         </div>
       </div>
     </div>

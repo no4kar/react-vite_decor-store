@@ -5,7 +5,7 @@ import { Loader } from "../../components/Loader";
 
 export const NotFoundPage = ({
   title = 'Page not found',
-  navigateTo = '/',
+  navigateTo,
   classContainer = 'content min-h-96',
 }: {
   title?: string;

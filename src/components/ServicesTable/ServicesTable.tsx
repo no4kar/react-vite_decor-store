@@ -1,5 +1,6 @@
 import * as R from 'react';
 // import cn from 'classnames';
+import { Link } from 'react-router-dom';
 import { adminApi } from '../../api/admin.api';
 import { Loader } from '../Loader';
 import { useServiceStore } from '../../store/service.store';
@@ -28,7 +29,7 @@ function Component() {
       </thead>
 
       <tbody>
-        {services.map(service => (
+        {services.sort((a, b) => (b.id - a.id)).map(service => (
           <tr
             key={service.id}
             className='group/row hover:bg-slate-100'
@@ -52,12 +53,14 @@ function Component() {
                 Delete
               </button>
 
-              <button
-                className="border px-4 py-2 hover:bg-gray-400 active:bg-gray-500"
-                type="button"
+              <Link
+                className="
+                  w-fit border px-4 py-2
+                  hover:bg-gray-400 active:bg-gray-500"
+                to={`/admin/services/${service.id}`}
               >
-                Edite
-              </button>
+                Edit
+              </Link>
             </td>
           </tr>
         ))}

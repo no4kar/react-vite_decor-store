@@ -1,9 +1,9 @@
 import * as R from 'react';
+import { Link } from 'react-router-dom';
 // import cn from 'classnames';
 import { useProductStore } from '../../store/product.store';
 import { adminApi } from '../../api/admin.api';
 import { Loader } from '../Loader';
-import { Link } from 'react-router-dom';
 
 export const ProductsTable = R.memo(
   () => {
@@ -30,7 +30,7 @@ export const ProductsTable = R.memo(
         </thead>
 
         <tbody>
-          {products.map(product => (
+          {products.sort((a, b) => (b.id - a.id)).map(product => (
             <tr
               key={product.id}
               className='group/row hover:bg-slate-100'
@@ -62,7 +62,6 @@ export const ProductsTable = R.memo(
                   w-fit border px-4 py-2
                   hover:bg-gray-400 active:bg-gray-500"
                   to={`/admin/products/${product.id}`}
-                  state={{ product }}
                 >
                   Edit
                 </Link>
