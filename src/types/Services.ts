@@ -6,6 +6,11 @@ export type TyService = {
   imageUrl: string[];
 };
 
+
+export type TyServiceForForm = Omit<TyService, 'imageUrl'> & {
+  imageUrls: string;
+};
+
 /* categoryId === typeId */
 
 export enum ServiceCategory {

@@ -1,9 +1,10 @@
 import { AxiosResponse } from 'axios';
 import { getClient } from '../utils/axios.client';
 import env from '../helpers/varsFromEnv';
-import { TyProduct } from '../types/Products/Products';
 import { accessTokenApi } from './accessToken.api';
-import { TyService } from '../types/Services/Services';
+import { TyProduct } from '../types/Products';
+import { TyService } from '../types/Services';
+import { TyOrder } from '../types/Orders';
 
 const client = getClient({
   baseURL: env.API_URL,
@@ -64,6 +65,20 @@ export const adminApi = {
     return client.delete(`/admin/products/delete/${id}`);
   },
 
+  createService: <T>(
+    newService: Omit<TyService, 'id'>
+  ): Promise<AxiosResponse<T>> => {
+    return client.post('/admin/offers/new', newService);
+  },
+
+  editService: <T>({
+    id,
+    ...restServiceProps
+  }: TyService
+  ): Promise<AxiosResponse<T>> => {
+    return client.post(`/admin/offers/update/${id}`, restServiceProps);
+  },
+
   removeService: (
     id: TyService['id']
   ) => {
@@ -72,12 +87,25 @@ export const adminApi = {
 
   getOrders: ({
     page = 0,
-    size = 1,
+    size,
   }: {
-    page: number,
-    size: number,
-  }) => {
-    return client.get(`/admin/orders?page=${page}&size=${size}`);
+    page?: number,
+    size?: number,
+  } = {},
+  ): Promise<AxiosResponse<TyOrder[]>> => {
+
+    const params: {
+      page: string;
+      size?: string
+    } = {
+      page: String(page),
+    };
+
+    if (size && size > 0) {
+      params.size = String(size);
+    }
+
+    return client.get('/admin/orders', { params });
   },
 
 };

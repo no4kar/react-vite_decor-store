@@ -1,5 +1,5 @@
 import create from 'zustand';
-import { TyProduct } from '../types/Products/Products';
+import { TyProduct } from '../types/Products';
 import { productApi } from '../api/product.api';
 
 type ProductState = {

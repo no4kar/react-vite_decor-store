@@ -1,6 +1,6 @@
 import create from 'zustand';
 import { getClient } from '../utils/local.client';
-import { TyService } from '../types/Services/Services';
+import { TyService } from '../types/Services';
 import { compareObjectProperties } from '../helpers/common.func';
 
 export type TyFavoriteItem

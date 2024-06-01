@@ -1,7 +1,7 @@
 import * as R from 'react';
 import { useSearchParams } from 'react-router-dom';
 
-import { TyProduct } from '../../types/Products/Products';
+import { TyProduct } from '../../types/Products';
 import DropdownMultiSelect from '../DropdownMultiSelect/DropdownMultiSelect';
 import {
   SearchParams, SearchParamsName, getSearchWith,

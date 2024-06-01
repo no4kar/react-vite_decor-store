@@ -1,6 +1,6 @@
 import create from 'zustand';
 import { serviceApi } from '../api/service.api';
-import { TyService } from '../types/Services/Services';
+import { TyService } from '../types/Services';
 
 type ServiceState = {
   services: TyService[];
@@ -23,7 +23,7 @@ export const useServiceStore = create<ServiceState>((set) => ({
       }));
 
       const services = await serviceApi.getAll();
-      
+
       set((state) => ({
         ...state,
         services,

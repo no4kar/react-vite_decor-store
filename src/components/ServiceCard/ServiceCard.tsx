@@ -1,7 +1,7 @@
 import * as R from 'react';
 import cn from 'classnames';
 
-import { ServiceCategory, TyService } from '../../types/Services/Services';
+import { ServiceCategory, TyService } from '../../types/Services';
 import { useFavoriteStore } from '../../store/favourite.store';
 import { Button2 } from '../Button2';
 

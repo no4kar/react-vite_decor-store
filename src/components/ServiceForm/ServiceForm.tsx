@@ -4,7 +4,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import cn from 'classnames';
 import { FormFields2 } from '../FormFields/FormFields2';
 import { adminApi } from '../../api/admin.api';
-import { TyProduct, TyProductForForm } from '../../types/Products';
+import { TyService, TyServiceForForm } from '../../types/Services';
 import { OutcomeReport, Status } from '../../types/Info';
 import { Notification } from '../Notification';
 import { Button2, Option as Button2Option } from '../Button2';
@@ -15,16 +15,16 @@ enum FormVersion {
   CREATE = 'create',
 }
 
-export const ProductForm = R.memo(Component);
+export const ServiceForm = R.memo(Component);
 
 function Component({
-  product,
+  service,
 }: {
-  product: TyProduct | null
+  service: TyService | null
 }) {
   const [msg, setMsg]
     = R.useState<OutcomeReport>({ status: Status.NONE, description: '', });
-  const formVersion = product ? FormVersion.EDIT : FormVersion.CREATE;
+  const formVersion = service ? FormVersion.EDIT : FormVersion.CREATE;
 
   const {
     register,
@@ -33,47 +33,39 @@ function Component({
     handleSubmit,
     // getValues,
     reset,
-  } = useForm<TyProductForForm>(// if is :id need defult values
+  } = useForm<TyServiceForForm>(// if is :id need defult values
     {
       defaultValues: {
-        id: product?.id || 0,
-        name: product?.name || 'product?.name',
-        categoryId: product?.categoryId || 1,
-        price: product?.price || 9999,
-        country: product?.country || 'product?.country',
-        producer: product?.producer || 'product?.producer',
-        collection: product?.collection || 'product?.collection',
-        type: product?.type || 'product?.type',
-        code: product?.code || 'product?.code',
-        tone: product?.tone || 'product?.tone',
-        room: product?.room || 'product?.room',
-        description: product?.description || 'product?.description',
-        imageUrls: product?.imageUrl.join('\n') || '',
+        id: service?.id || 0,
+        name: service?.name || 'service?.name',
+        categoryId: service?.categoryId || 1,
+        description: service?.description || 'service?.description',
+        imageUrls: service?.imageUrl.join('\n') || '',
       },
       mode: 'all',
     }
   );
 
-  const onSubmit: SubmitHandler<TyProductForForm> = async (data) => {
+  const onSubmit: SubmitHandler<TyServiceForForm> = async (data) => {
     // console.log(data);
 
     // normalize
-    const productForServer: TyProduct = {
+    const serviceForServer: TyService = {
       ...data,
       imageUrl: data.imageUrls
         .split(/\s+/g)
         .map(item => item.trim()),
     };
 
-    // console.log(productForServer);
-    let productFromServer: TyProduct | null = null;
+    // console.log(serviceForServer);
+    let serviceFromServer: TyService | null = null;
 
     // return;
 
     switch (formVersion) {
       case FormVersion.EDIT: {
-        productFromServer = await adminApi
-          .editProduct<TyProduct>(productForServer)
+        serviceFromServer = await adminApi
+          .editService<TyService>(serviceForServer)
           .then(res => {
             setMsg({
               status: Status.SUCCESS,
@@ -104,12 +96,12 @@ function Component({
       }
 
       case FormVersion.CREATE: {
-        const { id, ...newProduct } = productForServer;
+        const { id, ...newService } = serviceForServer;
 
-        console.info(newProduct);
+        console.info(newService);
 
-        productFromServer = await adminApi
-          .createProduct<TyProduct>(newProduct)
+        serviceFromServer = await adminApi
+          .createService<TyService>(newService)
           .then(res => {
             setMsg({
               status: Status.SUCCESS,
@@ -147,10 +139,10 @@ function Component({
       }
     }
 
-    if (productFromServer) {
+    if (serviceFromServer) {
       reset({
-        ...productFromServer,
-        imageUrls: productFromServer?.imageUrl.join('\n'),
+        ...serviceFromServer,
+        imageUrls: serviceFromServer?.imageUrl.join('\n'),
       });
     } else {
       reset();
@@ -167,10 +159,10 @@ function Component({
     w-full h-full p-3
     flex flex-col gap-3"
       >
-        <h1 className="title--h1">{product ? `Edit ID=${product.id}` : 'New'}</h1>
+        <h1 className="title--h1">{service ? `Edit ID=${service.id}` : 'New'}</h1>
 
-        {product !== null && (
-          <FormFields2<TyProductForForm>
+        {service !== null && (
+          <FormFields2<TyServiceForForm>
             type="number"
             textLabel="ID"
             name='id'
@@ -181,7 +173,7 @@ function Component({
           />
         )}
 
-        <FormFields2<TyProductForForm>
+        <FormFields2<TyServiceForForm>
           type="text"
           textLabel="Name"
           name="name"
@@ -191,7 +183,7 @@ function Component({
           validation={validation.name}
         />
 
-        <FormFields2<TyProductForForm>
+        <FormFields2<TyServiceForForm>
           type="number"
           textLabel="CategoryId"
           name="categoryId"
@@ -199,86 +191,6 @@ function Component({
           errors={errors}
           required
           validation={validation.categoryId}
-        />
-
-        <FormFields2<TyProductForForm>
-          type="text"
-          textLabel="Price"
-          name="price"
-          register={register}
-          errors={errors}
-          required
-          validation={validation.price}
-        />
-
-        <FormFields2<TyProductForForm>
-          type="text"
-          textLabel="Country"
-          name="country"
-          register={register}
-          errors={errors}
-          required
-          validation={validation.country}
-        />
-
-        <FormFields2<TyProductForForm>
-          type="text"
-          textLabel="Producer"
-          name="producer"
-          register={register}
-          errors={errors}
-          required
-          validation={validation.producer}
-        />
-
-        <FormFields2<TyProductForForm>
-          type="text"
-          textLabel="Collection"
-          name="collection"
-          register={register}
-          errors={errors}
-          required
-          validation={validation.collection}
-        />
-
-        <FormFields2<TyProductForForm>
-          type="text"
-          textLabel="Type"
-          name="type"
-          register={register}
-          errors={errors}
-          required
-          validation={validation.type}
-        />
-
-        <FormFields2<TyProductForForm>
-          type="text"
-          textLabel="Code"
-          name="code"
-          register={register}
-          errors={errors}
-          required
-        // validation={validation.code}
-        />
-
-        <FormFields2<TyProductForForm>
-          type="text"
-          textLabel="Tone"
-          name="tone"
-          register={register}
-          errors={errors}
-          required
-        // validation={validation.tone}
-        />
-
-        <FormFields2<TyProductForForm>
-          type="text"
-          textLabel="Room"
-          name="room"
-          register={register}
-          errors={errors}
-          required
-        // validation={validation.price}
         />
 
         <FormFields2

@@ -1,5 +1,5 @@
 import * as R from 'react';
-import { useParams } from 'react-router-dom';
+import * as RRD from 'react-router-dom';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -14,13 +14,14 @@ import { productApi } from '../../api/product.api';
 import { ButtonFavorite } from '../../components/ButtonFavorite';
 import { Button2, Option as Button2Option } from '../../components/Button2';
 import { Counter } from '../../components/Counter';
-// import { useProductStore } from '../../store/product.store';
 import { Slider2 } from '../../components/Slider2';
 import { NotFoundPage } from '../not-found-page';
-import { TyProduct } from '../../types/Products/Products';
+import { TyProduct } from '../../types/Products';
 
 export const ProductDetailsPage = () => {
-  const { id } = useParams();
+  console.info('render');
+  const { id } = RRD.useParams();
+  const navigate = RRD.useNavigate();
   const [isLoading, setIsLoading] = R.useState(true);
   const [quantity, setQuantity] = R.useState(1);
   const [selectProduct, setSelectProduct] = R.useState<TyProduct | null>(null);
@@ -40,11 +41,6 @@ export const ProductDetailsPage = () => {
       .catch(() => setSelectProduct(null))
       .finally(() => setIsLoading(false));
   }, []);
-
-  console.info(selectProduct);
-  console.info(`
-  productId ${id}
-  `);
 
   return (
     <div
@@ -181,8 +177,10 @@ export const ProductDetailsPage = () => {
                   md:h-[64px]"
                     >
                       <Button2
-                        path="/contacts"
                         option={Button2Option.SECONDARY}
+                        onClick={() => {
+                          navigate('/contacts', { state: { from: window.location.href } });
+                        }}
                       >
                         <span
                           className="

@@ -1,9 +1,9 @@
 import * as R from 'react';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import * as RRD from 'react-router-dom';
 
 import { PageNavigation } from '../../components/PageNavigation';
 import { Loader } from '../../components/Loader';
-import { TyService } from '../../types/Services/Services';
+import { TyService } from '../../types/Services';
 import { serviceApi } from '../../api/service.api';
 import { ButtonFavorite } from '../../components/ButtonFavorite';
 import { Button2 } from '../../components/Button2';
@@ -15,9 +15,8 @@ import { NotFoundPage } from '../not-found-page';
 
 
 export const ServiceDetailsPage = () => {
-  const { id } = useParams();
-  const location = useLocation();
-  const navigate = useNavigate();
+  const { id } = RRD.useParams();
+  const navigate = RRD.useNavigate();
 
   /* it will be need if server will ofeer service-info and service-detailed-info */
   const [isLoading, setIsLoading] = R.useState(true);
@@ -106,10 +105,9 @@ export const ServiceDetailsPage = () => {
                   md:h-[64px]"
                   >
                     <Button2
-                      onClick={() => navigate(
-                        '/contacts',
-                        { state: { from: location.pathname } },
-                      )}
+                      onClick={() => {
+                        navigate('/contacts', { state: { from: window.location.href } });
+                      }}
                     >
                       <span
                         className="

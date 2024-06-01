@@ -1,7 +1,7 @@
 import * as R from 'react';
 import cn from 'classnames';
 
-import { ProductCategory, TyProduct } from '../../types/Products/Products';
+import { ProductCategory, TyProduct } from '../../types/Products';
 import { useFavoriteStore } from '../../store/favourite.store';
 import { Button2 } from '../Button2';
 
@@ -60,20 +60,20 @@ function Component({
 
       <div className="pt-[14px]">
         <div>
-          <p className="title--micro title--secondary-color text-left">
+          <p className="title--micro text-gray-600 text-left">
             {product.type}
           </p>
 
-          <div className="pt-[7px]">
-            <span className="title--h4-main">
+          <div className="pt-[7px] flex flex-wrap">
+            <span className="title--h4 text-black">
               {product.producer}
             </span>
             <span>/</span>
-            <span className="title--body-text">
+            <span className="title--body-text text-black">
               {product.collection}
             </span>
             <span>/</span>
-            <span className="title--body-text title--secondary-color">
+            <span className="title--body-text text-gray-600">
               {product.country}
             </span>
           </div>

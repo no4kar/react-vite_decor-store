@@ -8,7 +8,7 @@ import {
   getSearchWith
 } from '../../helpers/searchHelper';
 import { ProductCard } from '../../components/ProductCard';
-import { TyProduct } from '../../types/Products/Products';
+import { TyProduct } from '../../types/Products';
 import { Loader } from '../../components/Loader';
 import { PageNavigation } from '../../components/PageNavigation';
 import { Search } from '../../components/Search';
@@ -247,33 +247,41 @@ export const ProductsPage = ({
             />
           )}
 
-          {!isLoading && !hasError && (
-            <div className="flex-1 flex flex-col gap-2">
-              <div
-                className="
+          {!isLoading && !hasError && visibleProducts.length
+            ? (
+              <div className="flex-1 flex flex-col gap-2">
+                <div
+                  className="
               flex-1
               grid grid-cols-[repeat(auto-fill,minmax(290px,1fr))] gap-[24px]
               justify-items-center"
-              // border border-solid border-red-300
-              >
-                {visibleProducts
-                  .slice(itemNumberStart, itemNumberEnd + 1)
-                  .map((product) => (
-                    <ProductCard
-                      key={product.code}
-                      product={product} />
-                  ))}
-              </div>
+                // border border-solid border-red-300
+                >
+                  {visibleProducts
+                    .slice(itemNumberStart, itemNumberEnd + 1)
+                    .map((product) => (
+                      <ProductCard
+                        key={product.code}
+                        product={product} />
+                    ))}
+                </div>
 
-              <div className='self-center'>
-                <PaginatedComponent
-                  currentPage={currentPageNorm}
-                  totalPages={totalPages}
-                  onPageChange={handlePageChange}
-                />
+                <div className='self-center'>
+                  <PaginatedComponent
+                    currentPage={currentPageNorm}
+                    totalPages={totalPages}
+                    onPageChange={handlePageChange}
+                  />
+                </div>
               </div>
-            </div>
-          )}
+            )
+            : (
+              <NotFoundPage
+                title='Not found items'
+                navigateTo=''
+                classContainer='w-full min-h-48'
+              />
+            )}
         </div>
       </div>
     </div >

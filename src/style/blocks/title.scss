@@ -11,8 +11,6 @@
   }
 
   &--h2 {
-    color: $main-black;
-
     @extend %h2-style;
 
     @include on-tablet {
@@ -21,8 +19,6 @@
   }
 
   &--h3 {
-    color: $main-black;
-
     @extend %h2-style;
 
     @include on-tablet {

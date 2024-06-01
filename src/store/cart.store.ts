@@ -1,6 +1,6 @@
 import create from 'zustand';
 import { getClient } from '../utils/local.client';
-import { TyService } from '../types/Services/Services';
+import { TyService } from '../types/Services';
 import { compareObjectProperties } from '../helpers/common.func';
 
 export type TyCartItem
@@ -41,7 +41,7 @@ export const useCartStore = create<CartState>((set) => ({
 
     const foundItemIndex = state.items
       .findIndex(inCartItem => inCartItem.id === item.id);
-      
+
     const newItems = [...state.items];
 
     if (foundItemIndex !== -1) {

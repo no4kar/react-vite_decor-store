@@ -13,7 +13,7 @@ export const AdminPage = () => {
   return (
     <div className="flex min-h-screen">
       {/* Sidebar */}
-      <div className="w-64 bg-white shadow-md">
+      <div className="w-fit bg-white shadow-md">
         <div className="p-6">
           <img
             src="https://via.placeholder.com/150"

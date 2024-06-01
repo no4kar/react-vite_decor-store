@@ -1,6 +1,6 @@
 import * as R from 'react';
 import * as RRD from 'react-router-dom';
-import { TyProduct } from '../../types/Products/Products';
+import { TyProduct } from '../../types/Products';
 import { productApi } from '../../api/product.api';
 import { Loader } from '../Loader';
 import { NotFoundPage } from '../../pages/not-found-page';
@@ -18,10 +18,9 @@ function Component() {
 
     productApi.getFromServerByParams({ id })
       .then((products) => {
-        // console.info(products);
-
         setProduct(products.at(0) || null);
       })
+      .catch(e => console.error(e.message))
       .finally(() => setIsLoading(false));
 
   }, []);
@@ -31,7 +30,7 @@ function Component() {
   }
 
   if (!isLoading && !product) {
-    return <NotFoundPage title="Cant find product" />;
+    return <NotFoundPage title={`Can't find product with ID=${id}`} />;
   }
 
   return <ProductForm product={product} />;

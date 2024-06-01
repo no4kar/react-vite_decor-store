@@ -1,7 +1,7 @@
 import { AxiosError, AxiosRequestConfig } from 'axios';
 import { getClient } from '../utils/axios.client';
 import services from '../../public/data/services.json';
-import { ServiceCategory, TyService } from '../types/Services/Services';
+import { ServiceCategory, TyService } from '../types/Services';
 import env from '../helpers/varsFromEnv';
 import { TyServerResponse } from '../types/Server';
 

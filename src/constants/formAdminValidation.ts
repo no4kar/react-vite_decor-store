@@ -87,4 +87,11 @@ export const validation: {
     pattern: patterns.trimAndOneSpaceBetween,
   },
 
+  description: {
+    maxLength: {
+      value: 2048,
+      message: 'It is too long!',
+    },
+  },
+
 };

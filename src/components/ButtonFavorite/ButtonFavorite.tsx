@@ -1,7 +1,7 @@
 import cn from 'classnames';
-import { TyProduct } from '../../types/Products/Products';
+import { TyProduct } from '../../types/Products';
 import { useFavoriteStore } from '../../store/favourite.store';
-import { TyService } from '../../types/Services/Services';
+import { TyService } from '../../types/Services';
 
 export const ButtonFavorite = ({
   selectProduct,

@@ -4,7 +4,7 @@ import { initialDelayLoader } from '../constants/initialDelayLoader';
 import { wait } from '../helpers/common.func';
 import { TyServerResponse } from '../types/Server';
 import { TyProduct, ProductCategory }
-  from '../types/Products/Products';
+  from '../types/Products';
 import env from '../helpers/varsFromEnv';
 import products from '../../public/data/products.json';
 

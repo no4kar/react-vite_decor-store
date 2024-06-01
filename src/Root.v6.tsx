@@ -21,6 +21,9 @@ import { ProductsTable } from './components/ProductsTable';
 import { ServicesTable } from './components/ServicesTable';
 import { ProductEdit } from './components/ProductForm/ProductEdit';
 import { ProductCreate } from './components/ProductForm/ProductCreate';
+import { ServiceEdit } from './components/ServiceForm/ServiceEdit';
+import { ServiceCreate } from './components/ServiceForm/ServiceCreate';
+import { OrdersTable } from './components/OrdersTable';
 
 const router = createBrowserRouter([
   {
@@ -83,9 +86,23 @@ const router = createBrowserRouter([
                   { path: ':id', element: <ProductEdit /> },
                   { path: 'new', element: <ProductCreate /> },
                 ],
-
               },
-              { path: 'services', element: <ServicesTable /> },
+              {
+                path: 'services',
+                children: [
+                  { index: true, element: <ServicesTable /> },
+                  { path: ':id', element: <ServiceEdit /> },
+                  { path: 'new', element: <ServiceCreate /> },
+                ],
+              },
+              {
+                path: 'orders',
+                children: [
+                  { index: true, element: <OrdersTable /> },
+                  // { path: ':id', element: <ServiceEdit /> },
+                  // { path: 'new', element: <ServiceCreate /> },
+                ],
+              },
             ]
           },
         ],
