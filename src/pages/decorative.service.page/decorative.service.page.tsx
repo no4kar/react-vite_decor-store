@@ -6,7 +6,9 @@ import { serviceApi } from '../../api/service.api';
 import { useServiceStore } from '../../store/service.store';
 import { ServiceCategory } from '../../types/Services';
 
-export const DecorativeService = () => {
+export const DecorativeService = Component;
+
+function Component() {
   console.log('render');
   const {
     services,
@@ -17,38 +19,32 @@ export const DecorativeService = () => {
     = serviceApi.getByCategory(services, ServiceCategory.Decorative);
 
   return (
-    <div className="
-    pt-[24px] pb-[4px]
-    sm:pb-[62px]
-    md:pt-[92px] md:pb-[84px]"
+    <div
+      className="content
+      flex flex-col gap-6
+      py-6 sm:py-20 md:py-24"
     >
-      <div className="content">
-        <div className="
-          mb-[24px]
-          sm:mb-[40px]
-          md:mb-[4px]"
+      <PageNavigation />
+
+      {isLoading && <Loader />}
+
+      {!isLoading && (
+        <section className="
+        grid
+        grid-cols-[repeat(auto-fill,minmax(290px,1fr))]
+        justify-items-center
+        gap-6
+        sm:gap-y-8
+        md:gap-y-16"
         >
-          <PageNavigation />
-        </div>
-
-        {isLoading && <Loader />}
-
-        {!isLoading && (
-          <section className="
-          grid
-          grid-cols-[repeat(auto-fill,minmax(310px,1fr))]
-          justify-items-center
-          gap-y-[64px] gap-x-[10px]
-          ">
-            {visibleServices.map(item => (
-              <ServiceCard
-                key={item.id}
-                item={item}
-              />
-            ))}
-          </section>
-        )}
-      </div>
+          {visibleServices.map(item => (
+            <ServiceCard
+              key={item.id}
+              item={item}
+            />
+          ))}
+        </section>
+      )}
     </div>
   );
-};
+}

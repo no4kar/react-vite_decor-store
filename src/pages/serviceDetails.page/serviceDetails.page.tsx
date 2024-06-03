@@ -14,7 +14,9 @@ import { Slider2 } from '../../components/Slider2';
 import { NotFoundPage } from '../not-found-page';
 
 
-export const ServiceDetailsPage = () => {
+export const ServiceDetailsPage = Component;
+
+function Component() {
   const { id } = RRD.useParams();
   const navigate = RRD.useNavigate();
 
@@ -38,101 +40,87 @@ export const ServiceDetailsPage = () => {
   return (
     <div
       className="
-      pt-[24px] pb-[24px]
-      sm:pb-[89px]
-      md:pt-[112px] md:pb-[93px]"
+      content
+      py-6 sm:py-20 md:py-24"
     >
-      <div className="content">
-        {isLoading && <Loader />}
+      {isLoading && <Loader />}
 
-        {!isLoading && !selectService
-          && <NotFoundPage title='Not found service' />}
+      {!isLoading && !selectService
+        && <NotFoundPage title='Not found service' />}
 
-        {!isLoading && selectService && (
-          <>
+      {!isLoading && selectService && (
+        <div
+          className="
+          flex flex-col gap-6"
+        >
+          <PageNavigation prodName={selectService.name} />
+
+          <section className="flex flex-col gap-6 md:flex-row">
+            <Slider2 selectItem={selectService} />
+
             <div className="
-        pb-[24px]
-        sm:pb-[40px]
-        md:pb-[64px]"
-            // border border-solid border-blue-400
-            >
-              <PageNavigation prodName={selectService.name} />
-            </div>
-
-            <section
-              className="
-            flex flex-col gap-[20px]
-            sm:gap-[24px]"
-            // border border-solid border-blue-400
-            >
-              <h3 className="title--h3 title--h3-mobile">
-                {selectService.name}
-              </h3>
-
-              <div className="flex flex-col gap-[20px] md:flex-row">
-                <Slider2 selectItem={selectService} />
-
-                <div className="
-              flex flex-col gap-[32px]
-              sm:flex-row sm:gap-[20px]
+              flex flex-col gap-8
               md:flex-col
               md:w-2/5"
-                // border border-solid border-blue-400
-                // shadow rounded
-                >
-                  <div className="
-                flex-1 flex flex-col gap-[24px]"
-                  // border border-solid border-blue-400
-                  >
-                    <p className="product-page__description
+              // sm:flex-row sm:gap-6
+              // border border-solid border-blue-400
+            // shadow rounded
+            >
+              <div className="
+                grow flex flex-col gap-6"
+              // border border-solid border-blue-400
+              >
+                <h3 className="title--h3 title--h3-mobile">
+                  {selectService.name}
+                </h3>
+
+                <p className="grow product-page__description
                   text-black"
-                    >
-                      {selectService.description}
-                    </p>
+                >
+                  {selectService.description}
+                </p>
 
-                    <hr
-                      className="
-                mt-[24px]
-                sm:mt-[47px]
+                <hr
+                  className="
                 border-b border-solid border-gray-400"
-                    />
-                  </div>
+                />
+              </div>
 
-                  <div // Cansult button
-                    className="
+              <div // Cansult button
+                className="
                   h-[48px]
                   flex gap-[10px]
-                  md:h-[64px]"
-                  >
-                    <Button2
-                      onClick={() => {
-                        navigate('/contacts', { state: { from: window.location.href } });
-                      }}
-                    >
-                      <span
-                        className="
+                  sm:w-90
+                  sm:h-16
+                  md:w-auto"
+              >
+                <Button2
+                  onClick={() => {
+                    navigate('/contacts', { state: { from: window.location.href } });
+                  }}
+                >
+                  <span
+                    className="
                       group-hover:-translate-x-[5px] transition duration-300"
-                      >
-                        Замовити консультацію
-                      </span>
+                  >
+                    Замовити консультацію
+                  </span>
 
-                      <span
-                        className="
+                  <span
+                    className="
                       w-[26px] text-3xl
                       group-hover:-translate-x-[-5px] transition duration-300"
-                      >
-                        &#8594;
-                      </span>
-                    </Button2>
+                  >
+                    &#8594;
+                  </span>
+                </Button2>
 
-                    <ButtonFavorite selectProduct={selectService} />
-                  </div>
-                </div>
+                <ButtonFavorite selectProduct={selectService} />
               </div>
-            </section>
-          </>
-        )}
-      </div>
+            </div>
+          </section>
+        </div>
+      )}
     </div>
   );
-};
+}
