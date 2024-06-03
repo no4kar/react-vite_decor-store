@@ -68,11 +68,11 @@ function Component({
             <span className="title--h4 text-black">
               {product.producer}
             </span>
-            <span>/</span>
+            <span className="title--body-text text-black">/</span>
             <span className="title--body-text text-black">
               {product.collection}
             </span>
-            <span>/</span>
+            <span className="title--body-text text-black">/</span>
             <span className="title--body-text text-gray-600">
               {product.country}
             </span>
@@ -80,15 +80,15 @@ function Component({
         </div>
 
         <div className="pt-[10px] flex justify-between">
-          <div className="flex flex-col gap-[5px]">
-            <p>Код товару:</p>
-            <p>{product.code}</p>
+          <div className="flex flex-wrap gap-2 items-baseline">
+            <p className="title--micro text-gray-600">Код товару:</p>
+            <p className="title--body-text text-black">{product.code}</p>
           </div>
 
-          <div className="flex">
-            <p>Ціна</p>
+          <div className="flex items-baseline">
+            <p className="title--micro text-gray-600">Ціна</p>
             <p className="pl-3 pr-1 text-accent">{product.price}</p>
-            <p>грн.</p>
+            <p className="title--body-text text-black">грн.</p>
           </div>
         </div>
       </div>

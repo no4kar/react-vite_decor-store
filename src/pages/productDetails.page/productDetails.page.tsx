@@ -45,192 +45,172 @@ export const ProductDetailsPage = () => {
   return (
     <div
       className="
-      pt-[24px] pb-[24px]
-      sm:pb-[89px]
-      md:pt-[112px] md:pb-[93px]"
+      content
+      py-6 sm:py-20 md:py-24"
     >
-      <div className="content">
-        {isLoading && <Loader />}
+      {isLoading && <Loader />}
 
-        {!isLoading && !selectProduct
-          && <NotFoundPage title='Not found product' />}
+      {!isLoading && !selectProduct
+        && <NotFoundPage title='Not found product' />}
 
-        {!isLoading && selectProduct && (
-          <>
+      {!isLoading && selectProduct && (
+        <div className="flex flex-col gap-6">
+          <PageNavigation prodName={selectProduct.name} />
+
+          <section className="flex flex-col gap-5 md:flex-row">
+            <Slider2 selectItem={selectProduct} />
+
             <div
               className="
-          pb-[24px]
-          sm:pb-[40px]
-          md:pb-[64px]"
-            // border border-solid border-blue-400
-            >
-              <PageNavigation prodName={selectProduct.name} />
-            </div>
-
-            <section
-              className="
-            flex flex-col gap-[20px]
-            sm:gap-[24px]"
-            // border border-solid border-blue-400
-            >
-              <h3 className="title--h3 title--h3-mobile">
-                {selectProduct.name}
-              </h3>
-
-              <div className="flex flex-col gap-[20px] md:flex-row">
-                <Slider2 selectItem={selectProduct} />
-
-                <div
-                  className="
-                flex flex-col gap-[32px]
-                sm:flex-row sm:gap-[20px]
+                flex flex-col gap-8
+                sm:flex-row sm:gap-5
                 md:flex-col
                 md:w-2/5"
-                // shadow rounded
-                // border border-solid border-blue-400
-                >
-                  <div // Info
-                    className="
-                  flex-1 flex flex-col gap-[24px]"
-                  // border border-solid border-blue-400
-                  >
+            // border border-solid border-blue-400
+            // shadow rounded
+            >
+              <div // Info
+                className="
+                    grow flex flex-col gap-6"
+              // border border-solid border-blue-400
+              >
+                <h3 className="title--h3 title--h3-mobile">
+                  <span className="uppercase">
+                    {selectProduct.producer}
+                  </span>
+                  &nbsp;
+                  <span>
+                    {selectProduct.collection}
+                  </span>
+                  &nbsp;
+                  <span>
+                    {selectProduct.name}
+                  </span>
+                </h3>
+
+                <p className="grow text-black">
+                  {selectProduct.description}
+                </p>
+
+                <div className="flex justify-between">
+                  <div className="flex flex-col gap-2">
+                    <h4 className="title--h4 text-gray-600">
+                      Тон
+                    </h4>
+
                     <p className="text-black">
-                      {selectProduct.description}
+                      {selectProduct.tone}
                     </p>
-
-                    <div className="flex flex-col gap-[8px]">
-                      <h4 className="title--h4 text-gray-600">
-                        Догляд
-                      </h4>
-
-                      <p className="text-black">
-                        Сухе чищення{/* {selectProduct.categoryId} */}
-                      </p>
-                    </div>
-
-                    <div className="flex justify-between">
-                      <div className="flex flex-col gap-[8px]">
-                        <h4 className="title--h4 text-gray-600">
-                          Тон
-                        </h4>
-
-                        <p className="text-black">
-                          {selectProduct.tone}
-                        </p>
-                      </div>
-
-                      <div className="flex flex-col gap-[8px]">
-                        <h4 className="title--h4 text-gray-600">
-                          Код товару
-                        </h4>
-
-                        <p className="text-black">
-                          {selectProduct.code}
-                        </p>
-                      </div>
-                    </div>
-
-                    <hr
-                      className="
-                mt-[24px]
-                sm:mt-[47px]
-                border-b border-solid border-gray-400"
-                    />
                   </div>
 
-                  <div // Interact
-                    className="
+                  <div className="flex flex-col gap-2">
+                    <h4 className="title--h4 text-gray-600">
+                      Код товару
+                    </h4>
+
+                    <p className="text-black">
+                      {selectProduct.code}
+                    </p>
+                  </div>
+                </div>
+
+                <hr
+                  className="
+                border-b border-solid border-gray-400"
+                />
+              </div>
+
+              <div // Interact
+                className="
                   flex-1"
-                  // border border-solid border-blue-400
-                  >
-                    <div // Counter
-                      className="
-                  h-[48px]
-                  flex justify-between
-                  md:h-[64px]"
-                    >
-                      <Counter
-                        quantity={quantity}
-                        onIncrease={() => setQuantity(prev => prev + 1)}
-                        onDecrease={() => setQuantity(prev => prev - 1)}
-                        classContainer="
+              // border border-solid border-blue-400
+              >
+                <div // Counter
+                  className="
+                  h-12
+                  md:h-16
+                  flex justify-between"
+                >
+                  <Counter
+                    quantity={quantity}
+                    onIncrease={() => setQuantity(prev => prev + 1)}
+                    onDecrease={() => setQuantity(prev => prev - 1)}
+                    classContainer="
                       w-[96px] h-full
                       flex
                       border border-solid border-gray-400"
-                      />
+                  />
 
-                      <div className="flex">
-                        <p>Ціна</p>
+                  <div className="flex">
+                    <p>Ціна</p>
 
-                        <p className="pl-3 pr-1 text-accent">
-                          {selectProduct.price}
-                        </p>
+                    <p className="pl-3 pr-1 text-accent">
+                      {selectProduct.price}
+                    </p>
 
-                        <p>грн.</p>
-                      </div>
-                    </div>
+                    <p>грн.</p>
+                  </div>
+                </div>
 
-                    <div // Consault + Favorite buttons
-                      className="
+                <div // Consault + Favorite buttons
+                  className="
                   h-[48px] mt-[44px]
                   flex gap-[10px]
                   md:h-[64px]"
-                    >
-                      <Button2
-                        option={Button2Option.SECONDARY}
-                        onClick={() => {
-                          navigate('/contacts', { state: { from: window.location.href } });
-                        }}
-                      >
-                        <span
-                          className="
+                >
+                  <Button2
+                    option={Button2Option.SECONDARY}
+                    onClick={() => {
+                      navigate('/contacts', { state: { from: window.location.href } });
+                    }}
+                  >
+                    <span
+                      className="
                       group-hover:-translate-x-[5px] transition duration-300"
-                        >
-                          Замовити консультацію
-                        </span>
+                    >
+                      Замовити консультацію
+                    </span>
 
-                        <span
-                          className="
+                    <span
+                      className="
                       w-[26px] text-3xl
                       group-hover:-translate-x-[-5px] transition duration-300"
-                        >
-                          &#8594;
-                        </span>
-                      </Button2>
-
-                      <ButtonFavorite selectProduct={selectProduct} />
-                    </div>
-
-                    <div // InCart button
-                      className="h-[48px] mt-[24px] md:h-[64px]"
                     >
-                      <Button2
-                        path="/basket"
-                        onClick={() => inCartAdd(selectProduct, quantity || 1)}
-                      >
-                        <span
-                          className="
-                      group-hover:-translate-x-[5px] transition duration-300"
-                        >
-                          Додати в кошик
-                        </span>
+                      &#8594;
+                    </span>
+                  </Button2>
 
-                        <span
-                          className="
+                  <ButtonFavorite selectProduct={selectProduct} />
+                </div>
+
+                <div // InCart button
+                  className="h-[48px] mt-[24px] md:h-[64px]"
+                >
+                  <Button2
+                    path="/basket"
+                    onClick={() => inCartAdd(selectProduct, quantity || 1)}
+                  >
+                    <span
+                      className="
+                      group-hover:-translate-x-[5px] transition duration-300"
+                    >
+                      Додати в кошик
+                    </span>
+
+                    <span
+                      className="
                       w-[26px] text-3xl
                       group-hover:-translate-x-[-5px] transition duration-300"
-                        >
-                          &#8594;
-                        </span>
-                      </Button2>
-                    </div>
-                  </div>
+                    >
+                      &#8594;
+                    </span>
+                  </Button2>
                 </div>
               </div>
-            </section>
-          </>
-        )}
-      </div>
+            </div>
+          </section>
+        </div>
+      )}
     </div>
   );
 };

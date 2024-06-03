@@ -143,118 +143,127 @@ export const ProductsPage = ({
         />
       </aside>
 
-      <div className={cn('content flex flex-col gap-[40px]',
-        'pt-[24px] pb-[4px] sm:pb-[62px] md:pt-[92px] md:pb-[84px]',
+      <div className={cn('content flex flex-col',
+        'py-6 sm:py-20 md:py-24',
         // 'border border-red-300 border-solid',
         {
           'pointer-events-none': isAsideOpen,
         })}>
-        <div className="
-          mb-[24px]
-          sm:mb-[40px]
-          md:mb-[4px]"
+        <div // Navigation
+          className="
+          flex flex-col gap-6"
         >
           <PageNavigation />
-        </div>
 
-        <div className="
+          <div className="
         flex flex-col gap-[40px]
         md:flex-row md:gap-[130px]"
-        >
-          <div className="
+          >
+            <div className="
           w-full h-[44px]
           shadow rounded
           md:flex-1"
-          // border border-accent border-solid
-          >
-            <Search placeholder="Введіть назву або код товару" />
-          </div>
+            // border border-accent border-solid
+            >
+              <Search placeholder="Введіть назву або код товару" />
+            </div>
 
-          <div className="
+            <div className="
         w-full h-[44px]
         flex gap-[20px]
         sm:justify-evenly
         shadow rounded
         md:w-[310px]"
-          // border border-red-300 border-solid
-          >
-            <button
-              type="button"
-              aria-label="filter"
-              className="
+            // border border-red-300 border-solid
+            >
+              <button
+                type="button"
+                aria-label="filter"
+                className="
           w-[50px] h-full
           flex justify-center items-center
           transform transition duration-300 hover:scale-105 active:scale-100
           shadow rounded
           md:hidden"
-              // border border-red-300 border-solid
-              onClick={() => setIsAsideOpen(true)}
-            >
-              <i className="icon icon--filter" />
-            </button>
+                // border border-red-300 border-solid
+                onClick={() => setIsAsideOpen(true)}
+              >
+                <i className="icon icon--filter" />
+              </button>
 
-            <button
-              type="button"
-              aria-label="sortByPrice"
-              className="
+              <button
+                type="button"
+                aria-label="sortByPrice"
+                className="
           h-full px-[17px]
           flex-1 flex justify-between items-center
           transform transition duration-300 hover:scale-105 active:scale-100
           sm:flex-none sm:gap-[10px]
           shadow rounded
           md:w-full"
-              // border border-red-300 border-solid
-              onClick={() => handleSortByPriceChange(
-                sortByPrice?.includes('inc')
-                  ? 'dec'
-                  : 'inc'
-              )}
-            >
-              <i className="icon icon--vector-switch" />
-              <p className="text-black uppercase">
-                {cn('ціна за ', {
-                  'зростанням': sortByPrice?.includes('inc'),
-                  'спаданням': sortByPrice?.includes('dec'),
-                })}
-              </p>
-            </button>
+                // border border-red-300 border-solid
+                onClick={() => handleSortByPriceChange(
+                  sortByPrice?.includes('inc')
+                    ? 'dec'
+                    : 'inc'
+                )}
+              >
+                <i className="icon icon--vector-switch" />
+                <p className="text-black uppercase">
+                  {cn('ціна за ', {
+                    'зростанням': sortByPrice?.includes('inc'),
+                    'спаданням': sortByPrice?.includes('dec'),
+                  })}
+                </p>
+              </button>
+            </div>
           </div>
-        </div>
 
-        <div className="
-        flex gap-[24px]"
-        // border border-solid border-red-300
-        >
-          <aside
-            id="sidebar"
+          <div // Content
             className="
+        flex gap-[24px]"
+          // border border-solid border-red-300
+          >
+            <aside
+              id="sidebar"
+              className="
             hidden
             shadow rounded
             md:block"
-          >
-            <ProductDetailsFilters
-              products={products}
-            />
-          </aside>
+            >
+              <ProductDetailsFilters
+                products={products}
+              />
+            </aside>
 
-          {isLoading && <Loader />}
+            {isLoading && <Loader />}
 
-          {!isLoading && hasError && (
-            <NotFoundPage
-              title={hasError}
-              navigateTo=''
-              classContainer='w-full min-h-48'
-            />
-          )}
+            {!isLoading && hasError && (
+              <NotFoundPage
+                title={hasError}
+                navigateTo=''
+                classContainer='w-full min-h-48'
+              />
+            )}
 
-          {!isLoading && !hasError && visibleProducts.length
-            ? (
-              <div className="flex-1 flex flex-col gap-2">
+            {!isLoading && !hasError && !visibleProducts.length && (
+              <NotFoundPage
+                title='Not found items'
+                navigateTo=''
+                classContainer='w-full min-h-48'
+              />
+            )}
+
+            {!isLoading && !hasError && visibleProducts.length && (
+              <div className="grow flex flex-col gap-16">
                 <div
                   className="
-              flex-1
-              grid grid-cols-[repeat(auto-fill,minmax(290px,1fr))] gap-[24px]
-              justify-items-center"
+              grid
+              grid-cols-[repeat(auto-fill,minmax(290px,1fr))]
+              justify-items-center
+              gap-6
+              sm:gap-y-8
+              md:gap-y-16"
                 // border border-solid border-red-300
                 >
                   {visibleProducts
@@ -274,14 +283,8 @@ export const ProductsPage = ({
                   />
                 </div>
               </div>
-            )
-            : (
-              <NotFoundPage
-                title='Not found items'
-                navigateTo=''
-                classContainer='w-full min-h-48'
-              />
             )}
+          </div>
         </div>
       </div>
     </div >

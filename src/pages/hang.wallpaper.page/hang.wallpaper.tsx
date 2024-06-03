@@ -17,33 +17,26 @@ export const HangWallpaper = () => {
 
   return (
     <div className="
-    pt-[24px] pb-[4px]
-    sm:pb-[62px]
-    md:pt-[92px] md:pb-[84px]"
+    content
+    py-6 sm:py-20 md:py-24
+    flex flex-col gap-6"
     >
-      <div className="content">
-        <div className="
-        mb-[24px]
-        sm:mb-[40px]
-        md:mb-[4px]">
-          <PageNavigation />
-        </div>
+      <PageNavigation />
 
-        {isLoading && <Loader />}
+      {isLoading && <Loader />}
 
-        {!isLoading && (
-          <section className="
+      {!isLoading && (
+        <section className="
           grid
           grid-cols-[repeat(auto-fill,minmax(310px,1fr))]
           justify-items-center
           gap-y-[64px] gap-x-[10px]"
-          >
-            {visibleServices.map(item => (
-              <ServiceCard key={item.id} item={item} />
-            ))}
-          </section>
-        )}
-      </div>
+        >
+          {visibleServices.map(item => (
+            <ServiceCard key={item.id} item={item} />
+          ))}
+        </section>
+      )}
     </div>
   );
 };

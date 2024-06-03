@@ -23,9 +23,7 @@ export const PlaceAnOrder = () => {
 
   return (
     <div className="placeAnOrder
-      pt-[24px] pb-[24px]
-      sm:pb-[89px]
-      md:pt-[112px] md:pb-[93px]"
+    py-6 sm:py-20 md:py-24"
     >
       <div className="content">
         <div className="cooperation__nav">

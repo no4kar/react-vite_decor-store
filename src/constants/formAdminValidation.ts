@@ -62,7 +62,7 @@ export const validation: {
     required: 'required',
     pattern: {
       value: /^\d+$/g,
-      message: `Write correct (^\d+$/g)`,
+      message: 'Write correct (^\\d+$/g)',
     },
     // valueAsNumber: true,
     maxLength: {
