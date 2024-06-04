@@ -54,7 +54,15 @@ function Component({
       ...data,
       imageUrl: data.imageUrls
         .split(/\s+/g)
-        .map(item => item.trim()),
+        .reduce((a, c) => {
+          const trimedCurrent = c.trim();
+
+          if (trimedCurrent) {
+            a.push(trimedCurrent);
+          }
+
+          return a;
+        }, [] as TyService['imageUrl']),
     };
 
     // console.log(serviceForServer);
@@ -98,8 +106,6 @@ function Component({
       case FormVersion.CREATE: {
         const { id, ...newService } = serviceForServer;
 
-        console.info(newService);
-
         serviceFromServer = await adminApi
           .createService<TyService>(newService)
           .then(res => {
@@ -107,8 +113,6 @@ function Component({
               status: Status.SUCCESS,
               description: 'Changes have been committed',
             });
-
-            console.info(res.data);
 
             return res.data || null;
           })
@@ -204,14 +208,13 @@ function Component({
         <FormFields2
           type="textarea"
           name="imageUrls"
-          // value={getValues('imageUrl').join('\n')}
           textLabel="Images links(space must separate images links)"
           register={register}
           errors={errors}
         />
       </div>
 
-      <div className="h-[48px]">
+      <div className="h-12">
         <Button2
           type='submit'
           option={Button2Option.PRIMARY}
@@ -226,7 +229,7 @@ function Component({
           <div className="relative w-0 h-0">
             <div className="absolute top-1">
               <Notification
-                classContainer={cn('w-[250px] h-fit p-[10px] pr-[30px]', {
+                classContainer={cn('w-[250px] h-fit p-4 pr-8', {
                   'bg-system-success': msg.status === Status.SUCCESS,
                   'bg-red-500': msg.status === Status.ERROR,
                 })}

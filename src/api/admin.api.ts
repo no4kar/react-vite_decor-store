@@ -41,7 +41,7 @@ export const adminApi = {
         accessTokenApi.remove();
         console.error(err);
 
-        return err;
+        return false;
       });
   },
 

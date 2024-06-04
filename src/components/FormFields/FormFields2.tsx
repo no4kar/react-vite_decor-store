@@ -10,32 +10,29 @@ import './FormFields.scss';
 
 export const FormFields2 = <T extends Record<string, any>>({
   type,
-  name,
-  // value,
   textLabel,
-  placeholder = '',
+  name,
   register,
-  errors,
-  required,
   validation,
+  errors,
+  placeholder = '',
+  required,
   classContainer = '',
 }: {
   type: R.HTMLInputTypeAttribute;
-  name: Path<T>;
-  // value?: string;
   textLabel?: string;
+  name: Path<T>;
   register: UseFormRegister<T>;
-  errors: FieldErrors<T>;
-  required?: boolean;
   validation?: RegisterOptions<T>;
+  errors: FieldErrors<T>;
   placeholder?: string;
-  defaultChecked?: boolean;
+  required?: boolean;
   classContainer?: string;
 }) => {
   const hasError = errors[name];
 
   return (
-    <div className={cn('formField', classContainer)}>
+    <div className={cn('flex flex-col gap-2', classContainer)}>
       {textLabel && (
         <label
           htmlFor={name}
@@ -52,7 +49,9 @@ export const FormFields2 = <T extends Record<string, any>>({
         <textarea
           id={name}
           placeholder={placeholder}
-          className="formField__textarea"
+          className="
+          h-48 text-black
+          border-b border-black outline-none resize-none"
           {...register(name, { ...validation })}
         />
       ) : (
@@ -61,7 +60,7 @@ export const FormFields2 = <T extends Record<string, any>>({
           type={type}
           placeholder={placeholder}
           className={cn(
-            'h-45 py-[12px] border-b border-black outline-none text-black',
+            'h-45 py-3 border-b border-black outline-none text-black',
             {
               'text-red-500': hasError,
             },

@@ -7,6 +7,10 @@ const patterns: {
     value: /^(?!\s)(?!.*\s\s).*(?<!\s)$/gu,
     message: 'Without space at the start and end, one space between',
   },
+  startsWithCapitalAndOneSpaceBetween: {
+    value: /^[A-Z][a-z]*(?:[\s-][A-Z][a-z]*)*$|^[A-Z]{2,5}$/gm,
+    message: 'The word starts with a capital letter, there is one space between words. Abbreviation.',
+  },
 };
 
 export const validation: {
@@ -71,6 +75,19 @@ export const validation: {
     },
   },
 
+  code: {
+    required: 'required',
+    pattern: {
+      value: /^[-\w]+$/g,
+      message: 'Write correct (^[-\\w]+$/g)',
+    },
+    // valueAsNumber: true,
+    maxLength: {
+      value: 20,
+      message: 'It is too long!',
+    },
+  },
+
   country: {
     pattern: patterns.trimAndOneSpaceBetween,
   },
@@ -87,11 +104,18 @@ export const validation: {
     pattern: patterns.trimAndOneSpaceBetween,
   },
 
+  tone: {
+    pattern: patterns.trimAndOneSpaceBetween,
+  },
+
+  room: {
+    pattern: patterns.trimAndOneSpaceBetween,
+  },
+
   description: {
     maxLength: {
       value: 2048,
       message: 'It is too long!',
     },
   },
-
 };

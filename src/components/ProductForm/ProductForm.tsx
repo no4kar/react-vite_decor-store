@@ -62,10 +62,17 @@ function Component({
       ...data,
       imageUrl: data.imageUrls
         .split(/\s+/g)
-        .map(item => item.trim()),
+        .reduce((a, c) => {
+          const trimedCurrent = c.trim();
+
+          if (trimedCurrent) {
+            a.push(trimedCurrent);
+          }
+
+          return a;
+        }, [] as TyProduct['imageUrl']),
     };
 
-    // console.log(productForServer);
     let productFromServer: TyProduct | null = null;
 
     // return;
@@ -106,8 +113,6 @@ function Component({
       case FormVersion.CREATE: {
         const { id, ...newProduct } = productForServer;
 
-        console.info(newProduct);
-
         productFromServer = await adminApi
           .createProduct<TyProduct>(newProduct)
           .then(res => {
@@ -115,8 +120,6 @@ function Component({
               status: Status.SUCCESS,
               description: 'Changes have been committed',
             });
-
-            console.info(res.data);
 
             return res.data || null;
           })
@@ -258,7 +261,7 @@ function Component({
           register={register}
           errors={errors}
           required
-        // validation={validation.code}
+          validation={validation.code}
         />
 
         <FormFields2<TyProductForForm>
@@ -268,7 +271,7 @@ function Component({
           register={register}
           errors={errors}
           required
-        // validation={validation.tone}
+          validation={validation.tone}
         />
 
         <FormFields2<TyProductForForm>
@@ -278,7 +281,7 @@ function Component({
           register={register}
           errors={errors}
           required
-        // validation={validation.price}
+          validation={validation.room}
         />
 
         <FormFields2
@@ -292,14 +295,13 @@ function Component({
         <FormFields2
           type="textarea"
           name="imageUrls"
-          // value={getValues('imageUrl').join('\n')}
           textLabel="Images links(space must separate images links)"
           register={register}
           errors={errors}
         />
       </div>
 
-      <div className="h-[48px]">
+      <div className="h-12">
         <Button2
           type='submit'
           option={Button2Option.PRIMARY}
@@ -314,7 +316,7 @@ function Component({
           <div className="relative w-0 h-0">
             <div className="absolute top-1">
               <Notification
-                classContainer={cn('w-[250px] h-fit p-[10px] pr-[30px]', {
+                classContainer={cn('w-[250px] h-fit p-4 pr-8', {
                   'bg-system-success': msg.status === Status.SUCCESS,
                   'bg-red-500': msg.status === Status.ERROR,
                 })}

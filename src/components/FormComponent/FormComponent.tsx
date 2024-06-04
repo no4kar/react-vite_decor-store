@@ -73,7 +73,7 @@ export const FormComponent = ({
     defaultValues: {
       phoneNumber: '+380',
     },
-    mode: 'onBlur',
+    mode: 'all',
   });
 
   const onSubmit: SubmitHandler<MyForm> = data => {
@@ -118,8 +118,8 @@ export const FormComponent = ({
           name: data.firstName,
           email: data.email,
           phoneNumber: data.phoneNumber,
-          comment:
-            `${location.state?.from}
+          comment: `
+          ${location.state?.from}
           ${data.message}`,
         })
           .then(() => {
@@ -286,6 +286,16 @@ export const FormComponent = ({
 
               {isSendMassageVersion && (
                 <>
+                  <FormFields
+                    type="tel"
+                    name="phoneNumber"
+                    textLabel="Номер телефону"
+                    register={register}
+                    validation={validation.phoneNumber}
+                    errors={errors}
+                    required
+                  />
+
                   <FormFields
                     type="mail"
                     name="email"

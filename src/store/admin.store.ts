@@ -34,6 +34,10 @@ export const useAdminStore = create<AdminState>((set) => ({
         isChecked,
       });
 
+      if(!isChecked){
+        throw new Error();
+      }
+
     } catch (error) {
       set({
         error: 'Something went wrong',
