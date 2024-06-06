@@ -88,7 +88,7 @@ export const ProductDetailsPage = () => {
                   </span>
                 </h3>
 
-                <p className="grow text-black">
+                <p className="grow text-black whitespace-pre-wrap">
                   {selectProduct.description}
                 </p>
 

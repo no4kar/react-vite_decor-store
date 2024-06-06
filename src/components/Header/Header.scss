@@ -1,20 +1,20 @@
 @import '../../style/main';
 
 .header {
-  background-color: $main-black;
+  // background-color: $main-black;
 
-  &__content {
-    padding-block: 10px;
+  // &__content {
+  //   padding-block: 10px;
 
-    @include on-tablet {
-      padding-block: 17px;
-    }
-  }
+  //   @include on-tablet {
+  //     padding-block: 17px;
+  //   }
+  // }
 
-  &__nav {
-    display: flex;
-    justify-content: space-between;
-  }
+  // &__nav {
+  //   display: flex;
+  //   justify-content: space-between;
+  // }
 
   &__categorys {
     display: none;
@@ -31,7 +31,6 @@
 
   &__category-item {
     position: relative;
-
     padding: 12px 10px;
   }
 
@@ -46,7 +45,6 @@
     font-size: 14px;
     font-weight: 400;
     line-height: 150%;
-
     padding: 10px;
 
     @include hover(background-color, $breadcrumbs-color);
@@ -55,7 +53,6 @@
   &__category-title {
     display: flex;
     align-items: center;
-
     gap: 4px;
   }
 

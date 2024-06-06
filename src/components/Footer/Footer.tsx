@@ -17,10 +17,9 @@ export const Footer = () => {
         <div className="footer__top">
           <Link to="/" className="footer__logo">
             <i
-              className='
-            icon icon--logo
-            w-[56px] h-[56px] transition-transform duration-300 hover:scale-110
-            md:w-[70px] md:h-[70px]'
+              className="
+            icon icon--logo2
+            w-[200px] h-14 transition-transform duration-300 hover:scale-110"
             />
           </Link>
 

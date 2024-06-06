@@ -74,8 +74,8 @@ function Component() {
                   {selectService.name}
                 </h3>
 
-                <p className="grow product-page__description
-                  text-black"
+                <p className="grow
+                  text-black whitespace-pre-wrap"
                 >
                   {selectService.description}
                 </p>

@@ -27,15 +27,18 @@ export const Header: React.FC<Props> = ({ isMenu, toggleMenu }) => {
   };
 
   return (
-    <header className="header">
-      <div className="header__content content">
-        <nav className="header__nav">
+    <header
+      className="
+    py-3 border-b border-gray-300 bg-black
+    sm:py-4"
+    >
+      <div className="content">
+        <nav className="flex justify-between">
           <Link to="/">
             <i
-              className='
-            icon icon--logo
-            w-[56px] h-[56px] transition-transform duration-300 hover:scale-110
-            md:w-[70px] md:h-[70px]'
+              className="
+            icon icon--logo2
+            w-[200px] h-14 transition-transform duration-300 hover:scale-110"
             />
           </Link>
 
