@@ -26,6 +26,7 @@ export const ProductsTable = R.memo(
         <thead>
           <tr className="bg-gray-200 shadow">
             <th className="px-2 py-2 text-left w-14">ID</th>
+            <th className="px-2 py-2 text-left w-4">CID</th>
             <th className="px-2 py-2 text-left">Code</th>
             <th className="px-2 py-2 text-left">Name</th>
             <th className="px-2 py-2 text-left">Price</th>
@@ -41,6 +42,7 @@ export const ProductsTable = R.memo(
               className='group/row hover:bg-slate-100'
             >
               <td className="border px-2 py-2">{product.id}</td>
+              <td className="border px-2 py-2">{product.categoryId}</td>
               <td className="border px-2 py-2">{product.code}</td>
               <td className="border px-2 py-2">{product.name}</td>
               <td className="border px-2 py-2">{product.price}</td>

@@ -3,7 +3,7 @@
 .home-page {
   display: flex;
   flex-direction: column;
-  gap: 48px;
+  gap: 3rem;
 
   margin-bottom: 100px;
 
@@ -12,6 +12,7 @@
   }
 
   @include on-desktop {
+    gap: 8rem;
     margin-bottom: 115px;
   }
 }

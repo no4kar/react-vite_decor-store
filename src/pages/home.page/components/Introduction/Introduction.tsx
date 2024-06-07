@@ -10,28 +10,24 @@ export const Introduction = () => {
     >
       <div className="
       static
-      w-full h-80
+      w-full aspect-[336/282]
       bg-cover bg-no-repeat bg-center
-      sm:absolute sm:w-[50%]
-      sm:left-[50%] sm:h-full
+      sm:absolute sm:w-[50%] sm:aspect-auto
+      sm:left-[51%] sm:h-full
       introduction__poster"
       />
 
       <div
-        className="
-    content
-    grid grid-cols-6 gap-x-6
-    sm:gap-x-10
-    "
+        className="content content__grid"
       >
         <div
           className="
         px-5 py-8
-        col-span-6
+        col-span-2
         flex flex-col gap-12 items-center
         sm:col-span-3 sm:col-start-1 sm:items-start
         sm:px-0 sm:pt-10 sm:pb-20
-        md:pt-[130px] md:pb-[200px]
+        md:col-span-6 md:pt-32 md:pb-52
         "
         >
           <h1 className="
