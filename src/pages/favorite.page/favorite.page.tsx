@@ -32,8 +32,7 @@ export const FavoritePage = () => {
               icon
               icon--hover
               icon--favorite-icon
-              favorite__icon
-            "
+              favorite__icon"
           />
           <h3 className="title title--h3 favorite__title">Обране</h3>
         </div>
@@ -41,7 +40,11 @@ export const FavoritePage = () => {
         {isLoading && <Loader />}
 
         {!isLoading && !!favorites.length && (
-          <section className="favorite__products">
+          <section
+            className="
+          mb-10 grid grid-cols-favorite justify-items-center gap-y-16 gap-x-2
+          sm:mb-16"
+          >
             {favorites.map(item => {
               // console.info(item);
 
@@ -50,12 +53,14 @@ export const FavoritePage = () => {
                   <ProductCard
                     key={item.id}
                     product={item as TyProduct}
+                    classContainer='h-[540px]'
                   />
                 )
                 : (
                   <ServiceCard
                     key={item.id}
                     item={item}
+                    classContainer='h-[540px]'
                   />
                 );
             })}
@@ -73,10 +78,10 @@ export const FavoritePage = () => {
         )}
 
         <div
-          className="h-[60px]"
+          className="h-16"
         >
           <Button2
-            path='..'
+            path='/'
             option={Button2Option.SECONDARY}
           >
             <span
@@ -88,7 +93,7 @@ export const FavoritePage = () => {
 
             <span
               className="
-          w-[26px] text-3xl
+          w-6 text-3xl
           group-hover:-translate-x-[-5px] transition duration-300"
             >
               &#8594;

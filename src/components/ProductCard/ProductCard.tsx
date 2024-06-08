@@ -8,9 +8,11 @@ import { Button2 } from '../Button2';
 export const ProductCard = R.memo(Component);
 
 function Component({
-  product
+  product,
+  classContainer = '',
 }: {
   product: TyProduct;
+  classContainer?: string;
 }) {
   const { items: favorites } = useFavoriteStore();
 
@@ -23,13 +25,14 @@ function Component({
 
   return (
     <div
-      className="
-      p-[10px]
-      w-full h-[540px]
+      className={cn(`p-[10px]
+      w-full
       flex flex-col
       shadow rounded
       hover:scale-[1.03]
-      transition-transform duration-300 ease-in-out"
+      transition-transform duration-300 ease-in-out`, {
+        [classContainer]: classContainer,
+      })}
     >
       <div
         className="relative w-full aspect-square"
@@ -58,13 +61,13 @@ function Component({
         </button>
       </div>
 
-      <div className="pt-[14px]">
-        <div>
+      <div className="pt-6 pb-10">
+        <div className=''>
           <p className="title--micro text-gray-600 text-left">
             {product.type}
           </p>
 
-          <div className="pt-[7px] flex flex-wrap">
+          <div className="pt-2 flex flex-wrap">
             <span className="title--h4 text-black">
               {product.producer}
             </span>
@@ -79,7 +82,7 @@ function Component({
           </div>
         </div>
 
-        <div className="pt-[10px] flex justify-between">
+        <div className="pt-4 flex justify-between">
           <div className="flex flex-wrap gap-2 items-baseline">
             <p className="title--micro text-gray-600">Код товару:</p>
             <p className="title--body-text text-black">{product.code}</p>
@@ -94,7 +97,7 @@ function Component({
       </div>
 
       <div
-        className="h-[48px] mt-auto"
+        className="h-16 mt-auto"
       >
         <Button2
           path={`/${pathname}/${product.id}`}

@@ -28,6 +28,9 @@ export default {
           'error': '#551d1d',
         },
       },
+      gridTemplateColumns: {
+        'favorite': 'repeat(auto-fill, minmax(310px, 1fr))',
+      },
     },
     screens: {
       'sm': '834px',

@@ -19,7 +19,8 @@ export const Footer = () => {
             <i
               className="
             icon icon--logo2
-            w-[200px] h-14 transition-transform duration-300 hover:scale-110"
+            w-14 h-14 transition-transform duration-300 hover:scale-110
+            md:w-[200px]"
             />
           </Link>
 

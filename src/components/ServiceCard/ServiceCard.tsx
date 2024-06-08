@@ -8,8 +8,10 @@ import { Button2 } from '../Button2';
 export const ServiceCard = R.memo(
   ({
     item,
+    classContainer = '',
   }: {
     item: TyService,
+    classContainer?: string;
   }) => {
     const { id, imageUrl, name, description } = item;
     const { items: favorites } = useFavoriteStore(state => state);
@@ -24,13 +26,14 @@ export const ServiceCard = R.memo(
     return (
       <div
         key={id}
-        className="
-        p-[10px]
-        w-full h-[540px]
+        className={cn(`p-[10px]
+        w-full
       flex flex-col
       shadow rounded
       hover:scale-[1.03]
-      transition-transform duration-300 ease-in-out"
+      transition-transform duration-300 ease-in-out`, {
+          [classContainer]: classContainer,
+        })}
       >
         <div
           className="relative w-full aspect-square"
@@ -61,7 +64,7 @@ export const ServiceCard = R.memo(
         </div>
 
         <div className="description
-        mt-[14px]"
+        pt-4 pb-6 flex flex-col gap-2"
         >
           <h4 className="title--h4
           uppercase"
@@ -69,13 +72,13 @@ export const ServiceCard = R.memo(
             {name}
           </h4>
 
-          <p className="mt-[8px] title--body-text">
-            {description.slice(0, 150).concat('...')}
+          <p className="title--body-text text-justify">
+            {description.slice(0, 130).concat('...')}
           </p>
         </div>
 
         <div
-          className="h-[48px] mt-auto"
+          className="h-16 mt-auto"
         >
           <Button2
             path={`/${pathname}/${id}`}

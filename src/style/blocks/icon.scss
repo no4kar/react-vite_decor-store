@@ -133,6 +133,10 @@
   }
 
   &--logo2 {
-    background-image: url(/public/icons/logo2.svg);
+    background-image: url(/public/icons/logo2-mobile.svg);
+
+    @include on-desktop {
+      background-image: url(/public/icons/logo2.svg);
+    }
   }
 }
