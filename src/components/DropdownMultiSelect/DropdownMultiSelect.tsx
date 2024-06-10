@@ -71,27 +71,26 @@ function DropdownMultiSelect({
 
       {isOpen && (
         <ul className="
-        py-[16px]
-        flex flex-col gap-[16px]
-        border-b border-gray-400
-        ">
+        py-4
+        flex flex-col gap-4
+        border-b border-gray-400"
+        >
           {options.map(option => (
             <li
               key={option.value}
             >
               <label className="
-            flex gap-[6px]
-            px-[10px] py-[6px]
+            flex gap-2 items-center
+            px-3 py-2
             cursor-pointer
             transition-colors
-            hover:bg-gray-100 [&:has(input:checked)]:bg-gray-200
-            "
+            hover:bg-gray-100 [&:has(input:checked)]:bg-gray-200"
               >
                 <input
                   type="checkbox"
                   checked={selectedOptions.includes(option.value)}
                   value={option.value}
-                  className="w-[24px] h-[24px] cursor-pointer checked:bg-white"
+                  className="w-6 h-6 cursor-pointer flex-shrink-0"
                   onChange={handleChange}
                 />
                 <span className="title--body-text">{option.label}</span>

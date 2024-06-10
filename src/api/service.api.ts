@@ -16,7 +16,7 @@ const client = getClient({
 
 function getAll({
   page = 0,
-  size,
+  size = 100,
 }: {
   page?: number,
   size?: number,

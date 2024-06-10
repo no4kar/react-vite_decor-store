@@ -26,7 +26,7 @@ client.interceptors.request.use(request => {
 
 function getAll({
   page = 0,
-  size,
+  size = 100,
 }: {
   page?: number,
   size?: number,

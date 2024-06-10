@@ -75,17 +75,7 @@ export const ProductDetailsPage = () => {
               // border border-solid border-blue-400
               >
                 <h3 className="title--h3 title--h3-mobile">
-                  <span className="uppercase">
-                    {selectProduct.producer}
-                  </span>
-                  &nbsp;
-                  <span>
-                    {selectProduct.collection}
-                  </span>
-                  &nbsp;
-                  <span>
-                    {selectProduct.name}
-                  </span>
+                  {selectProduct.name}
                 </h3>
 
                 <p className="grow text-black whitespace-pre-wrap">
@@ -154,9 +144,9 @@ export const ProductDetailsPage = () => {
 
                 <div // Consault + Favorite buttons
                   className="
-                  h-[48px] mt-[44px]
-                  flex gap-[10px]
-                  md:h-[64px]"
+                  h-12 mt-12
+                  flex gap-3
+                  md:h-16"
                 >
                   <Button2
                     option={Button2Option.SECONDARY}
@@ -166,15 +156,15 @@ export const ProductDetailsPage = () => {
                   >
                     <span
                       className="
-                      group-hover:-translate-x-[5px] transition duration-300"
+                      group-hover:-translate-x-[4px] transition duration-300"
                     >
                       Замовити консультацію
                     </span>
 
                     <span
                       className="
-                      w-[26px] text-3xl
-                      group-hover:-translate-x-[-5px] transition duration-300"
+                      w-6 text-3xl
+                      group-hover:-translate-x-[-4px] transition duration-300"
                     >
                       &#8594;
                     </span>
@@ -184,7 +174,7 @@ export const ProductDetailsPage = () => {
                 </div>
 
                 <div // InCart button
-                  className="h-[48px] mt-[24px] md:h-[64px]"
+                  className="h-12 mt-6 md:h-16"
                 >
                   <Button2
                     path="/basket"

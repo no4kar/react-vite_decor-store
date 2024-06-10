@@ -87,7 +87,7 @@ export const adminApi = {
 
   getOrders: ({
     page = 0,
-    size,
+    size = 100,
   }: {
     page?: number,
     size?: number,
