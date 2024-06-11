@@ -129,14 +129,18 @@
   }
 
   &--logo {
-    background-image: url(/public/icons/logo.svg);
-  }
+    background-image: url(/public/icons/logo2.svg);
 
-  &--logo2 {
-    background-image: url(/public/icons/logo2-mobile.svg);
+    &-header {
+      background-image: url(/public/icons/logo2-mobile.svg);
 
-    @include on-desktop {
-      background-image: url(/public/icons/logo2.svg);
+      @include on-desktop {
+        background-image: url(/public/icons/logo2.svg);
+      }
+    }
+
+    &-mobile {
+      background-image: url(/public/icons/logo2-mobile.svg);
     }
   }
 }

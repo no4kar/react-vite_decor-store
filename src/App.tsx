@@ -11,7 +11,7 @@ import { useProductStore } from './store/product.store';
 import { useServiceStore } from './store/service.store';
 
 export const App = () => {
-  console.log('render');
+  // console.log('render');
 
   const [isMenu, setIsMenuActive] = useState(false);
   const handleMenuBlur = useCallback(() => {

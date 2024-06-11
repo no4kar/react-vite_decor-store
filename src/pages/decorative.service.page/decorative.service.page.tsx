@@ -9,7 +9,7 @@ import { ServiceCategory } from '../../types/Services';
 export const DecorativeService = Component;
 
 function Component() {
-  console.log('render');
+  // console.log('render');
   const {
     services,
     isLoading,

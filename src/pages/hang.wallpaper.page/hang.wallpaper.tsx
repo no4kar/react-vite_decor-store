@@ -6,7 +6,7 @@ import { serviceApi } from '../../api/service.api';
 import { ServiceCategory } from '../../types/Services';
 
 export const HangWallpaper = () => {
-  console.log('render');
+  // console.log('render');
   const {
     services,
     isLoading,

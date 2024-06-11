@@ -8,7 +8,7 @@ import './paint.page.scss';
 
 export const PaintPage = R.memo(
   () => {
-    console.log('render');
+    // console.log('render');
     const {
       products,
       isLoading,

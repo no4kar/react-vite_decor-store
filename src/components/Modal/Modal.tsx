@@ -24,7 +24,7 @@ export const Modal: React.FC<ModalInfo> = ({ isOpen, onClose, text }) => {
           <h3 className="title title--h3">{text?.title}</h3>
 
           {text?.description?.split('\n').map(line => (
-            <li key={line} className="modal__description">
+            <li key={line} className="modal__description text-justify">
               {line.trim()}
             </li>
           ))}

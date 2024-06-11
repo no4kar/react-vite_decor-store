@@ -29,7 +29,7 @@ export const ProductsPage = ({
   isLoading: boolean;
   hasError: string | null,
 }) => {
-  console.log('render');
+  // console.log('render');
   const [isAsideOpen, setIsAsideOpen] = R.useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -125,7 +125,7 @@ export const ProductsPage = ({
       <aside
         id="sidebar"
         className={cn(
-          'absolute top-0 left-0 bottom-0 right-0 z-10',
+          'absolute top-0 left-0 bottom-0 right-0 z-[5]',
           // 'border border-red-300 border-solid',
           'pointer-events-none',
           'transform -translate-x-full',

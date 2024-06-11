@@ -29,179 +29,178 @@ export const Header: React.FC<Props> = ({ isMenu, toggleMenu }) => {
   return (
     <header
       className="
-    py-3 border-b border-gray-300 bg-black
+    py-3 sticky top-0 z-10
+    border-b border-gray-300 bg-black
     sm:py-4"
     >
-      <div className="content">
-        <nav className="flex justify-between">
-          <Link to="/">
-            <i
-              className="
-            icon icon--logo2
+      <nav className="content flex justify-between">
+        <Link to="/">
+          <i
+            className="
+            icon icon--logo-header
             w-14 h-14 transition-transform duration-300 hover:scale-110
             md:w-[200px]"
-            />
-          </Link>
+          />
+        </Link>
 
-          <ul className="header__categorys">
-            <li className="header__category-item">
-              <button
-                type="button"
-                className="header__category-btn"
-                onClick={() => setIsOpenServices(!isOpenServices)}
-                onBlur={handleCategoryBlur(setIsOpenServices)}
-              >
-                <div className="header__category-title">
-                  <h4 className="header__category-name">Послуги</h4>
+        <ul className="header__categorys">
+          <li className="header__category-item">
+            <button
+              type="button"
+              className="header__category-btn"
+              onClick={() => setIsOpenServices(!isOpenServices)}
+              onBlur={handleCategoryBlur(setIsOpenServices)}
+            >
+              <div className="header__category-title">
+                <h4 className="header__category-name">Послуги</h4>
 
-                  <div className="header__icon-arrow">
-                    <div
-                      className={cn('icon icon--vector2-white w-[10px] h-[10px]', {
-                        'scale-y-[-1]': isOpenServices,
-                      })}
-                    />
-                  </div>
+                <div className="header__icon-arrow">
+                  <div
+                    className={cn('icon icon--vector2-white w-[10px] h-[10px]', {
+                      'scale-y-[-1]': isOpenServices,
+                    })}
+                  />
                 </div>
-              </button>
+              </div>
+            </button>
 
-              {isOpenServices && (
-                <ul className="header__subcategorys">
-                  <li className="header__subcategory-item">
-                    <Link to="/service_decorative">
-                      <p className="header__subcategory-name">
-                        Нанесення декоративного покриття
-                      </p>
-                    </Link>
-                  </li>
+            {isOpenServices && (
+              <ul className="header__subcategorys">
+                <li className="header__subcategory-item">
+                  <Link to="/service_decorative">
+                    <p className="header__subcategory-name">
+                      Нанесення декоративного покриття
+                    </p>
+                  </Link>
+                </li>
 
-                  <li className="header__subcategory-item">
-                    <Link to="/service_hang_wallpaper">
-                      <p className="header__subcategory-name">
-                        Поклейка шпалер
-                      </p>
-                    </Link>
-                  </li>
+                <li className="header__subcategory-item">
+                  <Link to="/service_hang_wallpaper">
+                    <p className="header__subcategory-name">
+                      Поклейка шпалер
+                    </p>
+                  </Link>
+                </li>
 
-                  {/* <li className="header__subcategory-item">
+                {/* <li className="header__subcategory-item">
                     <Link to="/paint_tinting">
                       <p className="header__subcategory-name">Тонування фарб</p>
                     </Link>
                   </li> */}
-                </ul>
-              )}
-            </li>
+              </ul>
+            )}
+          </li>
 
-            <li className="header__category-item">
-              <button
-                type="button"
-                className="header__category-btn"
-                onClick={() => setIsOpenProducts(!isOpenProducts)}
-                onBlur={handleCategoryBlur(setIsOpenProducts)}
-              >
-                <div className="header__category-title">
-                  <h4 className="header__category-name">Продукція</h4>
-
-                  <div className="header__icon-arrow">
-                    <div
-                      className={cn('icon icon--vector2-white w-[10px] h-[10px]', {
-                        'scale-y-[-1]': isOpenProducts,
-                      })}
-                    />
-                  </div>
-                </div>
-              </button>
-
-              {isOpenProducts && (
-                <ul className="header__subcategorys">
-                  <li className="header__subcategory-item">
-                    <Link to="/wallpaper">
-                      <p className="header__subcategory-name">Шпалери</p>
-                    </Link>
-                  </li>
-
-                  <li className="header__subcategory-item">
-                    <Link to="/paint">
-                      <p className="header__subcategory-name">Фарба</p>
-                    </Link>
-                  </li>
-                </ul>
-              )}
-            </li>
-
-            <li className="header__category-item">
+          <li className="header__category-item">
+            <button
+              type="button"
+              className="header__category-btn"
+              onClick={() => setIsOpenProducts(!isOpenProducts)}
+              onBlur={handleCategoryBlur(setIsOpenProducts)}
+            >
               <div className="header__category-title">
-                <Link to="/about_us">
-                  <h4
-                    className="
+                <h4 className="header__category-name">Продукція</h4>
+
+                <div className="header__icon-arrow">
+                  <div
+                    className={cn('icon icon--vector2-white w-[10px] h-[10px]', {
+                      'scale-y-[-1]': isOpenProducts,
+                    })}
+                  />
+                </div>
+              </div>
+            </button>
+
+            {isOpenProducts && (
+              <ul className="header__subcategorys">
+                <li className="header__subcategory-item">
+                  <Link to="/wallpaper">
+                    <p className="header__subcategory-name">Шпалери</p>
+                  </Link>
+                </li>
+
+                <li className="header__subcategory-item">
+                  <Link to="/paint">
+                    <p className="header__subcategory-name">Фарба</p>
+                  </Link>
+                </li>
+              </ul>
+            )}
+          </li>
+
+          <li className="header__category-item">
+            <div className="header__category-title">
+              <Link to="/about_us">
+                <h4
+                  className="
                       header__category-name
                       header__category-name--color-black"
-                  >
-                    Про нас
-                  </h4>
-                </Link>
-              </div>
-            </li>
+                >
+                  Про нас
+                </h4>
+              </Link>
+            </div>
+          </li>
 
-            <li className="header__category-item">
-              <div className="header__category-title">
-                <Link to="/contacts">
-                  <h4
-                    className="
+          <li className="header__category-item">
+            <div className="header__category-title">
+              <Link to="/contacts">
+                <h4
+                  className="
                       header__category-name
                       header__category-name--color-black"
-                  >
-                    Контакти
-                  </h4>
-                </Link>
-              </div>
-            </li>
-          </ul>
-
-          <ul className="header__main-nav">
-            <li className="header__main-nav-item">
-              <Link to="/favorite">
-                <div
-                  className={cn('icon icon--favorite hover:scale-105', {
-                    'relative': cartFavorits.length,
-                  })}
                 >
-                  {!!cartFavorits.length && (
-                    <div className="icon--count"> {cartFavorits.length} </div>
-                  )}
-                </div>
+                  Контакти
+                </h4>
               </Link>
-            </li>
+            </div>
+          </li>
+        </ul>
 
-            <li className="header__main-nav-item">
-              <Link to="/basket">
-                <div
-                  className={cn('icon icon--cart hover:scale-105', {
-                    'relative': cartBaskets.length,
-                  })}
-                >
-                  {!!cartBaskets.length && (
-                    <div className="icon--count">{cartBaskets.length}</div>
-                  )}
-                </div>
-              </Link>
-            </li>
-
-            <li className="header__main-nav-item header__menu">
-              <button
-                type="button"
-                className="header__menu-btn"
-                onClick={() => toggleMenu(!isMenu)}
+        <ul className="header__main-nav">
+          <li className="header__main-nav-item">
+            <Link to="/favorite">
+              <div
+                className={cn('icon icon--favorite hover:scale-105', {
+                  'relative': cartFavorits.length,
+                })}
               >
-                <div
-                  className={cn('icon icon--menu hover:scale-105', {
-                    'icon--menu-close': isMenu,
-                  })}
-                />
-              </button>
-            </li>
-          </ul>
-        </nav>
-      </div>
+                {!!cartFavorits.length && (
+                  <div className="icon--count"> {cartFavorits.length} </div>
+                )}
+              </div>
+            </Link>
+          </li>
+
+          <li className="header__main-nav-item">
+            <Link to="/basket">
+              <div
+                className={cn('icon icon--cart hover:scale-105', {
+                  'relative': cartBaskets.length,
+                })}
+              >
+                {!!cartBaskets.length && (
+                  <div className="icon--count">{cartBaskets.length}</div>
+                )}
+              </div>
+            </Link>
+          </li>
+
+          <li className="header__main-nav-item header__menu">
+            <button
+              type="button"
+              className="header__menu-btn"
+              onClick={() => toggleMenu(!isMenu)}
+            >
+              <div
+                className={cn('icon icon--menu hover:scale-105', {
+                  'icon--menu-close': isMenu,
+                })}
+              />
+            </button>
+          </li>
+        </ul>
+      </nav>
     </header>
   );
 };

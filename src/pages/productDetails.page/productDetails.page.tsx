@@ -19,7 +19,7 @@ import { NotFoundPage } from '../not-found-page';
 import { TyProduct } from '../../types/Products';
 
 export const ProductDetailsPage = () => {
-  console.info('render');
+  // console.info('render');
   const { id } = RRD.useParams();
   const navigate = RRD.useNavigate();
   const [isLoading, setIsLoading] = R.useState(true);
@@ -63,22 +63,22 @@ export const ProductDetailsPage = () => {
             <div
               className="
                 flex flex-col gap-8
-                sm:flex-row sm:gap-5
                 md:flex-col
                 md:w-2/5"
+            // sm:flex-row sm:gap-5
             // border border-solid border-blue-400
             // shadow rounded
             >
               <div // Info
                 className="
-                    grow flex flex-col gap-6"
+                grow flex flex-col gap-6"
               // border border-solid border-blue-400
               >
-                <h3 className="title--h3 title--h3-mobile">
+                <h3 className="title--h3">
                   {selectProduct.name}
                 </h3>
 
-                <p className="grow text-black whitespace-pre-wrap">
+                <p className="grow text-black whitespace-pre-wrap text-justify">
                   {selectProduct.description}
                 </p>
 
@@ -112,8 +112,8 @@ export const ProductDetailsPage = () => {
 
               <div // Interact
                 className="
-                  flex-1"
-              // border border-solid border-blue-400
+                grow"
+                // border border-solid border-blue-400
               >
                 <div // Counter
                   className="
@@ -142,59 +142,63 @@ export const ProductDetailsPage = () => {
                   </div>
                 </div>
 
-                <div // Consault + Favorite buttons
-                  className="
-                  h-12 mt-12
-                  flex gap-3
-                  md:h-16"
+                <div className="
+                mt-12
+                flex gap-6 flex-col"
                 >
-                  <Button2
-                    option={Button2Option.SECONDARY}
-                    onClick={() => {
-                      navigate('/contacts', { state: { from: window.location.href } });
-                    }}
+                  <div // Consault + Favorite buttons
+                    className="
+                    h-12 md:h-16
+                  flex gap-3"
                   >
-                    <span
-                      className="
-                      group-hover:-translate-x-[4px] transition duration-300"
+                    <Button2
+                      option={Button2Option.SECONDARY}
+                      onClick={() => {
+                        navigate('/contacts', { state: { from: window.location.href } });
+                      }}
                     >
-                      Замовити консультацію
-                    </span>
+                      <span
+                        className="
+                      group-hover:-translate-x-[4px] transition duration-300"
+                      >
+                        Замовити консультацію
+                      </span>
 
-                    <span
-                      className="
+                      <span
+                        className="
                       w-6 text-3xl
                       group-hover:-translate-x-[-4px] transition duration-300"
-                    >
-                      &#8594;
-                    </span>
-                  </Button2>
+                      >
+                        &#8594;
+                      </span>
+                    </Button2>
 
-                  <ButtonFavorite selectProduct={selectProduct} />
-                </div>
+                    <ButtonFavorite selectProduct={selectProduct} />
+                  </div>
 
-                <div // InCart button
-                  className="h-12 mt-6 md:h-16"
-                >
-                  <Button2
-                    path="/basket"
-                    onClick={() => inCartAdd(selectProduct, quantity || 1)}
+                  <div // InCart button
+                    className="h-12 md:h-16"
                   >
-                    <span
-                      className="
-                      group-hover:-translate-x-[5px] transition duration-300"
+                    <Button2
+                      path="/basket"
+                      onClick={() => inCartAdd(selectProduct, quantity || 1)}
                     >
-                      Додати в кошик
-                    </span>
+                      <span
+                        className="
+                      group-hover:-translate-x-[5px] transition duration-300"
+                      >
+                        Додати в кошик
+                      </span>
 
-                    <span
-                      className="
+                      <span
+                        className="
                       w-[26px] text-3xl
                       group-hover:-translate-x-[-5px] transition duration-300"
-                    >
-                      &#8594;
-                    </span>
-                  </Button2>
+                      >
+                        &#8594;
+                      </span>
+                    </Button2>
+                  </div>
                 </div>
               </div>
             </div>

@@ -7,7 +7,7 @@ import { ProductsPage } from '../products.page';
 
 export const WallpaperPage = R.memo(
   () => {
-    console.log('render');
+    // console.log('render');
     const {
       products,
       isLoading,

@@ -20,7 +20,7 @@ export const RadioButtonGroup: React.FC<Props> = ({
 }) => {
   return (
     <div className="radio-group">
-      <h3 className="title title--h3 title--h3-mobile">{title}</h3>
+      <h3 className="title title--h3">{title}</h3>
 
       <div className="radio-group__options">
         {options.map(option => (

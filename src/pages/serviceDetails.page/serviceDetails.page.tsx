@@ -70,12 +70,12 @@ function Component() {
                 grow flex flex-col gap-6"
               // border border-solid border-blue-400
               >
-                <h3 className="title--h3 title--h3-mobile">
+                <h3 className="title--h3">
                   {selectService.name}
                 </h3>
 
                 <p className="grow
-                  text-black whitespace-pre-wrap"
+                  text-black whitespace-pre-wrap text-justify"
                 >
                   {selectService.description}
                 </p>

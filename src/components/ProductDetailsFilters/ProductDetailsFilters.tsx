@@ -16,7 +16,7 @@ export const ProductDetailsFilters = R.memo(
     products: TyProduct[];
     onClose?: () => void;
   }) => {
-    console.log('render');
+    // console.log('render');
     const [searchParams, setSearchParams] = useSearchParams();
     const setSearchWith = R.useCallback((params: SearchParams) => {
       setSearchParams(getSearchWith(searchParams, params));
@@ -32,8 +32,8 @@ export const ProductDetailsFilters = R.memo(
       = searchParams.getAll(SearchParamsName.COLLECTION);
     const selectedTones
       = searchParams.getAll(SearchParamsName.TONE);
-    const selectedRooms
-      = searchParams.getAll(SearchParamsName.ROOM);
+    // const selectedRooms
+    //   = searchParams.getAll(SearchParamsName.ROOM);
 
     const productOptions = R.useMemo(
       () => products.reduce((a, c) => {
@@ -95,10 +95,10 @@ export const ProductDetailsFilters = R.memo(
       [productOptions],
     );
 
-    const productRooms: TySelectOption[] = R.useMemo(
-      productCommonOption(SearchParamsName.ROOM),
-      [productOptions],
-    );
+    // const productRooms: TySelectOption[] = R.useMemo(
+    //   productCommonOption(SearchParamsName.ROOM),
+    //   [productOptions],
+    // );
 
     const handleTypeChange
       = handleCommonChange(SearchParamsName.TYPE);
@@ -115,8 +115,8 @@ export const ProductDetailsFilters = R.memo(
     const handleToneChange
       = handleCommonChange(SearchParamsName.TONE);
 
-    const handleRoomChange
-      = handleCommonChange(SearchParamsName.ROOM);
+    // const handleRoomChange
+    //   = handleCommonChange(SearchParamsName.ROOM);
 
     return (
       <div
@@ -238,7 +238,7 @@ export const ProductDetailsFilters = R.memo(
             />
           </li>
 
-          <li>
+          {/* <li>
             <DropdownMultiSelect
               placeholder={
                 <div className="flex gap-[8px]">
@@ -253,7 +253,7 @@ export const ProductDetailsFilters = R.memo(
               selectedOptions={selectedRooms}
               onChange={handleRoomChange}
             />
-          </li>
+          </li> */}
         </ul>
 
         <div

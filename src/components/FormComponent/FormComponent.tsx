@@ -77,7 +77,7 @@ export const FormComponent = ({
   });
 
   const onSubmit: SubmitHandler<MyForm> = data => {
-    console.log(data);
+    // console.log(data);
 
     switch (formVersion) {
       case FormVersion.CONSULTATION: {
