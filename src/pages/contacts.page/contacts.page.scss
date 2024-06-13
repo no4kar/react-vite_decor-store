@@ -3,7 +3,7 @@
 .contactsPage {
   padding-block: 24px 47px;
 
-  @extend %body-text;
+  @extend %body;
   font-size: 15px;
   line-height: 23px;
   color: $main-black;
@@ -23,7 +23,7 @@
       margin-bottom: 40px;
     }
 
-    @include on-desktop{
+    @include on-desktop {
       margin-bottom: 64px;
     }
   }
@@ -88,7 +88,7 @@
   }
 
   &__link {
-    @extend %h4-style;
+    @extend %h4;
     color: $main-black;
   }
 }

@@ -115,7 +115,7 @@ export const ProductsPage = ({
   );
   const totalPages = Math.ceil(visibleProducts.length / perPage);
 
-  console.info(visibleProducts.length);
+  // console.info(visibleProducts.length);
 
   return (
     <div className="
@@ -125,7 +125,7 @@ export const ProductsPage = ({
       <aside
         id="sidebar"
         className={cn(
-          'absolute top-0 left-0 bottom-0 right-0 z-[5]',
+          'absolute top-0 left-0 right-0 z-[5]',
           // 'border border-red-300 border-solid',
           'pointer-events-none',
           'transform -translate-x-full',
@@ -172,8 +172,8 @@ export const ProductsPage = ({
         w-full h-[44px]
         flex gap-[20px]
         sm:justify-evenly
-        shadow rounded
         md:w-[310px]"
+            // shadow rounded
             // border border-red-300 border-solid
             >
               <button
@@ -275,18 +275,20 @@ export const ProductsPage = ({
                     ))}
                 </div>
 
-                <div className='self-center'>
-                  <PaginatedComponent
-                    currentPage={currentPageNorm}
-                    totalPages={totalPages}
-                    onPageChange={handlePageChange}
-                  />
-                </div>
+                {totalPages > 1 && (
+                  <div className='self-center'>
+                    <PaginatedComponent
+                      currentPage={currentPageNorm}
+                      totalPages={totalPages}
+                      onPageChange={handlePageChange}
+                    />
+                  </div>
+                )}
               </div>
             )}
           </div>
         </div>
       </div>
-    </div >
+    </div>
   );
 };

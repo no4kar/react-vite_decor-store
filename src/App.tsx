@@ -14,7 +14,7 @@ export const App = () => {
   // console.log('render');
 
   const [isMenu, setIsMenuActive] = useState(false);
-  const handleMenuBlur = useCallback(() => {
+  const handleCloseMenu = useCallback(() => {
     setTimeout(() => setIsMenuActive(false), 200);
   }, []);
   const productStore = useProductStore();
@@ -37,7 +37,7 @@ export const App = () => {
 
       <main>
         <ScrollToTop />
-        {isMenu && <Menu onBlur={handleMenuBlur} />}
+        {isMenu && <Menu onCloseMenu={handleCloseMenu} />}
 
         <Outlet />
       </main>

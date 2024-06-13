@@ -8,6 +8,8 @@ import {
 } from '../../helpers/searchHelper';
 import { TySelectOption } from '../../types/SelectOption';
 
+import './ProductDetailsFilters.scss';
+
 export const ProductDetailsFilters = R.memo(
   ({
     products,
@@ -156,14 +158,19 @@ export const ProductDetailsFilters = R.memo(
           <li>
             <DropdownMultiSelect
               placeholder={
-                <div className="flex gap-[8px]">
-                  <img
-                    src="./icons/intersect-square.svg"
-                    alt="intersect-square.svg"
-                  />
-                  <p>ТИП</p>
-                </div>
+                <>
+                  <div className="firstDiv flex gap-[8px]">
+                    <i className="icon icon--intersect-square" />
+                    <p>ТИП</p>
+                  </div>
+
+                  <div className="secondDiv h-full w-fit">
+                    <i className="icon icon--vector2 w-3 h-3" />
+                  </div>
+                </>
               }
+              classBtnContainer='ProductDetailsFilters__item'
+              classBtnActive='ProductDetailsFilters__item--active'
               options={productTypes}
               selectedOptions={selectedTypes}
               onChange={handleTypeChange}
@@ -173,14 +180,19 @@ export const ProductDetailsFilters = R.memo(
           <li>
             <DropdownMultiSelect
               placeholder={
-                <div className="flex gap-[8px]">
-                  <img
-                    src="./icons/globe-01.svg"
-                    alt="globe-01.svg"
-                  />
-                  <p>КРАЇНА</p>
-                </div>
+                <>
+                  <div className="firstDiv flex gap-[8px]">
+                    <i className="icon icon--globe" />
+                    <p>КРАЇНА</p>
+                  </div>
+
+                  <div className="secondDiv h-full w-fit">
+                    <i className="icon icon--vector2 w-3 h-3" />
+                  </div>
+                </>
               }
+              classBtnContainer='ProductDetailsFilters__item'
+              classBtnActive='ProductDetailsFilters__item--active'
               options={productCountries}
               selectedOptions={selectedCountries}
               onChange={handleCountryChange}
@@ -190,14 +202,19 @@ export const ProductDetailsFilters = R.memo(
           <li>
             <DropdownMultiSelect
               placeholder={
-                <div className="flex gap-[8px]">
-                  <img
-                    src="./icons/factory-building.svg"
-                    alt="factory-building.svg"
-                  />
-                  <p>ВИРОБНИК</p>
-                </div>
+                <>
+                  <div className="firstDiv flex gap-[8px]">
+                    <i className="icon icon--factory-building" />
+                    <p>ВИРОБНИК</p>
+                  </div>
+
+                  <div className="secondDiv h-full w-fit">
+                    <i className="icon icon--vector2 w-3 h-3" />
+                  </div>
+                </>
               }
+              classBtnContainer='ProductDetailsFilters__item'
+              classBtnActive='ProductDetailsFilters__item--active'
               options={productProducers}
               selectedOptions={selectedProducers}
               onChange={handleProducerChange}
@@ -207,14 +224,19 @@ export const ProductDetailsFilters = R.memo(
           <li>
             <DropdownMultiSelect
               placeholder={
-                <div className="flex gap-[8px]">
-                  <img
-                    src="./icons/grid-01.svg"
-                    alt="grid-01.svg"
-                  />
-                  <p>КОЛЕКЦІЯ</p>
-                </div>
+                <>
+                  <div className="firstDiv flex gap-[8px]">
+                    <i className="icon icon--grid" />
+                    <p>КОЛЕКЦІЯ</p>
+                  </div>
+
+                  <div className="secondDiv h-full w-fit">
+                    <i className="icon icon--vector2 w-3 h-3" />
+                  </div>
+                </>
               }
+              classBtnContainer='ProductDetailsFilters__item'
+              classBtnActive='ProductDetailsFilters__item--active'
               options={productCollections}
               selectedOptions={selectedCollections}
               onChange={handleCollectionChange}
@@ -224,36 +246,24 @@ export const ProductDetailsFilters = R.memo(
           <li>
             <DropdownMultiSelect
               placeholder={
-                <div className="flex gap-[8px]">
-                  <img
-                    src="./icons/colors.svg"
-                    alt="colors.svg"
-                  />
-                  <p>ТОН</p>
-                </div>
+                <>
+                  <div className="firstDiv flex gap-[8px]">
+                    <i className="icon icon--colors" />
+                    <p className="group-hover/title:text-accent">ТОН</p>
+                  </div>
+
+                  <div className="secondDiv h-full w-fit">
+                    <i className="icon icon--vector2 w-3 h-3" />
+                  </div>
+                </>
               }
+              classBtnContainer='ProductDetailsFilters__item'
+              classBtnActive='ProductDetailsFilters__item--active'
               options={productTones}
               selectedOptions={selectedTones}
               onChange={handleToneChange}
             />
           </li>
-
-          {/* <li>
-            <DropdownMultiSelect
-              placeholder={
-                <div className="flex gap-[8px]">
-                  <img
-                    src="./icons/home-01.svg"
-                    alt="home-01.svg"
-                  />
-                  <p>ПРИМІЩЕННЯ</p>
-                </div>
-              }
-              options={productRooms}
-              selectedOptions={selectedRooms}
-              onChange={handleRoomChange}
-            />
-          </li> */}
         </ul>
 
         <div
@@ -270,8 +280,8 @@ export const ProductDetailsFilters = R.memo(
           w-full h-[50px]
           py-[6px]
           flex justify-center items-center
-          shadow rounded
           transform transition duration-300 hover:scale-105 active:scale-100"
+            // shadow rounded
             // border border-red-300 border-solid
             onClick={() => {
               setSearchWith({

@@ -72,7 +72,7 @@ export const ServiceCard = R.memo(
             {name}
           </h4>
 
-          <p className="title--body-text text-justify">
+          <p className="title--body text-justify">
             {description.slice(0, 130).concat('...')}
           </p>
         </div>

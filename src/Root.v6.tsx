@@ -99,8 +99,6 @@ const router = createBrowserRouter([
                 path: 'orders',
                 children: [
                   { index: true, element: <OrdersTable /> },
-                  // { path: ':id', element: <ServiceEdit /> },
-                  // { path: 'new', element: <ServiceCreate /> },
                 ],
               },
             ]

@@ -23,7 +23,7 @@
     @extend %micro;
     text-align: center;
     line-height: 19px;
-    background-color: $accents-color;
+    background-color: $accent-color;
     color: $white-text-color;
     right: 0;
   }
@@ -106,6 +106,30 @@
 
   &--filter {
     background-image: url(/public/icons/filter-lines.svg);
+  }
+
+  &--intersect-square {
+    background-image: url(/public/icons/intersect-square.svg);
+  }
+
+  &--globe {
+    background-image: url(/public/icons/globe-01.svg);
+  }
+
+  &--factory-building {
+    background-image: url(/public/icons/factory-building.svg);
+  }
+
+  &--grid {
+    background-image: url(/public/icons/grid-01.svg);
+  }
+
+  &--colors {
+    background-image: url(/public/icons/colors.svg);
+  }
+
+  &--home {
+    background-image: url(/public/icons/home-01.svg);
   }
 
   &--vector {

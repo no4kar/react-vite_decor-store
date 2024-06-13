@@ -97,7 +97,7 @@
     justify-content: center;
 
     &--no-alight-center {
-      @include on-tablet{
+      @include on-tablet {
         align-items: normal;
       }
     }
@@ -117,7 +117,7 @@
   &__title-description {
     text-align: center;
 
-    @extend %body-text;
+    @extend %body;
 
     color: $main-black;
     font-size: 15px;
@@ -161,7 +161,7 @@
     gap: 8px;
 
     &__label {
-      @extend %body-text;
+      @extend %body;
 
       font-size: 15px;
       line-height: 22.5px;
@@ -248,7 +248,7 @@
 
   &__checkbox-agreement-label,
   &__checkbox-agreement-button {
-    @extend %body-text;
+    @extend %body;
 
     font-size: 10px;
     line-height: 15px;

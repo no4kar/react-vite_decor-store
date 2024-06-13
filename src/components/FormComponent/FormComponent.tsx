@@ -348,7 +348,7 @@ export const FormComponent = ({
                     render={({ field: { onChange, onBlur }, fieldState }) => (
                       <div className="flex flex-col gap-[8px]">
                         <span
-                          className={cn('form__select-label title--body-text', {
+                          className={cn('form__select-label title--body', {
                             'text-red-500': fieldState.error,
                           })}
                         >

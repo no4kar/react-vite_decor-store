@@ -186,7 +186,10 @@ export const Header: React.FC<Props> = ({ isMenu, toggleMenu }) => {
             </Link>
           </li>
 
-          <li className="header__main-nav-item header__menu">
+          <li className="
+          header__main-nav-item header__menu"
+          // border border-red-300 border-solid
+          >
             <button
               type="button"
               className="header__menu-btn"

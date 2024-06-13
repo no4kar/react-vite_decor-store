@@ -4,22 +4,26 @@ import {
   TyChangeEvtInputElmt, TyMouseEvtButtonElmt
 } from '../../types/General';
 import { TySelectOption } from '../../types/SelectOption';
+import './DropdownMultiSelect.scss';
+
+export default React.memo(DropdownMultiSelect);
 
 function DropdownMultiSelect({
   options,
   selectedOptions = [],
   onChange = () => { },
-  activeClass = 'text-accent',
   placeholder = '',
+  classBtnContainer = 'title--body uppercase',
+  classBtnActive = 'text-accent',
 }: {
   options: TySelectOption[],
   selectedOptions?: string[],
   onChange?: (value: string[]) => void;
-  activeClass?: string,
   placeholder: string | JSX.Element,
+  classBtnContainer?: string,
+  classBtnActive?: string,
 }) {
-  console.info('render');
-
+  // console.info('render');
   const [isOpen, setIsOpen] = useState(false);
 
   const handleExpandChange = (event: TyMouseEvtButtonElmt) => {
@@ -45,28 +49,30 @@ function DropdownMultiSelect({
       <button
         type="button"
         aria-label="dropdown-menu"
-        className="
-        w-full p-[10px]
+        className={cn(`w-full p-[10px]
         flex items-center justify-between
-        border-b border-gray-400
-        "
+        border-b border-gray-400`, {
+          [classBtnContainer]: true,
+          [classBtnActive]: isOpen,
+        })}
         onClick={handleExpandChange}
       >
-        <div
-          className={cn('title--body-text uppercase', {
-            [activeClass]: isOpen,
+        {/* <div
+          className={cn({
+            [classBtnContainer]: true,
+            [classBtnActive]: isOpen,
           })}
-        >
-          {placeholder}
-        </div>
+        > */}
+        {placeholder}
+        {/* </div> */}
 
-        <div
+        {/* <div
           className={cn('h-full w-fit', {
             'transform scale-y-[-1]': isOpen,
           })}
         >
           <i className="icon icon--vector2-blue w-[10px] h-[10px]" />
-        </div>
+        </div> */}
       </button >
 
       {isOpen && (
@@ -90,10 +96,14 @@ function DropdownMultiSelect({
                   type="checkbox"
                   checked={selectedOptions.includes(option.value)}
                   value={option.value}
-                  className="w-6 h-6 cursor-pointer flex-shrink-0"
+                  className="
+                  w-6 h-6 cursor-pointer flex-shrink-0 appearance-none outline-none
+                  border-2 border-solid border-gray-400 rounded
+                  [&:checked]:bg-transparent
+                  styled-checkbox"
                   onChange={handleChange}
                 />
-                <span className="title--body-text">{option.label}</span>
+                <span className="title--body">{option.label}</span>
               </label>
             </li>
           ))}
@@ -102,5 +112,3 @@ function DropdownMultiSelect({
     </div >
   );
 }
-
-export default React.memo(DropdownMultiSelect);

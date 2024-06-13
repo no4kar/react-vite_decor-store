@@ -5,7 +5,7 @@
   border-collapse: collapse;
 
   & th {
-    @extend %h4-style;
+    @extend %h4;
     font-size: 16px;
     text-transform: uppercase;
   }
@@ -129,7 +129,7 @@
   }
 
   &__categories {
-    @extend %body-text;
+    @extend %body;
     font-size: 15px;
     line-height: 23px;
     color: $secondary-color;
@@ -140,7 +140,7 @@
   }
 
   &__id {
-    @extend %body-text;
+    @extend %body;
     font-size: 15px;
     line-height: 23px;
     color: $secondary-color;
@@ -157,22 +157,22 @@
   align-items: center;
   gap: 22px;
 
-  @extend %h4-style;
+  @extend %h4;
   font-size: 13px;
   line-height: 20px;
   color: #818181;
 
 
   &__price {
-    @extend %h3-style;
+    @extend %h3;
     text-transform: uppercase;
     font-size: 20px;
     line-height: 24px;
-    color: $accents-color;
+    color: $accent-color;
   }
 
   &__currency {
-    @extend %h4-style;
+    @extend %h4;
     color: $main-black;
     line-height: 20px;
   }

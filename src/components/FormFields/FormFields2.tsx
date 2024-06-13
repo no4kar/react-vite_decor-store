@@ -36,7 +36,7 @@ export const FormFields2 = <T extends Record<string, any>>({
       {textLabel && (
         <label
           htmlFor={name}
-          className={cn('title title--body-text', {
+          className={cn('title title--body', {
             'formField__label--error': hasError,
             'formField__label--star-after': required,
           })}

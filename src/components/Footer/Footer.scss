@@ -4,7 +4,7 @@
   background-color: $main-black;
   color: $divider-color;
 
-  @extend %body-text;
+  @extend %body;
 
   // &__content {
   //   padding-block: 56px 27px;

@@ -6,7 +6,7 @@
   gap: 8px;
 
   &__label {
-    @extend %body-text;
+    @extend %body;
 
     font-size: 15px;
     line-height: 22.5px;

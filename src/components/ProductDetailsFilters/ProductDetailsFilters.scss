@@ -1,0 +1,38 @@
+@import '../../style/main.scss';
+
+.ProductDetailsFilters {
+  &__item {
+    &--active {
+      &>div[class*='firstDiv'] {
+        &>i[class*='icon'] {
+         @extend %main-to-accent-color;
+        }
+
+        &>p {
+          color: $accent-color;
+        }
+      }
+
+      &>div[class*='secondDiv'] {
+        &>i[class*='icon'] {
+          transform: scaleY(-1);
+          transition: transform;
+         @extend %main-to-accent-color;
+        }
+      }
+    }
+
+    &:hover{
+      &>div {
+        &>i[class*='icon'] {
+          @extend %main-to-accent-color;
+        }
+
+        &>p {
+          color: $accent-color;
+        }
+      }
+    }
+
+  }
+}

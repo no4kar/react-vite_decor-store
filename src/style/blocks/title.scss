@@ -1,46 +1,27 @@
 .title {
-  margin: 0;
-
-  &--mobile {
-    color: $white-text-color;
-    text-transform: uppercase;
-  }
 
   &--h1 {
-    @extend %h1-style;
+    @extend %h1;
   }
 
   &--h2 {
-    @extend %h2-style;
-
-    @include on-tablet {
-      font-size: 40px;
-    }
+    @extend %h2;
   }
 
   &--h3 {
-    @extend %h3-style;
-    font-size: 20px;
-
-    @include on-tablet {
-      font-size: 24px;
-    }
+    @extend %h3;
   }
 
   &--h4 {
-    @extend %h4-style;
-
-    &-main {
-      color: $main-black;
-    }
+    @extend %h4;
   }
 
   &--light {
     @extend %title;
   }
 
-  &--body-text {
-    @extend %body-text;
+  &--body {
+    @extend %body;
   }
 
   &--micro {

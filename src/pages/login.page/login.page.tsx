@@ -65,7 +65,7 @@ export const LoginPage = () => {
         </h2>
 
         <p
-          className="title title--body-text"
+          className="title title--body"
         >
           fill all fields
         </p>

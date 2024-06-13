@@ -52,7 +52,7 @@ export const BasketPage: React.FC = () => {
 
           {!isLoading && !!cartItemsOrder.length && (
             <Button $primary path="/basket/place_an_order">
-              Офрормити замовлення
+              Оформити замовлення
             </Button>
           )}
         </div>

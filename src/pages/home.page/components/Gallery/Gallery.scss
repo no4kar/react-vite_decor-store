@@ -27,7 +27,7 @@
   }
 
   &__title {
-    @extend %h2-style;
+    @extend %h2;
 
     line-height: 120%;
     color: $main-black;
@@ -40,7 +40,7 @@
   }
 
   &__description {
-    @extend %body-text;
+    @extend %body;
 
     text-align: center;
 

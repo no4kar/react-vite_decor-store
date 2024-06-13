@@ -22,7 +22,7 @@ export const Counter = R.memo(
         h-full
         flex-1
         flex justify-center items-center
-        title--body-text"
+        title--body"
         >
           {quantity}
         </div>

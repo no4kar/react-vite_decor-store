@@ -71,12 +71,12 @@ function Component({
             <span className="title--h4 text-black">
               {product.producer}
             </span>
-            <span className="title--body-text text-black">/</span>
-            <span className="title--body-text text-black">
+            <span className="title--body text-black">/</span>
+            <span className="title--body text-black">
               {product.collection}
             </span>
-            <span className="title--body-text text-black">/</span>
-            <span className="title--body-text text-gray-600">
+            <span className="title--body text-black">/</span>
+            <span className="title--body text-gray-600">
               {product.country}
             </span>
           </div>
@@ -85,13 +85,13 @@ function Component({
         <div className="pt-4 flex justify-between">
           <div className="flex flex-wrap gap-2 items-baseline">
             <p className="title--micro text-gray-600">Код товару:</p>
-            <p className="title--body-text text-black">{product.code}</p>
+            <p className="title--body text-black">{product.code}</p>
           </div>
 
           <div className="flex items-baseline">
             <p className="title--micro text-gray-600">Ціна</p>
-            <p className="pl-3 pr-1 text-accent">{product.price}</p>
-            <p className="title--body-text text-black">грн.</p>
+            <p className="title--h4 pl-3 pr-1 text-accent">{product.price}</p>
+            <p className="title--body text-black">грн.</p>
           </div>
         </div>
       </div>

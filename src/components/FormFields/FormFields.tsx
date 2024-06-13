@@ -31,7 +31,7 @@ export const FormFields = ({
   return (
     <div className={cn('formField', `${classContainer}`)}>
       <label
-        className={cn('title title--body-text', {
+        className={cn('title title--body', {
           'formField__label--error': hasError,
           'formField__label--star-after': required,
         })}

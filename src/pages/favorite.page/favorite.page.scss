@@ -41,7 +41,7 @@
     background-color: $background-color;
     margin-bottom: 48px;
 
-    @extend %body-text;
+    @extend %body;
 
     @include on-desktop {
       margin-bottom: 48px;
