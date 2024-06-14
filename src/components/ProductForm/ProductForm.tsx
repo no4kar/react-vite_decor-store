@@ -284,7 +284,7 @@ function Component({
           validation={validation.room}
         />
 
-        <FormFields2
+        <FormFields2<TyProductForForm>
           type="textarea"
           name="description"
           textLabel="Description"
@@ -292,7 +292,7 @@ function Component({
           errors={errors}
         />
 
-        <FormFields2
+        <FormFields2<TyProductForForm>
           type="textarea"
           name="imageUrls"
           textLabel="Images links(space must separate images links)"

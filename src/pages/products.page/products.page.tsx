@@ -254,7 +254,7 @@ export const ProductsPage = ({
               />
             )}
 
-            {!isLoading && !hasError && visibleProducts.length && (
+            {!isLoading && !hasError && visibleProducts.length !== 0 && (
               <div className="grow flex flex-col gap-16">
                 <div
                   className="

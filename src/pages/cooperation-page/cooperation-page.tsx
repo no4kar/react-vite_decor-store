@@ -19,57 +19,61 @@ export const Cooperation: React.FC = () => {
   }, []);
 
   return (
-    <div className="cooperation">
-      <div className="content">
-        <div className="cooperation__nav">
-          <PageNavigation />
+    <div className="py-6 sm:py-20 md:py-24
+      content content__grid gap-y-6 sm:gap-y-10">
+      <div className="col-start-1 col-end-[-1]">
+        <PageNavigation />
+      </div>
+
+      {isLoading &&(
+        <div className="col-start-1 col-end-[-1]">
+          <Loader />
         </div>
+      )}
 
-        {isLoading && <Loader />}
+      {!isLoading && (
+        <>
+          <h2 className="col-span-2 sm:col-span-6 md:col-start-2 md:col-span-7
+          title--h2 text-center sm:text-justify md:text-left">
+            {`Приєднуйтеся до нас сьогодні, щоб разом створювати неповторні і вражаючі інтер'єри для наших клієнтів!`}
+          </h2>
 
-        {!isLoading && (
-          <>
-            <section className="cooperation__first-section">
-              <h2 className="title title--h2 cooperation__first-section-title">
-                {`Приєднуйтеся до нас сьогодні, щоб разом створювати неповторні і вражаючі інтер'єри для наших клієнтів!`}
-              </h2>
-
-              <p className="cooperation__first-section-p">
-                {`
+          <p className="col-span-2 sm:col-span-6 md:col-start-2 md:col-span-5
+          title--body text-justify md:text-left">
+            {`
             Запрошуємо талановитих дизайнерів і майстрів приєднатися до нашої команди для спільного розвитку та успішних проєктів! Ми пропонуємо широкий вибір декоративної штукатурки, шпалер, фарб та фотошпалер від провідних виробників. Ми цінуємо вашу креативність і професіоналізм, тому пропонуємо вам взаємовигідні умови співпраці, що включають конкурентну винагороду, підтримку та можливості для особистого зростання.
             `}
-              </p>
-            </section>
+          </p>
 
-            <section className="cooperation__second-section">
-              <div className="cooperation__second-section-info">
-                <h2 className="title title--h2 cooperation__text-center">
-                  Для більш детальних умов співпраці зв’яжіться з нами:
-                </h2>
+          {/* <section className="cooperation__second-section">
 
-                <div
-                  className="
-              cooperation__second-section-contacts
-              cooperation__text-center"
-                >
-                  <p> Телефон </p>
-                  <p> +38(050)542-81-93 </p>
-                </div>
-              </div>
+          </section> */}
 
-              <img
-                src="./img/cooperation.png"
-                alt="our work"
-                className="cooperation__img"
-              />
-            </section>
+          <div className="col-span-2 sm:col-span-3 md:col-start-2 md:col-span-5
+          self-center flex flex-col items-center sm:items-start"
+          >
+            <h2 className="title--h2 text-center sm:text-left">
+              Для більш детальних умов співпраці зв’яжіться з нами:
+            </h2>
 
-            <div className="cooperation__form">
-              <FormComponent formVersion="sendMessage" />
-            </div>
-          </>
-        )}
-      </div>
+            <p className="mt-8 title--body">Телефон</p>
+            <h3 className="mt-6 title--h3">+38(050)542-81-93</h3>
+          </div>
+
+          <img
+            src="./img/cooperation.png"
+            alt="our work"
+            className="w-fill aspect-square object-contain
+            col-span-2 sm:col-span-3 md:col-start-8 md:col-span-5"
+          />
+
+          <div className="col-start-1 col-end-[-1]
+          md:col-start-2 md:col-end-[-2]"
+          >
+            <FormComponent formVersion="sendMessage" />
+          </div>
+        </>
+      )}
     </div>
   );
 };

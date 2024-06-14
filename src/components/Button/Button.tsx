@@ -36,7 +36,7 @@ export const Button: React.FC<Props> = ({
     <button
       type={type} // eslint-disable-line react/button-has-type
       disabled={!isValid}
-      className={`${buttonClasses} ${primDisable} ${secDisable}`}
+      className={`${buttonClasses} ${primDisable} ${secDisable} h-16`}
       aria-label="contact us"
       onClick={onClick}
     >

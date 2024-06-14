@@ -5,8 +5,9 @@ import { useForm, SubmitHandler, Controller } from 'react-hook-form';
 import Creatable from 'react-select/creatable';
 import cn from 'classnames';
 
-import { FormFields } from '../FormFields/FormFields';
+// import { FormFields } from '../FormFields/FormFields';
 import { MyForm } from '../../types/MyForm';
+import { FormFields2 } from '../FormFields/FormFields2';
 
 import { Button2, Option as Button2Option } from '../Button2';
 
@@ -36,6 +37,14 @@ const cityOptions: TySelectOption[] = [
   { label: 'Харків', value: 'Харків' },
   { label: 'Рівне', value: 'Рівне' },
 ];
+
+const customPlaceholder: R.CSSProperties = {
+  fontFamily: 'manrope_regular',
+  fontWeight: '300',
+  fontSize: '18px',
+  lineHeight: '130%',
+  color: '#d7d7d7',
+};
 
 export const FormComponent = ({
   formVersion,
@@ -213,6 +222,8 @@ export const FormComponent = ({
       onSubmit={handleSubmit(onSubmit)}
       className="form"
     >
+
+      {/* <input style={} /> */}
       <div
         className={cn('form__wrap', {
           'form__wrap--flex-column': isOrderVersion,
@@ -248,7 +259,7 @@ export const FormComponent = ({
 
           <div className="form__group-fields">
             <div className="form__group-inputs">
-              <FormFields
+              <FormFields2<MyForm>
                 type="text"
                 textLabel="Ваше Ім'я"
                 name="firstName"
@@ -261,7 +272,7 @@ export const FormComponent = ({
 
               {isConsultationVersion && (
                 <>
-                  <FormFields
+                  <FormFields2<MyForm>
                     type="tel"
                     name="phoneNumber"
                     textLabel="Номер телефону"
@@ -271,7 +282,7 @@ export const FormComponent = ({
                     required
                   />
 
-                  <FormFields
+                  <FormFields2<MyForm>
                     type="mail"
                     name="email"
                     textLabel="E-mail"
@@ -286,7 +297,7 @@ export const FormComponent = ({
 
               {isSendMassageVersion && (
                 <>
-                  <FormFields
+                  <FormFields2<MyForm>
                     type="tel"
                     name="phoneNumber"
                     textLabel="Номер телефону"
@@ -296,7 +307,7 @@ export const FormComponent = ({
                     required
                   />
 
-                  <FormFields
+                  <FormFields2<MyForm>
                     type="mail"
                     name="email"
                     textLabel="E-mail"
@@ -307,7 +318,7 @@ export const FormComponent = ({
                     required
                   />
 
-                  <FormFields
+                  <FormFields2<MyForm>
                     type="textarea"
                     name="message"
                     textLabel="Повідомлення"
@@ -321,7 +332,7 @@ export const FormComponent = ({
 
               {isOrderVersion && (
                 <>
-                  <FormFields
+                  <FormFields2<MyForm>
                     type="text"
                     textLabel="Ваше Прізвище"
                     name="lastName"
@@ -332,7 +343,7 @@ export const FormComponent = ({
                     placeholder="Прізвище"
                   />
 
-                  <FormFields
+                  <FormFields2<MyForm>
                     type="text"
                     textLabel="По батькові"
                     name="middleName"
@@ -368,6 +379,12 @@ export const FormComponent = ({
                           })}
                           classNamePrefix="form__filter"
                           onBlur={onBlur}
+                          styles={{
+                            placeholder: (provided) => ({
+                              ...provided,
+                              ...customPlaceholder,
+                            }),
+                          }}
                         />
 
                         {fieldState.error && (
@@ -379,7 +396,7 @@ export const FormComponent = ({
                     )}
                   />
 
-                  <FormFields
+                  <FormFields2<MyForm>
                     type="tel"
                     name="phoneNumber"
                     textLabel="Номер телефону"
@@ -389,7 +406,7 @@ export const FormComponent = ({
                     required
                   />
 
-                  <FormFields
+                  <FormFields2<MyForm>
                     type="mail"
                     name="email"
                     textLabel="E-mail"
@@ -400,7 +417,7 @@ export const FormComponent = ({
                     required
                   />
 
-                  <FormFields
+                  <FormFields2<MyForm>
                     type="textarea"
                     name="message"
                     textLabel="Коментар"
@@ -414,7 +431,7 @@ export const FormComponent = ({
             <div className="form__checkbox-agreement">
               <label className="form__checkbox-agreement-label">
                 <input
-                  className="form__checkbox-agreement-input"
+                  className="flex-shrink-0"
                   type="checkbox"
                   value="yes"
                   defaultChecked
@@ -436,14 +453,14 @@ export const FormComponent = ({
                 </button>
               </label>
               {errors.agreement && (
-                <p className="form__checkbox-error-message">
+                <p className="flex flex-wrap title--micro text-red-500">
                   {errors.agreement.message}
                 </p>
               )}
             </div>
 
             {!isOrderVersion && (
-              <div className="h-[48px]">
+              <div className="h-16">
                 <Button2
                   type='submit'
                   option={Button2Option.PRIMARY}
@@ -510,7 +527,7 @@ export const FormComponent = ({
 
           {isOrderVersion && (
             <div className="form__order-group-button">
-              <div className="h-[48px]">
+              <div className="h-16">
                 <Button2
                   path='/'
                   option={Button2Option.SECONDARY}
@@ -519,7 +536,7 @@ export const FormComponent = ({
                 </Button2>
               </div>
 
-              <div className="h-[48px]">
+              <div className="h-16">
                 <Button2
                   type='submit'
                   option={Button2Option.PRIMARY}

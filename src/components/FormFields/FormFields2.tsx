@@ -51,7 +51,8 @@ export const FormFields2 = <T extends Record<string, any>>({
           placeholder={placeholder}
           className="
           h-48 text-black
-          border-b border-black outline-none resize-none"
+          border-b border-black outline-none resize-none
+          title"
           {...register(name, { ...validation })}
         />
       ) : (
@@ -71,7 +72,7 @@ export const FormFields2 = <T extends Record<string, any>>({
       )}
 
       {hasError && (
-        <div className="formField__error">
+        <div className="title--micro text-red-500">
           {(hasError?.message as string) || 'Error!'}
         </div>
       )}

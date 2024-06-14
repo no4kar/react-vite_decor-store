@@ -42,13 +42,12 @@ export const Introduction = () => {
           text-center text-base font-light text-gray-300
           sm:text-left
           md:text-lg"
-          // title--light
           >
             Наш дизайн перетворить будь-який інтер&apos;єр у вишуканий образ,
             втілюючи ваші мрії в реальність
           </p>
 
-          <div className="w-2/3 h-12">
+          <div className="w-2/3 h-16">
             <Button type="button" $primary path="service_decorative">
               Детальніше
             </Button>

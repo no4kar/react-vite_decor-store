@@ -9,7 +9,7 @@ import { AxiosError } from 'axios';
 import { validation } from '../../constants/formValidation';
 import { Button2, Option as Button2Option } from '../../components/Button2';
 import { MyForm } from '../../types/MyForm';
-import { FormFields } from '../../components/FormFields';
+import { FormFields2 } from '../../components/FormFields/FormFields2';
 import { useAdminStore } from '../../store/admin.store';
 import { Loader } from '../../components/Loader';
 
@@ -76,7 +76,7 @@ export const LoginPage = () => {
         : (
           <div className="flex-1">
             <div className="flex flex-col gap-[8px]">
-              <FormFields
+              <FormFields2<MyForm>
                 type="email"
                 textLabel="E-mail"
                 name="email"
@@ -87,7 +87,7 @@ export const LoginPage = () => {
                 placeholder="Email"
               />
 
-              <FormFields
+              <FormFields2<MyForm>
                 type="password"
                 textLabel="Password"
                 name="password"

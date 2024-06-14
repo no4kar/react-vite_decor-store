@@ -131,14 +131,12 @@ export const ProductDetailsPage = () => {
                       border border-solid border-gray-400"
                   />
 
-                  <div className="flex">
-                    <p>Ціна</p>
-
-                    <p className="pl-3 pr-1 text-accent">
+                  <div className="flex items-center gap-3">
+                    <p className="title--h3 text-accent">
                       {selectProduct.price}
                     </p>
 
-                    <p>грн.</p>
+                    <p className="title--body">грн.</p>
                   </div>
                 </div>
 

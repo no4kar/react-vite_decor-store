@@ -57,8 +57,8 @@ export const TableProductsOrder = ({
 
       <div className="totalAmount">
         Сума:
-        <span className="totalAmount__price">{totalPrice}</span>
-        <span className="totalAmount__currency">грн.</span>
+        <span className="totalAmount__price title--h3">{totalPrice}</span>
+        <span className="totalAmount__currency title--body">грн.</span>
       </div>
     </div>
   );

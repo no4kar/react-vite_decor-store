@@ -1,24 +1,24 @@
-.styled-checkbox {
-  // appearance: none;
-  // width: 1.5rem;
-  // height: 1.5rem;
-  // border: 2px solid #d7d7d7;
-  // border-radius: 4px;
-  // position: relative;
-  // cursor: pointer;
-  // outline: none;
+// .styled-checkbox {
+//   // appearance: none;
+//   // width: 1.5rem;
+//   // height: 1.5rem;
+//   // border: 2px solid #d7d7d7;
+//   // border-radius: 4px;
+//   // position: relative;
+//   // cursor: pointer;
+//   // outline: none;
 
-  &:checked {
-    // background-color: transparent;
+//   &:checked {
+//     // background-color: transparent;
 
-    &::before {
-      display: block;
-      content: "";
-      background-image: url('/public/icons/arrow-check.svg');
-      background-position: center;
-      background-repeat: no-repeat;
-      width: 100%;
-      height: 100%;
-     }
-  }
-}
+//     &::before {
+//       display: block;
+//       content: "";
+//       background-image: url('/public/icons/arrow-check.svg');
+//       background-position: center;
+//       background-repeat: no-repeat;
+//       width: 100%;
+//       height: 100%;
+//      }
+//   }
+// }

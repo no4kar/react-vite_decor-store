@@ -57,22 +57,7 @@ function DropdownMultiSelect({
         })}
         onClick={handleExpandChange}
       >
-        {/* <div
-          className={cn({
-            [classBtnContainer]: true,
-            [classBtnActive]: isOpen,
-          })}
-        > */}
         {placeholder}
-        {/* </div> */}
-
-        {/* <div
-          className={cn('h-full w-fit', {
-            'transform scale-y-[-1]': isOpen,
-          })}
-        >
-          <i className="icon icon--vector2-blue w-[10px] h-[10px]" />
-        </div> */}
       </button >
 
       {isOpen && (
@@ -96,11 +81,12 @@ function DropdownMultiSelect({
                   type="checkbox"
                   checked={selectedOptions.includes(option.value)}
                   value={option.value}
-                  className="
-                  w-6 h-6 cursor-pointer flex-shrink-0 appearance-none outline-none
-                  border-2 border-solid border-gray-400 rounded
-                  [&:checked]:bg-transparent
-                  styled-checkbox"
+                  className="flex-shrink-0"
+                  // className="
+                  // w-6 h-6 cursor-pointer flex-shrink-0 appearance-none outline-none
+                  // border-2 border-solid border-gray-400 rounded
+                  // [&:checked]:bg-transparent
+                  // styled-checkbox"
                   onChange={handleChange}
                 />
                 <span className="title--body">{option.label}</span>

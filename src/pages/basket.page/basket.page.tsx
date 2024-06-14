@@ -45,7 +45,7 @@ export const BasketPage: React.FC = () => {
           </section>
         )}
 
-        <div className="basket__buttons">
+        <div className="basket__buttons h-16">
           <Button $secondary path="..">
             Продовжити покупки
           </Button>
