@@ -56,7 +56,7 @@ export const AboutUsPage: React.FC = () => {
         </div>
       </div>
 
-      <div className="col-span-2 sm:col-span-3 md:col-start-7 md:col-end-[-1]">
+      <div className="col-span-2 sm:col-span-3 md:col-start-7 md:col-span-5">
         <FormComponent2 formVersion="consultation" />
       </div>
     </div>

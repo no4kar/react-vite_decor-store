@@ -34,7 +34,7 @@ export const Header: React.FC<Props> = ({ isMenu, toggleMenu }) => {
     sm:py-4"
     >
       <nav className="content flex justify-between">
-        <Link to="/">
+        <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth', })}>
           <i
             className="
             icon icon--logo-header

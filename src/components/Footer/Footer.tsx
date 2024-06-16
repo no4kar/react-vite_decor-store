@@ -19,8 +19,11 @@ export const Footer = () => {
       sm:pt-14
       md:pt-16"
       >
-        {/* <div className="footer__top"> */}
-        <Link to="/" className="footer__logo h-fit col-span-2">
+        <Link
+          to="/"
+          className="footer__logo h-fit col-span-2"
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth', })}
+        >
           <i
             className="
             icon icon--logo
