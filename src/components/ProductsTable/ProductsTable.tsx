@@ -39,7 +39,7 @@ export const ProductsTable = R.memo(
           {products.sort((a, b) => (b.id - a.id)).map(product => (
             <tr
               key={product.id}
-              className='group/row hover:bg-slate-100'
+              className='group/row hover:bg-slate-100 title--body'
             >
               <td className="border px-2 py-2">{product.id}</td>
               <td className="border px-2 py-2">{product.categoryId}</td>

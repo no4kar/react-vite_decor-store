@@ -1,13 +1,18 @@
 import create from 'zustand';
 import { getClient } from '../utils/local.client';
-import { TyService } from '../types/Services';
 import { compareObjectProperties } from '../helpers/common.func';
 
-export type TyCartItem
-  = TyService & {
-    price: number;
-    [key: string]: number | number[] | string | string[];
-  };
+export type TyCartItem = {
+  id: number;
+  categoryId: number;
+  name: string;
+  description: string;
+  imageUrl: string[];
+  price: number;
+  type: string;
+  code: string;
+  [key: string]: number | number[] | string | string[];
+};
 export type TyInCartItem = TyCartItem & { quantity: number; };
 
 function isInCartItem(item: any) {
@@ -18,6 +23,8 @@ function isInCartItem(item: any) {
     description: '',
     imageUrl: [''],
     price: 0,
+    type: '',
+    code: '',
     quantity: 0,
   };
 

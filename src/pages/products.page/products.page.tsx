@@ -16,7 +16,7 @@ import { ProductDetailsFilters } from '../../components/ProductDetailsFilters';
 import { PaginatedComponent } from '../../components/PaginatedComponent';
 
 import './products.page.scss';
-import { NotFoundPage } from '../not-found-page';
+import { NotFoundPage } from '../not-found.page';
 
 const perPage = 9;
 

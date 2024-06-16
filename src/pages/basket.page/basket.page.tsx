@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Button } from '../../components/Button';
 import { useCartStore } from '../../store/cart.store';
 import { Loader } from '../../components/Loader';
 import { TableProductsBasket } from './table.product.baskets';
 import './basket.page.scss';
+import { Button2, Option as Button2Option } from '../../components/Button2';
 
 export const BasketPage: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -45,15 +45,52 @@ export const BasketPage: React.FC = () => {
           </section>
         )}
 
-        <div className="basket__buttons h-16">
-          <Button $secondary path="..">
-            Продовжити покупки
-          </Button>
+        <div className="mt-16 flex flex-col gap-5
+        sm:flex-row sm:justify-between sm:mt-24">
+          <div className="w-full h-16 sm:w-[310px] md:w-[420px]">
+            <Button2
+              path='/'
+              option={Button2Option.SECONDARY}
+            >
+              <span
+                className="
+          group-hover:-translate-x-[5px] transition duration-300"
+              >
+                Продовжити покупки
+              </span>
+
+              <span
+                className="
+          w-6 text-3xl
+          group-hover:-translate-x-[-5px] transition duration-300"
+              >
+                &#8594;
+              </span>
+            </Button2>
+          </div>
 
           {!isLoading && !!cartItemsOrder.length && (
-            <Button $primary path="/basket/place_an_order">
-              Оформити замовлення
-            </Button>
+            <div className="w-full h-16 sm:w-[310px] md:w-[420px]">
+              <Button2
+                path='/basket/place_an_order'
+                option={Button2Option.PRIMARY}
+              >
+                <span
+                  className="
+          group-hover:-translate-x-[5px] transition duration-300"
+                >
+                  Оформити замовлення
+                </span>
+
+                <span
+                  className="
+          w-6 text-3xl
+          group-hover:-translate-x-[-5px] transition duration-300"
+                >
+                  &#8594;
+                </span>
+              </Button2>
+            </div>
           )}
         </div>
       </div>

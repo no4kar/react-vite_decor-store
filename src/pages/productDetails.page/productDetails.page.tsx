@@ -15,7 +15,7 @@ import { ButtonFavorite } from '../../components/ButtonFavorite';
 import { Button2, Option as Button2Option } from '../../components/Button2';
 import { Counter } from '../../components/Counter';
 import { Slider2 } from '../../components/Slider2';
-import { NotFoundPage } from '../not-found-page';
+import { NotFoundPage } from '../not-found.page';
 import { TyProduct } from '../../types/Products';
 
 export const ProductDetailsPage = () => {
@@ -78,7 +78,7 @@ export const ProductDetailsPage = () => {
                   {selectProduct.name}
                 </h3>
 
-                <p className="grow text-black whitespace-pre-wrap text-justify">
+                <p className="grow title--body text-black whitespace-pre-wrap text-justify">
                   {selectProduct.description}
                 </p>
 
@@ -113,7 +113,7 @@ export const ProductDetailsPage = () => {
               <div // Interact
                 className="
                 grow"
-                // border border-solid border-blue-400
+              // border border-solid border-blue-400
               >
                 <div // Counter
                   className="

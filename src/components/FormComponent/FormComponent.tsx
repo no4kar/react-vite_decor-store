@@ -360,7 +360,7 @@ export const FormComponent = ({
                       <div className="flex flex-col gap-[8px]">
                         <span
                           className={cn('form__select-label title--body', {
-                            'text-red-500': fieldState.error,
+                            'text-red': fieldState.error,
                           })}
                         >
                           Місто
@@ -375,7 +375,7 @@ export const FormComponent = ({
                             onChange(val?.value);
                           }}
                           className={cn('form__filter-container', {
-                            'text-red-500': fieldState.error,
+                            'text-red': fieldState.error,
                           })}
                           classNamePrefix="form__filter"
                           onBlur={onBlur}
@@ -388,7 +388,7 @@ export const FormComponent = ({
                         />
 
                         {fieldState.error && (
-                          <span className="text-red-500">
+                          <span className="text-red">
                             {fieldState.error.message}
                           </span>
                         )}
@@ -453,7 +453,7 @@ export const FormComponent = ({
                 </button>
               </label>
               {errors.agreement && (
-                <p className="flex flex-wrap title--micro text-red-500">
+                <p className="flex flex-wrap title--micro text-red">
                   {errors.agreement.message}
                 </p>
               )}
@@ -477,14 +477,14 @@ export const FormComponent = ({
                       <Notification
                         classContainer={cn('w-[250px] h-fit p-[10px] pr-[30px]', {
                           'bg-system-success': msg.status === Status.SUCCESS,
-                          'bg-red-500': msg.status === Status.ERROR,
+                          'bg-red': msg.status === Status.ERROR,
                         })}
                         onDelay={() => setMsg({
                           status: Status.NONE,
                           description: '',
                         })}
                       >
-                        <p>{msg.description}</p>
+                        <p className='title--body'>{msg.description}</p>
                       </Notification>
                     </div>
                   </div>
@@ -532,7 +532,20 @@ export const FormComponent = ({
                   path='/'
                   option={Button2Option.SECONDARY}
                 >
-                  Продовжити покупки
+                  <span
+                    className="
+          group-hover:-translate-x-[5px] transition duration-300"
+                  >
+                    Продовжити покупки
+                  </span>
+
+                  <span
+                    className="
+          w-6 text-3xl
+          group-hover:-translate-x-[-5px] transition duration-300"
+                  >
+                    &#8594;
+                  </span>
                 </Button2>
               </div>
 
@@ -551,14 +564,14 @@ export const FormComponent = ({
                       <Notification
                         classContainer={cn('w-[250px] h-fit p-[10px] pr-[30px]', {
                           'bg-system-success': msg.status === Status.SUCCESS,
-                          'bg-red-500': msg.status === Status.ERROR,
+                          'bg-red': msg.status === Status.ERROR,
                         })}
                         onDelay={() => setMsg({
                           status: Status.NONE,
                           description: '',
                         })}
                       >
-                        <p>{msg.description}</p>
+                        <p className='title--body'>{msg.description}</p>
                       </Notification>
                     </div>
                   </div>

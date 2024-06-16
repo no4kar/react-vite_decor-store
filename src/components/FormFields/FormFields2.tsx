@@ -63,7 +63,7 @@ export const FormFields2 = <T extends Record<string, any>>({
           className={cn(
             'h-45 py-3 border-b border-black outline-none text-black',
             {
-              'text-red-500': hasError,
+              'text-red': hasError,
             },
 
           )}
@@ -72,7 +72,7 @@ export const FormFields2 = <T extends Record<string, any>>({
       )}
 
       {hasError && (
-        <div className="title--micro text-red-500">
+        <div className="title--micro text-red">
           {(hasError?.message as string) || 'Error!'}
         </div>
       )}

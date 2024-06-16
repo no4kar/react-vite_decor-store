@@ -11,7 +11,7 @@ import { Button2 } from '../../components/Button2';
 
 import './serviceDetails.page.scss';
 import { Slider2 } from '../../components/Slider2';
-import { NotFoundPage } from '../not-found-page';
+import { NotFoundPage } from '../not-found.page';
 
 
 export const ServiceDetailsPage = Component;
@@ -62,8 +62,8 @@ function Component() {
               flex flex-col gap-8
               md:flex-col
               md:w-2/5"
-              // sm:flex-row sm:gap-6
-              // border border-solid border-blue-400
+            // sm:flex-row sm:gap-6
+            // border border-solid border-blue-400
             // shadow rounded
             >
               <div className="
@@ -75,7 +75,7 @@ function Component() {
                 </h3>
 
                 <p className="grow
-                  text-black whitespace-pre-wrap text-justify"
+                title--body text-black whitespace-pre-wrap text-justify"
                 >
                   {selectService.description}
                 </p>

@@ -3,7 +3,7 @@ import * as RRD from 'react-router-dom';
 import { TyService } from '../../types/Services';
 import { serviceApi } from '../../api/service.api';
 import { Loader } from '../Loader';
-import { NotFoundPage } from '../../pages/not-found-page';
+import { NotFoundPage } from '../../pages/not-found.page';
 import { ServiceForm } from './ServiceForm';
 
 export const ServiceEdit = R.memo(Component);

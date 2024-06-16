@@ -291,3 +291,16 @@
     }
   }
 }
+
+@keyframes expandHeightFrom0ToAuto {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 15px;
+  }
+}
+
+.animate-expand {
+  animation: expandHeightFrom0ToAuto $effect-duration-slow;
+}

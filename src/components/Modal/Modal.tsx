@@ -21,7 +21,7 @@ export const Modal: React.FC<ModalInfo> = ({ isOpen, onClose, text }) => {
             &times;
           </span>
 
-          <h3 className="title title--h3">{text?.title}</h3>
+          <h3 className="title--h3">{text?.title}</h3>
 
           {text?.description?.split('\n').map(line => (
             <li key={line} className="modal__description text-justify">

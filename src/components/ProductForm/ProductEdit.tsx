@@ -3,7 +3,7 @@ import * as RRD from 'react-router-dom';
 import { TyProduct } from '../../types/Products';
 import { productApi } from '../../api/product.api';
 import { Loader } from '../Loader';
-import { NotFoundPage } from '../../pages/not-found-page';
+import { NotFoundPage } from '../../pages/not-found.page';
 import { ProductForm } from './ProductForm';
 
 export const ProductEdit = R.memo(Component);

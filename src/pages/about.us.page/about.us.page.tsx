@@ -1,74 +1,63 @@
-import React, { useEffect, useRef, useState } from 'react';
 import { PageNavigation } from '../../components/PageNavigation';
-import { FormComponent } from '../../components/FormComponent';
-import { initialDelayLoader } from '../../constants/initialDelayLoader';
+import { FormComponent2 } from '../../components/FormComponent/FormComponent2';
 import './about.us.page.scss';
-import { Loader } from '../../components/Loader';
 
 export const AboutUsPage: React.FC = () => {
-  const [isLoading, setIsLoading] = useState(false);
-  const timerId = useRef(0);
-
-  useEffect(() => {
-    setIsLoading(true);
-    window.clearTimeout(timerId.current);
-
-    timerId.current = window.setTimeout(() => {
-      setIsLoading(false);
-    }, initialDelayLoader);
-  }, []);
-
   return (
-    <div className="aboutUsPage">
-      <div className="content">
-        <div className="aboutUsPage__nav">
-          <PageNavigation />
-        </div>
+    <div className="py-6 sm:py-20 md:py-24
+      content content__grid gap-y-6 sm:gap-y-10 md:gap-y-16">
+      <div className="col-start-1 col-end-[-1]">
+        <PageNavigation />
+      </div>
 
-        {isLoading && <Loader />}
+      <article className="col-span-2 sm:col-start-2 sm:col-span-5
+          md:col-start-2 md:col-span-5 md:self-center">
+        <div className="flex flex-col gap-8">
+          <h1 className="title--h1">
+            {` Хто ми такі? `}
+          </h1>
 
-        {!isLoading && (
-          <>
-            <section className="aboutUsPage__info">
-              <article className="aboutUsPage__first-article">
-                <h1 className="title title--h1 aboutUsPage__title">
-                  {` Хто ми такі? `}
-                </h1>
-
-                <p>
-                  Ми - компанія професіоналів.
-                  <br />
-                  {`
+          <p className="title--body">
+            Ми - компанія професіоналів.
+            <br />
+            {`
               Наш основний вид діяльності - нанесення та розробка декоративних покриттів будь-якої складності.
             `}
-                  <br />
-                  Працюємо у м. Київ та область. Виїзд Україною за домовленістю.
-                </p>
-              </article>
+            <br />
+            Працюємо у м. Київ та область. Виїзд Україною за домовленістю.
+          </p>
+        </div>
+      </article>
 
-              <article className="aboutUsPage__second-article">
-                <img
-                  src="./img/about-us.png"
-                  alt="It is me"
-                  className="aboutUsPage__img"
-                />
+      <img
+        src="./img/about-us.png"
+        alt="It is me"
+        className="w-full aspect-square object-contain
+            col-span-2 sm:col-span-3 md:col-start-1 md:col-span-5"
+      />
 
-                <div className="description">
-                  <p>
-                    {` Всі роботи представлені на сайті зроблені виключно нашими майстрами. `}
-                  </p>
-                  <br />
-                  <p>
-                    {` Також розробляємо декоративні техніки нанесення покриттів індивідуально під проект дизайнера.
+      <div className="col-span-2 self-center sm:col-span-3
+          md:col-start-7 md:col-span-5">
+        <p className="title--body">
+          {` Всі роботи представлені на сайті зроблені виключно нашими майстрами. `}
+        </p>
+        <br />
+        <p className="title--body">
+          {` Також розробляємо декоративні техніки нанесення покриттів індивідуально під проект дизайнера.
                 Професійне фарбування стель, ліпнини, великих площин, фасадів, фактурних, рельєфних поверхонь, методом напилення. `}
-                  </p>
-                </div>
-              </article>
-            </section>
+        </p>
+      </div>
 
-            <FormComponent formVersion="consultation" />
-          </>
-        )}
+      <div className="col-span-2 self-center sm:col-span-3
+          md:col-start-2 md:col-span-4">
+        <div className="flex flex-col gap-8">
+          <h2 className="title--h2">Замовити консультацію</h2>
+          <p className="title--body">Заповніть форму і ми зв’яжемося з вами найближчим часом</p>
+        </div>
+      </div>
+
+      <div className="col-span-2 sm:col-span-3 md:col-start-7 md:col-end-[-1]">
+        <FormComponent2 formVersion="consultation" />
       </div>
     </div>
   );

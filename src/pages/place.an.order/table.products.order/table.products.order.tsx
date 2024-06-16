@@ -35,11 +35,11 @@ export const TableProductsOrder = ({
                   />
 
                   <div className="mainInfo__info">
-                    <p className="mainInfo__categories">{product.name}</p>
+                    <p className="mainInfo__categories">{product.type}</p>
                     <p className="mainInfo__name">{product.name}</p>
                     <p className="mainInfo__id">
                       Код товару
-                      <span className="mainInfo__id-code">{`   ${product.id}`}</span>
+                      <span className="mainInfo__id-code">{` ${product.code}`}</span>
                     </p>
                   </div>
                 </div>
@@ -57,7 +57,7 @@ export const TableProductsOrder = ({
 
       <div className="totalAmount">
         Сума:
-        <span className="totalAmount__price title--h3">{totalPrice}</span>
+        <span className="totalAmount__price title--h3 text-accent">{totalPrice}</span>
         <span className="totalAmount__currency title--body">грн.</span>
       </div>
     </div>

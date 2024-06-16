@@ -318,14 +318,14 @@ function Component({
               <Notification
                 classContainer={cn('w-[250px] h-fit p-4 pr-8', {
                   'bg-system-success': msg.status === Status.SUCCESS,
-                  'bg-red-500': msg.status === Status.ERROR,
+                  'bg-red': msg.status === Status.ERROR,
                 })}
                 onDelay={() => setMsg({
                   status: Status.NONE,
                   description: '',
                 })}
               >
-                <p>{msg.description}</p>
+                <p className='title--body'>{msg.description}</p>
               </Notification>
             </div>
           </div>

@@ -3,7 +3,9 @@ import { useNavigate } from 'react-router-dom';
 
 import { Loader } from "../../components/Loader";
 
-export const NotFoundPage = ({
+export const NotFoundPage = R.memo(Component);
+
+function Component({
   title = 'Page not found',
   navigateTo,
   classContainer = 'content min-h-96',
@@ -11,7 +13,7 @@ export const NotFoundPage = ({
   title?: string;
   navigateTo?: string;
   classContainer?: string;
-}) => {
+}){
   const navigate = useNavigate();
 
   R.useEffect(() => {
@@ -38,4 +40,4 @@ export const NotFoundPage = ({
       )}
     </div>
   );
-};
+}

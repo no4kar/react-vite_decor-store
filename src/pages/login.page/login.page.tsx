@@ -58,14 +58,13 @@ export const LoginPage = () => {
           flex flex-col gap-[24px] items-center justify-center"
       >
         <h2
-          className="
-            title title--h2"
+          className="title--h2"
         >
           LOGIN AS ADMIN
         </h2>
 
         <p
-          className="title title--body"
+          className="title--body text-red"
         >
           fill all fields
         </p>
@@ -101,7 +100,7 @@ export const LoginPage = () => {
           </div>
         )}
 
-      <div className="h-[48px]">
+      <div className="h-[48px] title--h2">
         <Button2
           type='submit'
           option={Button2Option.PRIMARY}
@@ -109,38 +108,7 @@ export const LoginPage = () => {
         >
           {isSubmitting ? 'Logging in...' : 'Log in'}
         </Button2>
-
-        {/* {msg.description && (
-            <div className="relative w-0 h-0">
-              <div className="absolute top-1">
-                <Notification
-                  msg={msg.description}
-                  classContainer={cn('w-[250px] h-fit p-[10px] pr-[30px]', {
-                    'bg-green-300': msg.status === Status.SUCCESS,
-                    'bg-red-300': msg.status === Status.ERROR,
-                  })}
-                  onDelay={() => setMsg({
-                    status: Status.NONE,
-                    description: '',
-                  })}
-                />
-              </div>
-            </div>
-          )} */}
       </div>
-      {/* <div className="mb-4">
-          <button
-            type="submit"
-            className={cn('button', 'w-full', 'bg-green-500', 'text-white', 'font-bold', 'py-2', 'rounded', 'focus:outline-none', 'focus:shadow-outline', {
-              'opacity-50 cursor-not-allowed': isSubmitting,
-            })}
-            disabled={isSubmitting || isValid}
-          >
-            {isSubmitting ? 'Logging in...' : 'Log in'}
-          </button>
-        </div> */}
-
-      {/* <p className="text-sm">Do not have an account? <Link to="/sign-up" className="text-blue-500">Sign up</Link></p> */}
     </form>
   );
 };

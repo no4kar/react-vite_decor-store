@@ -21,9 +21,7 @@ export default {
           500: '#bdbdbd',
           600: '#898989',
         },
-        'red': {
-          500: '#e70303',
-        },
+        'red': '#e70303',
         'accent': '#007fe1',
         'system': {
           'success': '#00d36e',

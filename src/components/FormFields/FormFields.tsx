@@ -51,7 +51,7 @@ export const FormFields = ({
             'border-b border-black',
             'outline-none text-black',
             {
-              'text-red-500': hasError,
+              'text-red': hasError,
             })}
           type={type}
           placeholder={placeholder}

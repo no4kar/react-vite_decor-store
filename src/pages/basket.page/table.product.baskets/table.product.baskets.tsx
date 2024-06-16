@@ -38,11 +38,11 @@ export const TableProductsBasket = ({
                   />
 
                   <div className="mainInfo__info">
-                    <p className="mainInfo__categories">{product.name}</p>
+                    <p className="mainInfo__categories">{product.type}</p>
                     <p className="mainInfo__name">{product.name}</p>
                     <p className="mainInfo__id">
                       Код товару
-                      <span className="mainInfo__id-code">{`   ${product.id}`}</span>
+                      <span className="mainInfo__id-code">{` ${product.code}`}</span>
                     </p>
                   </div>
                 </div>
