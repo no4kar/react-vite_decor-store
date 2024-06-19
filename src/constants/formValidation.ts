@@ -17,7 +17,7 @@ export const validation: {
     required: 'Будь ласка, введіть своє ім’я!',
     pattern: {
       value: /^[\p{L}']+$/u,
-      message: 'Write your name correct',
+      message: 'Write your name correct(one word, no space)',
     },
     maxLength: {
       value: 20,
@@ -28,7 +28,7 @@ export const validation: {
     required: 'Будь ласка, введіть своє прізвище!',
     pattern: {
       value: /^[\p{L}']+$/u,
-      message: 'Write your lastName correct',
+      message: 'Write your lastName correct(one word, no space)',
     },
     maxLength: {
       value: 20,

@@ -3,7 +3,7 @@ import cn from 'classnames';
 
 import { ProductCategory, TyProduct } from '../../types/Products';
 import { useFavoriteStore } from '../../store/favourite.store';
-import { Button2 } from '../Button2';
+import { Button } from '../Button';
 
 export const ProductCard = R.memo(Component);
 
@@ -99,7 +99,7 @@ function Component({
       <div
         className="h-16 mt-auto"
       >
-        <Button2
+        <Button
           path={`/${pathname}/${product.id}`}
         >
           <span
@@ -116,7 +116,7 @@ function Component({
           >
             &#8594;
           </span>
-        </Button2>
+        </Button>
       </div>
     </div>
   );

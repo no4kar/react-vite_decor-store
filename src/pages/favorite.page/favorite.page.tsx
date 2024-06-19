@@ -5,7 +5,7 @@ import { ServiceCard } from '../../components/ServiceCard';
 import { useFavoriteStore } from '../../store/favourite.store';
 
 import './favorite.page.scss';
-import { Button2, Option as Button2Option } from '../../components/Button2';
+import { Button } from '../../components/Button';
 import { ProductCard } from '../../components/ProductCard';
 import { TyProduct } from '../../types/Products';
 
@@ -80,9 +80,9 @@ export const FavoritePage = () => {
         <div
           className="h-16"
         >
-          <Button2
+          <Button
             path='/'
-            option={Button2Option.SECONDARY}
+            option='secondary'
           >
             <span
               className="
@@ -98,7 +98,7 @@ export const FavoritePage = () => {
             >
               &#8594;
             </span>
-          </Button2>
+          </Button>
         </div>
       </div>
     </div>

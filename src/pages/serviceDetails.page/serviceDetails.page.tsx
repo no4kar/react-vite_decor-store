@@ -6,8 +6,7 @@ import { Loader } from '../../components/Loader';
 import { TyService } from '../../types/Services';
 import { serviceApi } from '../../api/service.api';
 import { ButtonFavorite } from '../../components/ButtonFavorite';
-import { Button2 } from '../../components/Button2';
-// import { useServiceStore } from '../../store/service.store';
+import { Button } from '../../components/Button';
 
 import './serviceDetails.page.scss';
 import { Slider2 } from '../../components/Slider2';
@@ -94,7 +93,7 @@ function Component() {
                   sm:h-16
                   md:w-auto"
               >
-                <Button2
+                <Button
                   onClick={() => {
                     navigate('/contacts', { state: { from: window.location.href } });
                   }}
@@ -113,7 +112,7 @@ function Component() {
                   >
                     &#8594;
                   </span>
-                </Button2>
+                </Button>
 
                 <ButtonFavorite selectProduct={selectService} />
               </div>

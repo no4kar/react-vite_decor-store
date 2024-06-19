@@ -7,7 +7,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { AxiosError } from 'axios';
 // import cn from 'classnames';
 import { validation } from '../../constants/formValidation';
-import { Button2, Option as Button2Option } from '../../components/Button2';
+import { Button } from '../../components/Button';
 import { MyForm } from '../../types/MyForm';
 import { FormFields2 } from '../../components/FormFields/FormFields2';
 import { useAdminStore } from '../../store/admin.store';
@@ -101,13 +101,13 @@ export const LoginPage = () => {
         )}
 
       <div className="h-[48px] title--h2">
-        <Button2
+        <Button
           type='submit'
-          option={Button2Option.PRIMARY}
+          option='primary'
           isDisable={!isValid}
         >
           {isSubmitting ? 'Logging in...' : 'Log in'}
-        </Button2>
+        </Button>
       </div>
     </form>
   );

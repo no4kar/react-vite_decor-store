@@ -3,7 +3,7 @@ import cn from 'classnames';
 
 import { ServiceCategory, TyService } from '../../types/Services';
 import { useFavoriteStore } from '../../store/favourite.store';
-import { Button2 } from '../Button2';
+import { Button } from '../Button';
 
 export const ServiceCard = R.memo(
   ({
@@ -80,7 +80,7 @@ export const ServiceCard = R.memo(
         <div
           className="h-16 mt-auto"
         >
-          <Button2
+          <Button
             path={`/${pathname}/${id}`}
           >
             <span
@@ -97,7 +97,7 @@ export const ServiceCard = R.memo(
             >
               &#8594;
             </span>
-          </Button2>
+          </Button>
         </div>
       </div>
     );

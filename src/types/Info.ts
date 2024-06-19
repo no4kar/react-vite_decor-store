@@ -6,6 +6,7 @@ export interface TyInfo {
 export enum Status {
   NONE,
   SUCCESS,
+  WARN,
   ERROR,
 }
 

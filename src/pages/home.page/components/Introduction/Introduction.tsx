@@ -47,9 +47,26 @@ export const Introduction = () => {
             втілюючи ваші мрії в реальність
           </p>
 
-          <div className="w-2/3 h-16">
-            <Button type="button" $primary path="service_decorative">
-              Детальніше
+          <div
+            className="w-2/3 h-16"
+          >
+            <Button
+              path='service_decorative'
+            >
+              <span
+                className="
+          group-hover:-translate-x-[5px] transition duration-300"
+              >
+                Детальніше
+              </span>
+
+              <span
+                className="
+          w-[26px] text-3xl
+          group-hover:-translate-x-[-5px] transition duration-300"
+              >
+                &#8594;
+              </span>
             </Button>
           </div>
         </div>

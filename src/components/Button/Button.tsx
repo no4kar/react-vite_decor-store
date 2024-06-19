@@ -1,47 +1,56 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import cn from 'classnames';
+
 import './Button.scss';
 
-interface Props {
-  type?: 'reset' | 'submit' | 'button';
-  children: React.ReactNode;
-  $primary?: boolean;
-  $secondary?: boolean;
-  isValid?: boolean;
-  path?: string;
+enum Option {
+  PRIMARY = 'primary',
+  SECONDARY = 'secondary',
 }
 
-export const Button: React.FC<Props> = ({
+export const Button = ({
   children,
-  type,
-  $primary,
-  $secondary,
-  isValid = true,
+  type = 'button',
   path,
+  onClick = () => { },
+  option = Option.PRIMARY,
+  isDisable = false,
+  classContainer = "group w-full h-full px-[8px] flex justify-center items-center gap-[10px]"
+}: {
+  children: React.ReactNode;
+  type?: 'reset' | 'submit' | 'button';
+  path?: string;
+  onClick?: () => void;
+  option?: `${Option}`;
+  isDisable?: boolean;
+  classContainer?: string;
 }) => {
   const navigate = useNavigate();
-  const buttonClasses = `Button${$primary ? ' Button--primary' : ''}${
-    $secondary ? ' Button--secondary' : ''
-  }`;
-  const primDisable = !isValid && $primary ? 'Button--primary-disabled' : '';
-  const secDisable = !isValid && $secondary ? 'Button--secondary-disabled' : '';
 
-  const onClick = () => {
+  const handleClick = () => {
+    onClick();
+
     if (path) {
-      navigate(`${path}`);
+      navigate(path);
     }
   };
 
   return (
     <button
       type={type} // eslint-disable-line react/button-has-type
-      disabled={!isValid}
-      className={`${buttonClasses} ${primDisable} ${secDisable} h-16`}
-      aria-label="contact us"
-      onClick={onClick}
+      disabled={isDisable}
+      className={cn('Button', {
+        [classContainer]: true,
+        'Button__primary': option === Option.PRIMARY,
+        'Button__secondary': option === Option.SECONDARY,
+        'Button__primary--disabled': isDisable && option === Option.PRIMARY,
+        'Button__secondary--disabled': isDisable && option === Option.SECONDARY,
+      })}
+      aria-label={path}
+      onClick={handleClick}
     >
-      <span className="Button__text">{children}</span>
-      <span className="Button__arrow">&#8594;</span>
+      {children}
     </button>
   );
 };

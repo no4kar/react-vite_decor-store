@@ -12,7 +12,7 @@ import './productDetails.page.scss';
 
 import { productApi } from '../../api/product.api';
 import { ButtonFavorite } from '../../components/ButtonFavorite';
-import { Button2, Option as Button2Option } from '../../components/Button2';
+import { Button } from '../../components/Button';
 import { Counter } from '../../components/Counter';
 import { Slider2 } from '../../components/Slider2';
 import { NotFoundPage } from '../not-found.page';
@@ -149,8 +149,8 @@ export const ProductDetailsPage = () => {
                     h-12 md:h-16
                   flex gap-3"
                   >
-                    <Button2
-                      option={Button2Option.SECONDARY}
+                    <Button
+                      option='secondary'
                       onClick={() => {
                         navigate('/contacts', { state: { from: window.location.href } });
                       }}
@@ -169,7 +169,7 @@ export const ProductDetailsPage = () => {
                       >
                         &#8594;
                       </span>
-                    </Button2>
+                    </Button>
 
                     <ButtonFavorite selectProduct={selectProduct} />
                   </div>
@@ -177,7 +177,7 @@ export const ProductDetailsPage = () => {
                   <div // InCart button
                     className="h-12 md:h-16"
                   >
-                    <Button2
+                    <Button
                       path="/basket"
                       onClick={() => inCartAdd(selectProduct, quantity || 1)}
                     >
@@ -195,7 +195,7 @@ export const ProductDetailsPage = () => {
                       >
                         &#8594;
                       </span>
-                    </Button2>
+                    </Button>
                   </div>
                 </div>
               </div>

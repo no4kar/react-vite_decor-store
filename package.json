@@ -11,7 +11,7 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 && npm run lint-css",
     "lint-css": "stylelint './src/**/*.{scss,css}'",
     "preview": "vite preview --port 5173",
-    "deploy": "npm run build && gh-pages -d dist"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@types/axios": "^0.14.0",

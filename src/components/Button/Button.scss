@@ -1,43 +1,9 @@
 @import '../../style/utils';
 
 .Button {
-  height: 48px;
-  width: 100%;
-  padding: 8px 32px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  font-size: 18px;
-
   @extend %button;
 
-  @include on-tablet {
-    height: 60px;
-    font-size: 20px;
-  }
-
-  @include on-desktop {
-  }
-
-  &__arrow {
-    font-family: none;
-    font-size: 26px;
-  }
-
-  &:hover {
-    .Button__text {
-      transform: translateX(-10px);
-      transition: 0.3s;
-    }
-
-    .Button__arrow {
-      transform: translateX(10px);
-      transition: 0.3s;
-    }
-  }
-
-  &--primary {
+  &__primary {
     border: 1px solid $secondary-color;
     background-color: $main-black;
     color: $white-text-color-button;
@@ -52,7 +18,7 @@
       border: 1px solid $main-black;
     }
 
-    &-disabled {
+    &--disabled {
       pointer-events: none;
       background-color: $secondary-color;
       color: $white-text-color-button;
@@ -60,7 +26,7 @@
     }
   }
 
-  &--secondary {
+  &__secondary {
     color: $main-black;
     background-color: $white-text-color-button;
     border: 1px solid $main-black;
@@ -78,7 +44,7 @@
       border: 1px solid $secondary-color;
     }
 
-    &-disabled {
+    &--disabled {
       pointer-events: none;
       color: $secondary-color;
       border: 1px solid $secondary-color;

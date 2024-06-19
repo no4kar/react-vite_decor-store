@@ -3,7 +3,7 @@ import { useCartStore } from '../../store/cart.store';
 import { Loader } from '../../components/Loader';
 import { TableProductsBasket } from './table.product.baskets';
 import './basket.page.scss';
-import { Button2, Option as Button2Option } from '../../components/Button2';
+import { Button } from '../../components/Button';
 
 export const BasketPage: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -48,9 +48,9 @@ export const BasketPage: React.FC = () => {
         <div className="mt-16 flex flex-col gap-5
         sm:flex-row sm:justify-between sm:mt-24">
           <div className="w-full h-16 sm:w-[310px] md:w-[420px]">
-            <Button2
+            <Button
               path='/'
-              option={Button2Option.SECONDARY}
+              option='secondary'
             >
               <span
                 className="
@@ -66,14 +66,14 @@ export const BasketPage: React.FC = () => {
               >
                 &#8594;
               </span>
-            </Button2>
+            </Button>
           </div>
 
           {!isLoading && !!cartItemsOrder.length && (
             <div className="w-full h-16 sm:w-[310px] md:w-[420px]">
-              <Button2
+              <Button
                 path='/basket/place_an_order'
-                option={Button2Option.PRIMARY}
+                option='primary'
               >
                 <span
                   className="
@@ -89,7 +89,7 @@ export const BasketPage: React.FC = () => {
                 >
                   &#8594;
                 </span>
-              </Button2>
+              </Button>
             </div>
           )}
         </div>

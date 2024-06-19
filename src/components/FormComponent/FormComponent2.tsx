@@ -8,8 +8,8 @@ import cn from 'classnames';
 // import { FormFields } from '../FormFields/FormFields';
 import { MyForm } from '../../types/MyForm';
 import { FormFields2 } from '../FormFields/FormFields2';
-
-import { Button2, Option as Button2Option } from '../Button2';
+import { Button } from '../Button';
+import { Loader } from '../Loader';
 
 import { formApi } from '../../api/form.api';
 import { validation } from '../../constants/formValidation';
@@ -50,11 +50,14 @@ export const FormComponent2 = R.memo(Component);
 
 function Component({
   formVersion,
+  children,
 }: {
   formVersion: keyof typeof formVersionData;
+  children?: R.ReactNode;
 }) {
   const [selectedCity, setSelectedCity] = R.useState<TySelectOption | null>(null);
   const [isModalOpen, setIsModalOpen] = R.useState(false);
+  const [isLoading, setIsLoading] = R.useState(false);
   const [msg, setMsg]
     = R.useState<OutcomeReport>({ status: Status.NONE, description: '', });
   const [description, setDescription] = R.useState({
@@ -62,7 +65,10 @@ function Component({
     description: '',
   });
   const location = useLocation();
-  const { items: inCartItems } = useCartStore();
+  const {
+    items: inCartItems,
+    removeAll: removeAllCartItems,
+  } = useCartStore();
 
   const isOrderVersion = formVersion === FormVersion.ORDER;
   const isSendMassageVersion = formVersion === FormVersion.SEND_MESSAGE;
@@ -87,6 +93,7 @@ function Component({
 
   const onSubmit: SubmitHandler<MyForm> = data => {
     // console.log(data);
+    setIsLoading(true);
 
     switch (formVersion) {
       case FormVersion.CONSULTATION: {
@@ -117,7 +124,8 @@ function Component({
               status: Status.ERROR,
               description: 'Може спробуєте трохи пізніше',
             });
-          });
+          })
+          .finally(() => setIsLoading(false));
 
         break;
       }
@@ -151,7 +159,8 @@ function Component({
               status: Status.ERROR,
               description: 'Може спробуєте трохи пізніше',
             });
-          });
+          })
+          .finally(() => setIsLoading(false));
 
         break;
       }
@@ -181,6 +190,8 @@ function Component({
               Відповідть відправлення до ${response.data?.email}
               `,
             });
+
+            removeAllCartItems();
           })
           .catch((error) => {
             if (error.message) {
@@ -196,7 +207,8 @@ function Component({
               status: Status.ERROR,
               description: 'Може спробуєте трохи пізніше',
             });
-          });
+          })
+          .finally(() => setIsLoading(false));
 
         break;
       }
@@ -207,6 +219,7 @@ function Component({
           description: 'Something went wrong',
         });
 
+        setIsLoading(false);
         break;
       }
     }
@@ -355,7 +368,7 @@ function Component({
                     />
 
                     {fieldState.error && (
-                      <span className="text-red">
+                      <span className="title--micro text-red">
                         {fieldState.error.message}
                       </span>
                     )}
@@ -434,15 +447,21 @@ function Component({
 
         {!isOrderVersion && (
           <div className="h-16">
-            <Button2
+            <Button
               type='submit'
-              option={Button2Option.PRIMARY}
+              option='primary'
               isDisable={!isValid}
             >
-              {isConsultationVersion
-                ? 'Передзвоніть мені'
-                : 'Надіслати'}
-            </Button2>
+              {isConsultationVersion && !isLoading && (
+                'Передзвоніть мені'
+              )}
+
+              {isSendMassageVersion && !isLoading && (
+                'Надіслати'
+              )}
+
+              {isLoading && (<Loader />)}
+            </Button>
 
             {msg.status !== Status.NONE && (
               <div className="relative w-0 h-0">
@@ -472,6 +491,8 @@ function Component({
             'm-0 p-0 border border-solid border-red': true,
           })}
         >
+          <div>{children}</div>
+
           <div className="flex flex-col">
             <RadioButtonGroup
               title="Доставка"
@@ -491,23 +512,26 @@ function Component({
           </div>
 
           <div className="form__order-group-button">
-            <div className="h-16">
-              <Button2
+            <div className="h-16 grow">
+              <Button
                 path='/'
-                option={Button2Option.SECONDARY}
+                option='secondary'
               >
                 Продовжити покупки
-              </Button2>
+              </Button>
             </div>
 
-            <div className="h-16">
-              <Button2
+            <div className="h-16 grow">
+              <Button
                 type='submit'
-                option={Button2Option.PRIMARY}
+                option='primary'
                 isDisable={!isValid}
               >
-                Підтвердити замовлення
-              </Button2>
+                {isOrderVersion && !isLoading && (
+                  'Підтвердити замовлення'
+                )}
+                {isLoading && (<Loader />)}
+              </Button>
 
               {msg.status !== Status.NONE && (
                 <div className="relative w-0 h-0">

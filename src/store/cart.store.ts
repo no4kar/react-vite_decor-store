@@ -39,6 +39,7 @@ type CartState = {
   decrease: (item: TyCartItem) => void;
   add: (item: TyCartItem, quantity?: TyInCartItem['quantity']) => void;
   remove: (item: TyCartItem) => void;
+  removeAll: () => void;
 };
 
 export const useCartStore = create<CartState>((set) => ({
@@ -116,6 +117,7 @@ export const useCartStore = create<CartState>((set) => ({
     };
   }),
 
+  removeAll: () => set({ items: [] }),
 }));
 
 // const items = useItemsStore((state) => state.items);

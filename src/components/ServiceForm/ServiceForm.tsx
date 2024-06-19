@@ -7,7 +7,7 @@ import { adminApi } from '../../api/admin.api';
 import { TyService, TyServiceForForm } from '../../types/Services';
 import { OutcomeReport, Status } from '../../types/Info';
 import { Notification } from '../Notification';
-import { Button2, Option as Button2Option } from '../Button2';
+import { Button } from '../Button';
 import { validation } from '../../constants/formAdminValidation';
 
 enum FormVersion {
@@ -215,15 +215,15 @@ function Component({
       </div>
 
       <div className="h-12">
-        <Button2
+        <Button
           type='submit'
-          option={Button2Option.PRIMARY}
+          option='primary'
           isDisable={!isValid}
         >
           {(!isSubmitting && !isLoading)
             ? 'Submit'
             : 'Submitting...'}
-        </Button2>
+        </Button>
 
         {msg.status !== Status.NONE && (
           <div className="relative w-0 h-0">
