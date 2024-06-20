@@ -5,9 +5,8 @@ import { useForm, SubmitHandler, Controller } from 'react-hook-form';
 import Creatable from 'react-select/creatable';
 import cn from 'classnames';
 
-// import { FormFields } from '../FormFields/FormFields';
 import { MyForm } from '../../types/MyForm';
-import { FormFields2 } from '../FormFields/FormFields2';
+import { FormField } from '../FormField/FormField';
 import { Loader } from '../Loader';
 import { Button } from '../Button';
 
@@ -15,15 +14,15 @@ import { formApi } from '../../api/form.api';
 import { validation } from '../../constants/formValidation';
 import { Modal } from '../Modal';
 import { delivery, payOption } from '../../constants/radioOptions';
-import { RadioButtonGroup } from '../RadioButtonGroup/RadioButtonGroup';
+import { RadioButton } from '../RadioButton';
 import { formVersionData } from '../../constants/formVersionData';
-import { Notification } from '../Notification';
 import { useCartStore } from '../../store/cart.store';
 import { TySelectOption } from '../../types/SelectOption';
 import { OutcomeReport, Status } from '../../types/Info';
 import { article } from '../../constants/footerData';
 
 import './FormComponent.scss';
+import { StatusNotification } from '../Notification/StatusNotification';
 
 enum FormVersion {
   CONSULTATION = 'consultation',
@@ -233,15 +232,13 @@ export const FormComponent = ({
       onSubmit={handleSubmit(onSubmit)}
       className="form"
     >
-
-      {/* <input style={} /> */}
       <div
-        className={cn('form__wrap', {
-          'form__wrap--flex-column': isOrderVersion,
+        className={cn('flex justify-center', {
+          'flex-col sm:flex-row sm:gap-5 sm:flex-grow sm:flex-shrink sm:basis-0': isOrderVersion,
         })}
       >
         <div
-          className={cn('form__first-part', {
+          className={cn('flex flex-col gap-8', {
             'form__first-part--consultation': isConsultationVersion,
             'form__first-part--order': isOrderVersion,
             'form__first-part--sendMessage': isSendMassageVersion,
@@ -270,7 +267,7 @@ export const FormComponent = ({
 
           <div className="form__group-fields">
             <div className="form__group-inputs">
-              <FormFields2<MyForm>
+              <FormField<MyForm>
                 type="text"
                 textLabel="Ваше Ім'я"
                 name="firstName"
@@ -283,7 +280,7 @@ export const FormComponent = ({
 
               {isConsultationVersion && (
                 <>
-                  <FormFields2<MyForm>
+                  <FormField<MyForm>
                     type="tel"
                     name="phoneNumber"
                     textLabel="Номер телефону"
@@ -293,7 +290,7 @@ export const FormComponent = ({
                     required
                   />
 
-                  <FormFields2<MyForm>
+                  <FormField<MyForm>
                     type="mail"
                     name="email"
                     textLabel="E-mail"
@@ -308,7 +305,7 @@ export const FormComponent = ({
 
               {isSendMassageVersion && (
                 <>
-                  <FormFields2<MyForm>
+                  <FormField<MyForm>
                     type="tel"
                     name="phoneNumber"
                     textLabel="Номер телефону"
@@ -318,7 +315,7 @@ export const FormComponent = ({
                     required
                   />
 
-                  <FormFields2<MyForm>
+                  <FormField<MyForm>
                     type="mail"
                     name="email"
                     textLabel="E-mail"
@@ -329,7 +326,7 @@ export const FormComponent = ({
                     required
                   />
 
-                  <FormFields2<MyForm>
+                  <FormField<MyForm>
                     type="textarea"
                     name="message"
                     textLabel="Повідомлення"
@@ -343,7 +340,7 @@ export const FormComponent = ({
 
               {isOrderVersion && (
                 <>
-                  <FormFields2<MyForm>
+                  <FormField<MyForm>
                     type="text"
                     textLabel="Ваше Прізвище"
                     name="lastName"
@@ -354,7 +351,7 @@ export const FormComponent = ({
                     placeholder="Прізвище"
                   />
 
-                  <FormFields2<MyForm>
+                  <FormField<MyForm>
                     type="text"
                     textLabel="По батькові"
                     name="middleName"
@@ -407,7 +404,7 @@ export const FormComponent = ({
                     )}
                   />
 
-                  <FormFields2<MyForm>
+                  <FormField<MyForm>
                     type="tel"
                     name="phoneNumber"
                     textLabel="Номер телефону"
@@ -417,7 +414,7 @@ export const FormComponent = ({
                     required
                   />
 
-                  <FormFields2<MyForm>
+                  <FormField<MyForm>
                     type="mail"
                     name="email"
                     textLabel="E-mail"
@@ -428,7 +425,7 @@ export const FormComponent = ({
                     required
                   />
 
-                  <FormFields2<MyForm>
+                  <FormField<MyForm>
                     type="textarea"
                     name="message"
                     textLabel="Коментар"
@@ -489,22 +486,23 @@ export const FormComponent = ({
                 </Button>
 
                 {msg.status !== Status.NONE && (
-                  <div className="relative w-0 h-0">
-                    <div className="absolute top-1">
-                      <Notification
-                        classContainer={cn('w-[250px] h-fit p-[10px] pr-[30px]', {
-                          'bg-system-success': msg.status === Status.SUCCESS,
-                          'bg-red': msg.status === Status.ERROR,
-                        })}
-                        onDelay={() => setMsg({
-                          status: Status.NONE,
-                          description: '',
-                        })}
-                      >
-                        <p className='title--body'>{msg.description}</p>
-                      </Notification>
-                    </div>
-                  </div>
+                  <StatusNotification msg={msg} setMsg={setMsg} />
+                  // <div className="relative w-0 h-0">
+                  //   <div className="absolute top-1">
+                  //     <Notification
+                  //       classContainer={cn('w-[250px] h-fit p-[10px] pr-[30px]', {
+                  //         'bg-system-success': msg.status === Status.SUCCESS,
+                  //         'bg-red': msg.status === Status.ERROR,
+                  //       })}
+                  //       onDelay={() => setMsg({
+                  //         status: Status.NONE,
+                  //         description: '',
+                  //       })}
+                  //     >
+                  //       <p className='title--body'>{msg.description}</p>
+                  //     </Notification>
+                  //   </div>
+                  // </div>
                 )}
               </div>
             )}
@@ -523,7 +521,7 @@ export const FormComponent = ({
           <div className="form__group-radio">
             {isOrderVersion && (
               <>
-                <RadioButtonGroup
+                <RadioButton
                   title="Доставка"
                   options={delivery}
                   name="delivery"
@@ -531,7 +529,7 @@ export const FormComponent = ({
                   validation={validation.delivery}
                 />
 
-                <RadioButtonGroup
+                <RadioButton
                   title="Оплата"
                   options={payOption}
                   name="payOption"
@@ -579,22 +577,23 @@ export const FormComponent = ({
                 </Button>
 
                 {msg.status !== Status.NONE && (
-                  <div className="relative w-0 h-0">
-                    <div className="absolute top-1">
-                      <Notification
-                        classContainer={cn('w-[250px] h-fit p-[10px] pr-[30px]', {
-                          'bg-system-success': msg.status === Status.SUCCESS,
-                          'bg-red': msg.status === Status.ERROR,
-                        })}
-                        onDelay={() => setMsg({
-                          status: Status.NONE,
-                          description: '',
-                        })}
-                      >
-                        <p className='title--body'>{msg.description}</p>
-                      </Notification>
-                    </div>
-                  </div>
+                  <StatusNotification msg={msg} setMsg={setMsg} />
+                  // <div className="relative w-0 h-0">
+                  //   <div className="absolute top-1">
+                  //     <Notification
+                  //       classContainer={cn('w-[250px] h-fit p-[10px] pr-[30px]', {
+                  //         'bg-system-success': msg.status === Status.SUCCESS,
+                  //         'bg-red': msg.status === Status.ERROR,
+                  //       })}
+                  //       onDelay={() => setMsg({
+                  //         status: Status.NONE,
+                  //         description: '',
+                  //       })}
+                  //     >
+                  //       <p className='title--body'>{msg.description}</p>
+                  //     </Notification>
+                  //   </div>
+                  // </div>
                 )}
               </div>
             </div>

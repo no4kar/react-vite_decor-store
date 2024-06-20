@@ -6,9 +6,9 @@ import {
   Path,
 } from 'react-hook-form';
 import cn from 'classnames';
-import './FormFields.scss';
+import './FormField.scss';
 
-export const FormFields2 = <T extends Record<string, any>>({
+export const FormField = <T extends Record<string, any>>({
   type,
   textLabel,
   name,

@@ -1,7 +1,7 @@
 import { UseFormRegister, RegisterOptions } from 'react-hook-form';
 import React from 'react';
 import { DeliveryOption, MyForm } from '../../types/MyForm';
-import './RadioButtonGroup.scss';
+import './RadioButton.scss';
 
 type Props = {
   options: DeliveryOption[];
@@ -11,7 +11,7 @@ type Props = {
   title: string;
 };
 
-export const RadioButtonGroup: React.FC<Props> = ({
+export const RadioButton: React.FC<Props> = ({
   title,
   options,
   name,
@@ -31,7 +31,7 @@ export const RadioButtonGroup: React.FC<Props> = ({
               value={option.value}
               {...register(name, { ...validation })}
               onBlur={
-                register(name, { ...validation, onBlur: () => {} }).onBlur
+                register(name, { ...validation, onBlur: () => { } }).onBlur
               }
             />
             <span>{option.value}</span>

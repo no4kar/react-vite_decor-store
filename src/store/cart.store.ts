@@ -117,7 +117,14 @@ export const useCartStore = create<CartState>((set) => ({
     };
   }),
 
-  removeAll: () => set({ items: [] }),
+  removeAll: () => set(() => {
+
+    localClient.write([]);
+
+    return {
+      items: [],
+    };
+  }),
 }));
 
 // const items = useItemsStore((state) => state.items);

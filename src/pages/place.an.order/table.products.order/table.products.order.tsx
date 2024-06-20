@@ -15,7 +15,7 @@ export const TableProductsOrder = ({
 
   return (
     <div className="TableProductsOrder">
-      <table className="table">
+      <table className="table overflow-scroll">
         <thead className="table__thead table__thead--hiden">
           <tr className="table__tr table__tr--flex">
             <th>Товари в кошику</th>

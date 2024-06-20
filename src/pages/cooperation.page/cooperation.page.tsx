@@ -40,12 +40,6 @@ export const Cooperation: React.FC = () => {
             col-span-2 sm:col-span-3 md:col-start-8 md:col-span-5"
       />
 
-      {/* <div className="col-start-1 col-end-[-1]
-          md:col-start-2 md:col-end-[-2]"
-      >
-        <FormComponent formVersion="sendMessage" />
-      </div> */}
-
       <div className="col-span-2 self-center sm:col-span-3
           md:col-start-2 md:col-span-4">
         <div className="flex flex-col gap-8">

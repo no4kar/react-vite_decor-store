@@ -5,9 +5,8 @@ import { useForm, SubmitHandler, Controller } from 'react-hook-form';
 import Creatable from 'react-select/creatable';
 import cn from 'classnames';
 
-// import { FormFields } from '../FormFields/FormFields';
 import { MyForm } from '../../types/MyForm';
-import { FormFields2 } from '../FormFields/FormFields2';
+import { FormField } from '../FormField';
 import { Button } from '../Button';
 import { Loader } from '../Loader';
 
@@ -15,15 +14,15 @@ import { formApi } from '../../api/form.api';
 import { validation } from '../../constants/formValidation';
 import { Modal } from '../Modal';
 import { delivery, payOption } from '../../constants/radioOptions';
-import { RadioButtonGroup } from '../RadioButtonGroup/RadioButtonGroup';
+import { RadioButton } from '../RadioButton';
 import { formVersionData } from '../../constants/formVersionData';
-import { Notification } from '../Notification';
 import { useCartStore } from '../../store/cart.store';
 import { TySelectOption } from '../../types/SelectOption';
 import { OutcomeReport, Status } from '../../types/Info';
 import { article } from '../../constants/footerData';
 
 import './FormComponent.scss';
+import { StatusNotification } from '../Notification/StatusNotification';
 
 enum FormVersion {
   CONSULTATION = 'consultation',
@@ -58,8 +57,10 @@ function Component({
   const [selectedCity, setSelectedCity] = R.useState<TySelectOption | null>(null);
   const [isModalOpen, setIsModalOpen] = R.useState(false);
   const [isLoading, setIsLoading] = R.useState(false);
-  const [msg, setMsg]
-    = R.useState<OutcomeReport>({ status: Status.NONE, description: '', });
+  const [msg, setMsg] = R.useState<OutcomeReport>({
+    status: Status.NONE,
+    description: '',
+  });
   const [description, setDescription] = R.useState({
     title: '',
     description: '',
@@ -233,13 +234,24 @@ function Component({
       noValidate
       autoComplete="off"
       onSubmit={handleSubmit(onSubmit)}
-      className={cn('flex justify-center', {
-        'flex-col sm:flex-row': isOrderVersion,
+      className={cn({
+        'flex justify-center': !isOrderVersion,
+        'content__grid gap-y-8 sm:gap-y-16 md:gap-y-0': isOrderVersion,
       })}
     >
-      <div className="grow flex flex-col gap-9">
-        <div className="flex flex-col gap-6">
-          <FormFields2<MyForm>
+      <div
+        className={cn('flex flex-col gap-9',
+          // 'border border-solid border-red',
+          {
+            'flex-grow': !isOrderVersion,
+            'col-span-2 sm:col-span-6 md:col-start-1 md:col-span-5': isOrderVersion,
+          })}
+      >
+        <div // Form fields
+          className="flex flex-col gap-6"
+        // border border-solid border-red"
+        >
+          <FormField<MyForm>
             type="text"
             textLabel="Ваше Ім'я"
             name="firstName"
@@ -252,7 +264,7 @@ function Component({
 
           {isConsultationVersion && (
             <>
-              <FormFields2<MyForm>
+              <FormField<MyForm>
                 type="tel"
                 name="phoneNumber"
                 textLabel="Номер телефону"
@@ -262,7 +274,7 @@ function Component({
                 required
               />
 
-              <FormFields2<MyForm>
+              <FormField<MyForm>
                 type="mail"
                 name="email"
                 textLabel="E-mail"
@@ -277,7 +289,7 @@ function Component({
 
           {isSendMassageVersion && (
             <>
-              <FormFields2<MyForm>
+              <FormField<MyForm>
                 type="tel"
                 name="phoneNumber"
                 textLabel="Номер телефону"
@@ -287,7 +299,7 @@ function Component({
                 required
               />
 
-              <FormFields2<MyForm>
+              <FormField<MyForm>
                 type="mail"
                 name="email"
                 textLabel="E-mail"
@@ -298,7 +310,7 @@ function Component({
                 required
               />
 
-              <FormFields2<MyForm>
+              <FormField<MyForm>
                 type="textarea"
                 name="message"
                 textLabel="Повідомлення"
@@ -312,7 +324,7 @@ function Component({
 
           {isOrderVersion && (
             <>
-              <FormFields2<MyForm>
+              <FormField<MyForm>
                 type="text"
                 textLabel="Ваше Прізвище"
                 name="lastName"
@@ -323,7 +335,7 @@ function Component({
                 placeholder="Прізвище"
               />
 
-              <FormFields2<MyForm>
+              <FormField<MyForm>
                 type="text"
                 textLabel="По батькові"
                 name="middleName"
@@ -376,7 +388,7 @@ function Component({
                 )}
               />
 
-              <FormFields2<MyForm>
+              <FormField<MyForm>
                 type="tel"
                 name="phoneNumber"
                 textLabel="Номер телефону"
@@ -386,7 +398,7 @@ function Component({
                 required
               />
 
-              <FormFields2<MyForm>
+              <FormField<MyForm>
                 type="mail"
                 name="email"
                 textLabel="E-mail"
@@ -397,7 +409,7 @@ function Component({
                 required
               />
 
-              <FormFields2<MyForm>
+              <FormField<MyForm>
                 type="textarea"
                 name="message"
                 textLabel="Коментар"
@@ -408,7 +420,9 @@ function Component({
           )}
         </div>
 
-        <div className="flex flex-col gap-2">
+        <div // Agreement on processing of personal data
+          className="flex flex-col gap-2"
+        >
           <label className="flex gap-1 items-center title--micro">
             <input
               className="flex-shrink-0"
@@ -434,7 +448,6 @@ function Component({
           </label>
 
           <p className={cn('title--micro text-red overflow-hidden',
-            // 'border border-solid border-red',
             'transition-all duration-500 ease-in-out',
             {
               'h-0': !errors.agreement,
@@ -464,22 +477,7 @@ function Component({
             </Button>
 
             {msg.status !== Status.NONE && (
-              <div className="relative w-0 h-0">
-                <div className="absolute top-1">
-                  <Notification
-                    classContainer={cn('w-[250px] h-fit p-[10px] pr-[30px]', {
-                      'bg-system-success': msg.status === Status.SUCCESS,
-                      'bg-red': msg.status === Status.ERROR,
-                    })}
-                    onDelay={() => setMsg({
-                      status: Status.NONE,
-                      description: '',
-                    })}
-                  >
-                    <p className='title--body'>{msg.description}</p>
-                  </Notification>
-                </div>
-              </div>
+              <StatusNotification msg={msg} setMsg={setMsg} />
             )}
           </div>
         )}
@@ -487,14 +485,35 @@ function Component({
 
       {isOrderVersion && (
         <div
-          className={cn('flex flex-col', {
-            'm-0 p-0 border border-solid border-red': true,
-          })}
+          className={cn('flex flex-col gap-8 sm:gap-16',
+            // 'border border-solid border-red',
+            'col-span-2 sm:col-span-6 md:col-start-7 md:col-span-6',
+          )}
         >
-          <div>{children}</div>
+          <div
+          // className='border border-solid border-red'
+          >
+            {children}
+          </div>
 
-          <div className="flex flex-col">
-            <RadioButtonGroup
+          <RadioButton
+            title="Доставка"
+            options={delivery}
+            name="delivery"
+            register={register}
+            validation={validation.delivery}
+          />
+
+          <RadioButton
+            title="Оплата"
+            options={payOption}
+            name="payOption"
+            register={register}
+            validation={validation.payOption}
+          />
+
+          {/* <div className="flex flex-col gap-10">
+            <RadioButton
               title="Доставка"
               options={delivery}
               name="delivery"
@@ -502,17 +521,17 @@ function Component({
               validation={validation.delivery}
             />
 
-            <RadioButtonGroup
+            <RadioButton
               title="Оплата"
               options={payOption}
               name="payOption"
               register={register}
               validation={validation.payOption}
             />
-          </div>
+          </div> */}
 
-          <div className="form__order-group-button">
-            <div className="h-16 grow">
+          <div className="flex gap-6 flex-col sm:flex-row">
+            <div className="h-16 flex-grow sm:flex-1">
               <Button
                 path='/'
                 option='secondary'
@@ -521,7 +540,7 @@ function Component({
               </Button>
             </div>
 
-            <div className="h-16 grow">
+            <div className="h-16 flex-grow sm:flex-1">
               <Button
                 type='submit'
                 option='primary'
@@ -534,22 +553,7 @@ function Component({
               </Button>
 
               {msg.status !== Status.NONE && (
-                <div className="relative w-0 h-0">
-                  <div className="absolute top-1">
-                    <Notification
-                      classContainer={cn('w-[250px] h-fit p-[10px] pr-[30px]', {
-                        'bg-system-success': msg.status === Status.SUCCESS,
-                        'bg-red': msg.status === Status.ERROR,
-                      })}
-                      onDelay={() => setMsg({
-                        status: Status.NONE,
-                        description: '',
-                      })}
-                    >
-                      <p className='title--body'>{msg.description}</p>
-                    </Notification>
-                  </div>
-                </div>
+                <StatusNotification msg={msg} setMsg={setMsg} />
               )}
             </div>
           </div>

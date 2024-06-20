@@ -16,7 +16,7 @@ export const Button = ({
   onClick = () => { },
   option = Option.PRIMARY,
   isDisable = false,
-  classContainer = "group w-full h-full px-[8px] flex justify-center items-center gap-[10px]"
+  classContainer = "group w-full h-full flex justify-center items-center gap-[10px]"
 }: {
   children: React.ReactNode;
   type?: 'reset' | 'submit' | 'button';

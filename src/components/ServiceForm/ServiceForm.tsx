@@ -1,14 +1,13 @@
 import * as R from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
-import cn from 'classnames';
-import { FormFields2 } from '../FormFields/FormFields2';
+import { FormField } from '../FormField/FormField';
 import { adminApi } from '../../api/admin.api';
 import { TyService, TyServiceForForm } from '../../types/Services';
 import { OutcomeReport, Status } from '../../types/Info';
-import { Notification } from '../Notification';
 import { Button } from '../Button';
 import { validation } from '../../constants/formAdminValidation';
+import { StatusNotification } from '../Notification/StatusNotification';
 
 enum FormVersion {
   EDIT = 'edit',
@@ -166,7 +165,7 @@ function Component({
         <h1 className="title--h1">{service ? `Edit ID=${service.id}` : 'New'}</h1>
 
         {service !== null && (
-          <FormFields2<TyServiceForForm>
+          <FormField<TyServiceForForm>
             type="number"
             textLabel="ID"
             name='id'
@@ -177,7 +176,7 @@ function Component({
           />
         )}
 
-        <FormFields2<TyServiceForForm>
+        <FormField<TyServiceForForm>
           type="text"
           textLabel="Name"
           name="name"
@@ -187,7 +186,7 @@ function Component({
           validation={validation.name}
         />
 
-        <FormFields2<TyServiceForForm>
+        <FormField<TyServiceForForm>
           type="number"
           textLabel="CategoryId"
           name="categoryId"
@@ -197,7 +196,7 @@ function Component({
           validation={validation.categoryId}
         />
 
-        <FormFields2<TyServiceForForm>
+        <FormField<TyServiceForForm>
           type="textarea"
           name="description"
           textLabel="Description"
@@ -205,7 +204,7 @@ function Component({
           errors={errors}
         />
 
-        <FormFields2<TyServiceForForm>
+        <FormField<TyServiceForForm>
           type="textarea"
           name="imageUrls"
           textLabel="Images links(space must separate images links)"
@@ -226,22 +225,23 @@ function Component({
         </Button>
 
         {msg.status !== Status.NONE && (
-          <div className="relative w-0 h-0">
-            <div className="absolute top-1">
-              <Notification
-                classContainer={cn('w-[250px] h-fit p-4 pr-8', {
-                  'bg-system-success': msg.status === Status.SUCCESS,
-                  'bg-red': msg.status === Status.ERROR,
-                })}
-                onDelay={() => setMsg({
-                  status: Status.NONE,
-                  description: '',
-                })}
-              >
-                <p>{msg.description}</p>
-              </Notification>
-            </div>
-          </div>
+          <StatusNotification msg={msg} setMsg={setMsg} />
+          // <div className="relative w-0 h-0">
+          //   <div className="absolute top-1">
+          //     <Notification
+          //       classContainer={cn('w-[250px] h-fit p-4 pr-8', {
+          //         'bg-system-success': msg.status === Status.SUCCESS,
+          //         'bg-red': msg.status === Status.ERROR,
+          //       })}
+          //       onDelay={() => setMsg({
+          //         status: Status.NONE,
+          //         description: '',
+          //       })}
+          //     >
+          //       <p>{msg.description}</p>
+          //     </Notification>
+          //   </div>
+          // </div>
         )}
       </div>
     </form >

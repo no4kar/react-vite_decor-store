@@ -1,14 +1,13 @@
 import * as R from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
-import cn from 'classnames';
-import { FormFields2 } from '../FormFields/FormFields2';
+import { FormField } from '../FormField/FormField';
 import { adminApi } from '../../api/admin.api';
 import { TyProduct, TyProductForForm } from '../../types/Products';
 import { OutcomeReport, Status } from '../../types/Info';
-import { Notification } from '../Notification';
 import { Button } from '../Button';
 import { validation } from '../../constants/formAdminValidation';
+import { StatusNotification } from '../Notification/StatusNotification';
 
 enum FormVersion {
   EDIT = 'edit',
@@ -173,7 +172,7 @@ function Component({
         <h1 className="title--h1">{product ? `Edit ID=${product.id}` : 'New'}</h1>
 
         {product !== null && (
-          <FormFields2<TyProductForForm>
+          <FormField<TyProductForForm>
             type="number"
             textLabel="ID"
             name='id'
@@ -184,7 +183,7 @@ function Component({
           />
         )}
 
-        <FormFields2<TyProductForForm>
+        <FormField<TyProductForForm>
           type="text"
           textLabel="Name"
           name="name"
@@ -194,7 +193,7 @@ function Component({
           validation={validation.name}
         />
 
-        <FormFields2<TyProductForForm>
+        <FormField<TyProductForForm>
           type="number"
           textLabel="CategoryId"
           name="categoryId"
@@ -204,7 +203,7 @@ function Component({
           validation={validation.categoryId}
         />
 
-        <FormFields2<TyProductForForm>
+        <FormField<TyProductForForm>
           type="text"
           textLabel="Price"
           name="price"
@@ -214,7 +213,7 @@ function Component({
           validation={validation.price}
         />
 
-        <FormFields2<TyProductForForm>
+        <FormField<TyProductForForm>
           type="text"
           textLabel="Country"
           name="country"
@@ -224,7 +223,7 @@ function Component({
           validation={validation.country}
         />
 
-        <FormFields2<TyProductForForm>
+        <FormField<TyProductForForm>
           type="text"
           textLabel="Producer"
           name="producer"
@@ -234,7 +233,7 @@ function Component({
           validation={validation.producer}
         />
 
-        <FormFields2<TyProductForForm>
+        <FormField<TyProductForForm>
           type="text"
           textLabel="Collection"
           name="collection"
@@ -244,7 +243,7 @@ function Component({
           validation={validation.collection}
         />
 
-        <FormFields2<TyProductForForm>
+        <FormField<TyProductForForm>
           type="text"
           textLabel="Type"
           name="type"
@@ -254,7 +253,7 @@ function Component({
           validation={validation.type}
         />
 
-        <FormFields2<TyProductForForm>
+        <FormField<TyProductForForm>
           type="text"
           textLabel="Code"
           name="code"
@@ -264,7 +263,7 @@ function Component({
           validation={validation.code}
         />
 
-        <FormFields2<TyProductForForm>
+        <FormField<TyProductForForm>
           type="text"
           textLabel="Tone"
           name="tone"
@@ -274,7 +273,7 @@ function Component({
           validation={validation.tone}
         />
 
-        <FormFields2<TyProductForForm>
+        <FormField<TyProductForForm>
           type="text"
           textLabel="Room"
           name="room"
@@ -284,7 +283,7 @@ function Component({
           validation={validation.room}
         />
 
-        <FormFields2<TyProductForForm>
+        <FormField<TyProductForForm>
           type="textarea"
           name="description"
           textLabel="Description"
@@ -292,7 +291,7 @@ function Component({
           errors={errors}
         />
 
-        <FormFields2<TyProductForForm>
+        <FormField<TyProductForForm>
           type="textarea"
           name="imageUrls"
           textLabel="Images links(space must separate images links)"
@@ -313,22 +312,23 @@ function Component({
         </Button>
 
         {msg.status !== Status.NONE && (
-          <div className="relative w-0 h-0">
-            <div className="absolute top-1">
-              <Notification
-                classContainer={cn('w-[250px] h-fit p-4 pr-8', {
-                  'bg-system-success': msg.status === Status.SUCCESS,
-                  'bg-red': msg.status === Status.ERROR,
-                })}
-                onDelay={() => setMsg({
-                  status: Status.NONE,
-                  description: '',
-                })}
-              >
-                <p className='title--body'>{msg.description}</p>
-              </Notification>
-            </div>
-          </div>
+          <StatusNotification msg={msg} setMsg={setMsg} />
+          // <div className="relative w-0 h-0">
+          //   <div className="absolute top-1">
+          //     <Notification
+          //       classContainer={cn('w-[250px] h-fit p-4 pr-8', {
+          //         'bg-system-success': msg.status === Status.SUCCESS,
+          //         'bg-red': msg.status === Status.ERROR,
+          //       })}
+          //       onDelay={() => setMsg({
+          //         status: Status.NONE,
+          //         description: '',
+          //       })}
+          //     >
+          //       <p className='title--body'>{msg.description}</p>
+          //     </Notification>
+          //   </div>
+          // </div>
         )}
       </div>
     </form >
