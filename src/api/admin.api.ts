@@ -108,4 +108,9 @@ export const adminApi = {
     return client.get('/admin/orders', { params });
   },
 
+  // removeOrder: (
+  //   id: TyOrder['id']
+  // ) => {
+  //   return client.delete(`/admin/orders/delete/${id}`);
+  // },
 };

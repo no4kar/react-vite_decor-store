@@ -1,5 +1,5 @@
 import { PageNavigation } from '../../components/PageNavigation';
-import { FormComponent2 } from '../../components/FormComponent/FormComponent2';
+import { FormComponent } from '../../components/FormComponent/FormComponent';
 import './about.us.page.scss';
 
 export const AboutUsPage: React.FC = () => {
@@ -57,7 +57,7 @@ export const AboutUsPage: React.FC = () => {
       </div>
 
       <div className="col-span-2 sm:col-span-3 md:col-start-7 md:col-span-5">
-        <FormComponent2 formVersion="consultation" />
+        <FormComponent formVersion="consultation" />
       </div>
     </div>
   );

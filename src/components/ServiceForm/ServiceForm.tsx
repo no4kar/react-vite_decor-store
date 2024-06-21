@@ -1,7 +1,7 @@
 import * as R from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
-import { FormField } from '../FormField/FormField';
+import { FormField } from '../FormField';
 import { adminApi } from '../../api/admin.api';
 import { TyService, TyServiceForForm } from '../../types/Services';
 import { OutcomeReport, Status } from '../../types/Info';
@@ -226,22 +226,6 @@ function Component({
 
         {msg.status !== Status.NONE && (
           <StatusNotification msg={msg} setMsg={setMsg} />
-          // <div className="relative w-0 h-0">
-          //   <div className="absolute top-1">
-          //     <Notification
-          //       classContainer={cn('w-[250px] h-fit p-4 pr-8', {
-          //         'bg-system-success': msg.status === Status.SUCCESS,
-          //         'bg-red': msg.status === Status.ERROR,
-          //       })}
-          //       onDelay={() => setMsg({
-          //         status: Status.NONE,
-          //         description: '',
-          //       })}
-          //     >
-          //       <p>{msg.description}</p>
-          //     </Notification>
-          //   </div>
-          // </div>
         )}
       </div>
     </form >

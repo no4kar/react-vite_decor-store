@@ -9,7 +9,7 @@ import { AxiosError } from 'axios';
 import { validation } from '../../constants/formValidation';
 import { Button } from '../../components/Button';
 import { MyForm } from '../../types/MyForm';
-import { FormField } from '../../components/FormField/FormField';
+import { FormField } from '../../components/FormField';
 import { useAdminStore } from '../../store/admin.store';
 import { Loader } from '../../components/Loader';
 

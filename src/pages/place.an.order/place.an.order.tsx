@@ -5,7 +5,7 @@ import { initialDelayLoader } from '../../constants/initialDelayLoader';
 import { TableProductsOrder } from './table.products.order';
 import './place.an.order.scss';
 import { useCartStore } from '../../store/cart.store';
-import { FormComponent2 } from '../../components/FormComponent/FormComponent2';
+import { FormComponent } from '../../components/FormComponent/FormComponent';
 
 export const PlaceAnOrder = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -36,21 +36,16 @@ export const PlaceAnOrder = () => {
           <div
             className="
             flex flex-col gap-8"
-            // border border-solid border-red
+          // border border-solid border-red
           >
             <h2 className="title--h2 text-center">Оформлення замовлення</h2>
             <p className="title--body text-center">Заповніть ваші контактні дані</p>
           </div>
 
-          <FormComponent2 formVersion="order">
+          <FormComponent formVersion="order">
             <TableProductsOrder cartItemsOrder={cartItemsOrder} />
-          </FormComponent2>
+          </FormComponent>
         </>
-        // <FormComponent formVersion="order">
-        //   <TableProductsOrder
-        //     cartItemsOrder={cartItemsOrder}
-        //   />
-        // </FormComponent>
       )}
     </div>
   );

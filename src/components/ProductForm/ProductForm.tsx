@@ -1,7 +1,7 @@
 import * as R from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
-import { FormField } from '../FormField/FormField';
+import { FormField } from '../FormField';
 import { adminApi } from '../../api/admin.api';
 import { TyProduct, TyProductForForm } from '../../types/Products';
 import { OutcomeReport, Status } from '../../types/Info';

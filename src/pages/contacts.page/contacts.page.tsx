@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { PageNavigation } from '../../components/PageNavigation';
-import { FormComponent2 } from '../../components/FormComponent/FormComponent2';
+import { FormComponent } from '../../components/FormComponent/FormComponent';
 import './contacts.page.scss';
 
 export const Contacts: React.FC = () => {
@@ -62,7 +62,7 @@ export const Contacts: React.FC = () => {
       </div>
 
       <div className="col-span-2 sm:col-span-3 md:col-start-7 md:col-span-5">
-        <FormComponent2 formVersion="consultation" />
+        <FormComponent formVersion="consultation" />
       </div>
     </div>
   );

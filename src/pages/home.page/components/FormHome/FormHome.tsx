@@ -1,4 +1,4 @@
-import { FormComponent2 } from '../../../../components/FormComponent/FormComponent2';
+import { FormComponent } from '../../../../components/FormComponent/FormComponent';
 
 export const FormHome = () => {
   return (
@@ -12,7 +12,7 @@ export const FormHome = () => {
       </div>
 
       <div className="col-span-2 sm:col-span-3 md:col-start-7 md:col-span-5">
-        <FormComponent2 formVersion="consultation" />
+        <FormComponent formVersion="consultation" />
       </div>
     </section>
   );
