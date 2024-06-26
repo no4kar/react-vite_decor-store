@@ -1,23 +1,16 @@
 # Project Name: 'Decorativka'.
-##TASK:
-  - Don`t forget to add links in footer;
+
 ## 1. Project Goal:
   - Implemented a web project - ....
 
 ## 2. Technologies:
-   - React.js with TypeScript: Utilized for building the user interface and application components, providing the benefits of static typing and improved development experience (React.Router, classnames).
-   - SCSS: Applied for styling components following the BEM methodology.
+   - React.js+Vite with TypeScript: Utilized for building the user interface and application components, providing the benefits of static typing and improved development experience (React.Router, classnames).
+   - Tailwind and SCSS: Applied for styling components following the BEM methodology.
 
 ## 3. Link to the project:
-  
-
-## 4. Link to the GitHub:
-  
-
-## 5. design for landing page:
-   - https://www.figma.com/file/Jcs4c8gLV3afQGM1qrHrVj/Decor?type=design&node-id=14%3A2&mode=design&t=coCaAMBKg1jXqYZb-1
-
-## 6. description:
+    - [DEMO](https://no4kar.github.io/react-vite_decor-store/)
+    
+## 4. Description:
    - Target Audience: ....
    - Development Stage: Completed and ready for demonstration.
    - Presentation of a portfolio with completed projects.
