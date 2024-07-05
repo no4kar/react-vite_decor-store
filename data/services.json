@@ -1,157 +1,184 @@
-[
-  {
-    "id": 1001,
-    "categoryId": 1,
-    "name": "Artbeton",
-    "description": "Імітація бетону, товстошарова штукатурка, що має своєрідну структуру. Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere soluta aliquam sapiente ratione sit impedit repudiandae ipsa nulla harum, excepturi eaque ab voluptatem quisquam quam repellendus similique ut molestiae ex laboriosam doloremque provident. Consequuntur repellendus itaque tenetur illo! Itaque, error deserunt. Soluta incidunt repellat hic similique fugiat temporibus? Eum, quis minima atque molestias corporis harum perferendis impedit maiores sit voluptatibus eligendi iure necessitatibus, sequi eaque ullam tempore ut! Veritatis, illo qui. Nisi culpa facere nostrum voluptatum, corrupti vero autem assumenda dolorem incidunt minus perferendis commodi odio molestiae minima accusantium veniam tenetur delectus deleniti unde repellendus repellat magni saepe. Quos corporis ea, impedit nisi nostrum quam sequi totam, consequuntur veritatis numquam nulla corrupti maiores unde facere. Quis voluptas illo sapiente ratione earum animi odit, laudantium tenetur eos minima reprehenderit tempora pariatur impedit velit id laboriosam eveniet voluptatem? Quasi sed quas illum fuga eveniet eius, praesentium dolorum ad vero error eum iure.",
-    "imageUrl": [
-      "https://drive.google.com/thumbnail?id=1J0IT6oWOQjK-DNAfpOfuWyTMdJ3W73BN&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1GO09SoROx0WmuogpoFIQ9YDU2vxTotkj&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1e96Rd6IKaY6sAEupPHF29XeA9bV5s2Io&sz=w1000",
-      "https://drive.google.com/thumbnail?id=13Sg1DdAli7hlAjn7lTAClnRZZ7AR3rSl&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1PPBOUd35n0fHz1tmK7_i_JfS83bycSwn&sz=w1000",
-      "https://drive.google.com/thumbnail?id=19nWjRpd5VspNTuIVUHcb8ENiUY8sIljy&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1ay2eTzUlfyySgnfGglcyDHq4Z5RRmLS3&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1i3KJlcgJslJuAL8adQMhsN6CAuNP1k6x&sz=w1000",
-      "https://drive.google.com/thumbnail?id=15_w-Q1w0gxUe-6YvgwjqoBVUukVLM4jG&sz=w1000",
-      "https://drive.google.com/thumbnail?id=10ShOyfgxKNoxjaguN9lLtIXA7LLKuOgA&sz=w1000"
-    ]
+{
+  "content": [
+    {
+      "id": 14,
+      "name": "Rock",
+      "description": "  Декоративна штукатурка з ефектом скелі - це відмінний спосіб надати стінам або іншим поверхням унікальний і натуральний вигляд, схожий на текстуру скельної поверхні. Цей вид оздоблення використовує рельєфну масу, що моделюється на основі акрилу з високим вмістом целюлозних армуючих волокон.\n  Цей тип оздоблення дозволяє створити унікальні інтер'єри, надаючи приміщенню атмосферу дикої природи чи старовинного замку. Крім того, вона може бути застосована як внутрішнє, так і зовнішнє оздоблення будівель, надаючи їм естетичний і стійкий до зносу вигляд.",
+      "categoryId": 1,
+      "imageUrl": [
+        "https://drive.google.com/thumbnail?id=1If7KlfHHHWFZ8MeqP9C0ofiLc1LYKqOK&sz=w1000",
+        "https://drive.google.com/thumbnail?id=18DLjTPb1lsxRoZFBQyemcZev-dPqn_i1&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1D8cR9z4maZch3I75fFgIoTvb6FbsuPFN&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1rCmdKJdznQltrLLWMqy94pOiq-n4BjJ5&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1ibOOKuEtJLKsltIVwaDotO8rvn3Fw-WJ&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1xCtjV8vCy4uurPnEqBUyM-x3G5s8X8uq&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1je_O7ZoQJXX95lSqjCEc8U2OR1KssjiG&sz=w1000"
+      ]
+    },
+    {
+      "id": 20,
+      "name": "Wet Silk",
+      "description": "Декоративна штукатурка з ефектом мокрого шовку — це елегантне і стильне покриття, яке додає нотку гламуру будь-якому інтер'єру. Вона створює гладку, глянцеву поверхню, що нагадує шовк, і доступна в різних кольорах та відтінках. Це покриття гармонійно вписується як у класичні, так і сучасні інтер'єри будинків, квартир, фотостудій, салонів краси та ресторанів. Ідеально підходить для оздоблення стін у коридорах, вітальнях, спальнях та кухнях-студіях.",
+      "categoryId": 1,
+      "imageUrl": [
+        "https://drive.google.com/thumbnail?id=1Y1zbHA7Wh5gaSkyRrQJtUF-HC0G4OopB&sz=w1000",
+        "https://drive.google.com/thumbnail?id=12Z9C4RVI0SqnW7lkojZi41sncropLjwr&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1w12cz0hyBf8epDbX5W8dfZskB7lQYoJd&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1lwZ7yYrtqavJwtMlowSfBARX9c3tP3QA&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1k2kQ-INAaedYN6_QIJnwydIaxsmu5eBA&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1CJg732bHQGTHVZ-WtdWoKY5cUBzfGzCs&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1clCylTDMrdIOLoCjOwOh72hL_AEJTp-l&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1RJ65nhGYxY9GyVg0QKfcrQpUkVlXh3B_&sz=w1000"
+      ]
+    },
+    {
+      "id": 22,
+      "name": "Travertino",
+      "description": "  Штукатурка «Travertino» дає можливість створювати різні текстури, такі як камінь травертин, піщаник, ракушняк, ефект бетону та інші рельєфні поверхні з полірованою глянцевою або матовою структурою. Вона формує міцне, стійке до атмосферних впливів, паропроникне і довговічне покриття.",
+      "categoryId": 1,
+      "imageUrl": [
+        "https://drive.google.com/thumbnail?id=1bud8BTi9ZcgkucY2xKG4oFNEHwtEB9cl&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1QFoUpQTmnJ-zNcoCLHPpOt5-lJVjHrDZ&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1bud8BTi9ZcgkucY2xKG4oFNEHwtEB9cl&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1ElaXZkHWJuLTnOEIuU1cQmHG8Gs2pqn7&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1U_hoe9COXzLbMuNlorRxVGI6jn0GDVxk&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1Z5mbrcykUz58TGyd8lPvQL0oWqd7gxcJ&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1_yobDfWp8WK3AqkkUpSxj_bcLBgliUz7&sz=w1000"
+      ]
+    },
+    {
+      "id": 16,
+      "name": "Marmorino",
+      "description": "  Штукатурка \"Marmorino\" дозволяє імітувати натуральні покриття з полірованою глянцевою або матовою текстурою, такі як мармур, травертин, ракушняк та ефект бетону, а також створювати різноманітні рельєфні структури. Вона формує міцне покриття, є пластичною і зручною у нанесенні, приховує дрібні нерівності поверхні та забезпечує паропроникність.",
+      "categoryId": 1,
+      "imageUrl": [
+        "https://drive.google.com/thumbnail?id=1Nv0jOCMU0spEAzch8dc-Qus2ofKlQfzV&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1urK-DAprvLJ_D3ox7zx7tx8LeeNytPYY&sz=w1000",
+        "https://drive.google.com/thumbnail?id=147DIs_St8m2qzle7u0YPxxhEoxj_z9Dx&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1kjn5ZN_cuDjqYC8Se2zwgLcBcTPJDPcd&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1NQwMY8Ggx1zV5rGiUznPxZ7ws1znjG9q&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1_eSwKTbPRyfq2L37wcJkEId80BsSpRIF&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1uds5yWn8dQsBPrXHbsaW2n9QWVoftpEi&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1FoBr7yNWGWQT5nb4toVwIfXVgMybrvQx&sz=w1000"
+      ]
+    },
+    {
+      "id": 34,
+      "name": "Artbeton",
+      "description": "  «Artbeton» - це акрилова штукатурка,яка ідеально підходить для імітації бетону. За допомогою цього сучасного продукту легко створювати різноманітні ефекти бетону чи каменю, починаючи відгладких і закінчуючи рельєфними шліфованими оздобленнями, і навіть окремі візерунки.\n  Фактура каменю і бетонних стін дозволяє створити теплий і затишний інтер'єр, який красиво контрастує з яскравими декоративними елементами.",
+      "categoryId": 1,
+      "imageUrl": [
+        "https://drive.google.com/thumbnail?id=1J0IT6oWOQjK-DNAfpOfuWyTMdJ3W73BN&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1GO09SoROx0WmuogpoFIQ9YDU2vxTotkj&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1e96Rd6IKaY6sAEupPHF29XeA9bV5s2Io&sz=w1000",
+        "https://drive.google.com/thumbnail?id=13Sg1DdAli7hlAjn7lTAClnRZZ7AR3rSl&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1PPBOUd35n0fHz1tmK7_i_JfS83bycSwn&sz=w1000",
+        "https://drive.google.com/thumbnail?id=19nWjRpd5VspNTuIVUHcb8ENiUY8sIljy&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1ay2eTzUlfyySgnfGglcyDHq4Z5RRmLS3&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1i3KJlcgJslJuAL8adQMhsN6CAuNP1k6x&sz=w1000",
+        "https://drive.google.com/thumbnail?id=15_w-Q1w0gxUe-6YvgwjqoBVUukVLM4jG&sz=w1000",
+        "https://drive.google.com/thumbnail?id=10ShOyfgxKNoxjaguN9lLtIXA7LLKuOgA&sz=w1000"
+      ]
+    },
+    {
+      "id": 19,
+      "name": "Вінілові шпалери на флізеліновій основі",
+      "description": "  Надаємо послуги з поклейки шпалер зарубіжних брендів, а також власного виробництва. Пропонуємо різномаїття текстур, виробництво вілових шпалер на замовлення, величезний каталог зображень.",
+      "categoryId": 2,
+      "imageUrl": [
+        "https://drive.google.com/thumbnail?id=1alIFi9xpv584MNctBFFPvbTIUf8kseKs&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1Sg7WhtRteAzRtBdhAr67WohCsT1HGZv6&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1vTFdAehi0NSrvuTNzxbMgBa2RCUltmzR&sz=w1000",
+        "https://drive.google.com/thumbnail?id=13WyPpedSUdtYkLpq7hlb592lCApYOPYk&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1lS7BF7CaEpyM43WDvw_p7HKYhG-KrXDJ&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1Ies0hn4q8QFFQOuINo5kYygd32DTOKEK&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1Gev5DYGymmp8Qoyra-d1PhHrURLW0lDX&sz=w1000"
+      ]
+    },
+    {
+      "id": 17,
+      "name": "Ottocento",
+      "description": "  Декоративний матеріал \"Ottocento\", завдяки своєму перламутровому блиску та гладкій текстурі, створює покриття, що нагадує атласну тканину, шовк або оксамит. Це покриття змінює відтінки залежно від освітлення і кута падіння світла. Крім того, воно є паропроникним.",
+      "categoryId": 1,
+      "imageUrl": [
+        "https://drive.google.com/thumbnail?id=1gEkukaq-f6ANc41J344Gbuzyu4VO9pGd&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1Fkx8LyYuzzILokXy0uYk3W7l2uwYIOfG&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1PANfZi6RX0jBpAc-YFfmQpEHxMd9oDUs&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1Fkx8LyYuzzILokXy0uYk3W7l2uwYIOfG&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1PANfZi6RX0jBpAc-YFfmQpEHxMd9oDUs&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1Fkx8LyYuzzILokXy0uYk3W7l2uwYIOfG&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1PANfZi6RX0jBpAc-YFfmQpEHxMd9oDUs&sz=w1000"
+      ]
+    },
+    {
+      "id": 42,
+      "name": "Microcement",
+      "description": "  «Microcement» - це суха суміш для декоративного оздоблення, що складається з цементу та кварцевого подрібненого піску. Для перетворення матеріалу використовується полімерний розчин, який забезпечує відмінну адгезію, міцність на стиск та вигин. Щоб захистити оздоблення від вологості, його покривають лаком для заповнення пор. Мікроцемент може бути різних відтінків, оскільки до суміші можна додавати сухі пігменти для досягнення потрібного ефекту.",
+      "categoryId": 1,
+      "imageUrl": [
+        "https://drive.google.com/thumbnail?id=1_-D4mqQia5B-MtW4fjxd3UL5sXd0z_le&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1NbtE-Cjr149a_DEEffUTzkqlWfq6wV39&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1_-D4mqQia5B-MtW4fjxd3UL5sXd0z_le&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1NbtE-Cjr149a_DEEffUTzkqlWfq6wV39&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1_-D4mqQia5B-MtW4fjxd3UL5sXd0z_le&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1NbtE-Cjr149a_DEEffUTzkqlWfq6wV39&sz=w1000"
+      ]
+    },
+    {
+      "id": 18,
+      "name": "Stucco Veneziano",
+      "description": "  \"Stucco Veneziano\" застосовується в класичному стилі оформлення інтер'єру та стилі лофт. Вона прекрасно виглядає на колонах та інших архітектурних елементах інтер'єру, таких як стінові панелі, арки, стелі, стовпи і капітелі. Додавання пігментних паст і використання спеціальної техніки нанесення дозволяє імітувати поліровані зрізи мармуру або натурального каменю. Штукатурка створює міцне, довговічне та паропроникне покриття.",
+      "categoryId": 1,
+      "imageUrl": [
+        "https://drive.google.com/thumbnail?id=1J_Ke4j49sKM4K7v8dK8LWw1BSXkct9zR&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1jEG6RCGf8NBzX8twXV-5Sn-CudAZj3ip&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1pcYjtOsy3t8lr0VMMyPlfxWbnJYRqWhZ&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1J_Ke4j49sKM4K7v8dK8LWw1BSXkct9zR&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1jEG6RCGf8NBzX8twXV-5Sn-CudAZj3ip&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1pcYjtOsy3t8lr0VMMyPlfxWbnJYRqWhZ&sz=w1000"
+      ]
+    },
+    {
+      "id": 15,
+      "name": "Фотошпалери",
+      "description": "  Наше виробництво надає можливість надрукувати будь-який розмір, який забажає замовник. Кількість листів залежить від розмірів, які ви нам надаєте.\n\n  При замовлені наших фотошпалер, також можливо замовити послуги з поклейки у м.Київ.\n\n  Ми пропонуємо: \n    • Різномаїття текстур\n    • Виробляємо за індивідуальними розмірами\n    • Величезний каталог зображень\n    • Точна комп'ютерна калібровка рапорту малюнка\n    • Виробництво 2-3 дні, Відправка Новою Поштою\n    • Підготовка макетів безкоштовно",
+      "categoryId": 2,
+      "imageUrl": [
+        "https://drive.google.com/thumbnail?id=1kEmIgnihsC46PvHMHSV44ZdXeuy42qPu&sz=w1000",
+        "https://drive.google.com/thumbnail?id=19MmEw9XPmrJsjVRObR6m7csWkN-jPgPq&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1nmsAUST5C_7dA6aJP6nL5BJkE1Q5Mneo&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1nmsAUST5C_7dA6aJP6nL5BJkE1Q5Mneo&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1z8knA1MbTXwANGltslhUQPeOZ0yygIJl&sz=w1000",
+        "https://drive.google.com/thumbnail?id=11KscXMZ7VbB-cSyNkv_WZlqAx0fcn8hP&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1XbftwNLXFM5NuiJNL-aQwXdFq1GJhVn2&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1uzoFVAfFm-qTWmelgsO6dOWG_v9BG1yA&sz=w1000",
+        "https://drive.google.com/thumbnail?id=1-VJSA5TwGnmY4ML7lKuHZOLjkt2c67lW&sz=w1000"
+      ]
+    }
+  ],
+  "pageable": {
+    "pageNumber": 0,
+    "pageSize": 100,
+    "sort": {
+      "empty": true,
+      "unsorted": true,
+      "sorted": false
+    },
+    "offset": 0,
+    "paged": true,
+    "unpaged": false
   },
-  {
-    "id": 1002,
-    "categoryId": 1,
-    "name": "Marmorino",
-    "description": "Натуральне декоративне вапняне покриття, що імітує натуральний мармур. Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere soluta aliquam sapiente ratione sit impedit repudiandae ipsa nulla harum, excepturi eaque ab voluptatem quisquam quam repellendus similique ut molestiae ex laboriosam doloremque provident. Consequuntur repellendus itaque tenetur illo! Itaque, error deserunt. Soluta incidunt repellat hic similique fugiat temporibus? Eum, quis minima atque molestias corporis harum perferendis impedit maiores sit voluptatibus eligendi iure necessitatibus, sequi eaque ullam tempore ut! Veritatis, illo qui. Nisi culpa facere nostrum voluptatum, corrupti vero autem assumenda dolorem incidunt minus perferendis commodi odio molestiae minima accusantium veniam tenetur delectus deleniti unde repellendus repellat magni saepe. Quos corporis ea, impedit nisi nostrum quam sequi totam, consequuntur veritatis numquam nulla corrupti maiores unde facere. Quis voluptas illo sapiente ratione earum animi odit, laudantium tenetur eos minima reprehenderit tempora pariatur impedit velit id laboriosam eveniet voluptatem? Quasi sed quas illum fuga eveniet eius, praesentium dolorum ad vero error eum iure.",
-    "imageUrl": [
-      "https://drive.google.com/thumbnail?id=18ECT3K1ahpsdNo2dz9UHYNfzgryf_SZz&sz=w1000",
-      "https://drive.google.com/thumbnail?id=18ECT3K1ahpsdNo2dz9UHYNfzgryf_SZz&sz=w1000",
-      "https://drive.google.com/thumbnail?id=18ECT3K1ahpsdNo2dz9UHYNfzgryf_SZz&sz=w1000",
-      "https://drive.google.com/thumbnail?id=18ECT3K1ahpsdNo2dz9UHYNfzgryf_SZz&sz=w1000",
-      "https://drive.google.com/thumbnail?id=18ECT3K1ahpsdNo2dz9UHYNfzgryf_SZz&sz=w1000",
-      "https://drive.google.com/thumbnail?id=18ECT3K1ahpsdNo2dz9UHYNfzgryf_SZz&sz=w1000",
-      "https://drive.google.com/thumbnail?id=18ECT3K1ahpsdNo2dz9UHYNfzgryf_SZz&sz=w1000"
-    ]
+  "totalPages": 1,
+  "totalElements": 10,
+  "last": true,
+  "size": 100,
+  "number": 0,
+  "sort": {
+    "empty": true,
+    "unsorted": true,
+    "sorted": false
   },
-  {
-    "id": 1003,
-    "categoryId": 1,
-    "name": "Wet silk",
-    "description": "Декоративне покриття з ефектом мерехтіння. Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere soluta aliquam sapiente ratione sit impedit repudiandae ipsa nulla harum, excepturi eaque ab voluptatem quisquam quam repellendus similique ut molestiae ex laboriosam doloremque provident. Consequuntur repellendus itaque tenetur illo! Itaque, error deserunt. Soluta incidunt repellat hic similique fugiat temporibus? Eum, quis minima atque molestias corporis harum perferendis impedit maiores sit voluptatibus eligendi iure necessitatibus, sequi eaque ullam tempore ut! Veritatis, illo qui. Nisi culpa facere nostrum voluptatum, corrupti vero autem assumenda dolorem incidunt minus perferendis commodi odio molestiae minima accusantium veniam tenetur delectus deleniti unde repellendus repellat magni saepe. Quos corporis ea, impedit nisi nostrum quam sequi totam, consequuntur veritatis numquam nulla corrupti maiores unde facere. Quis voluptas illo sapiente ratione earum animi odit, laudantium tenetur eos minima reprehenderit tempora pariatur impedit velit id laboriosam eveniet voluptatem? Quasi sed quas illum fuga eveniet eius, praesentium dolorum ad vero error eum iure.",
-    "imageUrl": [
-      "https://drive.google.com/thumbnail?id=1EF5s0F2ukgHNevZjCvq4NkjiUU6ybc8M&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1EF5s0F2ukgHNevZjCvq4NkjiUU6ybc8M&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1EF5s0F2ukgHNevZjCvq4NkjiUU6ybc8M&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1EF5s0F2ukgHNevZjCvq4NkjiUU6ybc8M&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1EF5s0F2ukgHNevZjCvq4NkjiUU6ybc8M&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1EF5s0F2ukgHNevZjCvq4NkjiUU6ybc8M&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1EF5s0F2ukgHNevZjCvq4NkjiUU6ybc8M&sz=w1000"
-    ]
-  },
-  {
-    "id": 1004,
-    "categoryId": 1,
-    "name": "STUCCO VENEZIANO",
-    "description": "Венеціанська штукатурка - ідеальний спосіб облицювання стін під полірований мармур. Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere soluta aliquam sapiente ratione sit impedit repudiandae ipsa nulla harum, excepturi eaque ab voluptatem quisquam quam repellendus similique ut molestiae ex laboriosam doloremque provident. Consequuntur repellendus itaque tenetur illo! Itaque, error deserunt. Soluta incidunt repellat hic similique fugiat temporibus? Eum, quis minima atque molestias corporis harum perferendis impedit maiores sit voluptatibus eligendi iure necessitatibus, sequi eaque ullam tempore ut! Veritatis, illo qui. Nisi culpa facere nostrum voluptatum, corrupti vero autem assumenda dolorem incidunt minus perferendis commodi odio molestiae minima accusantium veniam tenetur delectus deleniti unde repellendus repellat magni saepe. Quos corporis ea, impedit nisi nostrum quam sequi totam, consequuntur veritatis numquam nulla corrupti maiores unde facere. Quis voluptas illo sapiente ratione earum animi odit, laudantium tenetur eos minima reprehenderit tempora pariatur impedit velit id laboriosam eveniet voluptatem? Quasi sed quas illum fuga eveniet eius, praesentium dolorum ad vero error eum iure.",
-    "imageUrl": [
-      "https://drive.google.com/thumbnail?id=1J_Ke4j49sKM4K7v8dK8LWw1BSXkct9zR&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1J_Ke4j49sKM4K7v8dK8LWw1BSXkct9zR&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1J_Ke4j49sKM4K7v8dK8LWw1BSXkct9zR&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1J_Ke4j49sKM4K7v8dK8LWw1BSXkct9zR&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1J_Ke4j49sKM4K7v8dK8LWw1BSXkct9zR&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1J_Ke4j49sKM4K7v8dK8LWw1BSXkct9zR&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1J_Ke4j49sKM4K7v8dK8LWw1BSXkct9zR&sz=w1000"
-    ]
-  },
-  {
-    "id": 1005,
-    "categoryId": 1,
-    "name": "TRAVERTINO",
-    "description": "Декоративне покриття, що створює різноманітні фактури каменю “травертин”. Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere soluta aliquam sapiente ratione sit impedit repudiandae ipsa nulla harum, excepturi eaque ab voluptatem quisquam quam repellendus similique ut molestiae ex laboriosam doloremque provident. Consequuntur repellendus itaque tenetur illo! Itaque, error deserunt. Soluta incidunt repellat hic similique fugiat temporibus? Eum, quis minima atque molestias corporis harum perferendis impedit maiores sit voluptatibus eligendi iure necessitatibus, sequi eaque ullam tempore ut! Veritatis, illo qui. Nisi culpa facere nostrum voluptatum, corrupti vero autem assumenda dolorem incidunt minus perferendis commodi odio molestiae minima accusantium veniam tenetur delectus deleniti unde repellendus repellat magni saepe. Quos corporis ea, impedit nisi nostrum quam sequi totam, consequuntur veritatis numquam nulla corrupti maiores unde facere. Quis voluptas illo sapiente ratione earum animi odit, laudantium tenetur eos minima reprehenderit tempora pariatur impedit velit id laboriosam eveniet voluptatem? Quasi sed quas illum fuga eveniet eius, praesentium dolorum ad vero error eum iure.",
-    "imageUrl": [
-      "https://drive.google.com/thumbnail?id=1bud8BTi9ZcgkucY2xKG4oFNEHwtEB9cl&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1bud8BTi9ZcgkucY2xKG4oFNEHwtEB9cl&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1bud8BTi9ZcgkucY2xKG4oFNEHwtEB9cl&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1bud8BTi9ZcgkucY2xKG4oFNEHwtEB9cl&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1bud8BTi9ZcgkucY2xKG4oFNEHwtEB9cl&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1bud8BTi9ZcgkucY2xKG4oFNEHwtEB9cl&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1bud8BTi9ZcgkucY2xKG4oFNEHwtEB9cl&sz=w1000"
-    ]
-  },
-  {
-    "id": 1006,
-    "categoryId": 1,
-    "name": "Rock",
-    "description": "Декоративна рельєфна штукатурка, що імітує скелясту поверхню. Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere soluta aliquam sapiente ratione sit impedit repudiandae ipsa nulla harum, excepturi eaque ab voluptatem quisquam quam repellendus similique ut molestiae ex laboriosam doloremque provident. Consequuntur repellendus itaque tenetur illo! Itaque, error deserunt. Soluta incidunt repellat hic similique fugiat temporibus? Eum, quis minima atque molestias corporis harum perferendis impedit maiores sit voluptatibus eligendi iure necessitatibus, sequi eaque ullam tempore ut! Veritatis, illo qui. Nisi culpa facere nostrum voluptatum, corrupti vero autem assumenda dolorem incidunt minus perferendis commodi odio molestiae minima accusantium veniam tenetur delectus deleniti unde repellendus repellat magni saepe. Quos corporis ea, impedit nisi nostrum quam sequi totam, consequuntur veritatis numquam nulla corrupti maiores unde facere. Quis voluptas illo sapiente ratione earum animi odit, laudantium tenetur eos minima reprehenderit tempora pariatur impedit velit id laboriosam eveniet voluptatem? Quasi sed quas illum fuga eveniet eius, praesentium dolorum ad vero error eum iure.",
-    "imageUrl": [
-      "https://drive.google.com/thumbnail?id=1If7KlfHHHWFZ8MeqP9C0ofiLc1LYKqOK&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1If7KlfHHHWFZ8MeqP9C0ofiLc1LYKqOK&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1If7KlfHHHWFZ8MeqP9C0ofiLc1LYKqOK&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1If7KlfHHHWFZ8MeqP9C0ofiLc1LYKqOK&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1If7KlfHHHWFZ8MeqP9C0ofiLc1LYKqOK&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1If7KlfHHHWFZ8MeqP9C0ofiLc1LYKqOK&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1If7KlfHHHWFZ8MeqP9C0ofiLc1LYKqOK&sz=w1000"
-    ]
-  },
-  {
-    "id": 1007,
-    "categoryId": 1,
-    "name": "OTTOCENTO",
-    "description": "Декоративне покриття з ефектом оксамиту. Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere soluta aliquam sapiente ratione sit impedit repudiandae ipsa nulla harum, excepturi eaque ab voluptatem quisquam quam repellendus similique ut molestiae ex laboriosam doloremque provident. Consequuntur repellendus itaque tenetur illo! Itaque, error deserunt. Soluta incidunt repellat hic similique fugiat temporibus? Eum, quis minima atque molestias corporis harum perferendis impedit maiores sit voluptatibus eligendi iure necessitatibus, sequi eaque ullam tempore ut! Veritatis, illo qui. Nisi culpa facere nostrum voluptatum, corrupti vero autem assumenda dolorem incidunt minus perferendis commodi odio molestiae minima accusantium veniam tenetur delectus deleniti unde repellendus repellat magni saepe. Quos corporis ea, impedit nisi nostrum quam sequi totam, consequuntur veritatis numquam nulla corrupti maiores unde facere. Quis voluptas illo sapiente ratione earum animi odit, laudantium tenetur eos minima reprehenderit tempora pariatur impedit velit id laboriosam eveniet voluptatem? Quasi sed quas illum fuga eveniet eius, praesentium dolorum ad vero error eum iure.",
-    "imageUrl": [
-      "https://drive.google.com/thumbnail?id=1gEkukaq-f6ANc41J344Gbuzyu4VO9pGd&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1gEkukaq-f6ANc41J344Gbuzyu4VO9pGd&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1gEkukaq-f6ANc41J344Gbuzyu4VO9pGd&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1gEkukaq-f6ANc41J344Gbuzyu4VO9pGd&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1gEkukaq-f6ANc41J344Gbuzyu4VO9pGd&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1gEkukaq-f6ANc41J344Gbuzyu4VO9pGd&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1gEkukaq-f6ANc41J344Gbuzyu4VO9pGd&sz=w1000"
-    ]
-  },
-  {
-    "id": 1008,
-    "categoryId": 1,
-    "name": "Microcement",
-    "description": "Мікроцемент - сучасний декоративний матеріал на основі цементу, мінерального наповнювача та функціональних добавок.",
-    "imageUrl": [
-      "https://drive.google.com/thumbnail?id=1_-D4mqQia5B-MtW4fjxd3UL5sXd0z_le&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1_-D4mqQia5B-MtW4fjxd3UL5sXd0z_le&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1_-D4mqQia5B-MtW4fjxd3UL5sXd0z_le&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1_-D4mqQia5B-MtW4fjxd3UL5sXd0z_le&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1_-D4mqQia5B-MtW4fjxd3UL5sXd0z_le&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1_-D4mqQia5B-MtW4fjxd3UL5sXd0z_le&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1_-D4mqQia5B-MtW4fjxd3UL5sXd0z_le&sz=w1000"
-    ]
-  },
-  {
-    "id": 1009,
-    "categoryId": 2,
-    "name": "вінілові шпалери на флізеліновій основі",
-    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere soluta aliquam sapiente ratione sit impedit repudiandae ipsa nulla harum, excepturi eaque ab voluptatem quisquam quam repellendus similique ut molestiae ex laboriosam doloremque provident. Consequuntur repellendus itaque tenetur illo! Itaque, error deserunt. Soluta incidunt repellat hic similique fugiat temporibus? Eum, quis minima atque molestias corporis harum perferendis impedit maiores sit voluptatibus eligendi iure necessitatibus, sequi eaque ullam tempore ut! Veritatis, illo qui. Nisi culpa facere nostrum voluptatum, corrupti vero autem assumenda dolorem incidunt minus perferendis commodi odio molestiae minima accusantium veniam tenetur delectus deleniti unde repellendus repellat magni saepe. Quos corporis ea, impedit nisi nostrum quam sequi totam, consequuntur veritatis numquam nulla corrupti maiores unde facere. Quis voluptas illo sapiente ratione earum animi odit, laudantium tenetur eos minima reprehenderit tempora pariatur impedit velit id laboriosam eveniet voluptatem? Quasi sed quas illum fuga eveniet eius, praesentium dolorum ad vero error eum iure.",
-    "imageUrl": [
-      "https://drive.google.com/thumbnail?id=1alIFi9xpv584MNctBFFPvbTIUf8kseKs&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1Sg7WhtRteAzRtBdhAr67WohCsT1HGZv6&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1vTFdAehi0NSrvuTNzxbMgBa2RCUltmzR&sz=w1000",
-      "https://drive.google.com/thumbnail?id=13WyPpedSUdtYkLpq7hlb592lCApYOPYk&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1lS7BF7CaEpyM43WDvw_p7HKYhG-KrXDJ&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1Ies0hn4q8QFFQOuINo5kYygd32DTOKEK&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1Gev5DYGymmp8Qoyra-d1PhHrURLW0lDX&sz=w1000"
-    ]
-  },
-  {
-    "id": 10010,
-    "categoryId": 2,
-    "name": "фотошпалери",
-    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere soluta aliquam sapiente ratione sit impedit repudiandae ipsa nulla harum, excepturi eaque ab voluptatem quisquam quam repellendus similique ut molestiae ex laboriosam doloremque provident. Consequuntur repellendus itaque tenetur illo! Itaque, error deserunt. Soluta incidunt repellat hic similique fugiat temporibus? Eum, quis minima atque molestias corporis harum perferendis impedit maiores sit voluptatibus eligendi iure necessitatibus, sequi eaque ullam tempore ut! Veritatis, illo qui. Nisi culpa facere nostrum voluptatum, corrupti vero autem assumenda dolorem incidunt minus perferendis commodi odio molestiae minima accusantium veniam tenetur delectus deleniti unde repellendus repellat magni saepe. Quos corporis ea, impedit nisi nostrum quam sequi totam, consequuntur veritatis numquam nulla corrupti maiores unde facere. Quis voluptas illo sapiente ratione earum animi odit, laudantium tenetur eos minima reprehenderit tempora pariatur impedit velit id laboriosam eveniet voluptatem? Quasi sed quas illum fuga eveniet eius, praesentium dolorum ad vero error eum iure.",
-    "imageUrl": [
-      "https://drive.google.com/thumbnail?id=1kEmIgnihsC46PvHMHSV44ZdXeuy42qPu&sz=w1000",
-      "https://drive.google.com/thumbnail?id=19MmEw9XPmrJsjVRObR6m7csWkN-jPgPq&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1nmsAUST5C_7dA6aJP6nL5BJkE1Q5Mneo&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1nmsAUST5C_7dA6aJP6nL5BJkE1Q5Mneo&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1z8knA1MbTXwANGltslhUQPeOZ0yygIJl&sz=w1000",
-      "https://drive.google.com/thumbnail?id=11KscXMZ7VbB-cSyNkv_WZlqAx0fcn8hP&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1XbftwNLXFM5NuiJNL-aQwXdFq1GJhVn2&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1uzoFVAfFm-qTWmelgsO6dOWG_v9BG1yA&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1-VJSA5TwGnmY4ML7lKuHZOLjkt2c67lW&sz=w1000"
-    ]
-  }
-]
+  "numberOfElements": 10,
+  "first": true,
+  "empty": false
+}
