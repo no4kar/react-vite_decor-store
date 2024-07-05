@@ -3,7 +3,9 @@ import cn from 'classnames';
 import { TyMouseEvtButtonElmt } from '../../types/General';
 import { TySelectOption } from '../../types/SelectOption';
 
-function Dropdown({
+export const Dropdown = MyComponent;
+
+function MyComponent({
   selectedValue,
   options,
   onChange = () => { },
@@ -78,5 +80,3 @@ function Dropdown({
     </div >
   );
 }
-
-export default Dropdown;

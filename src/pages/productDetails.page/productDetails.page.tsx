@@ -16,7 +16,7 @@ import { Button } from '../../components/Button';
 import { Counter } from '../../components/Counter';
 import { Slider2 } from '../../components/Slider2';
 import { NotFoundPage } from '../not-found.page';
-import { TyProduct } from '../../types/Products';
+import { TyProduct } from '../../types/Product';
 
 export const ProductDetailsPage = () => {
   // console.info('render');
@@ -24,7 +24,7 @@ export const ProductDetailsPage = () => {
   const navigate = RRD.useNavigate();
   const [isLoading, setIsLoading] = R.useState(true);
   const [quantity, setQuantity] = R.useState(1);
-  const [selectProduct, setSelectProduct] = R.useState<TyProduct | null>(null);
+  const [selectProduct, setSelectProduct] = R.useState<TyProduct.Item | null>(null);
   const { add: inCartAdd } = useCartStore();
 
   R.useEffect(() => {

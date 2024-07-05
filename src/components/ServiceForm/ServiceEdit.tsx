@@ -1,6 +1,6 @@
 import * as R from 'react';
 import * as RRD from 'react-router-dom';
-import { TyService } from '../../types/Services';
+import { TyService } from '../../types/Service';
 import { serviceApi } from '../../api/service.api';
 import { Loader } from '../Loader';
 import { NotFoundPage } from '../../pages/not-found.page';
@@ -10,7 +10,7 @@ export const ServiceEdit = R.memo(Component);
 
 function Component() {
   const { id } = RRD.useParams();
-  const [service, setService] = R.useState<TyService | null>(null);
+  const [service, setService] = R.useState<TyService.Item | null>(null);
   const [isLoading, setIsLoading] = R.useState<boolean>(false);
 
   R.useEffect(() => {

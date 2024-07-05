@@ -1,12 +1,12 @@
 import create from 'zustand';
 import { serviceApi } from '../api/service.api';
-import { TyService } from '../types/Services';
+import { TyService } from '../types/Service';
 
 type ServiceState = {
-  services: TyService[];
+  services: TyService.Item[];
   isLoading: boolean;
   error: string | null;
-  fetchData: () => Promise<TyService[]>;
+  fetchData: () => Promise<TyService.Item[]>;
 };
 
 export const useServiceStore = create<ServiceState>((set) => ({

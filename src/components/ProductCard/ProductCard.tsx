@@ -1,7 +1,7 @@
 import * as R from 'react';
 import cn from 'classnames';
 
-import { ProductCategory, TyProduct } from '../../types/Products';
+import { ProductCategory, TyProduct } from '../../types/Product';
 import { useFavoriteStore } from '../../store/favourite.store';
 import { Button } from '../Button';
 
@@ -11,7 +11,7 @@ function Component({
   product,
   classContainer = '',
 }: {
-  product: TyProduct;
+  product: TyProduct.Item;
   classContainer?: string;
 }) {
   const { items: favorites } = useFavoriteStore();

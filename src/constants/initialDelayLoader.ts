@@ -1,1 +1,1 @@
-export const initialDelayLoader = 2000;
+export const initialDelayLoader = 1000;

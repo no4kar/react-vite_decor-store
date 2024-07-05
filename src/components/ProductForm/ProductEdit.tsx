@@ -1,6 +1,6 @@
 import * as R from 'react';
 import * as RRD from 'react-router-dom';
-import { TyProduct } from '../../types/Products';
+import { TyProduct } from '../../types/Product';
 import { productApi } from '../../api/product.api';
 import { Loader } from '../Loader';
 import { NotFoundPage } from '../../pages/not-found.page';
@@ -10,7 +10,7 @@ export const ProductEdit = R.memo(Component);
 
 function Component() {
   const { id } = RRD.useParams();
-  const [product, setProduct] = R.useState<TyProduct | null>(null);
+  const [product, setProduct] = R.useState<TyProduct.Item | null>(null);
   const [isLoading, setIsLoading] = R.useState<boolean>(false);
 
   R.useEffect(() => {

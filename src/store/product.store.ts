@@ -1,12 +1,12 @@
 import create from 'zustand';
-import { TyProduct } from '../types/Products';
+import { TyProduct } from '../types/Product';
 import { productApi } from '../api/product.api';
 
 type ProductState = {
-  products: TyProduct[];
+  products: TyProduct.Item[];
   isLoading: boolean;
   error: string | null;
-  fetchData: () => Promise<TyProduct[]>;
+  fetchData: () => Promise<TyProduct.Item[]>;
 };
 
 export const useProductStore = create<ProductState>((set) => ({
@@ -38,7 +38,7 @@ export const useProductStore = create<ProductState>((set) => ({
         error: 'Something went wrong',
       }));
 
-      return [] as TyProduct[];
+      return [] as TyProduct.Item[];
 
     } finally {
       set(state => ({

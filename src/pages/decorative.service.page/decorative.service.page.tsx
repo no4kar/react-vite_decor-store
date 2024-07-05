@@ -4,7 +4,7 @@ import { Loader } from '../../components/Loader';
 import { ServiceCard } from '../../components/ServiceCard';
 import { serviceApi } from '../../api/service.api';
 import { useServiceStore } from '../../store/service.store';
-import { ServiceCategory } from '../../types/Services';
+import { ServiceCategory } from '../../types/Service';
 
 export const DecorativeService = Component;
 

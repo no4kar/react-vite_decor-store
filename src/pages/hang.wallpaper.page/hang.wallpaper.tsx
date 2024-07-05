@@ -3,7 +3,7 @@ import { PageNavigation } from '../../components/PageNavigation';
 import { ServiceCard } from '../../components/ServiceCard';
 import { useServiceStore } from '../../store/service.store';
 import { serviceApi } from '../../api/service.api';
-import { ServiceCategory } from '../../types/Services';
+import { ServiceCategory } from '../../types/Service';
 
 export const HangWallpaper = () => {
   // console.log('render');

@@ -1,7 +1,7 @@
 import * as R from 'react';
 import cn from 'classnames';
 
-import { ServiceCategory, TyService } from '../../types/Services';
+import { ServiceCategory, TyService } from '../../types/Service';
 import { useFavoriteStore } from '../../store/favourite.store';
 import { Button } from '../Button';
 
@@ -10,7 +10,7 @@ export const ServiceCard = R.memo(
     item,
     classContainer = '',
   }: {
-    item: TyService,
+    item: TyService.Item,
     classContainer?: string;
   }) => {
     const { id, imageUrl, name, description } = item;

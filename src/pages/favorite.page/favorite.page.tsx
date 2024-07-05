@@ -7,7 +7,7 @@ import { useFavoriteStore } from '../../store/favourite.store';
 import './favorite.page.scss';
 import { Button } from '../../components/Button';
 import { ProductCard } from '../../components/ProductCard';
-import { TyProduct } from '../../types/Products';
+import { TyProduct } from '../../types/Product';
 
 export const FavoritePage = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -52,7 +52,7 @@ export const FavoritePage = () => {
                 ? (
                   <ProductCard
                     key={item.id}
-                    product={item as TyProduct}
+                    product={item as TyProduct.Item}
                     classContainer='h-[540px]'
                   />
                 )

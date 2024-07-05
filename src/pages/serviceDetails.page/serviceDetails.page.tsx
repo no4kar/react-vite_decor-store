@@ -3,7 +3,7 @@ import * as RRD from 'react-router-dom';
 
 import { PageNavigation } from '../../components/PageNavigation';
 import { Loader } from '../../components/Loader';
-import { TyService } from '../../types/Services';
+import { TyService } from '../../types/Service';
 import { serviceApi } from '../../api/service.api';
 import { ButtonFavorite } from '../../components/ButtonFavorite';
 import { Button } from '../../components/Button';
@@ -21,7 +21,7 @@ function Component() {
 
   /* it will be need if server will ofeer service-info and service-detailed-info */
   const [isLoading, setIsLoading] = R.useState(true);
-  const [selectService, setSelectService] = R.useState<TyService | null>(null);
+  const [selectService, setSelectService] = R.useState<TyService.Item | null>(null);
 
   R.useEffect(() => {
     serviceApi.getFromServerByParams({ id })

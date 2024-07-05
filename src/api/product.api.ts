@@ -1,17 +1,13 @@
-import { AxiosRequestConfig } from 'axios';
+import { AxiosError, AxiosRequestConfig } from 'axios';
 import { getClient } from '../utils/axios.client';
-import { initialDelayLoader } from '../constants/initialDelayLoader';
-import { wait } from '../helpers/common.func';
 import { TyServerResponse } from '../types/Server';
 import { TyProduct, ProductCategory }
-  from '../types/Products';
+  from '../types/Product';
 import env from '../helpers/varsFromEnv';
-import products from '../../public/data/products.json';
 
-type TyProductParams = {
-  page: string;
-  size?: string
-};
+import getAllResponse from '../../public/data/products.json';
+import { initialDelayLoader } from '../constants/initialDelayLoader';
+import { wait } from '../helpers/common.func';
 
 const client = getClient({
   baseURL: env.CORS_PROXY_URL.concat(env.API_URL).concat('/v1/products'),
@@ -31,48 +27,55 @@ function getAll({
   page?: number,
   size?: number,
 } = {},
-): Promise<TyProduct[]> {
+): Promise<TyProduct.Item[]> {
 
-  if (env.API_URL) {
-    const params: TyProductParams = {
-      page: String(page),
-    };
+  const params: TyProduct.Params = {
+    page: String(page),
+  };
 
-    if (size && size > 0) {
-      params.size = String(size);
-    }
-
-    return client
-      .get<TyServerResponse<TyProduct[]>>('', { params })
-      .then<TyProduct[]>(res => res.data.content);
+  if (size && size > 0) {
+    params.size = String(size);
   }
 
-  return wait<TyProduct[]>(initialDelayLoader, () => products);
+  return client.get<TyServerResponse<TyProduct.Item[]>>('', { params })
+    .then<TyProduct.Item[]>(res => res.data.content)
+    .catch((error: AxiosError) => {
+
+      console.error(`
+                  Ups
+                  ${error.message}
+                  ${JSON.stringify(error.response?.data)}
+                  `);
+
+      return getAllResponse.content;
+    });
+
+  return wait<TyProduct.Item[]>(initialDelayLoader, () => getAllResponse.content);
 }
 
-function getById(items: TyProduct[], id: number) {
+function getById(items: TyProduct.Item[], id: number) {
   return items.find(item => item.id === id);
 }
 
 function getFromServerByParams(params: AxiosRequestConfig['params'])
-  : Promise<TyProduct[]> {
-  return client.get<TyServerResponse<TyProduct[]>>('search', { params })
-    .then<TyProduct[]>(res => res.data.content);
+  : Promise<TyProduct.Item[]> {
+  return client.get<TyServerResponse<TyProduct.Item[]>>('search', { params })
+    .then<TyProduct.Item[]>(res => res.data.content);
 }
 
 function getByCategory(
-  items: TyProduct[],
+  items: TyProduct.Item[],
   categoryId: ProductCategory,
 ) {
   return items
     .filter(item => item.categoryId === categoryId);
 }
 
-function getWallpapers(items: TyProduct[]) {
+function getWallpapers(items: TyProduct.Item[]) {
   return getByCategory(items, ProductCategory.Wallpaper);
 }
 
-function getPaints(items: TyProduct[]) {
+function getPaints(items: TyProduct.Item[]) {
   return getByCategory(items, ProductCategory.Paint);
 }
 

@@ -8,7 +8,7 @@ import {
   getSearchWith
 } from '../../helpers/searchHelper';
 import { ProductCard } from '../../components/ProductCard';
-import { TyProduct } from '../../types/Products';
+import { TyProduct } from '../../types/Product';
 import { Loader } from '../../components/Loader';
 import { PageNavigation } from '../../components/PageNavigation';
 import { Search } from '../../components/Search';
@@ -25,7 +25,7 @@ export const ProductsPage = ({
   isLoading,
   hasError,
 }: {
-  products: TyProduct[];
+  products: TyProduct.Item[];
   isLoading: boolean;
   hasError: string | null,
 }) => {

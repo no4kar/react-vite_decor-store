@@ -3,7 +3,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 
 import { FormField } from '../FormField';
 import { adminApi } from '../../api/admin.api';
-import { TyProduct, TyProductForForm } from '../../types/Products';
+import { TyProduct } from '../../types/Product';
 import { OutcomeReport, Status } from '../../types/Info';
 import { Button } from '../Button';
 import { validation } from '../../constants/formAdminValidation';
@@ -19,7 +19,7 @@ export const ProductForm = R.memo(Component);
 function Component({
   product,
 }: {
-  product: TyProduct | null
+  product: TyProduct.Item | null
 }) {
   const [msg, setMsg]
     = R.useState<OutcomeReport>({ status: Status.NONE, description: '', });
@@ -32,7 +32,7 @@ function Component({
     handleSubmit,
     // getValues,
     reset,
-  } = useForm<TyProductForForm>(// if is :id need defult values
+  } = useForm<TyProduct.ForForm>(// if is :id need defult values
     {
       defaultValues: {
         id: product?.id || 0,
@@ -53,11 +53,11 @@ function Component({
     }
   );
 
-  const onSubmit: SubmitHandler<TyProductForForm> = async (data) => {
+  const onSubmit: SubmitHandler<TyProduct.ForForm> = async (data) => {
     // console.log(data);
 
     // normalize
-    const productForServer: TyProduct = {
+    const productForServer: TyProduct.Item = {
       ...data,
       imageUrl: data.imageUrls
         .split(/\s+/g)
@@ -69,17 +69,17 @@ function Component({
           }
 
           return a;
-        }, [] as TyProduct['imageUrl']),
+        }, [] as TyProduct.Item['imageUrl']),
     };
 
-    let productFromServer: TyProduct | null = null;
+    let productFromServer: TyProduct.Item | null = null;
 
     // return;
 
     switch (formVersion) {
       case FormVersion.EDIT: {
         productFromServer = await adminApi
-          .editProduct<TyProduct>(productForServer)
+          .editProduct<TyProduct.Item>(productForServer)
           .then(res => {
             setMsg({
               status: Status.SUCCESS,
@@ -113,7 +113,7 @@ function Component({
         const { id, ...newProduct } = productForServer;
 
         productFromServer = await adminApi
-          .createProduct<TyProduct>(newProduct)
+          .createProduct<TyProduct.Item>(newProduct)
           .then(res => {
             setMsg({
               status: Status.SUCCESS,
@@ -172,7 +172,7 @@ function Component({
         <h1 className="title--h1">{product ? `Edit ID=${product.id}` : 'New'}</h1>
 
         {product !== null && (
-          <FormField<TyProductForForm>
+          <FormField<TyProduct.ForForm>
             type="number"
             textLabel="ID"
             name='id'
@@ -183,7 +183,7 @@ function Component({
           />
         )}
 
-        <FormField<TyProductForForm>
+        <FormField<TyProduct.ForForm>
           type="text"
           textLabel="Name"
           name="name"
@@ -193,7 +193,7 @@ function Component({
           validation={validation.name}
         />
 
-        <FormField<TyProductForForm>
+        <FormField<TyProduct.ForForm>
           type="number"
           textLabel="CategoryId"
           name="categoryId"
@@ -203,7 +203,7 @@ function Component({
           validation={validation.categoryId}
         />
 
-        <FormField<TyProductForForm>
+        <FormField<TyProduct.ForForm>
           type="text"
           textLabel="Price"
           name="price"
@@ -213,7 +213,7 @@ function Component({
           validation={validation.price}
         />
 
-        <FormField<TyProductForForm>
+        <FormField<TyProduct.ForForm>
           type="text"
           textLabel="Country"
           name="country"
@@ -223,7 +223,7 @@ function Component({
           validation={validation.country}
         />
 
-        <FormField<TyProductForForm>
+        <FormField<TyProduct.ForForm>
           type="text"
           textLabel="Producer"
           name="producer"
@@ -233,7 +233,7 @@ function Component({
           validation={validation.producer}
         />
 
-        <FormField<TyProductForForm>
+        <FormField<TyProduct.ForForm>
           type="text"
           textLabel="Collection"
           name="collection"
@@ -243,7 +243,7 @@ function Component({
           validation={validation.collection}
         />
 
-        <FormField<TyProductForForm>
+        <FormField<TyProduct.ForForm>
           type="text"
           textLabel="Type"
           name="type"
@@ -253,7 +253,7 @@ function Component({
           validation={validation.type}
         />
 
-        <FormField<TyProductForForm>
+        <FormField<TyProduct.ForForm>
           type="text"
           textLabel="Code"
           name="code"
@@ -263,7 +263,7 @@ function Component({
           validation={validation.code}
         />
 
-        <FormField<TyProductForForm>
+        <FormField<TyProduct.ForForm>
           type="text"
           textLabel="Tone"
           name="tone"
@@ -273,7 +273,7 @@ function Component({
           validation={validation.tone}
         />
 
-        <FormField<TyProductForForm>
+        <FormField<TyProduct.ForForm>
           type="text"
           textLabel="Room"
           name="room"
@@ -283,7 +283,7 @@ function Component({
           validation={validation.room}
         />
 
-        <FormField<TyProductForForm>
+        <FormField<TyProduct.ForForm>
           type="textarea"
           name="description"
           textLabel="Description"
@@ -291,7 +291,7 @@ function Component({
           errors={errors}
         />
 
-        <FormField<TyProductForForm>
+        <FormField<TyProduct.ForForm>
           type="textarea"
           name="imageUrls"
           textLabel="Images links(space must separate images links)"

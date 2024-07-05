@@ -1,10 +1,10 @@
 import create from 'zustand';
 import { getClient } from '../utils/local.client';
-import { TyService } from '../types/Services';
+import { TyService } from '../types/Service';
 import { compareObjectProperties } from '../helpers/common.func';
 
 export type TyFavoriteItem
-  = TyService & { [key: string]: number | number[] | string | string[]; };
+  = TyService.Item & { [key: string]: number | number[] | string | string[]; };
 
 function isFavoriteItem(item: any) {
   const obj: TyFavoriteItem = {

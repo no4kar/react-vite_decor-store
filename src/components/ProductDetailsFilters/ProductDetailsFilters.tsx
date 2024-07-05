@@ -1,7 +1,7 @@
 import * as R from 'react';
 import { useSearchParams } from 'react-router-dom';
 
-import { TyProduct } from '../../types/Products';
+import { TyProduct } from '../../types/Product';
 import { DropdownMultiSelect } from '../DropdownMultiSelect';
 import {
   SearchParams, SearchParamsName, getSearchWith,
@@ -15,7 +15,7 @@ export const ProductDetailsFilters = R.memo(
     products,
     onClose,
   }: {
-    products: TyProduct[];
+    products: TyProduct.Item[];
     onClose?: () => void;
   }) => {
     // console.log('render');

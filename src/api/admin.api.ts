@@ -2,8 +2,8 @@ import { AxiosResponse } from 'axios';
 import { getClient } from '../utils/axios.client';
 import env from '../helpers/varsFromEnv';
 import { accessTokenApi } from './accessToken.api';
-import { TyProduct } from '../types/Products';
-import { TyService } from '../types/Services';
+import { TyProduct } from '../types/Product';
+import { TyService } from '../types/Service';
 import { TyOrder } from '../types/Orders';
 
 const client = getClient({
@@ -46,7 +46,7 @@ export const adminApi = {
   },
 
   createProduct: <T>(
-    newProduct: Omit<TyProduct, 'id'>
+    newProduct: Omit<TyProduct.Item, 'id'>
   ): Promise<AxiosResponse<T>> => {
     return client.post('/admin/products/new', newProduct);
   },
@@ -54,19 +54,19 @@ export const adminApi = {
   editProduct: <T>({
     id,
     ...restProductProps
-  }: TyProduct
+  }: TyProduct.Item
   ): Promise<AxiosResponse<T>> => {
     return client.post(`/admin/products/update/${id}`, restProductProps);
   },
 
   removeProduct: (
-    id: TyProduct['id']
+    id: TyProduct.Item['id']
   ) => {
     return client.delete(`/admin/products/delete/${id}`);
   },
 
   createService: <T>(
-    newService: Omit<TyService, 'id'>
+    newService: Omit<TyService.Item, 'id'>
   ): Promise<AxiosResponse<T>> => {
     return client.post('/admin/offers/new', newService);
   },
@@ -74,13 +74,13 @@ export const adminApi = {
   editService: <T>({
     id,
     ...restServiceProps
-  }: TyService
+  }: TyService.Item
   ): Promise<AxiosResponse<T>> => {
     return client.post(`/admin/offers/update/${id}`, restServiceProps);
   },
 
   removeService: (
-    id: TyService['id']
+    id: TyService.Item['id']
   ) => {
     return client.delete(`/admin/offers/delete/${id}`);
   },

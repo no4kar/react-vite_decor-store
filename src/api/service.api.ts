@@ -1,14 +1,12 @@
 import { AxiosError, AxiosRequestConfig } from 'axios';
 import { getClient } from '../utils/axios.client';
-import services from '../../public/data/services.json';
-import { ServiceCategory, TyService } from '../types/Services';
+import { ServiceCategory, TyService } from '../types/Service';
 import env from '../helpers/varsFromEnv';
 import { TyServerResponse } from '../types/Server';
 
-type TyServiceParams = {
-  page: string;
-  size?: string
-};
+import getAllResponse from '../../public/data/services.json';
+import { initialDelayLoader } from '../constants/initialDelayLoader';
+import { wait } from '../helpers/common.func';
 
 const client = getClient({
   baseURL: env.API_URL.concat('/v1/offers'),
@@ -20,9 +18,9 @@ function getAll({
 }: {
   page?: number,
   size?: number,
-} = {}): Promise<TyService[]> {
+} = {}): Promise<TyService.Item[]> {
 
-  const params: TyServiceParams = {
+  const params: TyService.Params = {
     page: String(page),
   };
 
@@ -30,9 +28,8 @@ function getAll({
     params.size = String(size);
   }
 
-  return client
-    .get<TyServerResponse<TyService[]>>('', { params })
-    .then<TyService[]>(res => res.data.content)
+  return client.get<TyServerResponse<TyService.Item[]>>('', { params })
+    .then<TyService.Item[]>(res => res.data.content)
     .catch((error: AxiosError) => {
 
       console.error(`
@@ -41,24 +38,24 @@ function getAll({
                   ${JSON.stringify(error.response?.data)}
                   `);
 
-      return services;
+      return getAllResponse.content;
     });
 
-  // return wait<TyService[]>(initialDelayLoader, () => services);
+  return wait<TyService.Item[]>(initialDelayLoader, () => getAllResponse.content);
 }
 
-function getById(items: TyService[], id: number) {
+function getById(items: TyService.Item[], id: number) {
   return items.find(item => item.id === id);
 }
 
 function getFromServerByParams(params: AxiosRequestConfig['params'])
-  : Promise<TyService[]> {
-  return client.get<TyServerResponse<TyService[]>>('search', { params })
-    .then<TyService[]>(res => res.data.content);
+  : Promise<TyService.Item[]> {
+  return client.get<TyServerResponse<TyService.Item[]>>('search', { params })
+    .then<TyService.Item[]>(res => res.data.content);
 }
 
 function getByCategory(
-  items: TyService[],
+  items: TyService.Item[],
   categoryId: ServiceCategory,
 ) {
 

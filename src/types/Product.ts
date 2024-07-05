@@ -1,4 +1,4 @@
-export type TyProduct = {
+type Item = {
   id: number;
   name: string;
   categoryId: number;
@@ -14,15 +14,26 @@ export type TyProduct = {
   imageUrl: string[];
 };
 
-export type TyProductForForm = Omit<TyProduct, 'imageUrl'> & {
+type ForForm = Omit<Item, 'imageUrl'> & {
   imageUrls: string;
 };
 
-export type TyProductParams = {
-
+type Params = {
+  page: string;
+  size?: string
 };
 
 export enum ProductCategory {
   Paint = 1,
   Wallpaper = 2,
 }
+
+declare namespace TyProduct {
+  export {
+    Item,
+    ForForm,
+    Params,
+  };
+}
+
+export type { TyProduct };

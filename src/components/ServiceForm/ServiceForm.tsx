@@ -3,7 +3,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 
 import { FormField } from '../FormField';
 import { adminApi } from '../../api/admin.api';
-import { TyService, TyServiceForForm } from '../../types/Services';
+import { TyService } from '../../types/Service';
 import { OutcomeReport, Status } from '../../types/Info';
 import { Button } from '../Button';
 import { validation } from '../../constants/formAdminValidation';
@@ -19,7 +19,7 @@ export const ServiceForm = R.memo(Component);
 function Component({
   service,
 }: {
-  service: TyService | null
+  service: TyService.Item | null
 }) {
   const [msg, setMsg]
     = R.useState<OutcomeReport>({ status: Status.NONE, description: '', });
@@ -32,7 +32,7 @@ function Component({
     handleSubmit,
     // getValues,
     reset,
-  } = useForm<TyServiceForForm>(// if is :id need defult values
+  } = useForm<TyService.ForForm>(// if is :id need defult values
     {
       defaultValues: {
         id: service?.id || 0,
@@ -45,11 +45,11 @@ function Component({
     }
   );
 
-  const onSubmit: SubmitHandler<TyServiceForForm> = async (data) => {
+  const onSubmit: SubmitHandler<TyService.ForForm> = async (data) => {
     // console.log(data);
 
     // normalize
-    const serviceForServer: TyService = {
+    const serviceForServer: TyService.Item = {
       ...data,
       imageUrl: data.imageUrls
         .split(/\s+/g)
@@ -61,18 +61,18 @@ function Component({
           }
 
           return a;
-        }, [] as TyService['imageUrl']),
+        }, [] as TyService.Item['imageUrl']),
     };
 
     // console.log(serviceForServer);
-    let serviceFromServer: TyService | null = null;
+    let serviceFromServer: TyService.Item | null = null;
 
     // return;
 
     switch (formVersion) {
       case FormVersion.EDIT: {
         serviceFromServer = await adminApi
-          .editService<TyService>(serviceForServer)
+          .editService<TyService.Item>(serviceForServer)
           .then(res => {
             setMsg({
               status: Status.SUCCESS,
@@ -106,7 +106,7 @@ function Component({
         const { id, ...newService } = serviceForServer;
 
         serviceFromServer = await adminApi
-          .createService<TyService>(newService)
+          .createService<TyService.Item>(newService)
           .then(res => {
             setMsg({
               status: Status.SUCCESS,
@@ -165,7 +165,7 @@ function Component({
         <h1 className="title--h1">{service ? `Edit ID=${service.id}` : 'New'}</h1>
 
         {service !== null && (
-          <FormField<TyServiceForForm>
+          <FormField<TyService.ForForm>
             type="number"
             textLabel="ID"
             name='id'
@@ -176,7 +176,7 @@ function Component({
           />
         )}
 
-        <FormField<TyServiceForForm>
+        <FormField<TyService.ForForm>
           type="text"
           textLabel="Name"
           name="name"
@@ -186,7 +186,7 @@ function Component({
           validation={validation.name}
         />
 
-        <FormField<TyServiceForForm>
+        <FormField<TyService.ForForm>
           type="number"
           textLabel="CategoryId"
           name="categoryId"
@@ -196,7 +196,7 @@ function Component({
           validation={validation.categoryId}
         />
 
-        <FormField<TyServiceForForm>
+        <FormField<TyService.ForForm>
           type="textarea"
           name="description"
           textLabel="Description"
@@ -204,7 +204,7 @@ function Component({
           errors={errors}
         />
 
-        <FormField<TyServiceForForm>
+        <FormField<TyService.ForForm>
           type="textarea"
           name="imageUrls"
           textLabel="Images links(space must separate images links)"

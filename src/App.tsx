@@ -1,8 +1,7 @@
-import { useCallback, useEffect, useState } from 'react';
+import React from 'react';
 import { Outlet } from 'react-router-dom';
 
 import { Header } from './components/Header';
-import { Menu } from './components/Menu';
 import { Footer } from './components/Footer';
 import { ScrollToTop } from './components/ScrollToTop';
 
@@ -11,34 +10,25 @@ import { useProductStore } from './store/product.store';
 import { useServiceStore } from './store/service.store';
 
 export const App = () => {
-  // console.log('render');
-
-  const [isMenu, setIsMenuActive] = useState(false);
-  const handleCloseMenu = useCallback(() => {
-    setTimeout(() => setIsMenuActive(false), 200);
-  }, []);
   const productStore = useProductStore();
   const serviceStore = useServiceStore();
 
-  useEffect(() => {
+  React.useEffect(() => {
     productStore.fetchData();
     serviceStore.fetchData();
     window.scrollTo(0, 0);
   }, []);
 
   return (
-    <div className="
-     flex flex-col min-h-full"
+    <div
+      className="
+      flex flex-col
+      min-h-full"
     >
-      <Header
-        isMenu={isMenu}
-        toggleMenu={setIsMenuActive}
-      />
+      <ScrollToTop />
+      <Header />
 
       <main>
-        <ScrollToTop />
-        {isMenu && <Menu onCloseMenu={handleCloseMenu} />}
-
         <Outlet />
       </main>
 
