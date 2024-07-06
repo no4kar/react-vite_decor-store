@@ -5,9 +5,9 @@ import { adminApi } from '../../api/admin.api';
 import { Loader } from '../Loader';
 import { useServiceStore } from '../../store/service.store';
 
-export const ServicesTable = R.memo(Component);
+export const ServicesTable = R.memo(MyComponent);
 
-function Component() {
+function MyComponent() {
   const {
     services,
     isLoading,
@@ -43,7 +43,7 @@ function Component() {
             <td className="border px-2 py-2">{service.id}</td>
             <td className="border px-2 py-2">{service.name}</td>
             <td className="border px-2 py-2">{service.description}</td>
-            <td className="border px-2 py-2">{service.imageUrl.map(item=>(<p>{item}</p>))}</td>
+            <td className="border px-2 py-2">{service.imageUrl.map(item => (<p>{item}</p>))}</td>
             <td
               className="
             border px-2 py-2 group/action invisible

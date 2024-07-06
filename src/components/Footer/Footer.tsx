@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import { Modal } from '../Modal/Modal';
 import { footerData } from '../../constants/footerData';
 import './Footer.scss';
+import { Facebook } from '../SVG/Facebook';
+import { Instagram } from '../SVG/Instagram';
+import { TikTok } from '../SVG/TikTok';
 
 export const Footer = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -154,20 +157,26 @@ export const Footer = () => {
             <Link
               to="https://www.tiktok.com/@decorativka_ukr"
               target="_blank"
-              className="icon icon--tik-tok icon--hover"
-            />
+              className="icon"
+            >
+              <TikTok />
+            </Link>
 
             <Link
               to="https://www.instagram.com/decorativka_team"
               target="_blank"
-              className="icon icon--instagram icon--hover"
-            />
+              className="icon"
+            >
+              <Instagram />
+            </Link>
 
             <Link
               to="https://www.facebook.com/"
               target="_blank"
-              className="icon icon--facebook icon--hover"
-            />
+              className="icon"
+            >
+              <Facebook />
+            </Link>
           </div>
 
           <div className="footer__copyright">

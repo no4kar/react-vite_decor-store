@@ -6,9 +6,9 @@ import { serviceApi } from '../../api/service.api';
 import { useServiceStore } from '../../store/service.store';
 import { ServiceCategory } from '../../types/Service';
 
-export const DecorativeService = Component;
+export const DecorativeService = MyComponent;
 
-function Component() {
+function MyComponent() {
   // console.log('render');
   const {
     services,

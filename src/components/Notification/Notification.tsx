@@ -1,9 +1,9 @@
 import * as R from 'react';
 import cn from 'classnames';
 
-export const Notification = R.memo(Component);
+export const Notification = R.memo(MyComponent);
 
-function Component({
+function MyComponent({
   children,
   delay = 5000,
   onDelay = () => { },

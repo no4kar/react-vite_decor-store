@@ -5,9 +5,9 @@ import { ProductCategory, TyProduct } from '../../types/Product';
 import { useFavoriteStore } from '../../store/favourite.store';
 import { Button } from '../Button';
 
-export const ProductCard = R.memo(Component);
+export const ProductCard = R.memo(MyComponent);
 
-function Component({
+function MyComponent({
   product,
   classContainer = '',
 }: {

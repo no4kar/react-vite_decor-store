@@ -1,8 +1,8 @@
 import * as R from 'react';
 import { ProductForm } from './ProductForm';
 
-export const ProductCreate = R.memo(Component);
+export const ProductCreate = R.memo(MyComponent);
 
-function Component() {
+function MyComponent() {
   return <ProductForm product={null} />;
 }

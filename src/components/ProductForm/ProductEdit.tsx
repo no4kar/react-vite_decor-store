@@ -6,9 +6,9 @@ import { Loader } from '../Loader';
 import { NotFoundPage } from '../../pages/not-found.page';
 import { ProductForm } from './ProductForm';
 
-export const ProductEdit = R.memo(Component);
+export const ProductEdit = R.memo(MyComponent);
 
-function Component() {
+function MyComponent() {
   const { id } = RRD.useParams();
   const [product, setProduct] = R.useState<TyProduct.Item | null>(null);
   const [isLoading, setIsLoading] = R.useState<boolean>(false);

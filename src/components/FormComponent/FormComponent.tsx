@@ -45,9 +45,9 @@ const customPlaceholder: R.CSSProperties = {
   color: '#d7d7d7',
 };
 
-export const FormComponent = R.memo(Component);
+export const FormComponent = R.memo(MyComponent);
 
-function Component({
+function MyComponent({
   formVersion,
   children,
 }: {

@@ -13,9 +13,9 @@ import { Slider2 } from '../../components/Slider2';
 import { NotFoundPage } from '../not-found.page';
 
 
-export const ServiceDetailsPage = Component;
+export const ServiceDetailsPage = MyComponent;
 
-function Component() {
+function MyComponent() {
   const { id } = RRD.useParams();
   const navigate = RRD.useNavigate();
 
