@@ -81,6 +81,7 @@ export const Header = () => {
         sm:py-4"
       >
         <nav className="content flex justify-between">
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <Link
             to="/"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth', })}
@@ -259,10 +260,11 @@ export const Header = () => {
       <div className='relative w-full h-0'>
         <aside
           className={cn(`
-          absolute top-0 left-0 right-0 z-[5]
+          absolute top-0 left-0 right-0 z-[5] origin-top
           bg-gray-300
           sm:hidden`, {
-            'hidden': isAside,
+            'hidden': !isAside,
+            'animate-aside-menu-open': isAside,
           })}
         >
           <ul className="px-5 py-3">

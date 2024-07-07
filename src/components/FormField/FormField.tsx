@@ -71,11 +71,15 @@ export const FormField = <T extends Record<string, any>>({
         />
       )}
 
-      {hasError && (
-        <div className="title--micro text-red">
-          {(hasError?.message as string) || 'Error!'}
-        </div>
-      )}
+      <p className={cn('title--micro text-red overflow-hidden',
+        'transition-all duration-500 ease-in-out',
+        {
+          'h-0': !hasError,
+          'h-4': hasError,
+        })}
+      >
+        {(hasError?.message as string) || ''}
+      </p>
     </div>
   );
 };

@@ -454,7 +454,7 @@ function MyComponent({
               'h-4': errors.agreement,
             })}
           >
-            {errors.agreement?.message}
+            {(errors.agreement?.message as string) || ''}
           </p>
         </div>
 

@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import cn from 'classnames';
 import { TyMouseEvtButtonElmt } from '../../types/General';
 import { TySelectOption } from '../../types/SelectOption';
 
-export const Dropdown = MyComponent;
+export const Dropdown = React.memo(MyComponent);
 
 function MyComponent({
   selectedValue,
@@ -60,23 +60,26 @@ function MyComponent({
         </div>
       </button >
 
-      {isOpen && (
-        <ul className="flex flex-col">
-          {visibleOptions.map(option => (
-            <button
-              key={option.value}
-              type="button"
-              className={listItemClass}
-              onClick={() => {
-                onChange(option.value);
-                setIsOpen(false);
-              }}
-            >
-              {option.label}
-            </button>
-          ))}
-        </ul>
-      )}
+      <ul
+        className={cn(`flex flex-col origin-top`, {
+          'hidden': !isOpen,
+          'animate-dropdown-menu-open': isOpen,
+        })}
+      >
+        {visibleOptions.map(option => (
+          <button
+            key={option.value}
+            type="button"
+            className={listItemClass}
+            onClick={() => {
+              onChange(option.value);
+              setIsOpen(false);
+            }}
+          >
+            {option.label}
+          </button>
+        ))}
+      </ul>
     </div >
   );
 }

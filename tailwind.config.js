@@ -32,6 +32,29 @@ export default {
       gridTemplateColumns: {
         'favorite': 'repeat(auto-fill, minmax(310px, 1fr))',
       },
+      keyframes: {
+        'menu-open-1': {
+          '0%': { transform: 'scaleY(0)' },
+          '100%': { transform: 'scaleY(1)' },
+        },
+        'menu-close-1': {
+          '0%': { transform: 'scaleY(1)' },
+          '100%': {
+            transform: 'scaleY(0)',
+            display: 'none',
+          },
+        },
+        'menu-open-2': {
+          '0%': { transform: 'scaleY(0)' },
+          '70%': { transform: 'scaleY(1.3)' },
+          '100%': { transform: 'scaleY(1)' },
+        },
+      },
+      animation: {
+        'dropdown-menu-open': 'menu-open-1 0.5s ease-in-out forwards',
+        'dropdown-menu-close': 'menu-close-1 0.5s ease-in-out forwards',
+        'aside-menu-open': 'menu-open-2 0.5s ease-in-out forwards',
+      },
     },
     screens: {
       'sm': '834px',
