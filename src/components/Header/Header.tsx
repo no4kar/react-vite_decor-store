@@ -61,17 +61,16 @@ export const Header = () => {
     };
   };
 
-  const handleAsideClose = React.useCallback(() => {
-    setTimeout(() => setIsAside(false), 200);
-  }, []);
-
-  const handleCategoryBlur = (
-    setIsOpen: React.Dispatch<React.SetStateAction<boolean>>,
-  ) => {
-    return () => {
-      setTimeout(() => setIsOpen(false), 200);
+  const setStateAfter
+    = <T extends boolean>(
+      setIsOpen: React.Dispatch<React.SetStateAction<T>>,
+      value: T,
+      delay: number,
+    ) => {
+      return () => {
+        setTimeout(() => setIsOpen(value), delay);
+      };
     };
-  };
 
   return (
     <div className="sticky top-0 z-[5]">
@@ -100,7 +99,7 @@ export const Header = () => {
                 type="button"
                 className="header__category-btn"
                 onClick={() => setIsOpenServices(!isOpenServices)}
-                onBlur={handleCategoryBlur(setIsOpenServices)}
+                onBlur={setStateAfter<boolean>(setIsOpenServices, false, 200)}
               >
                 <div className="header__category-title">
                   <h4 className="header__category-name">Послуги</h4>
@@ -147,7 +146,7 @@ export const Header = () => {
                 type="button"
                 className="header__category-btn"
                 onClick={() => setIsOpenProducts(!isOpenProducts)}
-                onBlur={handleCategoryBlur(setIsOpenProducts)}
+                onBlur={setStateAfter<boolean>(setIsOpenProducts, false, 200)}
               >
                 <div className="header__category-title">
                   <h4 className="header__category-name">Продукція</h4>
@@ -258,56 +257,56 @@ export const Header = () => {
       </header>
 
       <div className='relative w-full h-0'>
-        {isAside && (
-          <aside
-            className="
+        <aside
+          className={cn(`
           absolute top-0 left-0 right-0 z-[5]
           bg-gray-300
-          sm:hidden"
-          >
-            <ul className="px-5 py-3">
-              <li>
-                <Dropdown
-                  selectedValue='0'
-                  options={optionsService}
-                  isThereSelectedInList={false}
-                  onChange={handleAsideClose}
-                  activeClass='text-accent'
-                />
-              </li>
+          sm:hidden`, {
+            'hidden': isAside,
+          })}
+        >
+          <ul className="px-5 py-3">
+            <li>
+              <Dropdown
+                selectedValue='0'
+                options={optionsService}
+                isThereSelectedInList={false}
+                onChange={setStateAfter<boolean>(setIsAside, false, 200)}
+                activeClass='text-accent'
+              />
+            </li>
 
-              <li>
-                <Dropdown
-                  selectedValue='0'
-                  options={optionsProduct}
-                  isThereSelectedInList={false}
-                  onChange={handleAsideClose}
-                  activeClass='text-accent'
-                />
-              </li>
+            <li>
+              <Dropdown
+                selectedValue='0'
+                options={optionsProduct}
+                isThereSelectedInList={false}
+                onChange={setStateAfter<boolean>(setIsAside, false, 200)}
+                activeClass='text-accent'
+              />
+            </li>
 
-              <li
-                className="p-[10px] flex justify-start"
-              >
-                <button
-                  type="button"
-                  onClick={handleBtnClick('/about_us')}>
-                  <h4 className="title--h4 font-semibold text-black">Про нас</h4>
-                </button>
-              </li>
+            <li
+              className="p-[10px] flex justify-start"
+            >
+              <button
+                type="button"
+                onClick={handleBtnClick('/about_us')}>
+                <h4 className="title--h4 font-semibold text-black">Про нас</h4>
+              </button>
+            </li>
 
-              <li
-                className="p-[10px] flex justify-start"
-              >
-                <button
-                  type="button"
-                  onClick={handleBtnClick('/contacts')}>
-                  <h4 className="title--h4 font-semibold text-black">Контакти</h4>
-                </button>
-              </li>
-            </ul>
-          </aside>
-        )}
+            <li
+              className="p-[10px] flex justify-start"
+            >
+              <button
+                type="button"
+                onClick={handleBtnClick('/contacts')}>
+                <h4 className="title--h4 font-semibold text-black">Контакти</h4>
+              </button>
+            </li>
+          </ul>
+        </aside>
       </div>
     </div>
   );

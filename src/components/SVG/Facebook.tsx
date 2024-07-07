@@ -3,7 +3,6 @@ export const Facebook = MyComponent;
 function MyComponent() {
   return (
     <svg
-      id="Layer_1"
       x="0px"
       y="0px"
       viewBox="0 0 40 40"
