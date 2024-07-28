@@ -5,9 +5,9 @@ import { adminApi } from '../../api/admin.api';
 import { Loader } from '../Loader';
 import { useServiceStore } from '../../store/service.store';
 
-export const ServicesTable = R.memo(MyComponent);
+export const ServicesTable = R.memo(FuncComponent);
 
-function MyComponent() {
+function FuncComponent() {
   const {
     services,
     isLoading,

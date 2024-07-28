@@ -1,6 +1,6 @@
-export const Facebook = MyComponent;
+export const Facebook = FuncComponent;
 
-function MyComponent() {
+function FuncComponent() {
   return (
     <svg
       x="0px"

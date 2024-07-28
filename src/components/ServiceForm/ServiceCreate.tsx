@@ -1,8 +1,8 @@
 import * as R from 'react';
 import { ServiceForm } from './ServiceForm';
 
-export const ServiceCreate = R.memo(MyComponent);
+export const ServiceCreate = R.memo(FuncComponent);
 
-function MyComponent() {
+function FuncComponent() {
   return <ServiceForm service={null} />;
 }

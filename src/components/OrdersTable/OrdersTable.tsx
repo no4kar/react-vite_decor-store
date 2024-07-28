@@ -4,9 +4,9 @@ import { adminApi } from '../../api/admin.api';
 import { Loader } from '../Loader';
 import { TyOrder } from '../../types/Orders';
 
-export const OrdersTable = R.memo(MyComponent);
+export const OrdersTable = R.memo(FuncComponent);
 
-function MyComponent() {
+function FuncComponent() {
   const [orders, setOrders] = R.useState<TyOrder[]>([]);
   const [isLoading, setIsLoading] = R.useState<boolean>(true);
 

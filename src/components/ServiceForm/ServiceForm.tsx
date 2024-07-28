@@ -14,9 +14,9 @@ enum FormVersion {
   CREATE = 'create',
 }
 
-export const ServiceForm = R.memo(MyComponent);
+export const ServiceForm = R.memo(FuncComponent);
 
-function MyComponent({
+function FuncComponent({
   service,
 }: {
   service: TyService.Item | null

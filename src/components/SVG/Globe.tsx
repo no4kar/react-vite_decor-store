@@ -1,6 +1,6 @@
-export const Globe = MyComponent;
+export const Globe = FuncComponent;
 
-function MyComponent() {
+function FuncComponent() {
   return (
     <svg
       width="24"

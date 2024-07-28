@@ -1,9 +1,9 @@
 import * as R from 'react';
 import cn from 'classnames';
 
-export const Notification = R.memo(MyComponent);
+export const Notification = R.memo(FuncComponent);
 
-function MyComponent({
+function FuncComponent({
   children,
   delay = 5000,
   onDelay = () => { },
@@ -35,8 +35,7 @@ function MyComponent({
       className={cn(classContainer,
         'relative shadow rounded',
         {
-          'hidden': !isVisible,
-          'pointer-events-none': !isVisible,
+          'hidden pointer-events-none': !isVisible,
         })}
     >
       {children}

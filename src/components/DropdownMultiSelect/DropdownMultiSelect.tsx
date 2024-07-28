@@ -6,9 +6,9 @@ import {
 import { TySelectOption } from '../../types/SelectOption';
 import './DropdownMultiSelect.scss';
 
-export const DropdownMultiSelect = React.memo(MyComponent);
+export const DropdownMultiSelect = React.memo(FuncComponent);
 
-function MyComponent({
+function FuncComponent({
   options,
   selectedOptions = [],
   onChange = () => { },

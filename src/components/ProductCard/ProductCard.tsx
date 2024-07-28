@@ -1,13 +1,13 @@
 import * as R from 'react';
 import cn from 'classnames';
 
-import { ProductCategory, TyProduct } from '../../types/Product';
+import { TyProduct } from '../../types/Product';
 import { useFavoriteStore } from '../../store/favourite.store';
 import { Button } from '../Button';
 
-export const ProductCard = R.memo(MyComponent);
+export const ProductCard = R.memo(FuncComponent);
 
-function MyComponent({
+function FuncComponent({
   product,
   classContainer = '',
 }: {
@@ -18,9 +18,9 @@ function MyComponent({
 
   const pathname = cn({
     'paint':
-      product.categoryId === ProductCategory.Paint,
+      product.categoryId === TyProduct.Category.Paint,
     'wallpaper':
-      product.categoryId === ProductCategory.Wallpaper,
+      product.categoryId === TyProduct.Category.Wallpaper,
   });
 
   return (

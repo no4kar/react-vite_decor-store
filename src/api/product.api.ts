@@ -1,7 +1,7 @@
 import { AxiosError, AxiosRequestConfig } from 'axios';
 import { getClient } from '../utils/axios.client';
 import { TyServerResponse } from '../types/Server';
-import { TyProduct, ProductCategory }
+import { TyProduct }
   from '../types/Product';
 import env from '../helpers/varsFromEnv';
 
@@ -65,18 +65,18 @@ function getFromServerByParams(params: AxiosRequestConfig['params'])
 
 function getByCategory(
   items: TyProduct.Item[],
-  categoryId: ProductCategory,
+  categoryId: TyProduct.Category,
 ) {
   return items
     .filter(item => item.categoryId === categoryId);
 }
 
 function getWallpapers(items: TyProduct.Item[]) {
-  return getByCategory(items, ProductCategory.Wallpaper);
+  return getByCategory(items, TyProduct.Category.Wallpaper);
 }
 
 function getPaints(items: TyProduct.Item[]) {
-  return getByCategory(items, ProductCategory.Paint);
+  return getByCategory(items, TyProduct.Category.Paint);
 }
 
 export const productApi = {

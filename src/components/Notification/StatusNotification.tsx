@@ -3,9 +3,9 @@ import cn from 'classnames';
 import { Notification } from './Notification';
 import { OutcomeReport, Status } from '../../types/Info';
 
-export const StatusNotification = R.memo(MyComponent);
+export const StatusNotification = R.memo(FuncComponent);
 
-function MyComponent({
+function FuncComponent({
   msg,
   setMsg,
 }: {

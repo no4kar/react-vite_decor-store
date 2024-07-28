@@ -14,9 +14,9 @@ enum FormVersion {
   CREATE = 'create',
 }
 
-export const ProductForm = R.memo(MyComponent);
+export const ProductForm = R.memo(FuncComponent);
 
-function MyComponent({
+function FuncComponent({
   product,
 }: {
   product: TyProduct.Item | null

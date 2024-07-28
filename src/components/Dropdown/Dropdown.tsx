@@ -3,9 +3,9 @@ import cn from 'classnames';
 import { TyMouseEvtButtonElmt } from '../../types/General';
 import { TySelectOption } from '../../types/SelectOption';
 
-export const Dropdown = React.memo(MyComponent);
+export const Dropdown = React.memo(FuncComponent);
 
-function MyComponent({
+function FuncComponent({
   selectedValue,
   options,
   onChange = () => { },

@@ -6,13 +6,7 @@ type AdminState = {
   isLoading: boolean;
   error: string | null;
 
-  login: ({
-    email,
-    password,
-  }: {
-    email: string,
-    password: string,
-  }) => Promise<void>;
+c
 };
 
 export const useAdminStore = create<AdminState>((set) => ({

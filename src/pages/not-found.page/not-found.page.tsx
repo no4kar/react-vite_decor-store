@@ -3,9 +3,9 @@ import { useNavigate } from 'react-router-dom';
 
 import { Loader } from "../../components/Loader";
 
-export const NotFoundPage = R.memo(MyComponent);
+export const NotFoundPage = R.memo(FuncComponent);
 
-function MyComponent({
+function FuncComponent({
   title = 'Page not found',
   navigateTo,
   classContainer = 'content min-h-96',

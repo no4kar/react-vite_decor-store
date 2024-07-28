@@ -1,9 +1,9 @@
 import * as R from 'react';
 import cn from 'classnames';
 
-export const PaginatedComponent = R.memo(MyComponent);
+export const PaginatedComponent = R.memo(FuncComponent);
 
-function MyComponent({
+function FuncComponent({
   currentPage,
   totalPages,
   onPageChange = () => { },

@@ -7,7 +7,7 @@ import { TyService } from '../types/Service';
 import { TyOrder } from '../types/Orders';
 
 const client = getClient({
-  baseURL: env.API_URL,
+  baseURL: `${env.API_URL}/admin`,
   // withCredentials: true,
 });
 
@@ -31,7 +31,7 @@ export const adminApi = {
     email: string,
     password: string,
   }): Promise<boolean> => {
-    return client.post<{ token: string }>('/admin/login', { email, password })
+    return client.post<{ token: string }>('/login', { email, password })
       .then(res => {
         accessTokenApi.save(res.data.token);
 
@@ -48,7 +48,7 @@ export const adminApi = {
   createProduct: <T>(
     newProduct: Omit<TyProduct.Item, 'id'>
   ): Promise<AxiosResponse<T>> => {
-    return client.post('/admin/products/new', newProduct);
+    return client.post('/products/new', newProduct);
   },
 
   editProduct: <T>({
@@ -56,19 +56,19 @@ export const adminApi = {
     ...restProductProps
   }: TyProduct.Item
   ): Promise<AxiosResponse<T>> => {
-    return client.post(`/admin/products/update/${id}`, restProductProps);
+    return client.post(`/products/update/${id}`, restProductProps);
   },
 
   removeProduct: (
     id: TyProduct.Item['id']
   ) => {
-    return client.delete(`/admin/products/delete/${id}`);
+    return client.delete(`/products/delete/${id}`);
   },
 
   createService: <T>(
     newService: Omit<TyService.Item, 'id'>
   ): Promise<AxiosResponse<T>> => {
-    return client.post('/admin/offers/new', newService);
+    return client.post('/offers/new', newService);
   },
 
   editService: <T>({
@@ -76,13 +76,13 @@ export const adminApi = {
     ...restServiceProps
   }: TyService.Item
   ): Promise<AxiosResponse<T>> => {
-    return client.post(`/admin/offers/update/${id}`, restServiceProps);
+    return client.post(`/offers/update/${id}`, restServiceProps);
   },
 
   removeService: (
     id: TyService.Item['id']
   ) => {
-    return client.delete(`/admin/offers/delete/${id}`);
+    return client.delete(`/offers/delete/${id}`);
   },
 
   getOrders: ({
@@ -105,12 +105,12 @@ export const adminApi = {
       params.size = String(size);
     }
 
-    return client.get('/admin/orders', { params });
+    return client.get('/orders', { params });
   },
 
   // removeOrder: (
   //   id: TyOrder['id']
   // ) => {
-  //   return client.delete(`/admin/orders/delete/${id}`);
+  //   return client.delete(`/orders/delete/${id}`);
   // },
 };

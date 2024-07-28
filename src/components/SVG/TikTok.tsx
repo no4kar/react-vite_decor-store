@@ -1,6 +1,6 @@
-export const TikTok = MyComponent;
+export const TikTok = FuncComponent;
 
-function MyComponent() {
+function FuncComponent() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

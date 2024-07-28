@@ -16,7 +16,7 @@ export const Footer = () => {
 
   return (
     <footer className="footer">
-      <div className="content content__grid
+      <div className="content content__grid grid-ta
       gap-y-8
       py-8
       sm:pt-14

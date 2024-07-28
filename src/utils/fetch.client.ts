@@ -33,6 +33,6 @@ function request<T>(
 export const client = {
   get: <T>(url: string) => request<T>(url, 'GET'),
   post: <T>(url: string, data: any) => request<T>(url, 'POST', data),
-  offers: <T>(url: string) => request<T>(url, 'GET'),
-  wallpaper: <T>(url: string) => request<T>(url, 'GET'),
+  // offers: <T>(url: string) => request<T>(url, 'GET'),
+  // wallpaper: <T>(url: string) => request<T>(url, 'GET'),
 };

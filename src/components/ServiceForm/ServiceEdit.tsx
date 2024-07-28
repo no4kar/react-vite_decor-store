@@ -6,9 +6,9 @@ import { Loader } from '../Loader';
 import { NotFoundPage } from '../../pages/not-found.page';
 import { ServiceForm } from './ServiceForm';
 
-export const ServiceEdit = R.memo(MyComponent);
+export const ServiceEdit = R.memo(FuncComponent);
 
-function MyComponent() {
+function FuncComponent() {
   const { id } = RRD.useParams();
   const [service, setService] = R.useState<TyService.Item | null>(null);
   const [isLoading, setIsLoading] = R.useState<boolean>(false);
